@@ -28,16 +28,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenu3 = new javax.swing.JMenu();
         panelBusqueda = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblBusqueda = new javax.swing.JLabel();
+        lblDNIB = new javax.swing.JLabel();
         txtBusquedaDNI = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        lblRegistro = new javax.swing.JLabel();
+        lblDNI = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        lblApellido = new javax.swing.JLabel();
+        lblTelefono = new javax.swing.JLabel();
+        lblCorreo = new javax.swing.JLabel();
         txtRegistroDNI = new javax.swing.JTextField();
         txtRegistroNombre = new javax.swing.JTextField();
         txtRegistroApellido = new javax.swing.JTextField();
@@ -57,11 +57,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 255));
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 48)); // NOI18N
-        jLabel1.setText("Búsqueda");
+        lblBusqueda.setFont(new java.awt.Font("Helvetica Neue", 1, 48)); // NOI18N
+        lblBusqueda.setText("Búsqueda");
 
-        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel2.setText("DNI:");
+        lblDNIB.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
+        lblDNIB.setText("DNI:");
 
         javax.swing.GroupLayout panelBusquedaLayout = new javax.swing.GroupLayout(panelBusqueda);
         panelBusqueda.setLayout(panelBusquedaLayout);
@@ -69,42 +69,42 @@ public class MenuPrincipal extends javax.swing.JFrame {
             panelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBusquedaLayout.createSequentialGroup()
                 .addGap(189, 189, 189)
-                .addComponent(jLabel2)
+                .addComponent(lblDNIB)
                 .addGap(36, 36, 36)
                 .addGroup(panelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addComponent(lblBusqueda)
                     .addComponent(txtBusquedaDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(257, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelBusquedaLayout.setVerticalGroup(
             panelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBusquedaLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jLabel1)
+                .addComponent(lblBusqueda)
                 .addGap(18, 18, 18)
                 .addGroup(panelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
+                    .addComponent(lblDNIB)
                     .addComponent(txtBusquedaDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(86, Short.MAX_VALUE))
         );
 
-        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 48)); // NOI18N
-        jLabel3.setText("Registro");
+        lblRegistro.setFont(new java.awt.Font("Helvetica Neue", 1, 48)); // NOI18N
+        lblRegistro.setText("Registro");
 
-        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jLabel4.setText("DNI:");
+        lblDNI.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblDNI.setText("DNI:");
 
-        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jLabel5.setText("Nombre:");
+        lblNombre.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblNombre.setText("Nombre:");
 
-        jLabel6.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jLabel6.setText("Apellido:");
+        lblApellido.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblApellido.setText("Apellido:");
 
-        jLabel7.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jLabel7.setText("Telefono:");
+        lblTelefono.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblTelefono.setText("Telefono:");
 
-        jLabel8.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jLabel8.setText("Correo::");
+        lblCorreo.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblCorreo.setText("Correo::");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -113,45 +113,45 @@ public class MenuPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(94, 94, 94)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8))
+                    .addComponent(lblNombre)
+                    .addComponent(lblDNI)
+                    .addComponent(lblApellido)
+                    .addComponent(lblTelefono)
+                    .addComponent(lblCorreo))
                 .addGap(108, 108, 108)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtRegistroDNI)
                     .addComponent(txtRegistroNombre)
                     .addComponent(txtRegistroApellido)
                     .addComponent(txtRegistroTelefono)
                     .addComponent(txtRegistroCorreo))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(228, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addComponent(jLabel3)
+                .addComponent(lblRegistro)
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(lblDNI)
                     .addComponent(txtRegistroDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                    .addComponent(lblNombre)
                     .addComponent(txtRegistroNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
+                    .addComponent(lblApellido)
                     .addComponent(txtRegistroApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
+                    .addComponent(lblTelefono)
                     .addComponent(txtRegistroTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel8)
+                    .addComponent(lblCorreo)
                     .addComponent(txtRegistroCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
@@ -197,8 +197,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelBusqueda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,14 +249,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -267,6 +259,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblApellido;
+    private javax.swing.JLabel lblBusqueda;
+    private javax.swing.JLabel lblCorreo;
+    private javax.swing.JLabel lblDNI;
+    private javax.swing.JLabel lblDNIB;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblRegistro;
+    private javax.swing.JLabel lblTelefono;
     private javax.swing.JPanel panelBusqueda;
     private javax.swing.JTextField txtBusquedaDNI;
     private javax.swing.JTextField txtRegistroApellido;
