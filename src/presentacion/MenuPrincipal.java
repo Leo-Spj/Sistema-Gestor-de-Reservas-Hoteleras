@@ -45,12 +45,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         txtRegistroCorreo = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
+        mnuBar = new javax.swing.JMenuBar();
+        mnuBusqueda = new javax.swing.JMenu();
+        mnuReservar = new javax.swing.JMenu();
+        mnuRegistro = new javax.swing.JMenu();
+        mnuModificarReserva = new javax.swing.JMenu();
+        mnuAñadirHabitacion = new javax.swing.JMenu();
 
         jMenu3.setText("jMenu3");
 
@@ -175,22 +175,22 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addContainerGap(178, Short.MAX_VALUE))
         );
 
-        jMenu1.setText("Busqueda");
-        jMenuBar1.add(jMenu1);
+        mnuBusqueda.setText("Busqueda");
+        mnuBar.add(mnuBusqueda);
 
-        jMenu4.setText("Reservar");
-        jMenuBar1.add(jMenu4);
+        mnuReservar.setText("Reservar");
+        mnuBar.add(mnuReservar);
 
-        jMenu2.setText("Registro");
-        jMenuBar1.add(jMenu2);
+        mnuRegistro.setText("Registro");
+        mnuBar.add(mnuRegistro);
 
-        jMenu5.setText("Modificar Reserva");
-        jMenuBar1.add(jMenu5);
+        mnuModificarReserva.setText("Modificar Reserva");
+        mnuBar.add(mnuModificarReserva);
 
-        jMenu6.setText("Añadir Habitación");
-        jMenuBar1.add(jMenu6);
+        mnuAñadirHabitacion.setText("Añadir Habitación");
+        mnuBar.add(mnuAñadirHabitacion);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(mnuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -250,13 +250,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblApellido;
@@ -267,6 +261,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblRegistro;
     private javax.swing.JLabel lblTelefono;
+    private javax.swing.JMenu mnuAñadirHabitacion;
+    private javax.swing.JMenuBar mnuBar;
+    private javax.swing.JMenu mnuBusqueda;
+    private javax.swing.JMenu mnuModificarReserva;
+    private javax.swing.JMenu mnuRegistro;
+    private javax.swing.JMenu mnuReservar;
     private javax.swing.JPanel panelBusqueda;
     private javax.swing.JTextField txtBusquedaDNI;
     private javax.swing.JTextField txtRegistroApellido;
