@@ -318,6 +318,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         panelBusqueda.setVisible(true);
         panelRegistro.setVisible(false);
         panelReservar.setVisible(false);
+       
     }//GEN-LAST:event_mnuBusquedaMouseClicked
 
     private void mnuReservarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuReservarMouseClicked
