@@ -4,6 +4,8 @@
  */
 package presentacion;
 
+import java.awt.Color;
+
 /**
  *
  * @author Leo
@@ -15,6 +17,7 @@ public class logueo extends javax.swing.JFrame {
      */
     public logueo() {
         initComponents();
+        this.getContentPane().setBackground(new Color(0, 30, 180));
     }
 
     /**
@@ -33,9 +36,11 @@ public class logueo extends javax.swing.JFrame {
         lblUsuario = new javax.swing.JLabel();
         btnAceptar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(51, 153, 255));
+        setForeground(new java.awt.Color(51, 153, 255));
 
         lblNombreHotel.setFont(new java.awt.Font("Segoe UI Black", 1, 48)); // NOI18N
+        lblNombreHotel.setForeground(new java.awt.Color(255, 255, 255));
         lblNombreHotel.setText("HOTEL \"MUNDO\"");
 
         txtUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -43,9 +48,11 @@ public class logueo extends javax.swing.JFrame {
         txtContraseña.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         lblContraseña.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblContraseña.setForeground(new java.awt.Color(255, 255, 255));
         lblContraseña.setText("Contraseña");
 
         lblUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblUsuario.setForeground(new java.awt.Color(255, 255, 255));
         lblUsuario.setText("Usuario");
 
         btnAceptar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -104,6 +111,13 @@ public class logueo extends javax.swing.JFrame {
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
+        MenuPrincipal m = new MenuPrincipal ();
+        m.setVisible(true);
+        
+        
+        
+        
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     /**
