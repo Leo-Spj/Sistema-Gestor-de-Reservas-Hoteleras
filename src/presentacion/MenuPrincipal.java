@@ -18,7 +18,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public MenuPrincipal() {
         initComponents();
         this.getContentPane().setBackground(new Color(0, 30, 180));
-        panelBusqueda.setVisible(false);
+        panelBusqueda.setVisible(true);
         panelRegistro.setVisible(false);
         panelReservar.setVisible(false);
         
@@ -52,8 +52,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         txtRegistroCorreo = new javax.swing.JTextField();
         panelReservar = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblNumeroPersonas = new javax.swing.JLabel();
+        lblSeleccionHabitacion = new javax.swing.JLabel();
         txtNumeroPersonas = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
         mnuBar = new javax.swing.JMenuBar();
@@ -84,7 +84,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGroup(panelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblBusqueda)
                     .addComponent(txtBusquedaDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(305, Short.MAX_VALUE))
         );
         panelBusquedaLayout.setVerticalGroup(
             panelBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,7 +136,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addComponent(txtRegistroApellido)
                     .addComponent(txtRegistroTelefono)
                     .addComponent(txtRegistroCorreo))
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelRegistroLayout.setVerticalGroup(
             panelRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,11 +169,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Helvetica Neue", 1, 48)); // NOI18N
         jLabel9.setText("Reservar");
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jLabel1.setText("Numero de personas");
+        lblNumeroPersonas.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblNumeroPersonas.setText("Numero de personas");
 
-        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jLabel2.setText("Seleccione tipo de habitación");
+        lblSeleccionHabitacion.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblSeleccionHabitacion.setText("Seleccione tipo de habitación");
 
         txtNumeroPersonas.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
 
@@ -189,8 +189,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addGroup(panelReservarLayout.createSequentialGroup()
                         .addGap(86, 86, 86)
                         .addGroup(panelReservarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
+                            .addComponent(lblSeleccionHabitacion)
+                            .addComponent(lblNumeroPersonas))
                         .addGap(80, 80, 80)
                         .addGroup(panelReservarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtNumeroPersonas)
@@ -198,7 +198,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addGroup(panelReservarLayout.createSequentialGroup()
                         .addGap(263, 263, 263)
                         .addComponent(jLabel9)))
-                .addContainerGap(171, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelReservarLayout.setVerticalGroup(
             panelReservarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,11 +210,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addGroup(panelReservarLayout.createSequentialGroup()
                         .addComponent(txtNumeroPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelReservarLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2)))
+                        .addGroup(panelReservarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblSeleccionHabitacion)))
+                    .addComponent(lblNumeroPersonas))
                 .addContainerGap(84, Short.MAX_VALUE))
         );
 
@@ -270,13 +269,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelBusqueda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panelRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelReservar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(panelRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelReservar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -372,8 +366,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JLabel lblApellido;
@@ -382,7 +374,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblDNI;
     private javax.swing.JLabel lblDNIB;
     private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblNumeroPersonas;
     private javax.swing.JLabel lblRegistro;
+    private javax.swing.JLabel lblSeleccionHabitacion;
     private javax.swing.JLabel lblTelefono;
     private javax.swing.JMenu mnuAñadirHabitacion;
     private javax.swing.JMenuBar mnuBar;
