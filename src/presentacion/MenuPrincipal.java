@@ -21,6 +21,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         panelBusqueda.setVisible(true);
         panelRegistro.setVisible(false);
         panelReservar.setVisible(false);
+        panelModificarReserva.setVisible(false);
+        panelAñadirHabitaciones.setVisible(false);
         
     }
 
@@ -51,11 +53,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
         txtRegistroTelefono = new javax.swing.JTextField();
         txtRegistroCorreo = new javax.swing.JTextField();
         panelReservar = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
         lblNumeroPersonas = new javax.swing.JLabel();
         lblSeleccionHabitacion = new javax.swing.JLabel();
         txtNumeroPersonas = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbxTipoHabitacionReservar = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
+        panelModificarReserva = new javax.swing.JPanel();
+        lblModificarReserva = new javax.swing.JLabel();
+        lblNumeroPersonasModificar = new javax.swing.JLabel();
+        txtNumeroPersonasModificar = new javax.swing.JTextField();
+        lblSeleccionHabitacionModificar = new javax.swing.JLabel();
+        cbxTipoHabitacionModificar = new javax.swing.JComboBox<>();
+        panelAñadirHabitaciones = new javax.swing.JPanel();
+        lblAñadirHabitaciones = new javax.swing.JLabel();
+        lblTipoHabitacion = new javax.swing.JLabel();
+        cbxTipoAñadirHabitaciones = new javax.swing.JComboBox<>();
         mnuBar = new javax.swing.JMenuBar();
         mnuBusqueda = new javax.swing.JMenu();
         mnuReservar = new javax.swing.JMenu();
@@ -65,6 +77,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenu3.setText("jMenu3");
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 255));
 
         lblBusqueda.setFont(new java.awt.Font("Helvetica Neue", 1, 48)); // NOI18N
@@ -114,7 +127,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         lblTelefono.setText("Telefono:");
 
         lblCorreo.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        lblCorreo.setText("Correo::");
+        lblCorreo.setText("Correo:");
 
         javax.swing.GroupLayout panelRegistroLayout = new javax.swing.GroupLayout(panelRegistro);
         panelRegistro.setLayout(panelRegistroLayout);
@@ -166,9 +179,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addContainerGap(60, Short.MAX_VALUE))
         );
 
-        jLabel9.setFont(new java.awt.Font("Helvetica Neue", 1, 48)); // NOI18N
-        jLabel9.setText("Reservar");
-
         lblNumeroPersonas.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
         lblNumeroPersonas.setText("Numero de personas");
 
@@ -177,44 +187,135 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         txtNumeroPersonas.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
 
-        jComboBox1.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Simple", "Junior", "Junior Suite", "Suite", "Matrimonial", "Presidencial" }));
+        cbxTipoHabitacionReservar.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        cbxTipoHabitacionReservar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Simple", "Junior", "Junior Suite", "Suite", "Matrimonial", "Presidencial" }));
+
+        jLabel10.setFont(new java.awt.Font("Helvetica Neue", 1, 48)); // NOI18N
+        jLabel10.setText("Reservar");
 
         javax.swing.GroupLayout panelReservarLayout = new javax.swing.GroupLayout(panelReservar);
         panelReservar.setLayout(panelReservarLayout);
         panelReservarLayout.setHorizontalGroup(
             panelReservarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelReservarLayout.createSequentialGroup()
+                .addGap(86, 86, 86)
                 .addGroup(panelReservarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelReservarLayout.createSequentialGroup()
-                        .addGap(86, 86, 86)
-                        .addGroup(panelReservarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblSeleccionHabitacion)
-                            .addComponent(lblNumeroPersonas))
-                        .addGap(80, 80, 80)
-                        .addGroup(panelReservarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNumeroPersonas)
-                            .addComponent(jComboBox1, 0, 196, Short.MAX_VALUE)))
-                    .addGroup(panelReservarLayout.createSequentialGroup()
-                        .addGap(263, 263, 263)
-                        .addComponent(jLabel9)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblSeleccionHabitacion)
+                    .addComponent(lblNumeroPersonas))
+                .addGap(80, 80, 80)
+                .addGroup(panelReservarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtNumeroPersonas)
+                    .addComponent(cbxTipoHabitacionReservar, 0, 196, Short.MAX_VALUE))
+                .addContainerGap(184, Short.MAX_VALUE))
+            .addGroup(panelReservarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelReservarLayout.createSequentialGroup()
+                    .addGap(273, 273, 273)
+                    .addComponent(jLabel10)
+                    .addContainerGap(307, Short.MAX_VALUE)))
         );
         panelReservarLayout.setVerticalGroup(
             panelReservarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelReservarLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(87, 87, 87)
                 .addGroup(panelReservarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelReservarLayout.createSequentialGroup()
                         .addComponent(txtNumeroPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(panelReservarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbxTipoHabitacionReservar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblSeleccionHabitacion)))
                     .addComponent(lblNumeroPersonas))
                 .addContainerGap(84, Short.MAX_VALUE))
+            .addGroup(panelReservarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelReservarLayout.createSequentialGroup()
+                    .addGap(26, 26, 26)
+                    .addComponent(jLabel10)
+                    .addContainerGap(162, Short.MAX_VALUE)))
+        );
+
+        lblModificarReserva.setFont(new java.awt.Font("Helvetica Neue", 1, 48)); // NOI18N
+        lblModificarReserva.setText("Modificar Reserva");
+
+        lblNumeroPersonasModificar.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblNumeroPersonasModificar.setText("Numero de personas");
+
+        txtNumeroPersonasModificar.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+
+        lblSeleccionHabitacionModificar.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblSeleccionHabitacionModificar.setText("Seleccione tipo de habitación");
+
+        cbxTipoHabitacionModificar.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        cbxTipoHabitacionModificar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Simple", "Junior", "Junior Suite", "Suite", "Matrimonial", "Presidencial" }));
+
+        javax.swing.GroupLayout panelModificarReservaLayout = new javax.swing.GroupLayout(panelModificarReserva);
+        panelModificarReserva.setLayout(panelModificarReservaLayout);
+        panelModificarReservaLayout.setHorizontalGroup(
+            panelModificarReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelModificarReservaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblModificarReserva)
+                .addGap(183, 183, 183))
+            .addGroup(panelModificarReservaLayout.createSequentialGroup()
+                .addGap(89, 89, 89)
+                .addGroup(panelModificarReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSeleccionHabitacionModificar)
+                    .addComponent(lblNumeroPersonasModificar))
+                .addGap(92, 92, 92)
+                .addGroup(panelModificarReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNumeroPersonasModificar, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)
+                    .addComponent(cbxTipoHabitacionModificar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(169, 169, 169))
+        );
+        panelModificarReservaLayout.setVerticalGroup(
+            panelModificarReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelModificarReservaLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(lblModificarReserva)
+                .addGap(27, 27, 27)
+                .addGroup(panelModificarReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNumeroPersonasModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNumeroPersonasModificar))
+                .addGap(34, 34, 34)
+                .addGroup(panelModificarReservaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSeleccionHabitacionModificar)
+                    .addComponent(cbxTipoHabitacionModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(139, Short.MAX_VALUE))
+        );
+
+        lblAñadirHabitaciones.setFont(new java.awt.Font("Helvetica Neue", 1, 48)); // NOI18N
+        lblAñadirHabitaciones.setText("Añadir Habitaciones");
+
+        lblTipoHabitacion.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        lblTipoHabitacion.setText("Seleccione tipo de habitación");
+
+        cbxTipoAñadirHabitaciones.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        cbxTipoAñadirHabitaciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Simple", "Junior", "Junior Suite", "Suite", "Matrimonial", "Presidencial" }));
+
+        javax.swing.GroupLayout panelAñadirHabitacionesLayout = new javax.swing.GroupLayout(panelAñadirHabitaciones);
+        panelAñadirHabitaciones.setLayout(panelAñadirHabitacionesLayout);
+        panelAñadirHabitacionesLayout.setHorizontalGroup(
+            panelAñadirHabitacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAñadirHabitacionesLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblAñadirHabitaciones)
+                .addGap(147, 147, 147))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAñadirHabitacionesLayout.createSequentialGroup()
+                .addGap(133, 133, 133)
+                .addComponent(lblTipoHabitacion)
+                .addGap(98, 98, 98)
+                .addComponent(cbxTipoAñadirHabitaciones, 0, 196, Short.MAX_VALUE)
+                .addGap(119, 119, 119))
+        );
+        panelAñadirHabitacionesLayout.setVerticalGroup(
+            panelAñadirHabitacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAñadirHabitacionesLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(lblAñadirHabitaciones)
+                .addGap(48, 48, 48)
+                .addGroup(panelAñadirHabitacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTipoHabitacion)
+                    .addComponent(cbxTipoAñadirHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
 
         mnuBusqueda.setText("Busqueda");
@@ -257,9 +358,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
         mnuBar.add(mnuRegistro);
 
         mnuModificarReserva.setText("Modificar Reserva");
+        mnuModificarReserva.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mnuModificarReservaMouseClicked(evt);
+            }
+        });
         mnuBar.add(mnuModificarReserva);
 
         mnuAñadirHabitacion.setText("Añadir Habitación");
+        mnuAñadirHabitacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mnuAñadirHabitacionMouseClicked(evt);
+            }
+        });
         mnuBar.add(mnuAñadirHabitacion);
 
         setJMenuBar(mnuBar);
@@ -271,6 +382,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
             .addComponent(panelBusqueda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(panelRegistro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(panelReservar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelModificarReserva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelAñadirHabitaciones, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -280,7 +393,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addComponent(panelRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelReservar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelModificarReserva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelAñadirHabitaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -291,6 +408,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         panelBusqueda.setVisible(true);
         panelRegistro.setVisible(false);
         panelReservar.setVisible(false);
+        panelModificarReserva.setVisible(false);
+        panelAñadirHabitaciones.setVisible(false);
     }//GEN-LAST:event_mnuBusquedaActionPerformed
 
     private void mnuReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuReservarActionPerformed
@@ -298,6 +417,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         panelRegistro.setVisible(true);
         panelBusqueda.setVisible(false);
         panelReservar.setVisible(false);
+        panelModificarReserva.setVisible(false);
+        panelAñadirHabitaciones.setVisible(false);
     }//GEN-LAST:event_mnuReservarActionPerformed
 
     private void mnuRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuRegistroActionPerformed
@@ -305,6 +426,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         panelReservar.setVisible(true);
         panelRegistro.setVisible(false);
         panelBusqueda.setVisible(false);
+        panelModificarReserva.setVisible(false);
+        panelAñadirHabitaciones.setVisible(false);
     }//GEN-LAST:event_mnuRegistroActionPerformed
 
     private void mnuBusquedaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuBusquedaMouseClicked
@@ -312,6 +435,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         panelBusqueda.setVisible(true);
         panelRegistro.setVisible(false);
         panelReservar.setVisible(false);
+        panelModificarReserva.setVisible(false);
+        panelAñadirHabitaciones.setVisible(false);
        
     }//GEN-LAST:event_mnuBusquedaMouseClicked
 
@@ -320,6 +445,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         panelReservar.setVisible(true);
         panelRegistro.setVisible(false);
         panelBusqueda.setVisible(false);
+        panelModificarReserva.setVisible(false);
+        panelAñadirHabitaciones.setVisible(false);
     }//GEN-LAST:event_mnuReservarMouseClicked
 
     private void mnuRegistroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuRegistroMouseClicked
@@ -327,7 +454,27 @@ public class MenuPrincipal extends javax.swing.JFrame {
         panelRegistro.setVisible(true);
         panelBusqueda.setVisible(false);
         panelReservar.setVisible(false);
+        panelModificarReserva.setVisible(false);
+        panelAñadirHabitaciones.setVisible(false);
     }//GEN-LAST:event_mnuRegistroMouseClicked
+
+    private void mnuModificarReservaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuModificarReservaMouseClicked
+        // TODO add your handling code here:
+        panelRegistro.setVisible(false);
+        panelBusqueda.setVisible(false);
+        panelReservar.setVisible(false);
+        panelModificarReserva.setVisible(true);
+        panelAñadirHabitaciones.setVisible(false);
+    }//GEN-LAST:event_mnuModificarReservaMouseClicked
+
+    private void mnuAñadirHabitacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuAñadirHabitacionMouseClicked
+        // TODO add your handling code here:
+        panelRegistro.setVisible(false);
+        panelBusqueda.setVisible(false);
+        panelReservar.setVisible(false);
+        panelModificarReserva.setVisible(false);
+        panelAñadirHabitaciones.setVisible(true);
+    }//GEN-LAST:event_mnuAñadirHabitacionMouseClicked
 
     /**
      * @param args the command line arguments
@@ -365,30 +512,40 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JComboBox<String> cbxTipoAñadirHabitaciones;
+    private javax.swing.JComboBox<String> cbxTipoHabitacionModificar;
+    private javax.swing.JComboBox<String> cbxTipoHabitacionReservar;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JLabel lblApellido;
+    private javax.swing.JLabel lblAñadirHabitaciones;
     private javax.swing.JLabel lblBusqueda;
     private javax.swing.JLabel lblCorreo;
     private javax.swing.JLabel lblDNI;
     private javax.swing.JLabel lblDNIB;
+    private javax.swing.JLabel lblModificarReserva;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblNumeroPersonas;
+    private javax.swing.JLabel lblNumeroPersonasModificar;
     private javax.swing.JLabel lblRegistro;
     private javax.swing.JLabel lblSeleccionHabitacion;
+    private javax.swing.JLabel lblSeleccionHabitacionModificar;
     private javax.swing.JLabel lblTelefono;
+    private javax.swing.JLabel lblTipoHabitacion;
     private javax.swing.JMenu mnuAñadirHabitacion;
     private javax.swing.JMenuBar mnuBar;
     private javax.swing.JMenu mnuBusqueda;
     private javax.swing.JMenu mnuModificarReserva;
     private javax.swing.JMenu mnuRegistro;
     private javax.swing.JMenu mnuReservar;
+    private javax.swing.JPanel panelAñadirHabitaciones;
     private javax.swing.JPanel panelBusqueda;
+    private javax.swing.JPanel panelModificarReserva;
     private javax.swing.JPanel panelRegistro;
     private javax.swing.JPanel panelReservar;
     private javax.swing.JTextField txtBusquedaDNI;
     private javax.swing.JTextField txtNumeroPersonas;
+    private javax.swing.JTextField txtNumeroPersonasModificar;
     private javax.swing.JTextField txtRegistroApellido;
     private javax.swing.JTextField txtRegistroCorreo;
     private javax.swing.JTextField txtRegistroDNI;
