@@ -35,7 +35,7 @@ public class logueo extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lblNombreHotel.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        lblNombreHotel.setFont(new java.awt.Font("Segoe UI Black", 1, 48)); // NOI18N
         lblNombreHotel.setText("HOTEL \"MUNDO\"");
 
         txtUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -96,7 +96,7 @@ public class logueo extends javax.swing.JFrame {
                         .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(87, 87, 87)
                 .addComponent(btnAceptar)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         pack();
