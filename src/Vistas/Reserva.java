@@ -293,10 +293,10 @@ public class Reserva extends javax.swing.JFrame {
                                         .addComponent(btnPagoCliente)
                                         .addGap(26, 26, 26)))))))
                 .addGap(49, 49, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(291, 291, 291)
                 .addComponent(jLabel1)
-                .addGap(317, 317, 317))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -350,13 +350,13 @@ public class Reserva extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHabitacionActionPerformed
-        ListaHabitaciones newframe = new ListaHabitaciones();
-        newframe.setVisible(true);
+        ListaHabitaciones fromHabitaciones = new ListaHabitaciones();
+        fromHabitaciones.setVisible(true);
     }//GEN-LAST:event_btnHabitacionActionPerformed
 
     private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
-        ListaRegistroCliente newframe = new ListaRegistroCliente();
-        newframe.setVisible(true);
+        ListaRegistroCliente fromRegistroCliente = new ListaRegistroCliente();
+        fromRegistroCliente.setVisible(true);
     }//GEN-LAST:event_btnClienteActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
