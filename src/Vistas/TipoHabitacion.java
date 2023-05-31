@@ -46,13 +46,13 @@ public class TipoHabitacion extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Consolas", 1, 48)); // NOI18N
-        jLabel1.setText("Tipo de habitacion");
+        jLabel1.setText("Tipo de habitación");
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setText("Precio:");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel3.setText("Tipo de habitacion");
+        jLabel3.setText("Tipo de habitación");
 
         jButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jButton1.setText("Nuevo");
@@ -100,7 +100,7 @@ public class TipoHabitacion extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel4.setText("Descripcion");
+        jLabel4.setText("Descripción");
 
         jTextField2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 

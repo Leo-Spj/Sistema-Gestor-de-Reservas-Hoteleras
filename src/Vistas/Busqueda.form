@@ -65,7 +65,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tw Cen MT Condensed Extra Bold" size="48" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Busqueda"/>
+        <Property name="text" type="java.lang.String" value="B&#xfa;squeda"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblDNI">

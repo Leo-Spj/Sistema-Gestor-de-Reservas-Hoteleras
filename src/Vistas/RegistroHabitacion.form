@@ -102,7 +102,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                       <Component id="btnTipoHabitacion" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -113,7 +113,7 @@
                   </Group>
                   <Component id="jInternalFrame1" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="27" max="32767" attributes="0"/>
+              <EmptySpace pref="53" max="32767" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="164" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
           </Group>
@@ -121,7 +121,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="345" max="-2" attributes="0"/>
                   <Component id="btnSalir" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="306" max="32767" attributes="0"/>
+                  <EmptySpace pref="308" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -133,7 +133,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Consolas" size="48" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="REGISTRO DE HABITACIONES"/>
+        <Property name="text" type="java.lang.String" value="REGISTRO DE HABITACI&#xd3;NES"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
@@ -141,7 +141,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="N&#xb0; Habitacion"/>
+        <Property name="text" type="java.lang.String" value="N&#xb0; Habitaci&#xf3;n"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
@@ -418,7 +418,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Tipo de habitacion"/>
+        <Property name="text" type="java.lang.String" value="Tipo de habitaci&#xf3;n"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTipoHabitacionActionPerformed"/>

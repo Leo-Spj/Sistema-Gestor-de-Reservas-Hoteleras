@@ -62,7 +62,7 @@ public class RegistroPago extends javax.swing.JFrame {
         jButton2.setText("Total Reserva");
 
         jButton3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jButton3.setText("Habitacion");
+        jButton3.setText("Habitación");
 
         jTextField1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 

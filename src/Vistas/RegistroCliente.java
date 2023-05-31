@@ -69,7 +69,7 @@ public class RegistroCliente extends javax.swing.JFrame {
         jLabel5.setText("Edad");
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel6.setText("Telefono");
+        jLabel6.setText("Teléfono");
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel7.setText("Correo");

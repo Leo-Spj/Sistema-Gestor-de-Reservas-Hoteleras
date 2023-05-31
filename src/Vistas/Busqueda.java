@@ -36,7 +36,7 @@ public class Busqueda extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblBusquedaCliente.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 48)); // NOI18N
-        lblBusquedaCliente.setText("Busqueda");
+        lblBusquedaCliente.setText("Búsqueda");
 
         lblDNI.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         lblDNI.setText("DNI:");

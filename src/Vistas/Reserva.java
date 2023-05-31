@@ -84,7 +84,7 @@ public class Reserva extends javax.swing.JFrame {
         jLabel7.setToolTipText("");
 
         btnHabitacion.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btnHabitacion.setText("Habitacion");
+        btnHabitacion.setText("Habitación");
         btnHabitacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHabitacionActionPerformed(evt);

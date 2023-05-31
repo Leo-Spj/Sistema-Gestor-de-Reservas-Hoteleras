@@ -121,7 +121,7 @@ public class ControlyReserva extends javax.swing.JFrame {
         );
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 48)); // NOI18N
-        jLabel1.setText("HOTEL \"MUNDO\"");
+        jLabel1.setText("TRAVEL EASY");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);

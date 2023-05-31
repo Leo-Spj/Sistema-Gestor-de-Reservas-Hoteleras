@@ -56,10 +56,10 @@ public class RegistroHabitacion extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Consolas", 1, 48)); // NOI18N
-        jLabel1.setText("REGISTRO DE HABITACIONES");
+        jLabel1.setText("REGISTRO DE HABITACIÓNES");
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel4.setText("N° Habitacion");
+        jLabel4.setText("N° Habitación");
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel5.setText("Piso");
@@ -170,7 +170,7 @@ public class RegistroHabitacion extends javax.swing.JFrame {
         );
 
         btnTipoHabitacion.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btnTipoHabitacion.setText("Tipo de habitacion");
+        btnTipoHabitacion.setText("Tipo de habitación");
         btnTipoHabitacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTipoHabitacionActionPerformed(evt);
@@ -257,7 +257,7 @@ public class RegistroHabitacion extends javax.swing.JFrame {
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(77, 77, 77)
                         .addComponent(btnTipoHabitacion)
-                        .addGap(76, 76, 76)
+                        .addGap(73, 73, 73)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton2)
                             .addComponent(jButton3)
@@ -265,14 +265,14 @@ public class RegistroHabitacion extends javax.swing.JFrame {
                             .addComponent(jButton5)
                             .addComponent(btnSalir1)))
                     .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(345, 345, 345)
                     .addComponent(btnSalir)
-                    .addContainerGap(306, Short.MAX_VALUE)))
+                    .addContainerGap(308, Short.MAX_VALUE)))
         );
 
         pack();

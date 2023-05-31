@@ -57,43 +57,33 @@ public class Comprobante extends javax.swing.JFrame {
         jLabel1.setText("Comprobante");
 
         jLabel2.setFont(new java.awt.Font("Consolas", 1, 48)); // NOI18N
-        jLabel2.setText("HOTEL \"MUNDO\"");
+        jLabel2.setText("TRAVEL EASY");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Av. Las flores - Larosa");
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Telefono: 987654321");
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("DNI:");
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Cliente:");
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Telefono:");
 
         jTextField1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
 
         jTextField2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(0, 0, 0));
 
         jTextField3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Dias Alojados:");
 
         jTextField4.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(0, 0, 0));
 
         btnFin.setBackground(new java.awt.Color(153, 51, 0));
         btnFin.setForeground(new java.awt.Color(153, 51, 0));
