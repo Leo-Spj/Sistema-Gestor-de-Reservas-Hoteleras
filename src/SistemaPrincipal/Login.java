@@ -112,7 +112,7 @@ public class Login extends javax.swing.JFrame {
                 txtUsuarioActionPerformed(evt);
             }
         });
-        jPanel4.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 88, 134, -1));
+        jPanel4.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 88, 140, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel3.setText("Contraseña");
@@ -129,8 +129,8 @@ public class Login extends javax.swing.JFrame {
                 txtContraseñaKeyPressed(evt);
             }
         });
-        jPanel4.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 130, 40));
-        jPanel4.add(txtOculto, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 145, 130, 30));
+        jPanel4.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 140, 40));
+        jPanel4.add(txtOculto, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 145, 140, 30));
 
         btnMostrarContraseña.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaPrincipal/Ojito.png"))); // NOI18N
         btnMostrarContraseña.addActionListener(new java.awt.event.ActionListener() {
@@ -162,7 +162,7 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnIniciarSesion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
