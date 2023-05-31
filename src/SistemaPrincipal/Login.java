@@ -129,7 +129,7 @@ public class Login extends javax.swing.JFrame {
                 txtContraseñaKeyPressed(evt);
             }
         });
-        jPanel4.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 130, 30));
+        jPanel4.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 130, 40));
         jPanel4.add(txtOculto, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 145, 130, 30));
 
         btnMostrarContraseña.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SistemaPrincipal/Ojito.png"))); // NOI18N
@@ -138,7 +138,7 @@ public class Login extends javax.swing.JFrame {
                 btnMostrarContraseñaActionPerformed(evt);
             }
         });
-        jPanel4.add(btnMostrarContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, -1, 39));
+        jPanel4.add(btnMostrarContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 60, 40));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
