@@ -289,9 +289,7 @@ public class RegistroCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        ControlyReserva newframe = new ControlyReserva();
-        newframe.setVisible(true);
-        dispose();
+                dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
