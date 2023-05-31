@@ -5,6 +5,7 @@
  */
 package SistemaPrincipal;
 
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -70,18 +71,19 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Franklin Gothic Demi", 1, 36)); // NOI18N
         jLabel2.setText("ADMINISTRADOR");
 
-        txtUsuario.setBackground(new java.awt.Color(255, 255, 255));
         txtUsuario.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        txtUsuario.setForeground(new java.awt.Color(0, 0, 0));
         txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUsuarioActionPerformed(evt);
             }
         });
 
-        pwfContraseña.setBackground(new java.awt.Color(255, 255, 255));
         pwfContraseña.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        pwfContraseña.setForeground(new java.awt.Color(0, 0, 0));
+        pwfContraseña.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                pwfContraseñaKeyPressed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel3.setText("Contraseña");
@@ -91,7 +93,6 @@ public class Login extends javax.swing.JFrame {
 
         btnIniciarSesion.setBackground(new java.awt.Color(153, 0, 0));
         btnIniciarSesion.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btnIniciarSesion.setForeground(new java.awt.Color(0, 0, 0));
         btnIniciarSesion.setText("Iniciar Sesion");
         btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,10 +121,10 @@ public class Login extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(284, 284, 284)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(284, 284, 284)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
@@ -187,6 +188,22 @@ public class Login extends javax.swing.JFrame {
             pwfContraseña.setText("");
         }
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
+
+    private void pwfContraseñaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pwfContraseñaKeyPressed
+        // TODO add your handling code here:
+        if (evt.getExtendedKeyCode() == KeyEvent.VK_ENTER) {
+            if (txtUsuario.getText().isEmpty() || pwfContraseña.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Su usuario o contraseña no coinciden. Intentelo de nuevo.");
+        } else if (txtUsuario.getText().equals("Admin") && pwfContraseña.getText().equals("Root")) {
+            new ControlyReserva().setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(this, "Su usuario o contraseña no coinciden. Intentelo de nuevo.");
+            txtUsuario.setText("");
+            pwfContraseña.setText("");
+        }
+        }
+    }//GEN-LAST:event_pwfContraseñaKeyPressed
 
     /**
      * @param args the command line arguments
