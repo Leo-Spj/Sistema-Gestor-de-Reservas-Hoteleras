@@ -17,7 +17,7 @@ SELECT * FROM sucursal
 -- y puede incluso acotar que necesita un tipo de habitacion especifica
 -- Buscando habitaciones disponibles: (escoge la sucursal de miraflores)
 -- de las 7 habitaciones solo se  muestran 6 ya que una ya está reservada entre esas fechas:
-EXEC sp_buscar_habitaciones_disponibles 1, '2023-06-10', '2023-06-12';
+EXEC sp_buscar_habitaciones_disponibles 3, '2023-06-10', '2023-06-12';
 
 -- Ingresándome como nuevo cliente:
 EXEC sp_ingresar_nuevo_cliente '76548632', 'Leonardo', 'Espejo', '940937600'
