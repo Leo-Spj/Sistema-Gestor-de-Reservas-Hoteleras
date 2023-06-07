@@ -60,25 +60,27 @@
                               <Component id="jComboBox1" min="-2" pref="127" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jCalendar1" min="-2" pref="402" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jCalendar2" min="-2" pref="398" max="-2" attributes="0"/>
-                          </Group>
                       </Group>
                       <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="jCalendar3" min="-2" pref="398" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jCalendar4" min="-2" pref="439" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jCalendar1" pref="217" max="32767" attributes="0"/>
-                          <Component id="jCalendar2" max="32767" attributes="0"/>
+                          <Component id="jCalendar4" pref="203" max="32767" attributes="0"/>
+                          <Component id="jCalendar3" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -138,9 +140,9 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="com.toedter.calendar.JCalendar" name="jCalendar1">
+            <Component class="com.toedter.calendar.JCalendar" name="jCalendar3">
             </Component>
-            <Component class="com.toedter.calendar.JCalendar" name="jCalendar2">
+            <Component class="com.toedter.calendar.JCalendar" name="jCalendar4">
             </Component>
           </SubComponents>
         </Container>
