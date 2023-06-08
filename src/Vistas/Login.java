@@ -152,7 +152,10 @@ public class Login extends javax.swing.JFrame  {
             }
 
             if (accesoConcedido) {
-                System.out.println("Acceso Aprovado");
+                System.out.println("Acceso Aprobado");
+                MultiVentana mv = new MultiVentana();
+                mv.setVisible(true);
+                this.setVisible(false);
             } else {
                 System.out.println("Denegado");
             }
