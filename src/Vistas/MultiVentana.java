@@ -611,7 +611,7 @@ public class MultiVentana extends javax.swing.JFrame {
             public void run() {
                 new MultiVentana().setVisible(true);
             }
-        });
+        });        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
