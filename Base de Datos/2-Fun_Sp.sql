@@ -4,6 +4,17 @@
 USE TRAVEL_EASY;
 GO
 
+--funcion que obtiene LOS id_empleado y el dni_empreado pero solo de aquellos que tengan el cargo de recepcionista o administrador
+GO
+CREATE FUNCTION aptos_login()
+RETURNS TABLE
+AS
+RETURN
+    SELECT id_empleado, dni_empleado
+    FROM empleados
+    WHERE id_cargo = 1 OR id_cargo = 2
+GO
+
 -- Store procedure para ingresar empresa hotelera
 GO
 CREATE PROCEDURE sp_ingresar_nueva_empresa_hotelera

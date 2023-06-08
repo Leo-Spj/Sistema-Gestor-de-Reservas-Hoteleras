@@ -3,17 +3,15 @@ package Vistas;
 
 //Ayuda de ChatGPT: importar 
 import Configuracion.DatabaseConfig;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Properties;
 
 public class Ejemplo extends javax.swing.JFrame {
 
+    //Ayuda de ChatGPT
     private DatabaseConfig databaseConfig;
 
     public Ejemplo() {
@@ -30,7 +28,7 @@ public class Ejemplo extends javax.swing.JFrame {
         try (Connection connection = DriverManager.getConnection(getConnectionString(),
                 databaseConfig.getUsername(), databaseConfig.getPassword());
              PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, 3);
+            statement.setInt(1, 1);
             statement.setString(2, "2023-06-10");
             statement.setString(3, "2023-06-12");
 
