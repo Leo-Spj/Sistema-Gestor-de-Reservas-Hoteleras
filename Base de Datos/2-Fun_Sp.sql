@@ -4,13 +4,27 @@
 USE TRAVEL_EASY;
 GO
 
+
+-- asigar contraseña a trabajador por dni:
+GO
+CREATE PROCEDURE AgregarContrasenaPorDNI
+    @dni INT,
+    @contrasena VARCHAR(255)
+AS
+BEGIN
+    UPDATE empleados
+    SET contrasena = @contrasena
+    WHERE dni_empleado = @dni;
+END;
+GO
+
 --funcion que obtiene LOS id_empleado y el dni_empreado pero solo de aquellos que tengan el cargo de recepcionista o administrador
 GO
 CREATE FUNCTION aptos_login()
 RETURNS TABLE
 AS
 RETURN
-    SELECT id_empleado, dni_empleado
+    SELECT dni_empleado, contrasena
     FROM empleados
     WHERE id_cargo = 1 OR id_cargo = 2
 GO

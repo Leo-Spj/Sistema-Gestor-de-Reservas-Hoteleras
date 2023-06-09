@@ -81,6 +81,10 @@ VALUES
 (1, '99981233', 3, 'Cecilia', 'Rodríguez', '944886789'),
 (1, '99918764', 4, 'Laura', 'Muñoz', '937709812');
 
+--ingresando administrador
+INSERT INTO empleados (id_sucursal, id_cargo, dni_empleado, nombre, apellido, celular, contrasena)
+VALUES (1, 2, 0000, 'Yuliana', 'Jauregui Rosas', '987987987', '0000');
+
 -- Sucursal 2 (Hotel TravelEasy Miraflores)
 INSERT INTO empleados (id_sucursal, dni_empleado, id_cargo, nombre, apellido, celular)
 VALUES
@@ -98,6 +102,16 @@ VALUES
 (3, '77754322', 2, 'Franco', 'Gómez', '912007708'),
 (3, '77781233', 3, 'Camila', 'Rodríguez', '944338789'),
 (3, '77718764', 4, 'Paola', 'Zapater', '930049812');
+
+EXEC AgregarContrasenaPorDNI 99945671, '0000';
+EXEC AgregarContrasenaPorDNI 999123654, '1111';
+EXEC AgregarContrasenaPorDNI 99954322, '22222';
+EXEC AgregarContrasenaPorDNI 88845671, '3333';
+EXEC AgregarContrasenaPorDNI 888123654, '4444';
+EXEC AgregarContrasenaPorDNI 88854322, '5555';
+EXEC AgregarContrasenaPorDNI 77745671, '6666';
+EXEC AgregarContrasenaPorDNI 777123654, '7777';
+EXEC AgregarContrasenaPorDNI 77754322, '8888';
 
 -- Insertar registros en clientes
 INSERT INTO clientes (dni_cliente, nombre, apellido, celular)

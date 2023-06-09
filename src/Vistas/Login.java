@@ -143,9 +143,9 @@ public class Login extends javax.swing.JFrame  {
 
             boolean accesoConcedido = false;
             while (resultSet.next()) {
-                String idEmpleado = resultSet.getString("id_empleado");
                 String dniEmpleado = resultSet.getString("dni_empleado");
-                if (usuario.equals(idEmpleado) && contraseña.equals(dniEmpleado)) {
+                String pwdEmpleado = resultSet.getString("contrasena");
+                if (usuario.equals(dniEmpleado) && contraseña.equals(pwdEmpleado)) {
                     accesoConcedido = true;
                     break;
                 }

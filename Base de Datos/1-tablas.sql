@@ -56,10 +56,11 @@ CREATE TABLE empleados (
     id_empleado INT PRIMARY KEY IDENTITY(1, 1),
     id_sucursal INT,
     id_cargo INT,
-    dni_empleado INT,
+    dni_empleado INT NOT NULL UNIQUE,
     nombre VARCHAR(255),
     apellido VARCHAR(255),
     celular VARCHAR(255),
+    contrasena VARCHAR(255),
 
     FOREIGN KEY (id_sucursal) REFERENCES sucursal (id_sucursal),
     FOREIGN KEY (id_cargo) REFERENCES cargos (id_cargo)
