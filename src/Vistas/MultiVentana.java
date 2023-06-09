@@ -4,6 +4,12 @@
  */
 package Vistas;
 
+import Configuracion.DatabaseConfig;
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 /**
  *
  * @author Leo
@@ -13,10 +19,17 @@ public class MultiVentana extends javax.swing.JFrame {
     /**
      * Creates new form MultiVentana
      */
+    DatabaseConfig databaseConfig = new DatabaseConfig();
     public MultiVentana() {
         initComponents();
         
         pnlRegistrarCliente.setVisible(false);
+    }
+    private String getConnectionString() {
+        String serverName = databaseConfig.getServer();
+        String databaseName = databaseConfig.getDatabaseName();
+        return String.format("jdbc:sqlserver://%s:1433;databaseName=%s;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;",
+                serverName, databaseName);
     }
 
     /**
@@ -118,6 +131,11 @@ public class MultiVentana extends javax.swing.JFrame {
         btnBuscarHabitaciones.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnBuscarHabitaciones.setForeground(new java.awt.Color(27, 35, 42));
         btnBuscarHabitaciones.setText("Buscar");
+        btnBuscarHabitaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarHabitacionesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlFiltrarLayout = new javax.swing.GroupLayout(pnlFiltrar);
         pnlFiltrar.setLayout(pnlFiltrarLayout);
@@ -581,6 +599,44 @@ public class MultiVentana extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBuscarHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarHabitacionesActionPerformed
+        // TODO add your handling code here:
+        /*SimpleDateFormat ff = new SimpleDateFormat("yyyy-mm-dd");
+        String fecha1,fecha2;
+        fecha1= ff.format(calFechaIni.getCalendar().getTime());
+        fecha2= ff.format(calFechaFin.getCalendar().getTime());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd");
+        LocalDate date1 = LocalDate.parse(fecha1, formatter);
+        LocalDate date2 = LocalDate.parse(fecha2, formatter);
+        if(date1.isAfter(date2))
+        {
+            String mensaje = "Fecha de Inicio debe ser menor a Fecha de Fin.";
+          JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+        */
+        Calendar calFechaIni = Calendar.getInstance();
+        Calendar calFechaFin = Calendar.getInstance();
+        
+        // ... Configuración de las fechas calFechaIni y calFechaFin ...
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String fecha1 = sdf.format(calFechaIni.getTime());
+        String fecha2 = sdf.format(calFechaFin.getTime());
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate date1 = LocalDate.parse(fecha1, formatter);
+        LocalDate date2 = LocalDate.parse(fecha2, formatter);
+
+        if (date1.isAfter(date2))
+        {
+            String mensaje = "Fecha de Inicio debe ser menor a Fecha de Fin.";
+          JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        
+    }//GEN-LAST:event_btnBuscarHabitacionesActionPerformed
+
+    
     /**
      * @param args the command line arguments
      */

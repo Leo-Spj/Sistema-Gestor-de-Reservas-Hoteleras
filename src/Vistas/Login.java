@@ -125,6 +125,12 @@ public class Login extends javax.swing.JFrame  {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private String getConnectionString() {
+        String serverName = databaseConfig.getServer();
+        String databaseName = databaseConfig.getDatabaseName();
+        return String.format("jdbc:sqlserver://%s:1433;databaseName=%s;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;",
+                serverName, databaseName);
+    }
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         String usuario = txfUsuario.getText();
         String contraseña = new String(pwdContraseña.getPassword());
@@ -159,12 +165,7 @@ public class Login extends javax.swing.JFrame  {
         }
     }//GEN-LAST:event_btnIngresarActionPerformed
 
-    private String getConnectionString() {
-        String serverName = databaseConfig.getServer();
-        String databaseName = databaseConfig.getDatabaseName();
-        return String.format("jdbc:sqlserver://%s:1433;databaseName=%s;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;",
-                serverName, databaseName);
-    }
+    
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
