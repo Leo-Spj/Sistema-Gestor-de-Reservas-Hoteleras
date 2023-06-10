@@ -16,7 +16,7 @@ public class Login extends javax.swing.JFrame  {
     public Login() {
         initComponents();
         this.setLocationRelativeTo(this);
-        jProgressBar1.setIndeterminate(true);
+        rsCargaLogin.setVisible(false);
     }
 
     
@@ -32,7 +32,7 @@ public class Login extends javax.swing.JFrame  {
         lblContraseña = new javax.swing.JLabel();
         btnIngresar = new javax.swing.JButton();
         pwdContraseña = new javax.swing.JPasswordField();
-        jProgressBar1 = new javax.swing.JProgressBar();
+        rsCargaLogin = new rojerusan.componentes.RSProgressMaterial();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,28 +76,32 @@ public class Login extends javax.swing.JFrame  {
             }
         });
 
+        rsCargaLogin.setAnchoProgress(5);
+
         javax.swing.GroupLayout pnlLoginLayout = new javax.swing.GroupLayout(pnlLogin);
         pnlLogin.setLayout(pnlLoginLayout);
         pnlLoginLayout.setHorizontalGroup(
             pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlLoginLayout.createSequentialGroup()
-                .addGap(139, 139, 139)
-                .addComponent(logoApp, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(145, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoginLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 59, Short.MAX_VALUE)
                 .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblNombreEmpresa)
                     .addGroup(pnlLoginLayout.createSequentialGroup()
                         .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblUsuario, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblContraseña, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(lblContraseña, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(rsCargaLogin, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnIngresar, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                            .addComponent(txfUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                            .addComponent(pwdContraseña)
-                            .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(pnlLoginLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(txfUsuario))
+                            .addGroup(pnlLoginLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(pwdContraseña)
+                                    .addComponent(btnIngresar, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)))))
+                    .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(logoApp, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblNombreEmpresa)))
                 .addGap(135, 135, 135))
         );
         pnlLoginLayout.setVerticalGroup(
@@ -108,18 +112,20 @@ public class Login extends javax.swing.JFrame  {
                 .addGap(18, 18, 18)
                 .addComponent(lblNombreEmpresa)
                 .addGap(58, 58, 58)
-                .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUsuario)
-                    .addComponent(txfUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblContraseña)
-                    .addComponent(pwdContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlLoginLayout.createSequentialGroup()
+                        .addComponent(txfUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addComponent(pwdContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlLoginLayout.createSequentialGroup()
+                        .addComponent(lblUsuario)
+                        .addGap(36, 36, 36)
+                        .addComponent(lblContraseña)))
+                .addGap(46, 46, 46)
+                .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(rsCargaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(btnIngresar, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -130,9 +136,7 @@ public class Login extends javax.swing.JFrame  {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(pnlLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(pnlLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -145,17 +149,108 @@ public class Login extends javax.swing.JFrame  {
                 serverName, databaseName);
     }
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+        
+    // Crear los hilos
+    Thread hilo1 = new Thread(new Runnable() {
+        public void run() {
+            // Código del primer hilo
+            rsCargaLogin.setVisible(true);
+            // Resto del código del primer hilo
+        }
+    });
+
+    Thread hilo2 = new Thread(new Runnable() {
+        public void run() {
+            // Código del segundo hilo
+            String usuario = txfUsuario.getText();
+            String contraseña = new String(pwdContraseña.getPassword());
+
+            String query = "SELECT * FROM aptos_login()";
+
+            try (Connection connection = DriverManager.getConnection(getConnectionString(),
+               databaseConfig.getUsername(), databaseConfig.getPassword());
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet resultSet = statement.executeQuery()) {
+                
+            rsCargaLogin.setVisible(false);
+            boolean accesoConcedido = false;
+            
+            while (resultSet.next()) {
+                String dniEmpleado = resultSet.getString("dni_empleado");
+                String pwdEmpleado = resultSet.getString("contrasena");
+                if (usuario.equals(dniEmpleado) && contraseña.equals(pwdEmpleado)) {
+                    accesoConcedido = true;
+                    break;
+                }
+            }
+
+            if (accesoConcedido) {
+                
+                // Obtener información del usuario logueado
+                String queryEmpleado = "SELECT * FROM empleados WHERE dni_empleado = ?";
+                try (Connection connectionLogeo = DriverManager.getConnection(getConnectionString(),
+                        databaseConfig.getUsername(), databaseConfig.getPassword());
+                     PreparedStatement statementEmpleado = connectionLogeo.prepareStatement(queryEmpleado)) {
+                    
+                    statementEmpleado.setString(1, usuario); // Parámetro para la consulta
+                    ResultSet resultSetEmpleado = statementEmpleado.executeQuery();
+
+                    UsuarioLogueado usuarioLogueado = new UsuarioLogueado();
+                    if (resultSetEmpleado.next()) {
+
+                        usuarioLogueado.setId_empleado(resultSetEmpleado.getInt("id_empleado"));
+                        usuarioLogueado.setId_sucursal(resultSetEmpleado.getInt("id_sucursal"));
+                        usuarioLogueado.setId_cargo(resultSetEmpleado.getInt("id_cargo"));
+                        usuarioLogueado.setDni_empleado(resultSetEmpleado.getInt("dni_empleado"));
+                        usuarioLogueado.setNombre(resultSetEmpleado.getString("nombre"));
+                        usuarioLogueado.setApellido(resultSetEmpleado.getString("apellido"));
+                        usuarioLogueado.setCelular(resultSetEmpleado.getString("celular"));
+
+                        
+                    }
+                    resultSetEmpleado.close();
+
+                    System.out.println("Acceso Aprobado");
+                    System.out.println( "Trabajador: " + usuarioLogueado.getNombre()+" "+ usuarioLogueado.getApellido());
+                    
+                    MultiVentana mv = new MultiVentana(usuarioLogueado); // Pasar la instancia
+                    mv.setVisible(true);
+                    
+                    Login.this.dispose();
+                    
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    String mensaje = "Usuario o Contraseña inválida";
+                    JOptionPane.showMessageDialog(null, mensaje, "Error Login", JOptionPane.ERROR_MESSAGE);
+                }
+
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            }
+        });
+
+        // Iniciar los hilos
+        hilo1.start();
+        hilo2.start();
+        /*
         String usuario = txfUsuario.getText();
         String contraseña = new String(pwdContraseña.getPassword());
 
         String query = "SELECT * FROM aptos_login()";
+        boolean pasa = true;
+        if(query != null){
+            rsCargaLogin.setVisible(true);
+        } else if (pasa){
         
-        jProgressBar1.setIndeterminate(true);
         try (Connection connection = DriverManager.getConnection(getConnectionString(),
                 databaseConfig.getUsername(), databaseConfig.getPassword());
              PreparedStatement statement = connection.prepareStatement(query);
              ResultSet resultSet = statement.executeQuery()) {
-
+            rsCargaLogin.setVisible(false);
             boolean accesoConcedido = false;
             while (resultSet.next()) {
                 String dniEmpleado = resultSet.getString("dni_empleado");
@@ -211,9 +306,8 @@ public class Login extends javax.swing.JFrame  {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        
-        jProgressBar1.setIndeterminate(false);
+        }} else{}
+        */
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void pwdContraseñaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pwdContraseñaKeyPressed
@@ -258,13 +352,13 @@ public class Login extends javax.swing.JFrame  {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;
-    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblNombreEmpresa;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel logoApp;
     private javax.swing.JPanel pnlLogin;
     private javax.swing.JPasswordField pwdContraseña;
+    private rojerusan.componentes.RSProgressMaterial rsCargaLogin;
     private javax.swing.JTextField txfUsuario;
     // End of variables declaration//GEN-END:variables
 }

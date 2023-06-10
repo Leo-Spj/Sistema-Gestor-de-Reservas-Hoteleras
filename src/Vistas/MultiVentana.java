@@ -29,6 +29,7 @@ public final class MultiVentana extends javax.swing.JFrame {
     private UsuarioLogueado usuarioLogueado;
 
     public MultiVentana(UsuarioLogueado usuarioLogueado) {
+                
         this.usuarioLogueado = usuarioLogueado;
         
         initComponents();
