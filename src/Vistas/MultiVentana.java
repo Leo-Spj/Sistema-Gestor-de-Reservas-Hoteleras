@@ -19,6 +19,7 @@ public class MultiVentana extends javax.swing.JFrame {
     /**
      * Creates new form MultiVentana
      */
+    
     DatabaseConfig databaseConfig = new DatabaseConfig();
     public MultiVentana() {
         initComponents();

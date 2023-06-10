@@ -1,6 +1,7 @@
 
 package Vistas;
 import Configuracion.DatabaseConfig;
+import Modelo.UsuarioLogueado;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -152,13 +153,45 @@ public class Login extends javax.swing.JFrame  {
             }
 
             if (accesoConcedido) {
-                System.out.println("Acceso Aprobado");
+                
                 MultiVentana mv = new MultiVentana();
                 mv.setVisible(true);
                 this.setVisible(false);
+
+                // Obtener información del usuario logueado
+                String queryEmpleado = "SELECT * FROM empleados WHERE dni_empleado = ?";
+                try (Connection connectionLogeo = DriverManager.getConnection(getConnectionString(),
+                        databaseConfig.getUsername(), databaseConfig.getPassword());
+                     PreparedStatement statementEmpleado = connectionLogeo.prepareStatement(queryEmpleado)) {
+                    statementEmpleado.setString(1, usuario); // Parámetro para la consulta
+                    ResultSet resultSetEmpleado = statementEmpleado.executeQuery();
+                    
+                    UsuarioLogueado usuarioLogueado = new UsuarioLogueado();
+                    if (resultSetEmpleado.next()) {
+                        
+                        usuarioLogueado.setId_empleado(resultSetEmpleado.getInt("id_empleado"));
+                        usuarioLogueado.setId_sucursal(resultSetEmpleado.getInt("id_sucursal"));
+                        usuarioLogueado.setId_cargo(resultSetEmpleado.getInt("id_cargo"));
+                        usuarioLogueado.setDni_empleado(resultSetEmpleado.getInt("dni_empleado"));
+                        usuarioLogueado.setNombre(resultSetEmpleado.getString("nombre"));
+                        usuarioLogueado.setApellido(resultSetEmpleado.getString("apellido"));
+                        usuarioLogueado.setCelular(resultSetEmpleado.getString("celular"));
+
+                        // Hacer uso del objeto usuarioLogueado según sea necesario
+                    }
+                    resultSetEmpleado.close();
+                    
+                String nombreUsuario = usuarioLogueado.getNombre();
+                System.out.println("Acceso Aprobado");
+                System.out.println( nombreUsuario );
+                
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             } else {
                 System.out.println("Denegado");
             }
+
 
         } catch (SQLException e) {
             e.printStackTrace();
