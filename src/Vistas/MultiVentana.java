@@ -6,11 +6,9 @@ package Vistas;
 
 import Configuracion.DatabaseConfig;
 import Modelo.UsuarioLogueado;
-import java.text.SimpleDateFormat;
+
 import javax.swing.JOptionPane;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

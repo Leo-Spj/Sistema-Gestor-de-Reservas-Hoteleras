@@ -2,6 +2,7 @@
 package Vistas;
 import Configuracion.DatabaseConfig;
 import Modelo.UsuarioLogueado;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,7 +14,7 @@ public class Login extends javax.swing.JFrame  {
 
     public Login() {
         initComponents();
-        
+        jProgressBar1.setIndeterminate(true);
     }
 
     
@@ -29,6 +30,7 @@ public class Login extends javax.swing.JFrame  {
         lblContraseña = new javax.swing.JLabel();
         btnIngresar = new javax.swing.JButton();
         pwdContraseña = new javax.swing.JPasswordField();
+        jProgressBar1 = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,6 +68,11 @@ public class Login extends javax.swing.JFrame  {
         pwdContraseña.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         pwdContraseña.setForeground(new java.awt.Color(45, 42, 37));
         pwdContraseña.setSelectionColor(new java.awt.Color(171, 76, 89));
+        pwdContraseña.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                pwdContraseñaKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlLoginLayout = new javax.swing.GroupLayout(pnlLogin);
         pnlLogin.setLayout(pnlLoginLayout);
@@ -87,7 +94,8 @@ public class Login extends javax.swing.JFrame  {
                         .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnIngresar, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
                             .addComponent(txfUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                            .addComponent(pwdContraseña))))
+                            .addComponent(pwdContraseña)
+                            .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(135, 135, 135))
         );
         pnlLoginLayout.setVerticalGroup(
@@ -105,7 +113,9 @@ public class Login extends javax.swing.JFrame  {
                 .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblContraseña)
                     .addComponent(pwdContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
+                .addGap(33, 33, 33)
+                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(57, Short.MAX_VALUE))
         );
@@ -137,6 +147,8 @@ public class Login extends javax.swing.JFrame  {
         String contraseña = new String(pwdContraseña.getPassword());
 
         String query = "SELECT * FROM aptos_login()";
+        
+        jProgressBar1.setIndeterminate(true);
         try (Connection connection = DriverManager.getConnection(getConnectionString(),
                 databaseConfig.getUsername(), databaseConfig.getPassword());
              PreparedStatement statement = connection.prepareStatement(query);
@@ -197,7 +209,15 @@ public class Login extends javax.swing.JFrame  {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        
+        jProgressBar1.setIndeterminate(false);
     }//GEN-LAST:event_btnIngresarActionPerformed
+
+    private void pwdContraseñaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pwdContraseñaKeyPressed
+         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            btnIngresarActionPerformed(null);
+        }
+    }//GEN-LAST:event_pwdContraseñaKeyPressed
 
     
     
@@ -235,6 +255,7 @@ public class Login extends javax.swing.JFrame  {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIngresar;
+    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JLabel lblContraseña;
     private javax.swing.JLabel lblNombreEmpresa;
     private javax.swing.JLabel lblUsuario;
