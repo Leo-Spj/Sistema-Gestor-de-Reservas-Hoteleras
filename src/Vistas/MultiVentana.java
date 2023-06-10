@@ -686,8 +686,12 @@ public final class MultiVentana extends javax.swing.JFrame {
         if (fechaIni != null && fechaFin != null) {
             LocalDate localDateIni = fechaIni.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             LocalDate localDateFin = fechaFin.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            LocalDate fechaActual = LocalDate.now();
 
-            if (localDateIni.isAfter(localDateFin)) {
+            if (localDateIni.isBefore(fechaActual) || localDateFin.isBefore(fechaActual)) {
+                String mensaje = "No se puede seleccionar una fecha anterior a la fecha actual.";
+                JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (localDateIni.isAfter(localDateFin)) {
                 String mensaje = "Fecha de Inicio debe ser menor a Fecha de Fin.";
                 JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
             } else if (localDateIni.equals(localDateFin)){
@@ -695,10 +699,10 @@ public final class MultiVentana extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
             } else{
                 int indiceSucursal = cbxSucursal.getSelectedIndex();
-                System.out.println("Sucursal: "+indiceSucursal + "; Inicio: "+ localDateIni +"; Final: " + localDateFin);
-                
+                System.out.println("Sucursal: " + indiceSucursal + "; Inicio: " + localDateIni + "; Final: " + localDateFin);
+
                 /*
-                Agregar aqui el codigo para volcar los datos en la tabla 
+                Agregar aquí el código para volcar los datos en la tabla 
                 */
             }
         } else {
