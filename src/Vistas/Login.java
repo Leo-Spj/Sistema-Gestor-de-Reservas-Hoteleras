@@ -172,7 +172,6 @@ public class Login extends javax.swing.JFrame  {
             PreparedStatement statement = connection.prepareStatement(query);
             ResultSet resultSet = statement.executeQuery()) {
                 
-            rsCargaLogin.setVisible(false);
             boolean accesoConcedido = false;
             
             while (resultSet.next()) {
@@ -222,11 +221,12 @@ public class Login extends javax.swing.JFrame  {
                         e.printStackTrace();
                     }
                 } else {
+                    rsCargaLogin.setVisible(false);
                     String mensaje = "Usuario o Contraseña inválida";
                     JOptionPane.showMessageDialog(null, mensaje, "Error Login", JOptionPane.ERROR_MESSAGE);
                 }
 
-
+            rsCargaLogin.setVisible(false);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
