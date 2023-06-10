@@ -154,15 +154,12 @@ public class Login extends javax.swing.JFrame  {
 
             if (accesoConcedido) {
                 
-                MultiVentana mv = new MultiVentana();
-                mv.setVisible(true);
-                this.setVisible(false);
-
                 // Obtener información del usuario logueado
                 String queryEmpleado = "SELECT * FROM empleados WHERE dni_empleado = ?";
                 try (Connection connectionLogeo = DriverManager.getConnection(getConnectionString(),
                         databaseConfig.getUsername(), databaseConfig.getPassword());
                      PreparedStatement statementEmpleado = connectionLogeo.prepareStatement(queryEmpleado)) {
+                    
                     statementEmpleado.setString(1, usuario); // Parámetro para la consulta
                     ResultSet resultSetEmpleado = statementEmpleado.executeQuery();
                     
@@ -177,13 +174,17 @@ public class Login extends javax.swing.JFrame  {
                         usuarioLogueado.setApellido(resultSetEmpleado.getString("apellido"));
                         usuarioLogueado.setCelular(resultSetEmpleado.getString("celular"));
 
-                        // Hacer uso del objeto usuarioLogueado según sea necesario
+                        MultiVentana mv = new MultiVentana(usuarioLogueado); // Pasar la instancia
+                        mv.setVisible(true);
+                        this.setVisible(false);
                     }
                     resultSetEmpleado.close();
                     
-                String nombreUsuario = usuarioLogueado.getNombre();
                 System.out.println("Acceso Aprobado");
-                System.out.println( nombreUsuario );
+                System.out.println( "Trabajador: " + usuarioLogueado.getNombre()+" "+ usuarioLogueado.getApellido());
+                              
+                
+
                 
                 } catch (SQLException e) {
                     e.printStackTrace();

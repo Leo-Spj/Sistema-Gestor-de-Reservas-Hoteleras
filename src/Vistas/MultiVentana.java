@@ -5,32 +5,82 @@
 package Vistas;
 
 import Configuracion.DatabaseConfig;
+import Modelo.UsuarioLogueado;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 /**
  *
  * @author Leo
  */
-public class MultiVentana extends javax.swing.JFrame {
+public final class MultiVentana extends javax.swing.JFrame {
 
     /**
      * Creates new form MultiVentana
      */
-    
-    DatabaseConfig databaseConfig = new DatabaseConfig();
-    public MultiVentana() {
+    private UsuarioLogueado usuarioLogueado;
+
+    public MultiVentana(UsuarioLogueado usuarioLogueado) {
+        this.usuarioLogueado = usuarioLogueado;
+        
         initComponents();
         
         pnlRegistrarCliente.setVisible(false);
+        
+        System.out.println( "Codigo empleado: " + usuarioLogueado.getId_empleado());
+        
+        
+        
+        llenarComboBoxSucursales();
+
     }
+    public MultiVentana(){
+    };
+    
+    DatabaseConfig databaseConfig = new DatabaseConfig();
+    
+    
     private String getConnectionString() {
         String serverName = databaseConfig.getServer();
         String databaseName = databaseConfig.getDatabaseName();
         return String.format("jdbc:sqlserver://%s:1433;databaseName=%s;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;",
                 serverName, databaseName);
+    }
+
+    public void llenarComboBoxSucursales() {
+    // Consulta SQL para obtener los nombres de las sucursales
+    // Antes de agregar los elementos desde la base de datos, asegúrate de que el combobox esté vacío
+    cbxSucursal.removeAllItems();
+
+    // Agregar el elemento "Seleccionar" como primer elemento del combobox
+    cbxSucursal.addItem("Seleccionar");
+
+    // Realizar la consulta a la base de datos y agregar los resultados al combobox
+    String querySucursal = "SELECT nombre FROM sucursal";
+    
+        try (Connection connection = DriverManager.getConnection(getConnectionString(),
+                databaseConfig.getUsername(), databaseConfig.getPassword());
+             PreparedStatement statementSucursal = connection.prepareStatement(querySucursal);
+             ResultSet resultSetSucursal = statementSucursal.executeQuery()) {
+
+            while (resultSetSucursal.next()) {
+                String nombreSucursal = resultSetSucursal.getString("nombre");
+                cbxSucursal.addItem(nombreSucursal);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        cbxSucursal.setSelectedIndex(usuarioLogueado.getId_sucursal());
+
     }
 
     /**
