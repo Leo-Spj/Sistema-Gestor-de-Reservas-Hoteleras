@@ -8,12 +8,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame  {
     DatabaseConfig databaseConfig = new DatabaseConfig();
 
     public Login() {
         initComponents();
+        this.setLocationRelativeTo(this);
         jProgressBar1.setIndeterminate(true);
     }
 
@@ -202,7 +204,8 @@ public class Login extends javax.swing.JFrame  {
                     e.printStackTrace();
                 }
             } else {
-                System.out.println("Denegado");
+                String mensaje = "Usuario o Contraseña inválida";
+                JOptionPane.showMessageDialog(null, mensaje, "Error Login", JOptionPane.ERROR_MESSAGE);
             }
 
 

@@ -45,6 +45,7 @@ public final class MultiVentana extends javax.swing.JFrame {
     }
     public MultiVentana(){
         initComponents();
+        this.setLocationRelativeTo(this);
     };
     
     DatabaseConfig databaseConfig = new DatabaseConfig();
