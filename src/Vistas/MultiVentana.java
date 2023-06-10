@@ -694,7 +694,12 @@ public final class MultiVentana extends javax.swing.JFrame {
                 String mensaje = "La Fecha de Inicio no puede ser igual a la Fecha de Fin.";
                 JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
             } else{
-                System.out.print(localDateIni +" " + localDateFin);
+                int indiceSucursal = cbxSucursal.getSelectedIndex();
+                System.out.println("Sucursal: "+indiceSucursal + "; Inicio: "+ localDateIni +"; Final: " + localDateFin);
+                
+                /*
+                Agregar aqui el codigo para volcar los datos en la tabla 
+                */
             }
         } else {
             String mensaje = "Seleccione tanto la Fecha de Inicio como la Fecha de Fin.";
