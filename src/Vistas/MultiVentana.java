@@ -17,6 +17,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.ZoneId;
+import java.util.Date;
 /**
  *
  * @author Leo
@@ -38,11 +40,13 @@ public final class MultiVentana extends javax.swing.JFrame {
         System.out.println( "Codigo empleado: " + usuarioLogueado.getId_empleado());
         
         
-        
+        // Llenando los ComboBox
         llenarComboBoxSucursales();
+        cargarTiposHabitacion();
 
     }
     public MultiVentana(){
+        initComponents();
     };
     
     DatabaseConfig databaseConfig = new DatabaseConfig();
@@ -82,6 +86,30 @@ public final class MultiVentana extends javax.swing.JFrame {
         cbxSucursal.setSelectedIndex(usuarioLogueado.getId_sucursal());
 
     }
+
+    private void cargarTiposHabitacion() {
+    // Antes de agregar los elementos desde la base de datos, asegúrate de que el combobox esté vacío
+    cbxTipoHabitacion.removeAllItems();
+
+    // Agregar el elemento "Seleccionar" como primer elemento del combobox
+    cbxTipoHabitacion.addItem("Todas");
+
+    // Realizar la consulta a la base de datos y agregar los resultados al combobox
+    String queryTipoHabitacion = "SELECT tipo FROM tipo_habitacion";
+        try (Connection connection = DriverManager.getConnection(getConnectionString(),
+                databaseConfig.getUsername(), databaseConfig.getPassword());
+             PreparedStatement statementTipoHabitacion = connection.prepareStatement(queryTipoHabitacion);
+             ResultSet resultSetTipoHabitacion = statementTipoHabitacion.executeQuery()) {
+
+            while (resultSetTipoHabitacion.next()) {
+                String tipoHabitacion = resultSetTipoHabitacion.getString("tipo");
+                cbxTipoHabitacion.addItem(tipoHabitacion);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -651,44 +679,33 @@ public final class MultiVentana extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarHabitacionesActionPerformed
-        // TODO add your handling code here:
-        /*SimpleDateFormat ff = new SimpleDateFormat("yyyy-mm-dd");
-        String fecha1,fecha2;
-        fecha1= ff.format(calFechaIni.getCalendar().getTime());
-        fecha2= ff.format(calFechaFin.getCalendar().getTime());
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd");
-        LocalDate date1 = LocalDate.parse(fecha1, formatter);
-        LocalDate date2 = LocalDate.parse(fecha2, formatter);
-        if(date1.isAfter(date2))
-        {
-            String mensaje = "Fecha de Inicio debe ser menor a Fecha de Fin.";
-          JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
-                    }
-        */
-        Calendar calFechaIni = Calendar.getInstance();
-        Calendar calFechaFin = Calendar.getInstance();
         
-        // ... Configuración de las fechas calFechaIni y calFechaFin ...
-        
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String fecha1 = sdf.format(calFechaIni.getTime());
-        String fecha2 = sdf.format(calFechaFin.getTime());
+        Date fechaIni = calFechaIni.getDate(); // Fecha de inicio
+        Date fechaFin = calFechaFin.getDate(); // Fecha de fin
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate date1 = LocalDate.parse(fecha1, formatter);
-        LocalDate date2 = LocalDate.parse(fecha2, formatter);
+        if (fechaIni != null && fechaFin != null) {
+            LocalDate localDateIni = fechaIni.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            LocalDate localDateFin = fechaFin.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
-        if (date1.isAfter(date2))
-        {
-            String mensaje = "Fecha de Inicio debe ser menor a Fecha de Fin.";
-          JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
+            if (localDateIni.isAfter(localDateFin)) {
+                String mensaje = "Fecha de Inicio debe ser menor a Fecha de Fin.";
+                JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
+            } else if (localDateIni.equals(localDateFin)){
+                String mensaje = "La Fecha de Inicio no puede ser igual a la Fecha de Fin.";
+                JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
+            } else{
+                System.out.print(localDateIni +" " + localDateFin);
+            }
+        } else {
+            String mensaje = "Seleccione tanto la Fecha de Inicio como la Fecha de Fin.";
+            JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
         }
         
         
     }//GEN-LAST:event_btnBuscarHabitacionesActionPerformed
 
     
-    /**
+    /** System.out.print(localDateIni +" " + localDateFin);
      * @param args the command line arguments
      */
     public static void main(String args[]) {
