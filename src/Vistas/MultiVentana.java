@@ -6,6 +6,7 @@ package Vistas;
 
 import Configuracion.DatabaseConfig;
 import Modelo.UsuarioLogueado;
+import java.awt.event.ItemEvent;
 
 import javax.swing.JOptionPane;
 import java.time.LocalDate;
@@ -17,7 +18,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.ZoneId;
 import java.util.Date;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 /**
  *
  * @author Leo
@@ -93,7 +97,7 @@ public final class MultiVentana extends javax.swing.JFrame {
     cbxTipoHabitacion.removeAllItems();
 
     // Agregar el elemento "Seleccionar" como primer elemento del combobox
-    cbxTipoHabitacion.addItem("Todas");
+    cbxTipoHabitacion.addItem("");
 
     // Realizar la consulta a la base de datos y agregar los resultados al combobox
     String queryTipoHabitacion = "SELECT tipo FROM tipo_habitacion";
@@ -206,6 +210,11 @@ public final class MultiVentana extends javax.swing.JFrame {
         lblSelectTipoHabitacion.setText("Tipo de habitación:");
 
         cbxTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        cbxTipoHabitacion.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbxTipoHabitacionItemStateChanged(evt);
+            }
+        });
 
         btnBuscarHabitaciones.setBackground(new java.awt.Color(171, 76, 89));
         btnBuscarHabitaciones.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -758,6 +767,25 @@ public final class MultiVentana extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnBuscarHabitacionesActionPerformed
+
+    private void cbxTipoHabitacionItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxTipoHabitacionItemStateChanged
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
+            String selectedItem = cbxTipoHabitacion.getSelectedItem().toString();
+
+            if (selectedItem.isEmpty()) {
+                // Si el primer item es vacío, se muestra toda la tabla
+                TableRowSorter<TableModel> sorter = new TableRowSorter<>(tblDisponibles.getModel());
+                tblDisponibles.setRowSorter(sorter);
+                sorter.setRowFilter(null);
+            } else {
+                // Se filtra la tabla por la columna 'Descripción' usando el item seleccionado
+                TableRowSorter<TableModel> sorter = new TableRowSorter<>(tblDisponibles.getModel());
+                tblDisponibles.setRowSorter(sorter);
+                RowFilter<TableModel, Object> filter = RowFilter.regexFilter(selectedItem, 1); // '1' indica la columna 'Descripción'
+                sorter.setRowFilter(filter);
+            }
+        }
+    }//GEN-LAST:event_cbxTipoHabitacionItemStateChanged
 
     
     /** System.out.print(localDateIni +" " + localDateFin);
