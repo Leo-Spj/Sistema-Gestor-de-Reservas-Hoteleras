@@ -234,78 +234,7 @@ public class Login extends javax.swing.JFrame  {
         // Iniciar los hilos
         hilo1.start();
         hilo2.start();
-        /*
-        String usuario = txfUsuario.getText();
-        String contraseña = new String(pwdContraseña.getPassword());
-
-        String query = "SELECT * FROM aptos_login()";
-        boolean pasa = true;
-        if(query != null){
-            rsCargaLogin.setVisible(true);
-        } else if (pasa){
         
-        try (Connection connection = DriverManager.getConnection(getConnectionString(),
-                databaseConfig.getUsername(), databaseConfig.getPassword());
-             PreparedStatement statement = connection.prepareStatement(query);
-             ResultSet resultSet = statement.executeQuery()) {
-            rsCargaLogin.setVisible(false);
-            boolean accesoConcedido = false;
-            while (resultSet.next()) {
-                String dniEmpleado = resultSet.getString("dni_empleado");
-                String pwdEmpleado = resultSet.getString("contrasena");
-                if (usuario.equals(dniEmpleado) && contraseña.equals(pwdEmpleado)) {
-                    accesoConcedido = true;
-                    break;
-                }
-            }
-
-            if (accesoConcedido) {
-                
-                // Obtener información del usuario logueado
-                String queryEmpleado = "SELECT * FROM empleados WHERE dni_empleado = ?";
-                try (Connection connectionLogeo = DriverManager.getConnection(getConnectionString(),
-                        databaseConfig.getUsername(), databaseConfig.getPassword());
-                     PreparedStatement statementEmpleado = connectionLogeo.prepareStatement(queryEmpleado)) {
-                    
-                    statementEmpleado.setString(1, usuario); // Parámetro para la consulta
-                    ResultSet resultSetEmpleado = statementEmpleado.executeQuery();
-                    
-                    UsuarioLogueado usuarioLogueado = new UsuarioLogueado();
-                    if (resultSetEmpleado.next()) {
-                        
-                        usuarioLogueado.setId_empleado(resultSetEmpleado.getInt("id_empleado"));
-                        usuarioLogueado.setId_sucursal(resultSetEmpleado.getInt("id_sucursal"));
-                        usuarioLogueado.setId_cargo(resultSetEmpleado.getInt("id_cargo"));
-                        usuarioLogueado.setDni_empleado(resultSetEmpleado.getInt("dni_empleado"));
-                        usuarioLogueado.setNombre(resultSetEmpleado.getString("nombre"));
-                        usuarioLogueado.setApellido(resultSetEmpleado.getString("apellido"));
-                        usuarioLogueado.setCelular(resultSetEmpleado.getString("celular"));
-
-                        MultiVentana mv = new MultiVentana(usuarioLogueado); // Pasar la instancia
-                        mv.setVisible(true);
-                        this.setVisible(false);
-                    }
-                    resultSetEmpleado.close();
-                    
-                System.out.println("Acceso Aprobado");
-                System.out.println( "Trabajador: " + usuarioLogueado.getNombre()+" "+ usuarioLogueado.getApellido());
-                              
-                
-
-                
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            } else {
-                String mensaje = "Usuario o Contraseña inválida";
-                JOptionPane.showMessageDialog(null, mensaje, "Error Login", JOptionPane.ERROR_MESSAGE);
-            }
-
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }} else{}
-        */
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void pwdContraseñaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pwdContraseñaKeyPressed
