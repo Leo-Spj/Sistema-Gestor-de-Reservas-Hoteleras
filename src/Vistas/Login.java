@@ -16,7 +16,21 @@ public class Login extends javax.swing.JFrame  {
     public Login() {
         initComponents();
         this.setLocationRelativeTo(this);
+         btnIngresar.setEnabled(false);
         rsCargaLogin.setVisible(false);
+    }
+    
+    public void validarCaracteres(java.awt.event.KeyEvent evento){
+        if(evento.getKeyChar() >=32 && evento.getKeyChar() <=47 || evento.getKeyChar() >=58 && evento.getKeyChar() <=8482){
+            evento.consume();
+            String mensaje = "No se permiten caracteres normales, especiales ni espacios. SOLO NÚMEROS";
+            JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public void habilitarBoton(){
+        if(!txtUsuario.getText().isEmpty() && pwdContraseña.getPassword().length>0 )
+            btnIngresar.setEnabled(true);
     }
 
     
@@ -28,7 +42,7 @@ public class Login extends javax.swing.JFrame  {
         logoApp = new javax.swing.JLabel();
         lblNombreEmpresa = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
-        txfUsuario = new javax.swing.JTextField();
+        txtUsuario = new javax.swing.JTextField();
         lblContraseña = new javax.swing.JLabel();
         btnIngresar = new javax.swing.JButton();
         pwdContraseña = new javax.swing.JPasswordField();
@@ -48,10 +62,15 @@ public class Login extends javax.swing.JFrame  {
         lblUsuario.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lblUsuario.setText("Usuario");
 
-        txfUsuario.setBackground(new java.awt.Color(250, 248, 235));
-        txfUsuario.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txfUsuario.setForeground(new java.awt.Color(45, 42, 37));
-        txfUsuario.setSelectionColor(new java.awt.Color(171, 76, 89));
+        txtUsuario.setBackground(new java.awt.Color(250, 248, 235));
+        txtUsuario.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtUsuario.setForeground(new java.awt.Color(45, 42, 37));
+        txtUsuario.setSelectionColor(new java.awt.Color(171, 76, 89));
+        txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyPressed(evt);
+            }
+        });
 
         lblContraseña.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lblContraseña.setText("Contraseña");
@@ -74,6 +93,9 @@ public class Login extends javax.swing.JFrame  {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 pwdContraseñaKeyPressed(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                pwdContraseñaKeyReleased(evt);
+            }
         });
 
         rsCargaLogin.setAnchoProgress(5);
@@ -93,7 +115,7 @@ public class Login extends javax.swing.JFrame  {
                         .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(pnlLoginLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(txfUsuario))
+                                .addComponent(txtUsuario))
                             .addGroup(pnlLoginLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,7 +135,7 @@ public class Login extends javax.swing.JFrame  {
                 .addComponent(lblNombreEmpresa)
                 .addGap(58, 58, 58)
                 .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txfUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblUsuario))
                 .addGap(36, 36, 36)
                 .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -160,7 +182,7 @@ public class Login extends javax.swing.JFrame  {
     Thread hilo2 = new Thread(new Runnable() {
         public void run() {
             // Código del segundo hilo
-            String usuario = txfUsuario.getText();
+            String usuario = txtUsuario.getText();
             String contraseña = new String(pwdContraseña.getPassword());
 
             String query = "SELECT * FROM aptos_login()";
@@ -241,7 +263,16 @@ public class Login extends javax.swing.JFrame  {
          if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             btnIngresarActionPerformed(null);
         }
+         validarCaracteres(evt);
     }//GEN-LAST:event_pwdContraseñaKeyPressed
+
+    private void txtUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyPressed
+        validarCaracteres(evt);
+    }//GEN-LAST:event_txtUsuarioKeyPressed
+
+    private void pwdContraseñaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pwdContraseñaKeyReleased
+        habilitarBoton();
+    }//GEN-LAST:event_pwdContraseñaKeyReleased
 
     
     
@@ -286,6 +317,6 @@ public class Login extends javax.swing.JFrame  {
     private javax.swing.JPanel pnlLogin;
     private javax.swing.JPasswordField pwdContraseña;
     private rojerusan.componentes.RSProgressMaterial rsCargaLogin;
-    private javax.swing.JTextField txfUsuario;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

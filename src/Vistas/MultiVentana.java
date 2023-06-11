@@ -38,6 +38,7 @@ public final class MultiVentana extends javax.swing.JFrame {
         this.usuarioLogueado = usuarioLogueado;
         
         initComponents();
+        this.setLocationRelativeTo(this);
         
         pnlRegistrarCliente.setVisible(false);
         
@@ -51,7 +52,6 @@ public final class MultiVentana extends javax.swing.JFrame {
     }
     public MultiVentana(){
         initComponents();
-        this.setLocationRelativeTo(this);
     };
     
     DatabaseConfig databaseConfig = new DatabaseConfig();
