@@ -720,12 +720,13 @@ public final class MultiVentana extends javax.swing.JFrame {
 
                     try (ResultSet resultSetTipoHabitacion = statementTipoHabitacion.executeQuery()) {
                         while (resultSetTipoHabitacion.next()) {
-                            Object[] row = new Object[5];
+                            Object[] row = new Object[6];
                             row[0] = resultSetTipoHabitacion.getInt("id_habitacion");
                             row[1] = resultSetTipoHabitacion.getString("tipo");
                             row[2] = resultSetTipoHabitacion.getInt("capacidad");
-                            row[3] = resultSetTipoHabitacion.getString("habitacion");
-                            row[4] = resultSetTipoHabitacion.getDouble("Precio por noche");
+                            row[3] = resultSetTipoHabitacion.getString("descripcion");
+                            row[4] = resultSetTipoHabitacion.getString("habitacion");
+                            row[5] = resultSetTipoHabitacion.getDouble("Precio por noche");
                             model.addRow(row);
                         }
                     }
