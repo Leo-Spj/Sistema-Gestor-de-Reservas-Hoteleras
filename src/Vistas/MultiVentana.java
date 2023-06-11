@@ -17,6 +17,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.ZoneId;
 import java.util.Date;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Leo
@@ -701,9 +702,37 @@ public final class MultiVentana extends javax.swing.JFrame {
                 int indiceSucursal = cbxSucursal.getSelectedIndex();
                 System.out.println("Sucursal: " + indiceSucursal + "; Inicio: " + localDateIni + "; Final: " + localDateFin);
 
-                /*
-                Agregar aquí el código para volcar los datos en la tabla 
-                */
+                String queryTipoHabitacion = "EXEC sp_buscar_habitaciones_disponibles ?, ?, ?";
+    
+                try (Connection connection = DriverManager.getConnection(getConnectionString(),
+                        databaseConfig.getUsername(), databaseConfig.getPassword());
+                     PreparedStatement statementTipoHabitacion = connection.prepareStatement(queryTipoHabitacion)) {
+
+                    // Borrar resultados anteriores de la tabla
+                    DefaultTableModel model = (DefaultTableModel) tblDisponibles.getModel();
+                    model.setRowCount(0);
+
+                    
+                    // Establecer los valores de los parámetros
+                    statementTipoHabitacion.setString(1, indiceSucursal+"");
+                    statementTipoHabitacion.setString(2, localDateIni+"");
+                    statementTipoHabitacion.setString(3, localDateFin+"");
+
+                    try (ResultSet resultSetTipoHabitacion = statementTipoHabitacion.executeQuery()) {
+                        while (resultSetTipoHabitacion.next()) {
+                            Object[] row = new Object[5];
+                            row[0] = resultSetTipoHabitacion.getInt("id_habitacion");
+                            row[1] = resultSetTipoHabitacion.getString("tipo");
+                            row[2] = resultSetTipoHabitacion.getInt("capacidad");
+                            row[3] = resultSetTipoHabitacion.getString("habitacion");
+                            row[4] = resultSetTipoHabitacion.getDouble("Precio por noche");
+                            model.addRow(row);
+                        }
+                    }
+                } catch (SQLException e) {
+                    // Manejo de excepciones
+                    e.printStackTrace();
+                }
             }
         } else {
             String mensaje = "Seleccione tanto la Fecha de Inicio como la Fecha de Fin.";

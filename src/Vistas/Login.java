@@ -150,12 +150,12 @@ public class Login extends javax.swing.JFrame  {
     }
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         
-    // Crear los hilos
+    // hilos
     Thread hilo1 = new Thread(new Runnable() {
         public void run() {
-            // Código del primer hilo
+            
             rsCargaLogin.setVisible(true);
-            // Resto del código del primer hilo
+            
         }
     });
 
