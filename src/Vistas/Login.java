@@ -16,6 +16,7 @@ public class Login extends javax.swing.JFrame  {
     public Login() {
         initComponents();
         this.setLocationRelativeTo(this);
+        this.ojoOcultar.setVisible(false);
          btnIngresar.setEnabled(false);
         rsCargaLogin.setVisible(false);
     }
@@ -49,6 +50,8 @@ public class Login extends javax.swing.JFrame  {
         btnIngresar = new javax.swing.JButton();
         pwdContraseña = new javax.swing.JPasswordField();
         rsCargaLogin = new rojerusan.componentes.RSProgressMaterial();
+        ojoVer = new javax.swing.JLabel();
+        ojoOcultar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -105,6 +108,20 @@ public class Login extends javax.swing.JFrame  {
 
         rsCargaLogin.setAnchoProgress(5);
 
+        ojoVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/ver_32px.png"))); // NOI18N
+        ojoVer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ojoVerMouseClicked(evt);
+            }
+        });
+
+        ojoOcultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas/Imagenes/ocultar_32px.png"))); // NOI18N
+        ojoOcultar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ojoOcultarMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlLoginLayout = new javax.swing.GroupLayout(pnlLogin);
         pnlLogin.setLayout(pnlLoginLayout);
         pnlLoginLayout.setHorizontalGroup(
@@ -129,7 +146,11 @@ public class Login extends javax.swing.JFrame  {
                     .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(logoApp, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblNombreEmpresa)))
-                .addGap(135, 135, 135))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ojoOcultar)
+                    .addComponent(ojoVer))
+                .addGap(77, 77, 77))
         );
         pnlLoginLayout.setVerticalGroup(
             pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,11 +163,14 @@ public class Login extends javax.swing.JFrame  {
                 .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblUsuario))
-                .addGap(36, 36, 36)
-                .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pwdContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblContraseña))
-                .addGap(46, 46, 46)
+                .addGap(45, 45, 45)
+                .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(pwdContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblContraseña))
+                    .addComponent(ojoVer)
+                    .addComponent(ojoOcultar))
+                .addGap(64, 64, 64)
                 .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(rsCargaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(btnIngresar, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE))
@@ -283,6 +307,18 @@ public class Login extends javax.swing.JFrame  {
         habilitarBoton();
     }//GEN-LAST:event_txtUsuarioKeyReleased
 
+    private void ojoVerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ojoVerMouseClicked
+        this.ojoOcultar.setVisible(true);
+        this.ojoVer.setVisible(false);
+        pwdContraseña.setEchoChar((char)0);
+    }//GEN-LAST:event_ojoVerMouseClicked
+
+    private void ojoOcultarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ojoOcultarMouseClicked
+        this.ojoOcultar.setVisible(false);
+        this.ojoVer.setVisible(true);
+        pwdContraseña.setEchoChar('●');
+    }//GEN-LAST:event_ojoOcultarMouseClicked
+
     
     
     public static void main(String args[]) {
@@ -323,6 +359,8 @@ public class Login extends javax.swing.JFrame  {
     private javax.swing.JLabel lblNombreEmpresa;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel logoApp;
+    private javax.swing.JLabel ojoOcultar;
+    private javax.swing.JLabel ojoVer;
     private javax.swing.JPanel pnlLogin;
     private javax.swing.JPasswordField pwdContraseña;
     private rojerusan.componentes.RSProgressMaterial rsCargaLogin;
