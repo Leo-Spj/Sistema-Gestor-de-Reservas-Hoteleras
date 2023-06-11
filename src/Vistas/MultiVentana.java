@@ -284,18 +284,34 @@ public final class MultiVentana extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel1.setText("Habitaciones Disponibles:");
 
+        tblDisponibles.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         tblDisponibles.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "ID habitación", "Tipo", "Capacidad", "Descripción", "Habitación", "S/."
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblDisponibles);
+        if (tblDisponibles.getColumnModel().getColumnCount() > 0) {
+            tblDisponibles.getColumnModel().getColumn(0).setMinWidth(85);
+            tblDisponibles.getColumnModel().getColumn(0).setMaxWidth(85);
+            tblDisponibles.getColumnModel().getColumn(1).setMinWidth(100);
+            tblDisponibles.getColumnModel().getColumn(1).setMaxWidth(130);
+            tblDisponibles.getColumnModel().getColumn(2).setMaxWidth(100);
+            tblDisponibles.getColumnModel().getColumn(3).setMinWidth(370);
+            tblDisponibles.getColumnModel().getColumn(4).setMaxWidth(100);
+            tblDisponibles.getColumnModel().getColumn(5).setMaxWidth(100);
+        }
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
