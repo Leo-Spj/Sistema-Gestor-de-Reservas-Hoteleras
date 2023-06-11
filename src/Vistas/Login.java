@@ -29,7 +29,9 @@ public class Login extends javax.swing.JFrame  {
     }
     
     public void habilitarBoton(){
-        if(!txtUsuario.getText().isEmpty() && pwdContraseña.getPassword().length>0 )
+        if((txtUsuario.getText().isEmpty() && pwdContraseña.getPassword().length==0 )|| (pwdContraseña.getPassword().length>0 && txtUsuario.getText().isEmpty()) || (!txtUsuario.getText().isEmpty() && pwdContraseña.getPassword().length==0))
+            btnIngresar.setEnabled(false);
+        else
             btnIngresar.setEnabled(true);
     }
 
@@ -69,6 +71,9 @@ public class Login extends javax.swing.JFrame  {
         txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtUsuarioKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyReleased(evt);
             }
         });
 
@@ -273,6 +278,10 @@ public class Login extends javax.swing.JFrame  {
     private void pwdContraseñaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pwdContraseñaKeyReleased
         habilitarBoton();
     }//GEN-LAST:event_pwdContraseñaKeyReleased
+
+    private void txtUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyReleased
+        habilitarBoton();
+    }//GEN-LAST:event_txtUsuarioKeyReleased
 
     
     
