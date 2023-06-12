@@ -5,8 +5,10 @@
 package Vistas;
 
 import Configuracion.DatabaseConfig;
+import Modelo.Cliente;
 import Modelo.UsuarioLogueado;
 import java.awt.event.ItemEvent;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -196,7 +198,7 @@ public final class MultiVentana extends javax.swing.JFrame {
         txtFechaSalida = new javax.swing.JTextField();
         btnReservar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tblDetalleReserva = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
         pnlBoleta = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
@@ -389,7 +391,7 @@ public final class MultiVentana extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Buscar Disponibles", panelBusquedaHabitacion);
@@ -402,6 +404,14 @@ public final class MultiVentana extends javax.swing.JFrame {
         jLabel2.setText("DNI Cliente:");
 
         txtDNICliente.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtDNICliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtDNIClienteKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDNIClienteKeyTyped(evt);
+            }
+        });
 
         tblDatosCliente.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         tblDatosCliente.setModel(new javax.swing.table.DefaultTableModel(
@@ -527,7 +537,7 @@ public final class MultiVentana extends javax.swing.JFrame {
         btnReservar.setForeground(new java.awt.Color(27, 35, 42));
         btnReservar.setText("Reservar");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblDetalleReserva.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -538,7 +548,7 @@ public final class MultiVentana extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(jTable2);
+        jScrollPane3.setViewportView(tblDetalleReserva);
 
         javax.swing.GroupLayout pnlReservarHabitacionLayout = new javax.swing.GroupLayout(pnlReservarHabitacion);
         pnlReservarHabitacion.setLayout(pnlReservarHabitacionLayout);
@@ -824,6 +834,58 @@ public final class MultiVentana extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cbxTipoHabitacionItemStateChanged
 
+    private void txtDNIClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDNIClienteKeyPressed
+        // TODO add your handling code here:
+        if ((evt.getKeyCode() == KeyEvent.VK_ENTER)&&(txtDNICliente.getText().length()>7&&txtDNICliente.getText().length()<9)){
+        Cliente c = new Cliente();
+        String text = txtDNICliente.getText();
+        if (!text.isEmpty()) {
+            try {
+                c.setDniCliente(Integer.parseInt(text));
+
+                try (Connection conn = DriverManager.getConnection(getConnectionString(),
+                        databaseConfig.getUsername(), databaseConfig.getPassword())) {
+                    // Valor ingresado en el campo de texto
+                    int valorBusqueda = c.getDniCliente(); // Utilizamos el valor ingresado en el objeto Cliente
+
+                    // Consulta SQL para buscar en la tabla
+                    String queryDNI = "SELECT DNI_CLIENTE FROM DBO.clientes WHERE DNI_CLIENTE = ?";
+
+                    // Preparar la consulta
+                    PreparedStatement statement = conn.prepareStatement(queryDNI);
+                    statement.setInt(1, valorBusqueda);
+
+                    // Ejecutar la consulta y obtener los resultados
+                    ResultSet resultSet = statement.executeQuery();
+
+                    // Mostrar los resultados
+                    while (resultSet.next()) {
+                        // Obtener el valor de la columna DNI_CLIENTE
+                        int dniCliente = resultSet.getInt("DNI_CLIENTE");
+
+                        // Hacer algo con el valor obtenido
+                        JOptionPane.showMessageDialog(null, "El cliente esta registrado");
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            } catch (NumberFormatException e) {
+                // Manejo del error cuando el valor no es un número entero válido
+                e.printStackTrace();
+            }
+        } else {
+            String mensaje = "Ingrese un número de 8 dígitos.";
+            JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        }
+        
+        
+    }//GEN-LAST:event_txtDNIClienteKeyPressed
+
+    private void txtDNIClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDNIClienteKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDNIClienteKeyTyped
+
     /**
      * System.out.print(localDateIni +" " + localDateFin);
      *
@@ -895,7 +957,6 @@ public final class MultiVentana extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField8;
@@ -911,6 +972,7 @@ public final class MultiVentana extends javax.swing.JFrame {
     private javax.swing.JPanel pnlRegistrarCliente;
     private javax.swing.JPanel pnlReservarHabitacion;
     private javax.swing.JTable tblDatosCliente;
+    private javax.swing.JTable tblDetalleReserva;
     private javax.swing.JTable tblDisponibles;
     private javax.swing.JTextField txtApellidoCliente;
     private javax.swing.JTextField txtCelularCliente;
