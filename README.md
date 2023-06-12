@@ -19,7 +19,7 @@ Antes de ejecutar el proyecto, asegúrate de tener instalados los siguientes req
 - Se debe tener instalado el [driver de SQL Server para Java](https://docs.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-ver15).
 - Un entorno de desarrollo integrado (IDE) compatible con Java, recomendamos NetBeans 17 o superior.
 - Acceso a una base de datos SQL Azure. Puedes obtener una cuenta gratuita de Azure y crear una base de datos para este proyecto, con nuestra estructura de tablas y datos de prueba, siguiendo los pasos descritos en el siguiente artículo: [Crear una base de datos SQL Azure](https://docs.microsoft.com/en-us/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal).
-- Deberá configurar el archivo `config.properties` con los datos de conexión a la base de datos SQL Azure. Puede encontrar un ejemplo de este archivo [aquí](), el cual se deberá colocar el la raíz del proyecto.
+- Deberá configurar el archivo `config.properties` con los datos de conexión a la base de datos SQL Azure. Puede encontrar un ejemplo de este archivo [aquí](https://github.com/Leo-Spj/Java-POO-UTP/blob/main/Base%20de%20Datos/config.properties), luego este archivo se deberá colocar en la raíz del proyecto.
 
 ## Configuración
 
