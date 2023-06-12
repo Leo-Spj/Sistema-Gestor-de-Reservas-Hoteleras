@@ -8,30 +8,14 @@ package Modelo;
  *
  * @author Leo
  */
-<<<<<<< Updated upstream
-public class Cliente {
+public class Cliente extends Persona{
 
-=======
-public class Cliente implements Persona{
->>>>>>> Stashed changes
-    private int dniCliente;
-    private String nombre;
-    private String apellido;
-    private String celular;
-
-    @Override
-    public String getNombre() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    // Constructor
+    public Cliente(int DNI, String nombre, String apellido, String celular) {
+        super(DNI, nombre, apellido, celular);
     }
-
-    @Override
-    public String getApellido() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public String getCelular() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
+    // Constructor vacio, igual tenemos que usar las variables del padre con "super"
+    public Cliente() {
+        super(0, "", "", "");
+    }    
 }

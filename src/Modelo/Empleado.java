@@ -8,15 +8,24 @@ package Modelo;
  *
  * @author Leo
  */
-public class Empleado {
+public class Empleado extends Persona {
 
     private int idEmpleado;
     private Sucursal sucursal;
     private Cargo cargo;
-    private int dniEmpleado;
-    private String nombre;
-    private String apellido;
-    private String celular;
+    
+    // Constructor
+    public Empleado(int idEmpleado, Sucursal sucursal, Cargo cargo, int DNI, String nombre, String apellido, String celular) {
+        super(DNI, nombre, apellido, celular);
+        this.idEmpleado = idEmpleado;
+        this.sucursal = sucursal;
+        this.cargo = cargo;
+    }
+    
+    // Constructor vacio, igual tenemos que usar las variables del padre con "super"
+    public Empleado() {
+        super(0, "", "", "");  // Llama al constructor de la clase padre (Persona)
+    }
 
     /**
      * @return the idEmpleado
@@ -59,60 +68,6 @@ public class Empleado {
     public void setCargo(Cargo cargo) {
         this.cargo = cargo;
     }
-
-    /**
-     * @return the dniEmpleado
-     */
-    public int getDniEmpleado() {
-        return dniEmpleado;
-    }
-
-    /**
-     * @param dniEmpleado the dniEmpleado to set
-     */
-    public void setDniEmpleado(int dniEmpleado) {
-        this.dniEmpleado = dniEmpleado;
-    }
-
-    /**
-     * @return the nombre
-     */
-    public String getNombre() {
-        return nombre;
-    }
-
-    /**
-     * @param nombre the nombre to set
-     */
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    /**
-     * @return the apellido
-     */
-    public String getApellido() {
-        return apellido;
-    }
-
-    /**
-     * @param apellido the apellido to set
-     */
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    /**
-     * @return the celular
-     */
-    public String getCelular() {
-        return celular;
-    }
-
-    /**
-     * @param celular the celular to set
-     */
-    public void setCelular(String celular) {
-        this.celular = celular;
-    }
+    
+    
 }

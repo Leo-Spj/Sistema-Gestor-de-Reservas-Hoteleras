@@ -841,12 +841,12 @@ public final class MultiVentana extends javax.swing.JFrame {
             if (text.matches("\\d{8}")) {
                 Cliente c = new Cliente();
                 try {
-                    c.setDniCliente(Integer.parseInt(text));
+                    c.setDNI(Integer.parseInt(text));
 
                     try (Connection conn = DriverManager.getConnection(getConnectionString(),
                             databaseConfig.getUsername(), databaseConfig.getPassword())) {
                         // Valor ingresado en el campo de texto
-                        int valorBusqueda = c.getDniCliente(); // Utilizamos el valor ingresado en el objeto Cliente
+                        int valorBusqueda = c.getDNI(); // Utilizamos el valor ingresado en el objeto Cliente
 
                         // Consulta SQL para buscar en la tabla
                         String queryDNI = "SELECT DNI_CLIENTE FROM DBO.clientes WHERE DNI_CLIENTE = ?";
