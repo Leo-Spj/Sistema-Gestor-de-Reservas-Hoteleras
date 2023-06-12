@@ -101,8 +101,8 @@
                           <Component id="pwdContraseña" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblContraseña" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="ojoVer" min="-2" max="-2" attributes="0"/>
                       <Component id="ojoOcultar" min="-2" max="-2" attributes="0"/>
+                      <Component id="ojoVer" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">

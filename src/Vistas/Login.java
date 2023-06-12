@@ -16,7 +16,7 @@ public class Login extends javax.swing.JFrame  {
     public Login() {
         initComponents();
         this.setLocationRelativeTo(this);
-        this.ojoOcultar.setVisible(false);
+        this.ojoOcultar.setVisible(true);
          btnIngresar.setEnabled(false);
         rsCargaLogin.setVisible(false);
     }
@@ -169,8 +169,8 @@ public class Login extends javax.swing.JFrame  {
                     .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(pwdContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lblContraseña))
-                    .addComponent(ojoVer)
-                    .addComponent(ojoOcultar))
+                    .addComponent(ojoOcultar)
+                    .addComponent(ojoVer))
                 .addGap(64, 64, 64)
                 .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(rsCargaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -311,13 +311,13 @@ public class Login extends javax.swing.JFrame  {
     private void ojoVerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ojoVerMouseClicked
         this.ojoOcultar.setVisible(true);
         this.ojoVer.setVisible(false);
-        pwdContraseña.setEchoChar((char)0);
+        pwdContraseña.setEchoChar('●');
     }//GEN-LAST:event_ojoVerMouseClicked
 
     private void ojoOcultarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ojoOcultarMouseClicked
         this.ojoOcultar.setVisible(false);
         this.ojoVer.setVisible(true);
-        pwdContraseña.setEchoChar('●');
+        pwdContraseña.setEchoChar((char)0);
     }//GEN-LAST:event_ojoOcultarMouseClicked
 
     
