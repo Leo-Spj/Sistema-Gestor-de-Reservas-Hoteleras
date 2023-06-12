@@ -8,66 +8,30 @@ package Modelo;
  *
  * @author Leo
  */
+<<<<<<< Updated upstream
 public class Cliente {
 
+=======
+public class Cliente implements Persona{
+>>>>>>> Stashed changes
     private int dniCliente;
     private String nombre;
     private String apellido;
     private String celular;
 
-    /**
-     * @return the dniCliente
-     */
-    public int getDniCliente() {
-        return dniCliente;
-    }
-
-    /**
-     * @param dniCliente the dniCliente to set
-     */
-    public void setDniCliente(int dniCliente) {
-        this.dniCliente = dniCliente;
-    }
-
-    /**
-     * @return the nombre
-     */
+    @Override
     public String getNombre() {
-        return nombre;
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    /**
-     * @param nombre the nombre to set
-     */
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    /**
-     * @return the apellido
-     */
+    @Override
     public String getApellido() {
-        return apellido;
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    /**
-     * @param apellido the apellido to set
-     */
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    /**
-     * @return the celular
-     */
+    @Override
     public String getCelular() {
-        return celular;
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    /**
-     * @param celular the celular to set
-     */
-    public void setCelular(String celular) {
-        this.celular = celular;
-    }
 }
