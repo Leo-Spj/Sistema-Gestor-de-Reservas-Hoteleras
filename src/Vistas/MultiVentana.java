@@ -836,49 +836,50 @@ public final class MultiVentana extends javax.swing.JFrame {
 
     private void txtDNIClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDNIClienteKeyPressed
         // TODO add your handling code here:
-        if ((evt.getKeyCode() == KeyEvent.VK_ENTER)&&(txtDNICliente.getText().length()>7&&txtDNICliente.getText().length()<9)){
+            if ((evt.getKeyCode() == KeyEvent.VK_ENTER)) {
+    String text = txtDNICliente.getText();
+    if (text.length() == 8 && text.matches("\\d+")) {
         Cliente c = new Cliente();
-        String text = txtDNICliente.getText();
-        if (!text.isEmpty()) {
-            try {
-                c.setDniCliente(Integer.parseInt(text));
+        try {
+            c.setDniCliente(Integer.parseInt(text));
 
-                try (Connection conn = DriverManager.getConnection(getConnectionString(),
-                        databaseConfig.getUsername(), databaseConfig.getPassword())) {
-                    // Valor ingresado en el campo de texto
-                    int valorBusqueda = c.getDniCliente(); // Utilizamos el valor ingresado en el objeto Cliente
+            try (Connection conn = DriverManager.getConnection(getConnectionString(),
+                    databaseConfig.getUsername(), databaseConfig.getPassword())) {
+                // Valor ingresado en el campo de texto
+                int valorBusqueda = c.getDniCliente(); // Utilizamos el valor ingresado en el objeto Cliente
 
-                    // Consulta SQL para buscar en la tabla
-                    String queryDNI = "SELECT DNI_CLIENTE FROM DBO.clientes WHERE DNI_CLIENTE = ?";
+                // Consulta SQL para buscar en la tabla
+                String queryDNI = "SELECT DNI_CLIENTE FROM DBO.clientes WHERE DNI_CLIENTE = ?";
 
-                    // Preparar la consulta
-                    PreparedStatement statement = conn.prepareStatement(queryDNI);
-                    statement.setInt(1, valorBusqueda);
+                // Preparar la consulta
+                PreparedStatement statement = conn.prepareStatement(queryDNI);
+                statement.setInt(1, valorBusqueda);
 
-                    // Ejecutar la consulta y obtener los resultados
-                    ResultSet resultSet = statement.executeQuery();
+                // Ejecutar la consulta y obtener los resultados
+                ResultSet resultSet = statement.executeQuery();
 
-                    // Mostrar los resultados
-                    while (resultSet.next()) {
-                        // Obtener el valor de la columna DNI_CLIENTE
-                        int dniCliente = resultSet.getInt("DNI_CLIENTE");
-
-                        // Hacer algo con el valor obtenido
-                        JOptionPane.showMessageDialog(null, "El cliente esta registrado");
-                    }
-                } catch (SQLException e) {
-                    e.printStackTrace();
+                // Verificar si existen resultados
+                if (resultSet.next()) {
+                    // El cliente está registrado
+                    JOptionPane.showMessageDialog(null, "El cliente está registrado");
+                } else {
+                    // El cliente no está registrado
+                    JOptionPane.showMessageDialog(null, "El cliente no está registrado");
                 }
-            } catch (NumberFormatException e) {
-                // Manejo del error cuando el valor no es un número entero válido
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
-        } else {
-            String mensaje = "Ingrese un número de 8 dígitos.";
-            JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
+        } catch (NumberFormatException e) {
+            // Manejo del error cuando el valor no es un número entero válido
+            e.printStackTrace();
         }
-        }
-        
+    } else {
+        String mensaje = "Ingrese un número de 8 dígitos.";
+        JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
+    }
+}
+
+
         
     }//GEN-LAST:event_txtDNIClienteKeyPressed
 
