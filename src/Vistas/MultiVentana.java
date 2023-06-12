@@ -26,6 +26,7 @@ import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+
 /**
  *
  * @author Leo
@@ -38,32 +39,34 @@ public final class MultiVentana extends javax.swing.JFrame {
     private UsuarioLogueado usuarioLogueado;
 
     public MultiVentana(UsuarioLogueado usuarioLogueado) {
-                
+
         this.usuarioLogueado = usuarioLogueado;
-        
+
         initComponents();
         this.setLocationRelativeTo(this);
         cerrarSesion();
-        
+
         pnlRegistrarCliente.setVisible(false);
-        
-        System.out.println( "Codigo empleado: " + usuarioLogueado.getId_empleado());
-        
-        
+
+        System.out.println("Codigo empleado: " + usuarioLogueado.getId_empleado());
+
         // Llenando los ComboBox
         llenarComboBoxSucursales();
         cargarTiposHabitacion();
 
     }
-    public MultiVentana(){
+
+    public MultiVentana() {
         initComponents();
-    };
+    }
+
+    ;
     
-    public void cerrarSesion(){
+    public void cerrarSesion() {
         try {
             this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-            addWindowListener(new WindowAdapter(){
-                public void windowClosing(WindowEvent e){
+            addWindowListener(new WindowAdapter() {
+                public void windowClosing(WindowEvent e) {
                     confirmarCierre();
                 }
             }
@@ -73,23 +76,22 @@ public final class MultiVentana extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
-    
-    public void confirmarCierre(){
+
+    public void confirmarCierre() {
         Object[] opciones = {"Si", "No"};
-        
-        int valor = JOptionPane.showOptionDialog(this, "¿Está seguro de cerrar sesión?","Advertencia", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, opciones, null);
-        if(valor == JOptionPane.YES_OPTION){
+
+        int valor = JOptionPane.showOptionDialog(this, "¿Está seguro de cerrar sesión?", "Advertencia", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, opciones, null);
+        if (valor == JOptionPane.YES_OPTION) {
             Login lg = new Login();
-            JOptionPane.showMessageDialog(null, "Cierre de sesión exitosa", "Gracias",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Cierre de sesión exitosa", "Gracias", JOptionPane.INFORMATION_MESSAGE);
             lg.setVisible(true);
             this.dispose();
-            
+
         }
     }
-    
+
     DatabaseConfig databaseConfig = new DatabaseConfig();
-    
-    
+
     private String getConnectionString() {
         String serverName = databaseConfig.getServer();
         String databaseName = databaseConfig.getDatabaseName();
@@ -98,20 +100,18 @@ public final class MultiVentana extends javax.swing.JFrame {
     }
 
     public void llenarComboBoxSucursales() {
-    // Consulta SQL para obtener los nombres de las sucursales
-    // Antes de agregar los elementos desde la base de datos, asegúrate de que el combobox esté vacío
-    cbxSucursal.removeAllItems();
+        // Consulta SQL para obtener los nombres de las sucursales
+        // Antes de agregar los elementos desde la base de datos, asegúrate de que el combobox esté vacío
+        cbxSucursal.removeAllItems();
 
-    // Agregar el elemento "Seleccionar" como primer elemento del combobox
-    cbxSucursal.addItem("Seleccionar");
+        // Agregar el elemento "Seleccionar" como primer elemento del combobox
+        cbxSucursal.addItem("Seleccionar");
 
-    // Realizar la consulta a la base de datos y agregar los resultados al combobox
-    String querySucursal = "SELECT nombre FROM sucursal";
-    
-        try (Connection connection = DriverManager.getConnection(getConnectionString(),
-                databaseConfig.getUsername(), databaseConfig.getPassword());
-             PreparedStatement statementSucursal = connection.prepareStatement(querySucursal);
-             ResultSet resultSetSucursal = statementSucursal.executeQuery()) {
+        // Realizar la consulta a la base de datos y agregar los resultados al combobox
+        String querySucursal = "SELECT nombre FROM sucursal";
+
+        try ( Connection connection = DriverManager.getConnection(getConnectionString(),
+                databaseConfig.getUsername(), databaseConfig.getPassword());  PreparedStatement statementSucursal = connection.prepareStatement(querySucursal);  ResultSet resultSetSucursal = statementSucursal.executeQuery()) {
 
             while (resultSetSucursal.next()) {
                 String nombreSucursal = resultSetSucursal.getString("nombre");
@@ -120,24 +120,22 @@ public final class MultiVentana extends javax.swing.JFrame {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        
+
         cbxSucursal.setSelectedIndex(usuarioLogueado.getId_sucursal());
 
     }
 
     private void cargarTiposHabitacion() {
-    // Antes de agregar los elementos desde la base de datos, asegúrate de que el combobox esté vacío
-    cbxTipoHabitacion.removeAllItems();
+        // Antes de agregar los elementos desde la base de datos, asegúrate de que el combobox esté vacío
+        cbxTipoHabitacion.removeAllItems();
 
-    // Agregar el elemento "Seleccionar" como primer elemento del combobox
-    cbxTipoHabitacion.addItem("");
+        // Agregar el elemento "Seleccionar" como primer elemento del combobox
+        cbxTipoHabitacion.addItem("");
 
-    // Realizar la consulta a la base de datos y agregar los resultados al combobox
-    String queryTipoHabitacion = "SELECT tipo FROM tipo_habitacion";
-        try (Connection connection = DriverManager.getConnection(getConnectionString(),
-                databaseConfig.getUsername(), databaseConfig.getPassword());
-             PreparedStatement statementTipoHabitacion = connection.prepareStatement(queryTipoHabitacion);
-             ResultSet resultSetTipoHabitacion = statementTipoHabitacion.executeQuery()) {
+        // Realizar la consulta a la base de datos y agregar los resultados al combobox
+        String queryTipoHabitacion = "SELECT tipo FROM tipo_habitacion";
+        try ( Connection connection = DriverManager.getConnection(getConnectionString(),
+                databaseConfig.getUsername(), databaseConfig.getPassword());  PreparedStatement statementTipoHabitacion = connection.prepareStatement(queryTipoHabitacion);  ResultSet resultSetTipoHabitacion = statementTipoHabitacion.executeQuery()) {
 
             while (resultSetTipoHabitacion.next()) {
                 String tipoHabitacion = resultSetTipoHabitacion.getString("tipo");
@@ -147,7 +145,6 @@ public final class MultiVentana extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -178,26 +175,26 @@ public final class MultiVentana extends javax.swing.JFrame {
         ventanaReservar = new javax.swing.JPanel();
         pnlBuscarCliente = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtDNICliente = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblDatosCliente = new javax.swing.JTable();
         pnlRegistrarCliente = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtNombreCliente = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtApellidoCliente = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        txtCelularCliente = new javax.swing.JTextField();
+        btnRegistrar = new javax.swing.JButton();
         pnlReservarHabitacion = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtIDHabitacion = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        txtFechaIngreso = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        txtFechaSalida = new javax.swing.JTextField();
+        btnReservar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
@@ -404,10 +401,10 @@ public final class MultiVentana extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel2.setText("DNI Cliente:");
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtDNICliente.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
-        jTable1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblDatosCliente.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        tblDatosCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null}
             },
@@ -415,7 +412,7 @@ public final class MultiVentana extends javax.swing.JFrame {
                 "Nombre", "Apellido", "Celular"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(tblDatosCliente);
 
         javax.swing.GroupLayout pnlBuscarClienteLayout = new javax.swing.GroupLayout(pnlBuscarCliente);
         pnlBuscarCliente.setLayout(pnlBuscarClienteLayout);
@@ -425,7 +422,7 @@ public final class MultiVentana extends javax.swing.JFrame {
                 .addGap(49, 49, 49)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtDNICliente, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -437,7 +434,7 @@ public final class MultiVentana extends javax.swing.JFrame {
                 .addGroup(pnlBuscarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBuscarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtDNICliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel2))))
         );
 
@@ -449,22 +446,22 @@ public final class MultiVentana extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel4.setText("Nombre:");
 
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtNombreCliente.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel5.setText("Apellido:");
 
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtApellidoCliente.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel6.setText("Celular:");
 
-        jTextField4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtCelularCliente.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
-        jButton1.setBackground(new java.awt.Color(171, 76, 89));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(27, 35, 42));
-        jButton1.setText("Registrar");
+        btnRegistrar.setBackground(new java.awt.Color(171, 76, 89));
+        btnRegistrar.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnRegistrar.setForeground(new java.awt.Color(27, 35, 42));
+        btnRegistrar.setText("Registrar");
 
         javax.swing.GroupLayout pnlRegistrarClienteLayout = new javax.swing.GroupLayout(pnlRegistrarCliente);
         pnlRegistrarCliente.setLayout(pnlRegistrarClienteLayout);
@@ -476,17 +473,17 @@ public final class MultiVentana extends javax.swing.JFrame {
                         .addGap(53, 53, 53)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtApellidoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCelularCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(24, 24, 24)
-                        .addComponent(jButton1))
+                        .addComponent(btnRegistrar))
                     .addGroup(pnlRegistrarClienteLayout.createSequentialGroup()
                         .addGap(149, 149, 149)
                         .addComponent(jLabel3)))
@@ -499,12 +496,12 @@ public final class MultiVentana extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(pnlRegistrarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtApellidoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(txtCelularCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRegistrar))
                 .addGap(0, 13, Short.MAX_VALUE))
         );
 
@@ -513,22 +510,22 @@ public final class MultiVentana extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel7.setText("ID Habitación");
 
-        jTextField5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtIDHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel8.setText("Fecha de Entrada");
 
-        jTextField6.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtFechaIngreso.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel9.setText("Fecha de Salida");
 
-        jTextField7.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtFechaSalida.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
-        jButton2.setBackground(new java.awt.Color(171, 76, 89));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(27, 35, 42));
-        jButton2.setText("Reservar");
+        btnReservar.setBackground(new java.awt.Color(171, 76, 89));
+        btnReservar.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnReservar.setForeground(new java.awt.Color(27, 35, 42));
+        btnReservar.setText("Reservar");
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -550,19 +547,19 @@ public final class MultiVentana extends javax.swing.JFrame {
             .addGroup(pnlReservarHabitacionLayout.createSequentialGroup()
                 .addGap(190, 190, 190)
                 .addGroup(pnlReservarHabitacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnReservar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlReservarHabitacionLayout.createSequentialGroup()
                         .addGroup(pnlReservarHabitacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel7)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtIDHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(pnlReservarHabitacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtFechaIngreso, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(126, 126, 126)
                         .addGroup(pnlReservarHabitacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtFechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(184, 184, 184))
             .addGroup(pnlReservarHabitacionLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
@@ -583,11 +580,11 @@ public final class MultiVentana extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlReservarHabitacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlReservarHabitacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtFechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtFechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIDHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(btnReservar)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -747,7 +744,7 @@ public final class MultiVentana extends javax.swing.JFrame {
     }
 
     private void btnBuscarHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarHabitacionesActionPerformed
-        
+
         String fechaIni = convertirFechaAString(calFechaIni.getDate()); // Fecha de inicio
         String fechaFin = convertirFechaAString(calFechaFin.getDate()); // Fecha de fin
 
@@ -763,30 +760,28 @@ public final class MultiVentana extends javax.swing.JFrame {
             } else if (localDateIni.isAfter(localDateFin)) {
                 String mensaje = "Fecha de Inicio debe ser menor a Fecha de Fin.";
                 JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
-            } else if (localDateIni.equals(localDateFin)){
+            } else if (localDateIni.equals(localDateFin)) {
                 String mensaje = "La Fecha de Inicio no puede ser igual a la Fecha de Fin.";
                 JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
-            } else{
+            } else {
                 int indiceSucursal = cbxSucursal.getSelectedIndex();
                 System.out.println("Sucursal: " + indiceSucursal + "; Inicio: " + localDateIni + "; Final: " + localDateFin);
 
                 String queryTipoHabitacion = "EXEC sp_buscar_habitaciones_disponibles ?, ?, ?";
-    
-                try (Connection connection = DriverManager.getConnection(getConnectionString(),
-                        databaseConfig.getUsername(), databaseConfig.getPassword());
-                     PreparedStatement statementTipoHabitacion = connection.prepareStatement(queryTipoHabitacion)) {
+
+                try ( Connection connection = DriverManager.getConnection(getConnectionString(),
+                        databaseConfig.getUsername(), databaseConfig.getPassword());  PreparedStatement statementTipoHabitacion = connection.prepareStatement(queryTipoHabitacion)) {
 
                     // Borrar resultados anteriores de la tabla
                     DefaultTableModel model = (DefaultTableModel) tblDisponibles.getModel();
                     model.setRowCount(0);
 
-                    
                     // Establecer los valores de los parámetros
-                    statementTipoHabitacion.setString(1, indiceSucursal+"");
-                    statementTipoHabitacion.setString(2, localDateIni+"");
-                    statementTipoHabitacion.setString(3, localDateFin+"");
+                    statementTipoHabitacion.setString(1, indiceSucursal + "");
+                    statementTipoHabitacion.setString(2, localDateIni + "");
+                    statementTipoHabitacion.setString(3, localDateFin + "");
 
-                    try (ResultSet resultSetTipoHabitacion = statementTipoHabitacion.executeQuery()) {
+                    try ( ResultSet resultSetTipoHabitacion = statementTipoHabitacion.executeQuery()) {
                         while (resultSetTipoHabitacion.next()) {
                             Object[] row = new Object[6];
                             row[0] = resultSetTipoHabitacion.getInt("id_habitacion");
@@ -807,8 +802,7 @@ public final class MultiVentana extends javax.swing.JFrame {
             String mensaje = "Seleccione tanto la Fecha de Inicio como la Fecha de Fin.";
             JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
         }
-        
-        
+
     }//GEN-LAST:event_btnBuscarHabitacionesActionPerformed
 
     private void cbxTipoHabitacionItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxTipoHabitacionItemStateChanged
@@ -830,8 +824,9 @@ public final class MultiVentana extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cbxTipoHabitacionItemStateChanged
 
-    
-    /** System.out.print(localDateIni +" " + localDateFin);
+    /**
+     * System.out.print(localDateIni +" " + localDateFin);
+     *
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -863,17 +858,17 @@ public final class MultiVentana extends javax.swing.JFrame {
             public void run() {
                 new MultiVentana().setVisible(true);
             }
-        });        
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarHabitaciones;
+    private javax.swing.JButton btnRegistrar;
+    private javax.swing.JButton btnReservar;
     private com.toedter.calendar.JCalendar calFechaFin;
     private com.toedter.calendar.JCalendar calFechaIni;
     private javax.swing.JComboBox<String> cbxSucursal;
     private javax.swing.JComboBox<String> cbxTipoHabitacion;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -900,17 +895,9 @@ public final class MultiVentana extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lblFechaEntrada;
@@ -923,7 +910,15 @@ public final class MultiVentana extends javax.swing.JFrame {
     private javax.swing.JPanel pnlFiltrar;
     private javax.swing.JPanel pnlRegistrarCliente;
     private javax.swing.JPanel pnlReservarHabitacion;
+    private javax.swing.JTable tblDatosCliente;
     private javax.swing.JTable tblDisponibles;
+    private javax.swing.JTextField txtApellidoCliente;
+    private javax.swing.JTextField txtCelularCliente;
+    private javax.swing.JTextField txtDNICliente;
+    private javax.swing.JTextField txtFechaIngreso;
+    private javax.swing.JTextField txtFechaSalida;
+    private javax.swing.JTextField txtIDHabitacion;
+    private javax.swing.JTextField txtNombreCliente;
     private javax.swing.JPanel ventanaReservar;
     // End of variables declaration//GEN-END:variables
 }

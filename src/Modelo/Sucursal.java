@@ -9,6 +9,7 @@ package Modelo;
  * @author Leo
  */
 public class Sucursal {
+
     private int idSucursal;
     private EmpresaHotelera empresaHotelera;
     private String nombre;

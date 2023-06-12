@@ -9,6 +9,7 @@ package Modelo;
  * @author Leo
  */
 public class Boleta {
+
     private int idBoleta;
     private Reserva reserva;
     private String fechaEmision;

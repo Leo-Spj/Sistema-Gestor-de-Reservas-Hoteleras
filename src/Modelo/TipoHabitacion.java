@@ -9,6 +9,7 @@ package Modelo;
  * @author Leo
  */
 public class TipoHabitacion {
+
     private int idTipoHabitacion;
     private String tipo;
     private int capacidad;

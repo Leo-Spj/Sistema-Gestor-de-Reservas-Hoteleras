@@ -1,5 +1,5 @@
-
 package Vistas;
+
 import Configuracion.DatabaseConfig;
 import Modelo.UsuarioLogueado;
 import java.awt.event.KeyEvent;
@@ -10,34 +10,36 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-public class Login extends javax.swing.JFrame  {
+public class Login extends javax.swing.JFrame {
+
     DatabaseConfig databaseConfig = new DatabaseConfig();
 
     public Login() {
         initComponents();
         this.setLocationRelativeTo(this);
         this.ojoOcultar.setVisible(true);
-         btnIngresar.setEnabled(false);
+        btnIngresar.setEnabled(false);
         rsCargaLogin.setVisible(false);
     }
-    
-    public void validarCaracteres(java.awt.event.KeyEvent evento){
-        if(evento.getKeyChar() >=32 && evento.getKeyChar() <=47 || evento.getKeyChar() >=58 && evento.getKeyChar() <=8482){
+
+    public void validarCaracteres(java.awt.event.KeyEvent evento) {
+        if (evento.getKeyChar() >= 32 && evento.getKeyChar() <= 47 || evento.getKeyChar() >= 58 && evento.getKeyChar() <= 8482) {
             evento.consume();
             String mensaje = "No se permiten caracteres normales, especiales ni espacios. SOLO NÚMEROS";
             JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
-    public void habilitarBoton(){
-        if((txtUsuario.getText().isEmpty() && pwdContraseña.getPassword().length==0 )|| (pwdContraseña.getPassword().length>0 && txtUsuario.getText().isEmpty()) || (!txtUsuario.getText().isEmpty() && pwdContraseña.getPassword().length==0))
+
+    public void habilitarBoton() {
+        if ((txtUsuario.getText().isEmpty() && pwdContraseña.getPassword().length == 0)
+                || (pwdContraseña.getPassword().length > 0 && txtUsuario.getText().isEmpty())
+                || (!txtUsuario.getText().isEmpty() && pwdContraseña.getPassword().length == 0)) {
             btnIngresar.setEnabled(false);
-        else{
+        } else {
             btnIngresar.setEnabled(true);
         }
     }
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -199,101 +201,97 @@ public class Login extends javax.swing.JFrame  {
                 serverName, databaseName);
     }
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-        
-    // hilos
-    Thread hilo1 = new Thread(new Runnable() {
-        public void run() {
-            
-            rsCargaLogin.setVisible(true);
-            
-        }
-    });
 
-    Thread hilo2 = new Thread(new Runnable() {
-        public void run() {
-            // Código del segundo hilo
-            String usuario = txtUsuario.getText();
-            String contraseña = new String(pwdContraseña.getPassword());
+        // hilos
+        Thread hilo1 = new Thread(new Runnable() {
+            public void run() {
 
-            String query = "SELECT * FROM aptos_login()";
+                rsCargaLogin.setVisible(true);
 
-            try (Connection connection = DriverManager.getConnection(getConnectionString(),
-               databaseConfig.getUsername(), databaseConfig.getPassword());
-            PreparedStatement statement = connection.prepareStatement(query);
-            ResultSet resultSet = statement.executeQuery()) {
-                
-            boolean accesoConcedido = false;
-            
-            while (resultSet.next()) {
-                String dniEmpleado = resultSet.getString("dni_empleado");
-                String pwdEmpleado = resultSet.getString("contrasena");
-                if (usuario.equals(dniEmpleado) && contraseña.equals(pwdEmpleado)) {
-                    accesoConcedido = true;
-                    break;
-                }
             }
+        });
 
-            if (accesoConcedido) {
-                
-                // Obtener información del usuario logueado
-                String queryEmpleado = "SELECT * FROM empleados WHERE dni_empleado = ?";
-                try (Connection connectionLogeo = DriverManager.getConnection(getConnectionString(),
-                        databaseConfig.getUsername(), databaseConfig.getPassword());
-                     PreparedStatement statementEmpleado = connectionLogeo.prepareStatement(queryEmpleado)) {
-                    
-                    statementEmpleado.setString(1, usuario); // Parámetro para la consulta
-                    ResultSet resultSetEmpleado = statementEmpleado.executeQuery();
+        Thread hilo2 = new Thread(new Runnable() {
+            public void run() {
+                // Código del segundo hilo
+                String usuario = txtUsuario.getText();
+                String contraseña = new String(pwdContraseña.getPassword());
 
-                    UsuarioLogueado usuarioLogueado = new UsuarioLogueado();
-                    if (resultSetEmpleado.next()) {
+                String query = "SELECT * FROM aptos_login()";
 
-                        usuarioLogueado.setId_empleado(resultSetEmpleado.getInt("id_empleado"));
-                        usuarioLogueado.setId_sucursal(resultSetEmpleado.getInt("id_sucursal"));
-                        usuarioLogueado.setId_cargo(resultSetEmpleado.getInt("id_cargo"));
-                        usuarioLogueado.setDni_empleado(resultSetEmpleado.getInt("dni_empleado"));
-                        usuarioLogueado.setNombre(resultSetEmpleado.getString("nombre"));
-                        usuarioLogueado.setApellido(resultSetEmpleado.getString("apellido"));
-                        usuarioLogueado.setCelular(resultSetEmpleado.getString("celular"));
+                try ( Connection connection = DriverManager.getConnection(getConnectionString(),
+                        databaseConfig.getUsername(), databaseConfig.getPassword());  PreparedStatement statement = connection.prepareStatement(query);  ResultSet resultSet = statement.executeQuery()) {
 
-                        
+                    boolean accesoConcedido = false;
+
+                    while (resultSet.next()) {
+                        String dniEmpleado = resultSet.getString("dni_empleado");
+                        String pwdEmpleado = resultSet.getString("contrasena");
+                        if (usuario.equals(dniEmpleado) && contraseña.equals(pwdEmpleado)) {
+                            accesoConcedido = true;
+                            break;
+                        }
                     }
-                    resultSetEmpleado.close();
 
-                    System.out.println("Acceso Aprobado");
-                    System.out.println( "Trabajador: " + usuarioLogueado.getNombre()+" "+ usuarioLogueado.getApellido());
-                    
-                    MultiVentana mv = new MultiVentana(usuarioLogueado); // Pasar la instancia
-                    mv.setVisible(true);
-                    
-                    Login.this.dispose();
-                    
-                    } catch (SQLException e) {
-                        e.printStackTrace();
+                    if (accesoConcedido) {
+
+                        // Obtener información del usuario logueado
+                        String queryEmpleado = "SELECT * FROM empleados WHERE dni_empleado = ?";
+                        try ( Connection connectionLogeo = DriverManager.getConnection(getConnectionString(),
+                                databaseConfig.getUsername(), databaseConfig.getPassword());  PreparedStatement statementEmpleado = connectionLogeo.prepareStatement(queryEmpleado)) {
+
+                            statementEmpleado.setString(1, usuario); // Parámetro para la consulta
+                            ResultSet resultSetEmpleado = statementEmpleado.executeQuery();
+
+                            UsuarioLogueado usuarioLogueado = new UsuarioLogueado();
+                            if (resultSetEmpleado.next()) {
+
+                                usuarioLogueado.setId_empleado(resultSetEmpleado.getInt("id_empleado"));
+                                usuarioLogueado.setId_sucursal(resultSetEmpleado.getInt("id_sucursal"));
+                                usuarioLogueado.setId_cargo(resultSetEmpleado.getInt("id_cargo"));
+                                usuarioLogueado.setDni_empleado(resultSetEmpleado.getInt("dni_empleado"));
+                                usuarioLogueado.setNombre(resultSetEmpleado.getString("nombre"));
+                                usuarioLogueado.setApellido(resultSetEmpleado.getString("apellido"));
+                                usuarioLogueado.setCelular(resultSetEmpleado.getString("celular"));
+
+                            }
+                            resultSetEmpleado.close();
+
+                            System.out.println("Acceso Aprobado");
+                            System.out.println("Trabajador: " + usuarioLogueado.getNombre() + " " + usuarioLogueado.getApellido());
+
+                            MultiVentana mv = new MultiVentana(usuarioLogueado); // Pasar la instancia
+                            mv.setVisible(true);
+
+                            Login.this.dispose();
+
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        rsCargaLogin.setVisible(false);
+                        String mensaje = "Usuario o Contraseña inválida";
+                        JOptionPane.showMessageDialog(null, mensaje, "Error Login", JOptionPane.ERROR_MESSAGE);
                     }
-                } else {
+
                     rsCargaLogin.setVisible(false);
-                    String mensaje = "Usuario o Contraseña inválida";
-                    JOptionPane.showMessageDialog(null, mensaje, "Error Login", JOptionPane.ERROR_MESSAGE);
+                } catch (SQLException e) {
+                    e.printStackTrace();
                 }
-
-            rsCargaLogin.setVisible(false);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
             }
         });
 
         // Iniciar los hilos
         hilo1.start();
         hilo2.start();
-        
+
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void pwdContraseñaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pwdContraseñaKeyPressed
-         if ((evt.getKeyCode() == KeyEvent.VK_ENTER) && (pwdContraseña.getPassword().length>0 && !txtUsuario.getText().isEmpty())) {
+        if ((evt.getKeyCode() == KeyEvent.VK_ENTER) && (pwdContraseña.getPassword().length > 0 && !txtUsuario.getText().isEmpty())) {
             btnIngresarActionPerformed(null);
         }
-         validarCaracteres(evt);
+        validarCaracteres(evt);
     }//GEN-LAST:event_pwdContraseñaKeyPressed
 
     private void txtUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyPressed
@@ -311,17 +309,15 @@ public class Login extends javax.swing.JFrame  {
     private void ojoVerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ojoVerMouseClicked
         this.ojoOcultar.setVisible(true);
         this.ojoVer.setVisible(false);
-        pwdContraseña.setEchoChar('●');
+        pwdContraseña.setEchoChar('*');
     }//GEN-LAST:event_ojoVerMouseClicked
 
     private void ojoOcultarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ojoOcultarMouseClicked
         this.ojoOcultar.setVisible(false);
         this.ojoVer.setVisible(true);
-        pwdContraseña.setEchoChar((char)0);
+        pwdContraseña.setEchoChar((char) 0);
     }//GEN-LAST:event_ojoOcultarMouseClicked
 
-    
-    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

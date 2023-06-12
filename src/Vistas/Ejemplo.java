@@ -1,4 +1,3 @@
-
 package Vistas;
 
 //Ayuda de ChatGPT: importar 
@@ -16,7 +15,7 @@ public class Ejemplo extends javax.swing.JFrame {
 
     public Ejemplo() {
         initComponents();
-        
+
         //Ayuda de ChatGPT: instanciado la clase DatabaseConfig y usando funcion
         databaseConfig = new DatabaseConfig();
         cargarDatos();
@@ -25,14 +24,13 @@ public class Ejemplo extends javax.swing.JFrame {
     //Ayuda de ChatGPT: Carga la base de datos obteniendo las credenciales por medio de la clase DatabaseConfig
     private void cargarDatos() {
         String query = "EXEC sp_buscar_habitaciones_disponibles ?, ?, ?";
-        try (Connection connection = DriverManager.getConnection(getConnectionString(),
-                databaseConfig.getUsername(), databaseConfig.getPassword());
-             PreparedStatement statement = connection.prepareStatement(query)) {
+        try ( Connection connection = DriverManager.getConnection(getConnectionString(),
+                databaseConfig.getUsername(), databaseConfig.getPassword());  PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setInt(1, 1);
             statement.setString(2, "2023-06-10");
             statement.setString(3, "2023-06-12");
 
-            try (ResultSet resultSet = statement.executeQuery()) {
+            try ( ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
                     String resultado = resultSet.getString("id_habitacion"); // Reemplaza "id_habitacion" con el nombre de la columna que deseas mostrar en el textArea
                     textArea.append(resultado + "\n");
@@ -42,6 +40,7 @@ public class Ejemplo extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
+
     //Ayuda de ChatGPT: hace la consulta SQL y obtiene los datos
     private String getConnectionString() {
         String serverName = databaseConfig.getServer();
@@ -49,7 +48,7 @@ public class Ejemplo extends javax.swing.JFrame {
         return String.format("jdbc:sqlserver://%s:1433;databaseName=%s;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;",
                 serverName, databaseName);
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

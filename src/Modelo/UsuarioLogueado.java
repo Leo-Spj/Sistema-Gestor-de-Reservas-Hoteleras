@@ -8,8 +8,8 @@ package Modelo;
  *
  * @author Leo
  */
-
 public class UsuarioLogueado {
+
     private int id_empleado;
     private int id_sucursal;
     private int id_cargo;
@@ -115,5 +115,5 @@ public class UsuarioLogueado {
     public void setCelular(String celular) {
         this.celular = celular;
     }
-    
+
 }

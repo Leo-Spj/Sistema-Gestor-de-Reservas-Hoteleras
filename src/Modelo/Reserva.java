@@ -9,6 +9,7 @@ package Modelo;
  * @author Leo
  */
 public class Reserva {
+
     private int idReserva;
     private Habitacion habitacion;
     private Empleado empleado;
