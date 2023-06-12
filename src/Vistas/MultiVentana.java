@@ -836,48 +836,51 @@ public final class MultiVentana extends javax.swing.JFrame {
 
     private void txtDNIClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDNIClienteKeyPressed
         // TODO add your handling code here:
-            if ((evt.getKeyCode() == KeyEvent.VK_ENTER)) {
-    String text = txtDNICliente.getText();
-    if (text.length() == 8 && text.matches("\\d+")) {
-        Cliente c = new Cliente();
-        try {
-            c.setDniCliente(Integer.parseInt(text));
+           if ((evt.getKeyCode() == KeyEvent.VK_ENTER)) {
+            String text = txtDNICliente.getText();
+            if (text.matches("\\d{8}")) {
+                Cliente c = new Cliente();
+                try {
+                    c.setDniCliente(Integer.parseInt(text));
 
-            try (Connection conn = DriverManager.getConnection(getConnectionString(),
-                    databaseConfig.getUsername(), databaseConfig.getPassword())) {
-                // Valor ingresado en el campo de texto
-                int valorBusqueda = c.getDniCliente(); // Utilizamos el valor ingresado en el objeto Cliente
+                    try (Connection conn = DriverManager.getConnection(getConnectionString(),
+                            databaseConfig.getUsername(), databaseConfig.getPassword())) {
+                        // Valor ingresado en el campo de texto
+                        int valorBusqueda = c.getDniCliente(); // Utilizamos el valor ingresado en el objeto Cliente
 
-                // Consulta SQL para buscar en la tabla
-                String queryDNI = "SELECT DNI_CLIENTE FROM DBO.clientes WHERE DNI_CLIENTE = ?";
+                        // Consulta SQL para buscar en la tabla
+                        String queryDNI = "SELECT DNI_CLIENTE FROM DBO.clientes WHERE DNI_CLIENTE = ?";
 
-                // Preparar la consulta
-                PreparedStatement statement = conn.prepareStatement(queryDNI);
-                statement.setInt(1, valorBusqueda);
+                        // Preparar la consulta
+                        PreparedStatement statement = conn.prepareStatement(queryDNI);
+                        statement.setInt(1, valorBusqueda);
 
-                // Ejecutar la consulta y obtener los resultados
-                ResultSet resultSet = statement.executeQuery();
+                        // Ejecutar la consulta y obtener los resultados
+                        ResultSet resultSet = statement.executeQuery();
 
-                // Verificar si existen resultados
-                if (resultSet.next()) {
-                    // El cliente está registrado
-                    JOptionPane.showMessageDialog(null, "El cliente está registrado");
-                } else {
-                    // El cliente no está registrado
-                    JOptionPane.showMessageDialog(null, "El cliente no está registrado");
+                        // Verificar si existen resultados
+                        if (resultSet.next()) {
+                            // El cliente está registrado
+                            JOptionPane.showMessageDialog(null, "El cliente está registrado");
+                        } else {
+                            // El cliente no está registrado
+                            JOptionPane.showMessageDialog(null, "El cliente no está registrado");
+                        }
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                } catch (NumberFormatException e) {
+                    // Manejo del error cuando el valor no es un número entero válido
+                    e.printStackTrace();
                 }
-            } catch (SQLException e) {
-                e.printStackTrace();
+            } else {
+                String mensaje = "Ingrese un número de 8 dígitos.";
+                JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
+                txtDNICliente.setText(""); // Borrar el contenido del campo
             }
-        } catch (NumberFormatException e) {
-            // Manejo del error cuando el valor no es un número entero válido
-            e.printStackTrace();
         }
-    } else {
-        String mensaje = "Ingrese un número de 8 dígitos.";
-        JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
-    }
-}
+
+
 
 
         
