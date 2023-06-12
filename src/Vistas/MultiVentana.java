@@ -472,6 +472,11 @@ public final class MultiVentana extends javax.swing.JFrame {
         btnRegistrar.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(27, 35, 42));
         btnRegistrar.setText("Registrar");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlRegistrarClienteLayout = new javax.swing.GroupLayout(pnlRegistrarCliente);
         pnlRegistrarCliente.setLayout(pnlRegistrarClienteLayout);
@@ -890,6 +895,10 @@ public final class MultiVentana extends javax.swing.JFrame {
     private void txtDNIClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDNIClienteKeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDNIClienteKeyTyped
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarActionPerformed
 
     /**
      * System.out.print(localDateIni +" " + localDateFin);
