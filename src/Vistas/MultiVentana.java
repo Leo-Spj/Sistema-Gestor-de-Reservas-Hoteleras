@@ -16,6 +16,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.time.ZoneId;
 import java.util.Date;
 import javax.swing.RowFilter;
@@ -704,14 +705,24 @@ public final class MultiVentana extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // Método para convertir una fecha en formato "yyyy-MM-dd" a String
+    private String convertirFechaAString(Date fecha) {
+        if (fecha != null) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            return dateFormat.format(fecha);
+        }
+        return null;
+    }
+
     private void btnBuscarHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarHabitacionesActionPerformed
         
-        Date fechaIni = calFechaIni.getDate(); // Fecha de inicio
-        Date fechaFin = calFechaFin.getDate(); // Fecha de fin
+        String fechaIni = convertirFechaAString(calFechaIni.getDate()); // Fecha de inicio
+        String fechaFin = convertirFechaAString(calFechaFin.getDate()); // Fecha de fin
 
         if (fechaIni != null && fechaFin != null) {
-            LocalDate localDateIni = fechaIni.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            LocalDate localDateFin = fechaFin.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            //pasamos las fechas String a LocalDate para utilizar sus procedimientos de comparacion de fechas:            
+            LocalDate localDateIni = LocalDate.parse(fechaIni);
+            LocalDate localDateFin = LocalDate.parse(fechaFin);
             LocalDate fechaActual = LocalDate.now();
 
             if (localDateIni.isBefore(fechaActual) || localDateFin.isBefore(fechaActual)) {

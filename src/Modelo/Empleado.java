@@ -8,70 +8,69 @@ package Modelo;
  *
  * @author Leo
  */
-
-public class UsuarioLogueado {
-    private int id_empleado;
-    private int id_sucursal;
-    private int id_cargo;
-    private int dni_empleado;
+public class Empleado {
+    private int idEmpleado;
+    private Sucursal sucursal;
+    private Cargo cargo;
+    private int dniEmpleado;
     private String nombre;
     private String apellido;
     private String celular;
 
     /**
-     * @return the id_empleado
+     * @return the idEmpleado
      */
-    public int getId_empleado() {
-        return id_empleado;
+    public int getIdEmpleado() {
+        return idEmpleado;
     }
 
     /**
-     * @param id_empleado the id_empleado to set
+     * @param idEmpleado the idEmpleado to set
      */
-    public void setId_empleado(int id_empleado) {
-        this.id_empleado = id_empleado;
+    public void setIdEmpleado(int idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
 
     /**
-     * @return the id_sucursal
+     * @return the sucursal
      */
-    public int getId_sucursal() {
-        return id_sucursal;
+    public Sucursal getSucursal() {
+        return sucursal;
     }
 
     /**
-     * @param id_sucursal the id_sucursal to set
+     * @param sucursal the sucursal to set
      */
-    public void setId_sucursal(int id_sucursal) {
-        this.id_sucursal = id_sucursal;
+    public void setSucursal(Sucursal sucursal) {
+        this.sucursal = sucursal;
     }
 
     /**
-     * @return the id_cargo
+     * @return the cargo
      */
-    public int getId_cargo() {
-        return id_cargo;
+    public Cargo getCargo() {
+        return cargo;
     }
 
     /**
-     * @param id_cargo the id_cargo to set
+     * @param cargo the cargo to set
      */
-    public void setId_cargo(int id_cargo) {
-        this.id_cargo = id_cargo;
+    public void setCargo(Cargo cargo) {
+        this.cargo = cargo;
     }
 
     /**
-     * @return the dni_empleado
+     * @return the dniEmpleado
      */
-    public int getDni_empleado() {
-        return dni_empleado;
+    public int getDniEmpleado() {
+        return dniEmpleado;
     }
 
     /**
-     * @param dni_empleado the dni_empleado to set
+     * @param dniEmpleado the dniEmpleado to set
      */
-    public void setDni_empleado(int dni_empleado) {
-        this.dni_empleado = dni_empleado;
+    public void setDniEmpleado(int dniEmpleado) {
+        this.dniEmpleado = dniEmpleado;
     }
 
     /**
@@ -115,5 +114,4 @@ public class UsuarioLogueado {
     public void setCelular(String celular) {
         this.celular = celular;
     }
-    
 }
