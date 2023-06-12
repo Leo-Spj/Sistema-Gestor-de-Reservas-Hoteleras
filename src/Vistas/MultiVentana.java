@@ -75,7 +75,9 @@ public final class MultiVentana extends javax.swing.JFrame {
     }
     
     public void confirmarCierre(){
-        int valor = JOptionPane.showConfirmDialog(this, "¿Está seguro de cerrar sesión?","Advertencia", JOptionPane.YES_NO_OPTION);
+        Object[] opciones = {"Si", "No"};
+        
+        int valor = JOptionPane.showOptionDialog(this, "¿Está seguro de cerrar sesión?","Advertencia", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, opciones, null);
         if(valor == JOptionPane.YES_OPTION){
             Login lg = new Login();
             JOptionPane.showMessageDialog(null, "Cierre de sesión exitosa", "Gracias",JOptionPane.INFORMATION_MESSAGE);
