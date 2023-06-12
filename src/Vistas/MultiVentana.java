@@ -60,7 +60,6 @@ public final class MultiVentana extends javax.swing.JFrame {
 
     public MultiVentana() {
         initComponents();
-        lblClienteNoRegistrado.setVisible(false);
     }
 
     ;
@@ -863,10 +862,10 @@ public final class MultiVentana extends javax.swing.JFrame {
                         if (resultSet.next()) {
                             // El cliente está registrado
                             JOptionPane.showMessageDialog(null, "El cliente está registrado");
-                            lblClienteNoRegistrado.setVisible(false);
+                            pnlRegistrarCliente.setVisible(false);
                         } else {
                             // El cliente no está registrado
-                            lblClienteNoRegistrado.setVisible(true);
+                            pnlRegistrarCliente.setVisible(true);
                         }
                     } catch (SQLException e) {
                         e.printStackTrace();
