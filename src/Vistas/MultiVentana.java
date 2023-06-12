@@ -7,6 +7,8 @@ package Vistas;
 import Configuracion.DatabaseConfig;
 import Modelo.UsuarioLogueado;
 import java.awt.event.ItemEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JOptionPane;
 import java.time.LocalDate;
@@ -19,6 +21,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.ZoneId;
 import java.util.Date;
+import javax.swing.JFrame;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -40,6 +43,7 @@ public final class MultiVentana extends javax.swing.JFrame {
         
         initComponents();
         this.setLocationRelativeTo(this);
+        cerrarSesion();
         
         pnlRegistrarCliente.setVisible(false);
         
@@ -54,6 +58,32 @@ public final class MultiVentana extends javax.swing.JFrame {
     public MultiVentana(){
         initComponents();
     };
+    
+    public void cerrarSesion(){
+        try {
+            this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+            addWindowListener(new WindowAdapter(){
+                public void windowClosing(WindowEvent e){
+                    confirmarCierre();
+                }
+            }
+            );
+            this.setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void confirmarCierre(){
+        int valor = JOptionPane.showConfirmDialog(this, "¿Está seguro de cerrar sesión?","Advertencia", JOptionPane.YES_NO_OPTION);
+        if(valor == JOptionPane.YES_OPTION){
+            Login lg = new Login();
+            JOptionPane.showMessageDialog(null, "Cierre de sesión exitosa", "Gracias",JOptionPane.INFORMATION_MESSAGE);
+            lg.setVisible(true);
+            this.dispose();
+            
+        }
+    }
     
     DatabaseConfig databaseConfig = new DatabaseConfig();
     

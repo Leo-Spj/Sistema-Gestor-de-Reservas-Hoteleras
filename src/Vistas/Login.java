@@ -32,8 +32,9 @@ public class Login extends javax.swing.JFrame  {
     public void habilitarBoton(){
         if((txtUsuario.getText().isEmpty() && pwdContraseña.getPassword().length==0 )|| (pwdContraseña.getPassword().length>0 && txtUsuario.getText().isEmpty()) || (!txtUsuario.getText().isEmpty() && pwdContraseña.getPassword().length==0))
             btnIngresar.setEnabled(false);
-        else
+        else{
             btnIngresar.setEnabled(true);
+        }
     }
 
     
@@ -289,7 +290,7 @@ public class Login extends javax.swing.JFrame  {
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void pwdContraseñaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pwdContraseñaKeyPressed
-         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+         if ((evt.getKeyCode() == KeyEvent.VK_ENTER) && (pwdContraseña.getPassword().length>0 && !txtUsuario.getText().isEmpty())) {
             btnIngresarActionPerformed(null);
         }
          validarCaracteres(evt);
