@@ -60,6 +60,7 @@ public final class MultiVentana extends javax.swing.JFrame {
 
     public MultiVentana() {
         initComponents();
+        lblClienteNoRegistrado.setVisible(false);
     }
 
     ;
@@ -181,7 +182,7 @@ public final class MultiVentana extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblDatosCliente = new javax.swing.JTable();
         pnlRegistrarCliente = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        lblClienteNoRegistrado = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtNombreCliente = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -450,8 +451,8 @@ public final class MultiVentana extends javax.swing.JFrame {
 
         pnlRegistrarCliente.setBackground(new java.awt.Color(221, 214, 206));
 
-        jLabel3.setForeground(new java.awt.Color(171, 76, 89));
-        jLabel3.setText("Cliente No Registrado");
+        lblClienteNoRegistrado.setForeground(new java.awt.Color(171, 76, 89));
+        lblClienteNoRegistrado.setText("Cliente No Registrado");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel4.setText("Nombre:");
@@ -496,13 +497,13 @@ public final class MultiVentana extends javax.swing.JFrame {
                         .addComponent(btnRegistrar))
                     .addGroup(pnlRegistrarClienteLayout.createSequentialGroup()
                         .addGap(149, 149, 149)
-                        .addComponent(jLabel3)))
+                        .addComponent(lblClienteNoRegistrado)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlRegistrarClienteLayout.setVerticalGroup(
             pnlRegistrarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlRegistrarClienteLayout.createSequentialGroup()
-                .addComponent(jLabel3)
+                .addComponent(lblClienteNoRegistrado)
                 .addGap(26, 26, 26)
                 .addGroup(pnlRegistrarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -862,9 +863,10 @@ public final class MultiVentana extends javax.swing.JFrame {
                         if (resultSet.next()) {
                             // El cliente está registrado
                             JOptionPane.showMessageDialog(null, "El cliente está registrado");
+                            lblClienteNoRegistrado.setVisible(false);
                         } else {
                             // El cliente no está registrado
-                            JOptionPane.showMessageDialog(null, "El cliente no está registrado");
+                            lblClienteNoRegistrado.setVisible(true);
                         }
                     } catch (SQLException e) {
                         e.printStackTrace();
@@ -944,7 +946,6 @@ public final class MultiVentana extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -965,6 +966,7 @@ public final class MultiVentana extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JLabel lblClienteNoRegistrado;
     private javax.swing.JLabel lblFechaEntrada;
     private javax.swing.JLabel lblFechaSalida;
     private javax.swing.JLabel lblSelectSucursal;
