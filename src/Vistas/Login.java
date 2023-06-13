@@ -31,9 +31,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     public void habilitarBoton() {
-        if ((txtUsuario.getText().isEmpty() && pwdContraseña.getPassword().length == 0)
-                || (pwdContraseña.getPassword().length > 0 && txtUsuario.getText().isEmpty())
-                || (!txtUsuario.getText().isEmpty() && pwdContraseña.getPassword().length == 0)) {
+        if (txtUsuario.getText().isEmpty() || pwdContraseña.getPassword().length == 0) {
             btnIngresar.setEnabled(false);
         } else {
             btnIngresar.setEnabled(true);

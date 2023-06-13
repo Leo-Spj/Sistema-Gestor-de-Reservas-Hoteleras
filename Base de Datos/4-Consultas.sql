@@ -9,7 +9,7 @@ GO
 
 --funcion que obtiene LOS id_empleado y el dni_empreado pero solo de aquellos que tengan el cargo de recepcionista o administrador
 SELECT * FROM aptos_login()
-
+SELECT * FROM clientes
 /*
 Consultas simples
 */

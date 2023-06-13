@@ -342,6 +342,11 @@ public final class MultiVentana extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        tblDisponibles.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblDisponiblesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblDisponibles);
         if (tblDisponibles.getColumnModel().getColumnCount() > 0) {
             tblDisponibles.getColumnModel().getColumn(0).setMinWidth(85);
@@ -525,16 +530,19 @@ public final class MultiVentana extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel7.setText("ID Habitación");
 
+        txtIDHabitacion.setEditable(false);
         txtIDHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel8.setText("Fecha de Entrada");
 
+        txtFechaIngreso.setEditable(false);
         txtFechaIngreso.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel9.setText("Fecha de Salida");
 
+        txtFechaSalida.setEditable(false);
         txtFechaSalida.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
         btnReservar.setBackground(new java.awt.Color(171, 76, 89));
@@ -781,7 +789,15 @@ public final class MultiVentana extends javax.swing.JFrame {
             } else {
                 int indiceSucursal = cbxSucursal.getSelectedIndex();
                 System.out.println("Sucursal: " + indiceSucursal + "; Inicio: " + localDateIni + "; Final: " + localDateFin);
-
+                
+                txtIDHabitacion.setText("");
+                
+                txtFechaIngreso.setText("");
+                txtFechaIngreso.setText(localDateIni.toString());
+                
+                txtFechaSalida.setText("");
+                txtFechaSalida.setText(localDateFin.toString());
+                
                 String queryTipoHabitacion = "EXEC sp_buscar_habitaciones_disponibles ?, ?, ?";
 
                 try ( Connection connection = DriverManager.getConnection(getConnectionString(),
@@ -899,6 +915,13 @@ public final class MultiVentana extends javax.swing.JFrame {
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void tblDisponiblesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDisponiblesMouseClicked
+        txtIDHabitacion.setText("");
+        int filaSeleccionada = tblDisponibles.getSelectedRow(); 
+        Object id_habitacion = tblDisponibles.getValueAt(filaSeleccionada, 0); 
+        txtIDHabitacion.setText(id_habitacion.toString()); 
+    }//GEN-LAST:event_tblDisponiblesMouseClicked
 
     /**
      * System.out.print(localDateIni +" " + localDateFin);
