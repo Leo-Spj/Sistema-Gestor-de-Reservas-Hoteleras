@@ -148,7 +148,8 @@ public final class MultiVentana extends javax.swing.JFrame {
         String querySucursal = "SELECT nombre FROM sucursal";
 
         try ( Connection connection = DriverManager.getConnection(getConnectionString(),
-                databaseConfig.getUsername(), databaseConfig.getPassword());  PreparedStatement statementSucursal = connection.prepareStatement(querySucursal);  ResultSet resultSetSucursal = statementSucursal.executeQuery()) {
+                databaseConfig.getUsername(), databaseConfig.getPassword());  PreparedStatement statementSucursal = connection.prepareStatement(querySucursal);
+                ResultSet resultSetSucursal = statementSucursal.executeQuery()) {
 
             while (resultSetSucursal.next()) {
                 String nombreSucursal = resultSetSucursal.getString("nombre");
