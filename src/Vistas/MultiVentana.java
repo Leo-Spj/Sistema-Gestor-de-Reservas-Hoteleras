@@ -960,6 +960,7 @@ public final class MultiVentana extends javax.swing.JFrame {
 
 
     private void txtDNIClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDNIClienteKeyPressed
+        DefaultTableModel modelo = (DefaultTableModel) tblDatosCliente.getModel();
         
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             String dni = txtDNICliente.getText();
@@ -973,6 +974,7 @@ public final class MultiVentana extends javax.swing.JFrame {
                 }
             } else {
                 // Mostrar aviso de formato de DNI incorrecto
+                modelo.setRowCount(0);
                 JOptionPane.showMessageDialog(this, "Formato de DNI incorrecto. Debe ser un número de 8 dígitos.", "Aviso", JOptionPane.WARNING_MESSAGE);
                 pnlRegistrarCliente.setVisible(false);
             }
