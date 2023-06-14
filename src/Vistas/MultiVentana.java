@@ -5,8 +5,10 @@
 package Vistas;
 
 import Configuracion.DatabaseConfig;
+
 import Modelo.Cliente;
 import Modelo.UsuarioLogueado;
+
 import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
@@ -20,8 +22,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import java.text.SimpleDateFormat;
-import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.RowFilter;
@@ -39,6 +42,7 @@ public final class MultiVentana extends javax.swing.JFrame {
      * Creates new form MultiVentana
      */
     private UsuarioLogueado usuarioLogueado;
+    private ArrayList<Cliente> clientes;
 
     public MultiVentana(UsuarioLogueado usuarioLogueado) {
 
@@ -55,15 +59,46 @@ public final class MultiVentana extends javax.swing.JFrame {
         // Llenando los ComboBox
         llenarComboBoxSucursales();
         cargarTiposHabitacion();
-
+        
+        
+        cargarClientes(); 
     }
 
     public MultiVentana() {
         initComponents();
+        pnlRegistrarCliente.setVisible(false);
+        cargarClientes(); //Probando la carga de cliente en un arrayList
     }
-
-    ;
     
+    public void cargarClientes(){
+        clientes = new ArrayList<>();
+
+        String query = "SELECT * FROM clientes;";
+
+        try (Connection connection = DriverManager.getConnection(getConnectionString(),
+            databaseConfig.getUsername(), databaseConfig.getPassword());
+            PreparedStatement statement = connection.prepareStatement(query);
+            ResultSet resultSet = statement.executeQuery()) {
+
+            while (resultSet.next()) {
+                int dni = resultSet.getInt("dni_cliente");
+                String nombre = resultSet.getString("nombre");
+                String apellido = resultSet.getString("apellido");
+                String celular = resultSet.getString("celular");
+
+                Cliente cliente = new Cliente(dni, nombre, apellido, celular);
+                clientes.add(cliente);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        for (Cliente c : clientes) {
+            System.out.println(c.getNombre());
+        }
+    }
+      
     public void cerrarSesion() {
         try {
             this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -227,9 +262,30 @@ public final class MultiVentana extends javax.swing.JFrame {
         lblFechaEntrada.setText("Fecha de Entrada");
 
         calFechaIni.setDecorationBordersVisible(true);
+        calFechaIni.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                calFechaIniMouseClicked(evt);
+            }
+        });
+        calFechaIni.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                calFechaIniPropertyChange(evt);
+            }
+        });
 
         lblFechaSalida.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         lblFechaSalida.setText("Fecha de Salida");
+
+        calFechaFin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                calFechaFinMouseClicked(evt);
+            }
+        });
+        calFechaFin.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                calFechaFinPropertyChange(evt);
+            }
+        });
 
         pnlFiltrar.setBackground(new java.awt.Color(221, 214, 206));
 
@@ -237,6 +293,11 @@ public final class MultiVentana extends javax.swing.JFrame {
         lblSelectSucursal.setText("Sucursal:");
 
         cbxSucursal.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        cbxSucursal.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbxSucursalItemStateChanged(evt);
+            }
+        });
 
         lblSelectTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lblSelectTipoHabitacion.setText("Tipo de habitación:");
@@ -421,12 +482,20 @@ public final class MultiVentana extends javax.swing.JFrame {
         tblDatosCliente.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         tblDatosCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null}
+
             },
             new String [] {
                 "Nombre", "Apellido", "Celular"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(tblDatosCliente);
 
         javax.swing.GroupLayout pnlBuscarClienteLayout = new javax.swing.GroupLayout(pnlBuscarCliente);
@@ -855,57 +924,59 @@ public final class MultiVentana extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cbxTipoHabitacionItemStateChanged
 
-    private void txtDNIClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDNIClienteKeyPressed
-        // TODO add your handling code here:
-           if ((evt.getKeyCode() == KeyEvent.VK_ENTER)) {
-            String text = txtDNICliente.getText();
-            if (text.matches("\\d{8}")) {
-                Cliente c = new Cliente();
-                try {
-                    c.setDNI(Integer.parseInt(text));
-
-                    try (Connection conn = DriverManager.getConnection(getConnectionString(),
-                            databaseConfig.getUsername(), databaseConfig.getPassword())) {
-                        // Valor ingresado en el campo de texto
-                        int valorBusqueda = c.getDNI(); // Utilizamos el valor ingresado en el objeto Cliente
-
-                        // Consulta SQL para buscar en la tabla
-                        String queryDNI = "SELECT DNI_CLIENTE FROM DBO.clientes WHERE DNI_CLIENTE = ?";
-
-                        // Preparar la consulta
-                        PreparedStatement statement = conn.prepareStatement(queryDNI);
-                        statement.setInt(1, valorBusqueda);
-
-                        // Ejecutar la consulta y obtener los resultados
-                        ResultSet resultSet = statement.executeQuery();
-
-                        // Verificar si existen resultados
-                        if (resultSet.next()) {
-                            // El cliente está registrado
-                            JOptionPane.showMessageDialog(null, "El cliente está registrado");
-                            pnlRegistrarCliente.setVisible(false);
-                        } else {
-                            // El cliente no está registrado
-                            pnlRegistrarCliente.setVisible(true);
-                        }
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
-                } catch (NumberFormatException e) {
-                    // Manejo del error cuando el valor no es un número entero válido
-                    e.printStackTrace();
-                }
-            } else {
-                String mensaje = "Ingrese un número de 8 dígitos.";
-                JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
-                txtDNICliente.setText(""); // Borrar el contenido del campo
+    public boolean buscarClientePorDNI(int dni) {
+        Cliente clienteEncontrado = null;
+        
+        // Buscar el cliente por DNI en el ArrayList
+        for (Cliente c : clientes) {
+            if (c.getDNI() == dni) {
+                clienteEncontrado = c;
+                break; // Se encontró el cliente, salir del bucle
             }
         }
 
+        // Imprimir los campos en la tabla tblDatosCliente
+        DefaultTableModel modelo = (DefaultTableModel) tblDatosCliente.getModel();
+        modelo.setRowCount(0); // Limpiar filas existentes en la tabla
 
+        if (clienteEncontrado != null) {
+            // Obtener los campos del cliente encontrado
+            String nombre = clienteEncontrado.getNombre();
+            String apellido = clienteEncontrado.getApellido();
+            String celular = clienteEncontrado.getCelular();
 
-
+            // Agregar una nueva fila con los campos en la tabla
+            modelo.addRow(new Object[]{nombre, apellido, celular});
+            pnlRegistrarCliente.setVisible(false);
+            return true;
+        } else {
+            System.out.println("Cliente no encontrado.");
+            pnlRegistrarCliente.setVisible(true);
+            return false;
+        }
         
+        
+    }
+
+
+    private void txtDNIClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDNIClienteKeyPressed
+        
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            String dni = txtDNICliente.getText();
+
+            if (dni.matches("\\d{8}")) {
+                int dniCliente = Integer.parseInt(dni);
+                boolean clienteEncontrado = buscarClientePorDNI(dniCliente);
+
+                if (!clienteEncontrado) {
+                    pnlRegistrarCliente.setVisible(true);
+                }
+            } else {
+                // Mostrar aviso de formato de DNI incorrecto
+                JOptionPane.showMessageDialog(this, "Formato de DNI incorrecto. Debe ser un número de 8 dígitos.", "Aviso", JOptionPane.WARNING_MESSAGE);
+                pnlRegistrarCliente.setVisible(false);
+            }
+        }  
     }//GEN-LAST:event_txtDNIClienteKeyPressed
 
     private void txtDNIClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDNIClienteKeyTyped
@@ -923,6 +994,34 @@ public final class MultiVentana extends javax.swing.JFrame {
         txtIDHabitacion.setText(id_habitacion.toString()); 
     }//GEN-LAST:event_tblDisponiblesMouseClicked
 
+    private void cbxSucursalItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxSucursalItemStateChanged
+        limpiarDisponibles();
+    }//GEN-LAST:event_cbxSucursalItemStateChanged
+
+    private void calFechaFinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_calFechaFinMouseClicked
+        
+    }//GEN-LAST:event_calFechaFinMouseClicked
+
+    private void calFechaIniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_calFechaIniMouseClicked
+        
+    }//GEN-LAST:event_calFechaIniMouseClicked
+
+    private void calFechaIniPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_calFechaIniPropertyChange
+        limpiarDisponibles();
+    }//GEN-LAST:event_calFechaIniPropertyChange
+
+    private void calFechaFinPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_calFechaFinPropertyChange
+        limpiarDisponibles();
+    }//GEN-LAST:event_calFechaFinPropertyChange
+
+    public void limpiarDisponibles(){
+        DefaultTableModel modelo = (DefaultTableModel) tblDisponibles.getModel();
+        modelo.setRowCount(0);
+        
+        txtIDHabitacion.setText("");       
+        txtFechaIngreso.setText("");
+        txtFechaSalida.setText("");
+    }
     /**
      * System.out.print(localDateIni +" " + localDateFin);
      *
