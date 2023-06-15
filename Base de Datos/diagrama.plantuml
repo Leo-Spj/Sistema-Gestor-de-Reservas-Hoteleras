@@ -1,0 +1,91 @@
+@startuml
+
+entity "empresa_hotelera" {
+  +id_empresa_hotel INT <<PK>>
+  razon_social VARCHAR(255)
+  ruc VARCHAR(255)
+  direccion VARCHAR(255)
+  telefono_central VARCHAR(255)
+}
+
+entity "sucursal" {
+  +id_empresa_hotel INT
+  +id_sucursal INT <<PK>>
+  nombre VARCHAR(255)
+  ciudad VARCHAR(255)
+  distrito VARCHAR(255)
+  direccion VARCHAR(255)
+  telefono_sucursal VARCHAR(255)
+}
+
+entity "tipo_habitacion" {
+  +id_tipo_habitacion INT <<PK>>
+  tipo VARCHAR(255)
+  capacidad INT
+  descripcion VARCHAR(255)
+  precio DECIMAL(10, 2)
+}
+
+entity "habitaciones" {
+  +id_sucursal INT
+  +id_habitacion INT <<PK>>
+  piso INT
+  puerta INT
+  id_tipo_habitacion INT
+}
+
+entity "cargos" {
+  +id_cargo INT <<PK>>
+  nombre VARCHAR(255)
+  descripcion VARCHAR(255)
+}
+
+entity "empleados" {
+  +id_empleado INT <<PK>>
+  id_sucursal INT
+  id_cargo INT
+  dni_empleado INT
+  nombre VARCHAR(255)
+  apellido VARCHAR(255)
+  celular VARCHAR(255)
+  contrasena VARCHAR(255)
+}
+
+entity "clientes" {
+  +dni_cliente INT <<PK>>
+  nombre VARCHAR(255)
+  apellido VARCHAR(255)
+  celular VARCHAR(255)
+}
+
+entity "reserva" {
+  +id_reserva INT <<PK>>
+  id_habitacion INT
+  id_empleado INT
+  dni_cliente INT
+  fecha_inicio DATE
+  fecha_fin DATE
+  estado VARCHAR(255)
+}
+
+entity "boleta" {
+  +id_boleta INT <<PK>>
+  id_reserva INT
+  fecha_emision DATE
+  concepto VARCHAR(255)
+  cantidad_dias INT
+  cupon DECIMAL(10, 2)
+  monto_total DECIMAL(10, 2)
+}
+
+"empresa_hotelera" ||--o{ "sucursal"
+"sucursal" ||--o{ "habitaciones"
+"sucursal" }o--|| "empleados"
+"habitaciones" }o--|| "tipo_habitacion"
+"empleados" }o--|| "cargos"
+"reserva" }o--|| "habitaciones"
+"reserva" }o--|| "empleados"
+"reserva" }o--|| "clientes"
+"boleta" }o--|| "reserva"
+
+@enduml
