@@ -9,7 +9,7 @@ entity "empresa_hotelera" {
 }
 
 entity "sucursal" {
-  +id_empresa_hotel INT
+  -id_empresa_hotel INT
   +id_sucursal INT <<PK>>
   nombre VARCHAR(255)
   ciudad VARCHAR(255)
@@ -27,7 +27,7 @@ entity "tipo_habitacion" {
 }
 
 entity "habitaciones" {
-  +id_sucursal INT
+  -id_sucursal INT
   +id_habitacion INT <<PK>>
   piso INT
   puerta INT
@@ -42,8 +42,8 @@ entity "cargos" {
 
 entity "empleados" {
   +id_empleado INT <<PK>>
-  id_sucursal INT
-  id_cargo INT
+  -id_sucursal INT
+  -id_cargo INT
   dni_empleado INT
   nombre VARCHAR(255)
   apellido VARCHAR(255)
@@ -60,8 +60,8 @@ entity "clientes" {
 
 entity "reserva" {
   +id_reserva INT <<PK>>
-  id_habitacion INT
-  id_empleado INT
+  -id_habitacion INT
+  -id_empleado INT
   dni_cliente INT
   fecha_inicio DATE
   fecha_fin DATE
@@ -70,7 +70,7 @@ entity "reserva" {
 
 entity "boleta" {
   +id_boleta INT <<PK>>
-  id_reserva INT
+  -id_reserva INT
   fecha_emision DATE
   concepto VARCHAR(255)
   cantidad_dias INT
