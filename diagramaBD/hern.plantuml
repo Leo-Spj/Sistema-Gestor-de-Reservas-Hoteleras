@@ -1,0 +1,92 @@
+@startuml
+
+abstract class Persona {
+  + dni: int
+  + nombre: String
+  + apellido: String
+  + celular: String
+}
+
+class Cliente {
+  + calcularTotal(): BigDecimal
+}
+
+class Empleado {
+  + cargo: Cargo
+  + calcularSalario(): BigDecimal
+}
+
+class Cargo {
+  + idCargo: int
+  + nombre: String
+  + descripcion: String
+}
+
+class EmpresaHotelera {
+  + idEmpresaHotel: int
+  + razonSocial: String
+  + ruc: String
+  + direccion: String
+  + telefonoCentral: String
+}
+
+class Sucursal {
+  + idSucursal: int
+  + empresaHotelera: EmpresaHotelera
+  + nombre: String
+  + ciudad: String
+  + distrito: String
+  + direccion: String
+  + telefonoSucursal: String
+}
+
+class TipoHabitacion {
+  + idTipoHabitacion: int
+  + tipo: String
+  + capacidad: int
+  + descripcion: String
+  + precio: BigDecimal
+}
+
+class Habitacion {
+  + idHabitacion: int
+  + sucursal: Sucursal
+  + piso: int
+  + puerta: int
+  + tipoHabitacion: TipoHabitacion
+}
+
+class Reserva {
+  + idReserva: int
+  + habitacion: Habitacion
+  + empleado: Empleado
+  + cliente: Cliente
+  + fechaInicio: Date
+  + fechaFin: Date
+  + estado: String
+}
+
+class Boleta {
+  + idBoleta: int
+  + reserva: Reserva
+  + fechaEmision: Date
+  + concepto: String
+  + cantidadDias: int
+  + cupon: BigDecimal
+  + montoTotal: BigDecimal
+}
+
+Empleado -- Cargo
+
+Persona <|-- Cliente
+Persona <|-- Empleado
+
+EmpresaHotelera "1" -- "1" Sucursal
+Sucursal "1" -- "n" Habitacion
+TipoHabitacion "1" -- "n" Habitacion
+Habitacion "1" -- "n" Reserva
+Empleado "1" -- "n" Reserva
+Cliente "1" -- "n" Reserva
+Reserva "1" -- "n" Boleta
+
+@enduml

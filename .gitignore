@@ -3,4 +3,5 @@
 /nbproject/private/private.xml
 /dist/
 /config.properties
-.idea/
+.idea
+.vscode

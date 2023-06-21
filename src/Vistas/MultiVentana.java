@@ -85,6 +85,7 @@ public final class MultiVentana extends javax.swing.JFrame {
 
         try (Connection connection = DriverManager.getConnection(getConnectionString(),
             databaseConfig.getUsername(), databaseConfig.getPassword());
+                
             PreparedStatement statement = connection.prepareStatement(query);
             ResultSet resultSet = statement.executeQuery()) {
 

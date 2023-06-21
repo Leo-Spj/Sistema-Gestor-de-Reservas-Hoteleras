@@ -1,0 +1,23 @@
+@startuml
+actor Usuario
+participant "Aplicación Java" as App
+participant "JDBC" as JDBC
+participant "Base de Datos" as DB
+
+activate App
+App -> JDBC: Establecer conexión
+activate JDBC
+JDBC -> DB: Conexión establecida
+activate DB
+App -> JDBC: Preparar llamada al procedimiento
+JDBC -> DB: Preparar llamada al procedimiento
+App -> JDBC: Pasar parámetros
+JDBC -> DB: Pasar parámetros
+App -> JDBC: Ejecutar procedimiento
+JDBC -> DB: Ejecutar procedimiento
+App -> JDBC: Cerrar conexión
+JDBC -> DB: Cerrar conexión
+deactivate DB
+deactivate JDBC
+deactivate App
+@enduml

@@ -18,7 +18,7 @@ BEGIN
 END;
 GO
 
---funcion que obtiene LOS id_empleado y el dni_empreado pero solo de aquellos que tengan el cargo de recepcionista o administrador
+--funcion que obtiene LOS dni_empleado y la contraseña pero solo de aquellos que tengan el cargo de recepcionista = 1 o administrador = 2
 GO
 CREATE FUNCTION aptos_login()
 RETURNS TABLE
@@ -28,6 +28,47 @@ RETURN
     FROM empleados
     WHERE id_cargo = 1 OR id_cargo = 2
 GO
+
+select * from aptos_login()
+
+
+-- credenciales
+GO
+CREATE FUNCTION fnVerificarCredenciales (
+    @dni_empleado INT,
+    @contrasena VARCHAR(255)
+)
+RETURNS @resultado TABLE (
+    esValido BIT
+)
+AS
+BEGIN
+    DECLARE @esValido BIT
+
+    IF EXISTS (
+        SELECT *
+        FROM empleados e
+        INNER JOIN cargos c ON e.id_cargo = c.id_cargo
+        WHERE e.dni_empleado = @dni_empleado
+            AND e.contrasena = @contrasena
+            AND c.id_cargo IN (1, 2)
+    )
+    BEGIN
+        SET @esValido = 1
+    END
+    ELSE
+    BEGIN
+        SET @esValido = 0
+    END
+
+    INSERT INTO @resultado (esValido)
+    VALUES (@esValido)
+
+    RETURN
+END
+GO
+
+SELECT * FROM fnVerificarCredenciales(99945671, '0000')
 
 -- Store procedure para ingresar empresa hotelera
 GO

@@ -1,0 +1,52 @@
+@startuml
+
+package "Java Application" {
+  class JavaApp {
+    - main(args: String[]): void
+  }
+}
+
+package "JDBC" {
+  class DriverManager {
+    + getConnection(url: String, username: String, password: String): Connection
+  }
+
+  interface Connection {
+    + prepareCall(sql: String): CallableStatement
+    + close(): void
+  }
+
+  interface CallableStatement {
+    + setInt(parameterIndex: int, x: int): void
+    + execute(): boolean
+    + close(): void
+  }
+}
+
+package "SQL Server Database" {
+  class "sp_ingresar_nueva_habitacion" {
+    + @id_sucursal: INT
+    + @piso: INT
+    + @puerta: INT
+    + @id_tipo_habitacion: INT
+    --
+    + BEGIN
+    + INSERT INTO habitaciones
+    + END
+  }
+
+  class habitaciones {
+    + id_sucursal: INT
+    + piso: INT
+    + puerta: INT
+    + id_tipo_habitacion: INT
+  }
+}
+
+JavaApp --> DriverManager
+DriverManager --> Connection
+Connection --> CallableStatement
+CallableStatement --> sp_ingresar_nueva_habitacion
+sp_ingresar_nueva_habitacion --> habitaciones
+
+@enduml

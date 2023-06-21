@@ -13,7 +13,7 @@ public class UsuarioLogueado {
     private int id_empleado;
     private int id_sucursal;
     private int id_cargo;
-    private int dni_empleado;
+    private int DNI;
     private String nombre;
     private String apellido;
     private String celular;
@@ -61,17 +61,17 @@ public class UsuarioLogueado {
     }
 
     /**
-     * @return the dni_empleado
+     * @return the DNI
      */
     public int getDni_empleado() {
-        return dni_empleado;
+        return DNI;
     }
 
     /**
-     * @param dni_empleado the dni_empleado to set
+     * @param DNI the DNI to set
      */
-    public void setDni_empleado(int dni_empleado) {
-        this.dni_empleado = dni_empleado;
+    public void setDni_empleado(int DNI) {
+        this.DNI = DNI;
     }
 
     /**

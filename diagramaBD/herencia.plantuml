@@ -1,0 +1,91 @@
+@startuml
+
+class EmpresaHotelera {
+    id_empresa_hotel: int
+    razon_social: String
+    ruc: String
+    direccion: String
+    telefono_central: String
+}
+
+class Sucursal {
+    id_empresa_hotel: int
+    id_sucursal: int
+    nombre: String
+    ciudad: String
+    distrito: String
+    direccion: String
+    telefono_sucursal: String
+}
+
+class TipoHabitacion {
+    id_tipo_habitacion: int
+    tipo: String
+    capacidad: int
+    descripcion: String
+    precio: BigDecimal
+}
+
+class Habitacion {
+    id_sucursal: int
+    id_habitacion: int
+    piso: int
+    puerta: int
+    id_tipo_habitacion: int
+}
+
+class Cargo {
+    id_cargo: int
+    nombre: String
+    descripcion: String
+}
+
+class Empleado {
+    id_empleado: int
+    id_sucursal: int
+    id_cargo: int
+    dni_empleado: int
+    nombre: String
+    apellido: String
+    celular: String
+}
+
+class Cliente {
+    dni_cliente: int
+    nombre: String
+    apellido: String
+    celular: String
+}
+
+class Reserva {
+    id_reserva: int
+    id_habitacion: int
+    id_empleado: int
+    dni_cliente: int
+    fecha_inicio: Date
+    fecha_fin: Date
+    estado: String
+}
+
+class Boleta {
+    id_boleta: int
+    id_reserva: int
+    fecha_emision: Date
+    concepto: String
+    cantidad_dias: int
+    cupon: BigDecimal
+    monto_total: BigDecimal
+}
+
+EmpresaHotelera "1" *-- "1" Sucursal
+Sucursal "1" *-- "*" Habitacion
+Sucursal "1" *-- "*" Empleado
+TipoHabitacion "1" *-- "*" Habitacion
+Cargo "1" *-- "*" Empleado
+Sucursal "1" *-- "*" Reserva
+Habitacion "1" *-- "*" Reserva
+Empleado "1" *-- "*" Reserva
+Cliente "1" *-- "*" Reserva
+Reserva "1" -- "1" Boleta
+
+@enduml
