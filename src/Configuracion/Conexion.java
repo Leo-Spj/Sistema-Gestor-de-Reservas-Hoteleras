@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class Conexion {
     
-    private Connection connection;
+    private Connection conn;
     private DatabaseConfig databaseConfig; //con esto traemos las credenciales ocultas
 
     public Conexion(DatabaseConfig databaseConfig) {
@@ -30,11 +30,12 @@ public class Conexion {
             String connectionString = String.format("jdbc:sqlserver://%s.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;",
                     server, databaseName, username, password);
 
-            connection = DriverManager.getConnection(connectionString);
+            conn = DriverManager.getConnection(connectionString);
+            
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println("Error: " + e.getMessage());
         }
 
-        return connection;
+        return conn;
     }
 }

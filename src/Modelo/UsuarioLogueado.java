@@ -13,6 +13,7 @@ public class UsuarioLogueado extends Persona{
     private int id_empleado;
     private int id_sucursal;
     private int id_cargo;
+    private String contraseña;
 
     public UsuarioLogueado(int DNI, String nombre, String apellido, String celular) {
         super(DNI, nombre, apellido, celular);
@@ -61,5 +62,19 @@ public class UsuarioLogueado extends Persona{
      */
     public void setId_cargo(int id_cargo) {
         this.id_cargo = id_cargo;
+    }
+
+    /**
+     * @return the contraseña
+     */
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    /**
+     * @param contraseña the contraseña to set
+     */
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 }
