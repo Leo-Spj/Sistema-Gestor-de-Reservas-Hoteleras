@@ -247,7 +247,7 @@ public class Login extends javax.swing.JFrame {
                                 usuarioLogueado.setId_empleado(resultSetEmpleado.getInt("id_empleado"));
                                 usuarioLogueado.setId_sucursal(resultSetEmpleado.getInt("id_sucursal"));
                                 usuarioLogueado.setId_cargo(resultSetEmpleado.getInt("id_cargo"));
-                                usuarioLogueado.setDni_empleado(resultSetEmpleado.getInt("dni_empleado"));
+                                usuarioLogueado.setDNI(resultSetEmpleado.getInt("dni_empleado"));
                                 usuarioLogueado.setNombre(resultSetEmpleado.getString("nombre"));
                                 usuarioLogueado.setApellido(resultSetEmpleado.getString("apellido"));
                                 usuarioLogueado.setCelular(resultSetEmpleado.getString("celular"));

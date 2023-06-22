@@ -21,7 +21,7 @@ public abstract class Persona {
         this.apellido = apellido;
         this.celular = celular;
     }
-
+    
     /**
      * @return the DNI
      */
