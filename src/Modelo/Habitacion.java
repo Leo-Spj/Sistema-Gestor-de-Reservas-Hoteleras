@@ -10,12 +10,28 @@ package Modelo;
  */
 public class Habitacion {
 
-    private int idHabitacion;
     private Sucursal sucursal;
+    private TipoHabitacion tipoHabitacion;
+    
+    private int idHabitacion;
     private int piso;
     private int puerta;
-    private TipoHabitacion tipoHabitacion;
-
+     
+    
+    /**
+     * @return the sucursal
+     */
+    public String getSucursalNombre() {
+        return sucursal.getNombre();
+    }
+    
+    /**
+     * @return the tipoHabitacion
+     */
+    public String getTipoHabitacionNombre() {
+        return tipoHabitacion.getTipo();
+    }
+    
     /**
      * @return the idHabitacion
      */
@@ -28,20 +44,6 @@ public class Habitacion {
      */
     public void setIdHabitacion(int idHabitacion) {
         this.idHabitacion = idHabitacion;
-    }
-
-    /**
-     * @return the sucursal
-     */
-    public Sucursal getSucursal() {
-        return sucursal;
-    }
-
-    /**
-     * @param sucursal the sucursal to set
-     */
-    public void setSucursal(Sucursal sucursal) {
-        this.sucursal = sucursal;
     }
 
     /**
@@ -72,17 +74,4 @@ public class Habitacion {
         this.puerta = puerta;
     }
 
-    /**
-     * @return the tipoHabitacion
-     */
-    public TipoHabitacion getTipoHabitacion() {
-        return tipoHabitacion;
-    }
-
-    /**
-     * @param tipoHabitacion the tipoHabitacion to set
-     */
-    public void setTipoHabitacion(TipoHabitacion tipoHabitacion) {
-        this.tipoHabitacion = tipoHabitacion;
-    }
 }

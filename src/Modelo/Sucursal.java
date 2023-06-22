@@ -9,15 +9,23 @@ package Modelo;
  * @author Leo
  */
 public class Sucursal {
-
-    private int idSucursal;
+    
     private EmpresaHotelera empresaHotelera;
+    
+    private int idSucursal;
     private String nombre;
     private String ciudad;
     private String distrito;
     private String direccion;
     private String telefonoSucursal;
-
+  
+    /**
+     * @return the empresaHotelera
+     */
+    public String getEmpresaHotelera() {
+        return empresaHotelera.getRazonSocial();
+    }
+    
     /**
      * @return the idSucursal
      */
@@ -30,20 +38,6 @@ public class Sucursal {
      */
     public void setIdSucursal(int idSucursal) {
         this.idSucursal = idSucursal;
-    }
-
-    /**
-     * @return the empresaHotelera
-     */
-    public EmpresaHotelera getEmpresaHotelera() {
-        return empresaHotelera;
-    }
-
-    /**
-     * @param empresaHotelera the empresaHotelera to set
-     */
-    public void setEmpresaHotelera(EmpresaHotelera empresaHotelera) {
-        this.empresaHotelera = empresaHotelera;
     }
 
     /**
