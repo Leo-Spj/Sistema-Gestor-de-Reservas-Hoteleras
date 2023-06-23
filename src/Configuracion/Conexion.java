@@ -7,35 +7,26 @@ package Configuracion;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Conexion {
     
     private Connection conn;
-    private DatabaseConfig databaseConfig; //con esto traemos las credenciales ocultas
+    DatabaseConfig databaseConfig = new DatabaseConfig();
+    
+    public Connection getConectar() throws SQLException {
+        
+        String server = databaseConfig.getServer();
+        String databaseName = databaseConfig.getDatabaseName();
+        String username = databaseConfig.getUsername();
+        String password = databaseConfig.getPassword();
 
-    public Conexion(DatabaseConfig databaseConfig) {
-        this.databaseConfig = databaseConfig;
-    }
+        String connectionString = String.format("jdbc:sqlserver://traveleasy-utp.database.windows.net:1433;database=TravelEsay;user=Java-POO-UTP@traveleasy-utp;password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", 
+                server, databaseName);
 
-    public Connection getConectar() {
-        try {
-
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver"); //linea no necesaria, para versiones antiguas de JDBC (pre-JDBC 4.0)
-            
-            String server = databaseConfig.getServer();
-            String databaseName = databaseConfig.getDatabaseName();
-            String username = databaseConfig.getUsername();
-            String password = databaseConfig.getPassword();
-
-            String connectionString = String.format("jdbc:sqlserver://%s.database.windows.net:1433;database=%s;user=%s;password=%s;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;",
-                    server, databaseName, username, password);
-
-            conn = DriverManager.getConnection(connectionString);
-            
-        } catch (ClassNotFoundException | SQLException e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-
+        conn = DriverManager.getConnection(connectionString, username, password);
+        
         return conn;
     }
 }

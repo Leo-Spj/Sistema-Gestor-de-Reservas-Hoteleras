@@ -157,7 +157,8 @@ public final class MultiVentana extends javax.swing.JFrame {
         String querySucursal = "SELECT nombre FROM sucursal";
 
         try ( Connection connection = DriverManager.getConnection(getConnectionString(),
-                databaseConfig.getUsername(), databaseConfig.getPassword());  PreparedStatement statementSucursal = connection.prepareStatement(querySucursal);
+                databaseConfig.getUsername(), databaseConfig.getPassword());  
+                PreparedStatement statementSucursal = connection.prepareStatement(querySucursal);
                 ResultSet resultSetSucursal = statementSucursal.executeQuery()) {
 
             while (resultSetSucursal.next()) {
@@ -906,7 +907,8 @@ public final class MultiVentana extends javax.swing.JFrame {
                 String queryTipoHabitacion = "EXEC sp_buscar_habitaciones_disponibles ?, ?, ?";
 
                 try ( Connection connection = DriverManager.getConnection(getConnectionString(),
-                        databaseConfig.getUsername(), databaseConfig.getPassword());  PreparedStatement statementTipoHabitacion = connection.prepareStatement(queryTipoHabitacion)) {
+                        databaseConfig.getUsername(), databaseConfig.getPassword() );   
+                    PreparedStatement statementTipoHabitacion = connection.prepareStatement(queryTipoHabitacion)) {
 
                     // Borrar resultados anteriores de la tabla
                     DefaultTableModel model = (DefaultTableModel) tblDisponibles.getModel();

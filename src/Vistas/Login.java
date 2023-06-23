@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import modeloDAO.UsuarioLogueadoDAO;
 
 public class Login extends javax.swing.JFrame {
 
@@ -211,71 +212,31 @@ public class Login extends javax.swing.JFrame {
 
         Thread hilo2 = new Thread(new Runnable() {
             public void run() {
-                // Código del segundo hilo
-                String usuario = txtUsuario.getText();
+
+                int usuario = Integer.parseInt(txtUsuario.getText());
                 String contraseña = new String(pwdContraseña.getPassword());
 
-                String query = "SELECT * FROM aptos_login()";
+                UsuarioLogueado ul = new UsuarioLogueado();
+                ul.setDNI(usuario);
+                ul.setContraseña(contraseña);
+                
+                UsuarioLogueadoDAO ulDAO = new UsuarioLogueadoDAO();
+                
+                if(ulDAO.crear(ul)){ //Si retorna True:
+                    System.out.println("Acceso Aprobado");
+                    System.out.println("Trabajador: " + ul.getNombre() + " " + ul.getApellido());
 
-                try ( Connection connection = DriverManager.getConnection(getConnectionString(),
-                        databaseConfig.getUsername(), databaseConfig.getPassword());  PreparedStatement statement = connection.prepareStatement(query);  ResultSet resultSet = statement.executeQuery()) {
+                    MultiVentana mv = new MultiVentana(ul); // Pasar la instancia
+                    mv.setVisible(true);
 
-                    boolean accesoConcedido = false;
-
-                    while (resultSet.next()) {
-                        String dniEmpleado = resultSet.getString("dni_empleado");
-                        String pwdEmpleado = resultSet.getString("contrasena");
-                        if (usuario.equals(dniEmpleado) && contraseña.equals(pwdEmpleado)) {
-                            accesoConcedido = true;
-                            break;
-                        }
-                    }
-
-                    if (accesoConcedido) {
-
-                        // Obtener información del usuario logueado
-                        String queryEmpleado = "SELECT * FROM empleados WHERE dni_empleado = ?";
-                        try ( Connection connectionLogeo = DriverManager.getConnection(getConnectionString(),
-                                databaseConfig.getUsername(), databaseConfig.getPassword());  PreparedStatement statementEmpleado = connectionLogeo.prepareStatement(queryEmpleado)) {
-
-                            statementEmpleado.setString(1, usuario); // Parámetro para la consulta
-                            ResultSet resultSetEmpleado = statementEmpleado.executeQuery();
-
-                            UsuarioLogueado usuarioLogueado = new UsuarioLogueado();
-                            if (resultSetEmpleado.next()) {
-
-                                usuarioLogueado.setId_empleado(resultSetEmpleado.getInt("id_empleado"));
-                                usuarioLogueado.setId_sucursal(resultSetEmpleado.getInt("id_sucursal"));
-                                usuarioLogueado.setId_cargo(resultSetEmpleado.getInt("id_cargo"));
-                                usuarioLogueado.setDNI(resultSetEmpleado.getInt("dni_empleado"));
-                                usuarioLogueado.setNombre(resultSetEmpleado.getString("nombre"));
-                                usuarioLogueado.setApellido(resultSetEmpleado.getString("apellido"));
-                                usuarioLogueado.setCelular(resultSetEmpleado.getString("celular"));
-
-                            }
-                            resultSetEmpleado.close();
-
-                            System.out.println("Acceso Aprobado");
-                            System.out.println("Trabajador: " + usuarioLogueado.getNombre() + " " + usuarioLogueado.getApellido());
-
-                            MultiVentana mv = new MultiVentana(usuarioLogueado); // Pasar la instancia
-                            mv.setVisible(true);
-
-                            Login.this.dispose();
-
-                        } catch (SQLException e) {
-                            e.printStackTrace();
-                        }
-                    } else {
-                        rsCargaLogin.setVisible(false);
-                        String mensaje = "Usuario o Contraseña inválida";
-                        JOptionPane.showMessageDialog(null, mensaje, "Error Login", JOptionPane.ERROR_MESSAGE);
-                    }
-
+                    Login.this.dispose();
+                } else {
                     rsCargaLogin.setVisible(false);
-                } catch (SQLException e) {
-                    e.printStackTrace();
+                    String mensaje = "Usuario o Contraseña inválida";
+                    JOptionPane.showMessageDialog(null, mensaje, "Error Login", JOptionPane.ERROR_MESSAGE);
                 }
+                rsCargaLogin.setVisible(false);
+
             }
         });
 

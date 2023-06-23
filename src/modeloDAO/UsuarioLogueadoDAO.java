@@ -8,10 +8,13 @@ import Configuracion.Conexion;
 import Configuracion.DatabaseConfig;
 import Interfaces.UsuarioLogueadoInterfaz;
 import Modelo.UsuarioLogueado;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
 
 /**
  *
@@ -25,39 +28,37 @@ public class UsuarioLogueadoDAO implements UsuarioLogueadoInterfaz{
     PreparedStatement ps;
     ResultSet rs;
     Statement st;
-    UsuarioLogueado ul;
-    
+       
     @Override
     public boolean crear(UsuarioLogueado ul) {
+        
+        boolean accesoConcedido = false;
+        
+        con = new Conexion();
+        String query = "SELECT * FROM fnVerificarCredenciales(?, ?)";
 
-        try {
-            databaseConfig = new DatabaseConfig();
-            con = new Conexion(databaseConfig);
-            conn = con.getConectar();
-            
-            String query = "SELECT * FROM fnVerificarCredenciales(?, ?)";
-            ps = conn.prepareStatement(query);
-            //introduciendo credenciales
+        try (Connection conn = con.getConectar();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+            // Introducir credenciales
             ps.setInt(1, ul.getDNI());
             ps.setString(2, ul.getContraseña());
-            
-            rs = ps.executeQuery();
-            
-                       
-            if (rs.next()) {
-                int resultado = rs.getInt("esValido");
 
-                if (resultado == 1) { // 1: acceso aprobado
-                    
-                    buscarUno(ul); //uso la funcion de consulta e inserto datos
-                    
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    int resultado = rs.getInt("esValido");
+
+                    if (resultado == 1) {
+                        accesoConcedido = true;
+                    }
                 }
             }
-                        
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            accesoConcedido = false;
         }
-        return false;
+        
+        return accesoConcedido;
     }
+
 
     @Override
     public boolean actualizar(UsuarioLogueado a) {
@@ -77,8 +78,8 @@ public class UsuarioLogueadoDAO implements UsuarioLogueadoInterfaz{
     public UsuarioLogueado buscarUno(UsuarioLogueado ul) {
 
         try {
-            databaseConfig = new DatabaseConfig();
-            con = new Conexion(databaseConfig);
+
+            con = new Conexion();
             conn = con.getConectar();
             
             String query = "SELECT * FROM empleados WHERE dni_empleado = ?";

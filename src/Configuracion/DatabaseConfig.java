@@ -26,6 +26,11 @@ public class DatabaseConfig {
             e.printStackTrace();
         }
     }
+    
+    
+    public String connectionStringsJDBC() {
+        return properties.getProperty("connectionStringsJDBC");
+    }
 
     public String getServer() {
         return properties.getProperty("database.server");
@@ -41,5 +46,5 @@ public class DatabaseConfig {
 
     public String getPassword() {
         return properties.getProperty("database.password");
-    }
+    }   
 }
