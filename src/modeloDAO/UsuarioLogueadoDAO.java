@@ -22,7 +22,7 @@ import java.util.ArrayList;
  */
 public class UsuarioLogueadoDAO implements UsuarioLogueadoInterfaz{
        
-    DatabaseConfig databaseConfig;
+
     Conexion con; //nuestra clase
     java.sql.Connection conn; //de la biblioteca
     PreparedStatement ps;
@@ -49,6 +49,7 @@ public class UsuarioLogueadoDAO implements UsuarioLogueadoInterfaz{
 
                     if (resultado == 1) {
                         accesoConcedido = true;
+                        buscarUno(ul);
                     }
                 }
             }
@@ -75,6 +76,7 @@ public class UsuarioLogueadoDAO implements UsuarioLogueadoInterfaz{
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
+    @Override
     public UsuarioLogueado buscarUno(UsuarioLogueado ul) {
 
         try {
@@ -100,11 +102,6 @@ public class UsuarioLogueadoDAO implements UsuarioLogueadoInterfaz{
         } catch (Exception e) {
         }
         return ul;
-    }
-
-    @Override
-    public UsuarioLogueado buscarUno(int DNI) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
         
 }

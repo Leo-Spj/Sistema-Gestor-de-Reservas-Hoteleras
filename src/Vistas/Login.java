@@ -3,11 +3,6 @@ package Vistas;
 import Configuracion.DatabaseConfig;
 import Modelo.UsuarioLogueado;
 import java.awt.event.KeyEvent;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import modeloDAO.UsuarioLogueadoDAO;
 
@@ -193,12 +188,7 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private String getConnectionString() {
-        String serverName = databaseConfig.getServer();
-        String databaseName = databaseConfig.getDatabaseName();
-        return String.format("jdbc:sqlserver://%s:1433;databaseName=%s;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;",
-                serverName, databaseName);
-    }
+    
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
 
         // hilos
@@ -213,9 +203,11 @@ public class Login extends javax.swing.JFrame {
         Thread hilo2 = new Thread(new Runnable() {
             public void run() {
 
+                //obtengo el usuario y contraseña
                 int usuario = Integer.parseInt(txtUsuario.getText());
                 String contraseña = new String(pwdContraseña.getPassword());
 
+                //instanciando 
                 UsuarioLogueado ul = new UsuarioLogueado();
                 ul.setDNI(usuario);
                 ul.setContraseña(contraseña);
@@ -223,7 +215,6 @@ public class Login extends javax.swing.JFrame {
                 UsuarioLogueadoDAO ulDAO = new UsuarioLogueadoDAO();
                 
                 if(ulDAO.crear(ul)){ //Si retorna True:
-                    System.out.println("Acceso Aprobado");
                     System.out.println("Trabajador: " + ul.getNombre() + " " + ul.getApellido());
 
                     MultiVentana mv = new MultiVentana(ul); // Pasar la instancia

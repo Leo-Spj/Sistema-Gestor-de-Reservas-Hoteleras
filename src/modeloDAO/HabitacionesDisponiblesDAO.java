@@ -35,9 +35,8 @@ public class HabitacionesDisponiblesDAO implements HabitacionesDisponiblesInterf
     }
 
     @Override
-    public Habitacion buscarUno(int DNI) {
+    public Habitacion buscarUno(Habitacion b) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
+    }   
     
 }

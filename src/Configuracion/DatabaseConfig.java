@@ -27,10 +27,7 @@ public class DatabaseConfig {
         }
     }
     
-    
-    public String connectionStringsJDBC() {
-        return properties.getProperty("connectionStringsJDBC");
-    }
+   
 
     public String getServer() {
         return properties.getProperty("database.server");

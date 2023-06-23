@@ -20,6 +20,6 @@ public interface CRUD <T>{
     public boolean eliminar(T e);
     
     public ArrayList<T> buscarTodo();
-    public T buscarUno(int DNI);
+    public T buscarUno(T b);
     
 }
