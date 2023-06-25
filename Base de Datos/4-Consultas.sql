@@ -138,8 +138,8 @@ SELECT * FROM funcion_reporte_boletas()
 SELECT * FROM fn_reporte_reservas()
 ORDER BY
   CASE
-    WHEN estado LIKE 'Pa%' THEN 1   -- Valores que comienzan por "Pa"
-    WHEN estado LIKE 'Pe%' THEN 2   
+    WHEN estado LIKE 'Pagado' THEN 1   -- Valores que comienzan por "Pa"
+    WHEN estado LIKE 'Pendiente' THEN 2   
     ELSE 3                          -- Otros valores
   END,
 estado;

@@ -201,6 +201,50 @@ RETURN
     AND h.id_sucursal = @id_sucursal;
 GO
 
+-- Funcion que retorna la cantidad de personas que quieren reservar una habitacion en un rango de fechas
+GO
+CREATE FUNCTION funcion_buscar_cantidad_personas(
+    @id_habitacion INT, 
+    @fecha_inicio DATE, 
+    @fecha_fin DATE)
+RETURNS INT
+AS
+BEGIN
+    DECLARE @cantidad_personas INT;
+
+    SELECT @cantidad_personas = COUNT(*)
+    FROM reserva
+    WHERE id_habitacion = @id_habitacion
+    AND (
+        (fecha_inicio < @fecha_fin AND fecha_fin > @fecha_inicio)
+    )
+    AND estado = 'Pendiente';
+    RETURN @cantidad_personas;
+END
+GO
+
+--funcion que retorne del id_habitacion la cantidad de dias mas alta de una reserva segun el rango de fechas
+GO
+CREATE FUNCTION funcion_buscar_cantidad_dias(
+    @id_habitacion INT, 
+    @fecha_inicio DATE, 
+    @fecha_fin DATE)
+RETURNS INT
+AS
+BEGIN
+    DECLARE @cantidad_dias INT;
+-- se debe obtener los dias de la reserva con mayor cantidad de dias en un rango de fechas
+    SELECT @cantidad_dias = MAX(DATEDIFF(DAY, fecha_inicio, fecha_fin))
+    FROM reserva
+    WHERE id_habitacion = @id_habitacion
+    AND (
+        (fecha_inicio < @fecha_fin AND fecha_fin > @fecha_inicio)
+    )
+    AND estado = 'Pendiente';
+    RETURN @cantidad_dias;
+END
+GO
+
 -- El siguiente Stored Procedure sirve para la busqueda de habitaciones disponibles por sucursal,
 -- esta utiliza la funcion anterior "funcion_buscar_ID_habitaciones_disponibles", 
 -- y DEVUELVE las que NO estan como estado 'Pagado' ni entre sus fechas de reserva
@@ -212,14 +256,23 @@ CREATE PROCEDURE sp_buscar_habitaciones_disponibles(
     @fecha_fin DATE)
 AS
 BEGIN
-    SELECT h.id_habitacion, th.tipo, th.capacidad, th.descripcion, CONCAT(h.piso, '-', h.puerta) AS habitacion, th.precio AS 'Precio por noche'
+    SELECT h.id_habitacion, 
+    th.tipo, 
+    th.capacidad, 
+    th.descripcion, 
+    CONCAT(h.piso, '-', h.puerta) AS habitacion, 
+    th.precio AS 'Precio por noche',
+    dbo.funcion_buscar_cantidad_personas(h.id_habitacion, @fecha_inicio, @fecha_fin) AS 'Reservas sin pagar',
+    dbo.funcion_buscar_cantidad_dias(h.id_habitacion, @fecha_inicio, @fecha_fin) AS 'MaxDuracion Afectada (dias)'
     FROM habitaciones AS h
     INNER JOIN tipo_habitacion AS th ON h.id_tipo_habitacion = th.id_tipo_habitacion
     WHERE h.id_habitacion IN (
         SELECT id_habitacion
         FROM funcion_buscar_ID_habitaciones_disponibles(@id_sucursal, @fecha_inicio, @fecha_fin)
-    );
+    )
+    ORDER BY th.capacidad, th.tipo; 
 END
+GO
 
 -- Strored Procedure para buscar por dni a las personas que han realizado reservas con estado "Pendiente" (las que están activas) 
 -- (no aparecerán las "Canceladas" o "Pagadas") "sp_buscar_reservas_DNI"

@@ -194,15 +194,11 @@ public class Login extends javax.swing.JFrame {
         // hilos
         Thread hilo1 = new Thread(new Runnable() {
             public void run() {
-
                 rsCargaLogin.setVisible(true);
-
             }
         });
-
         Thread hilo2 = new Thread(new Runnable() {
             public void run() {
-
                 //obtengo el usuario y contraseña
                 int usuario = Integer.parseInt(txtUsuario.getText());
                 String contraseña = new String(pwdContraseña.getPassword());
@@ -227,10 +223,8 @@ public class Login extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, mensaje, "Error Login", JOptionPane.ERROR_MESSAGE);
                 }
                 rsCargaLogin.setVisible(false);
-
             }
         });
-
         // Iniciar los hilos
         hilo1.start();
         hilo2.start();
