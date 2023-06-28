@@ -43,5 +43,9 @@ public class DatabaseConfig {
 
     public String getPassword() {
         return properties.getProperty("database.password");
-    }   
+    }  
+    
+    public String getStringConnection(){
+        return properties.getProperty("database.stringConnection");
+    }
 }
