@@ -6,7 +6,10 @@ package Vistas;
 
 import Configuracion.DatabaseConfig;
 
+import modeloDAO.EmpresaHoteleraDAO;
+
 import Modelo.Cliente;
+import Modelo.EmpresaHotelera;
 import Modelo.UsuarioLogueado;
 
 import java.awt.event.ItemEvent;
@@ -56,12 +59,25 @@ public final class MultiVentana extends javax.swing.JFrame {
 
         System.out.println("Codigo empleado: " + usuarioLogueado.getId_empleado());
 
+        cargarEmpresaHotelera();
+
         // Llenando los ComboBox
         llenarComboBoxSucursales();
         cargarTiposHabitacion();
         
         
         cargarClientes(); 
+    }
+
+    public void cargarEmpresaHotelera(){
+        EmpresaHotelera eh = new EmpresaHotelera();
+        EmpresaHoteleraDAO ehDAO = new EmpresaHoteleraDAO();
+
+        eh = ehDAO.buscarUno(eh);
+
+        //imprimir todos los datos de la empresa
+        System.out.println("Nombre: " + eh.getRazonSocial());
+        System.out.println("Ruc: " + eh.getRuc());
     }
 
     public MultiVentana() {
@@ -147,7 +163,7 @@ public final class MultiVentana extends javax.swing.JFrame {
 
     public void llenarComboBoxSucursales() {
         // Consulta SQL para obtener los nombres de las sucursales
-        // Antes de agregar los elementos desde la base de datos, asegúrate de que el combobox esté vacío
+        // Limpiando comboBox
         cbxSucursal.removeAllItems();
 
         // Agregar el elemento "Seleccionar" como primer elemento del combobox
