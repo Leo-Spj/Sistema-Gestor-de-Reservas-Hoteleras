@@ -25,8 +25,8 @@ public class EmpresaHoteleraDAO implements EmpresaHoteleraInterfaz {
     Conexion con; //nuestra clase
     java.sql.Connection conn; //de la biblioteca
     PreparedStatement ps;
-    ResultSet rs;
     Statement st;
+    ResultSet rs;
 
 
     @Override

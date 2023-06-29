@@ -21,13 +21,13 @@ import java.util.ArrayList;
  * @author Leo
  */
 public class UsuarioLogueadoDAO implements UsuarioLogueadoInterfaz{
-       
+
 
     Conexion con; //nuestra clase
     java.sql.Connection conn; //de la biblioteca
     PreparedStatement ps;
-    ResultSet rs;
     Statement st;
+    ResultSet rs;
        
     @Override
     public boolean crear(UsuarioLogueado ul) {
@@ -53,10 +53,10 @@ public class UsuarioLogueadoDAO implements UsuarioLogueadoInterfaz{
                     }
                 }
             }
+
         } catch (SQLException e) {
             accesoConcedido = false;
         }
-        
         return accesoConcedido;
     }
 
@@ -99,6 +99,7 @@ public class UsuarioLogueadoDAO implements UsuarioLogueadoInterfaz{
                 ul.setApellido(rs.getString("apellido"));
                 ul.setCelular(rs.getString("celular"));
             }
+
         } catch (Exception e) {
         }
         return ul;

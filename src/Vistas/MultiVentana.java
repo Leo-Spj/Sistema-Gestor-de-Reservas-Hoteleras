@@ -6,11 +6,14 @@ package Vistas;
 
 import Configuracion.DatabaseConfig;
 
+import Modelo.Sucursal;
 import modeloDAO.EmpresaHoteleraDAO;
+import modeloDAO.SucursalDAO;
 
 import Modelo.Cliente;
 import Modelo.EmpresaHotelera;
 import Modelo.UsuarioLogueado;
+import modeloDAO.SucursalDAO;
 
 import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
@@ -46,6 +49,7 @@ public final class MultiVentana extends javax.swing.JFrame {
      */
     private UsuarioLogueado usuarioLogueado;
     private ArrayList<Cliente> clientes;
+    EmpresaHotelera eh = new EmpresaHotelera();
 
     public MultiVentana(UsuarioLogueado usuarioLogueado) {
 
@@ -64,13 +68,11 @@ public final class MultiVentana extends javax.swing.JFrame {
         // Llenando los ComboBox
         llenarComboBoxSucursales();
         cargarTiposHabitacion();
-        
-        
-        cargarClientes(); 
+
+        cargarClientes();
     }
 
     public void cargarEmpresaHotelera(){
-        EmpresaHotelera eh = new EmpresaHotelera();
         EmpresaHoteleraDAO ehDAO = new EmpresaHoteleraDAO();
 
         eh = ehDAO.buscarUno(eh);
@@ -166,26 +168,18 @@ public final class MultiVentana extends javax.swing.JFrame {
         // Limpiando comboBox
         cbxSucursal.removeAllItems();
 
-        // Agregar el elemento "Seleccionar" como primer elemento del combobox
-        cbxSucursal.addItem("Seleccionar");
+        SucursalDAO sucursalDAO = new SucursalDAO();
+        ArrayList<Sucursal> sucursales = sucursalDAO.buscarTodo();
 
-        // Realizar la consulta a la base de datos y agregar los resultados al combobox
-        String querySucursal = "SELECT nombre FROM sucursal";
+        // Agregar los nombres de las sucursales al comboBox
+        for (Sucursal sucursal : sucursales) {
+            cbxSucursal.addItem(sucursal.getNombre());
 
-        try ( Connection connection = DriverManager.getConnection(getConnectionString(),
-                databaseConfig.getUsername(), databaseConfig.getPassword());  
-                PreparedStatement statementSucursal = connection.prepareStatement(querySucursal);
-                ResultSet resultSetSucursal = statementSucursal.executeQuery()) {
-
-            while (resultSetSucursal.next()) {
-                String nombreSucursal = resultSetSucursal.getString("nombre");
-                cbxSucursal.addItem(nombreSucursal);
+            //busco el nombre de la sucursal mendiante el id del usuario loguado en los elementos del arraylist
+            if (sucursal.getIdSucursal() == usuarioLogueado.getId_sucursal()) {
+                cbxSucursal.setSelectedItem(sucursal.getNombre());
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
-
-        cbxSucursal.setSelectedIndex(usuarioLogueado.getId_sucursal());
 
     }
 
@@ -199,7 +193,9 @@ public final class MultiVentana extends javax.swing.JFrame {
         // Realizar la consulta a la base de datos y agregar los resultados al combobox
         String queryTipoHabitacion = "SELECT tipo FROM tipo_habitacion";
         try ( Connection connection = DriverManager.getConnection(getConnectionString(),
-                databaseConfig.getUsername(), databaseConfig.getPassword());  PreparedStatement statementTipoHabitacion = connection.prepareStatement(queryTipoHabitacion);  ResultSet resultSetTipoHabitacion = statementTipoHabitacion.executeQuery()) {
+                databaseConfig.getUsername(), databaseConfig.getPassword());
+              PreparedStatement statementTipoHabitacion = connection.prepareStatement(queryTipoHabitacion);
+              ResultSet resultSetTipoHabitacion = statementTipoHabitacion.executeQuery()) {
 
             while (resultSetTipoHabitacion.next()) {
                 String tipoHabitacion = resultSetTipoHabitacion.getString("tipo");
