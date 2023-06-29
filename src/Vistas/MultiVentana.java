@@ -51,6 +51,13 @@ public final class MultiVentana extends javax.swing.JFrame {
     private ArrayList<Cliente> clientes;
     EmpresaHotelera eh = new EmpresaHotelera();
 
+    //no usar este MultiVentana sin parametros
+    public MultiVentana() {
+        initComponents();
+        pnlRegistrarCliente.setVisible(false);
+        cargarClientes(); //Probando la carga de cliente en un arrayList
+    }
+
     public MultiVentana(UsuarioLogueado usuarioLogueado) {
 
         this.usuarioLogueado = usuarioLogueado;
@@ -82,12 +89,6 @@ public final class MultiVentana extends javax.swing.JFrame {
         System.out.println("Ruc: " + eh.getRuc());
     }
 
-    public MultiVentana() {
-        initComponents();
-        pnlRegistrarCliente.setVisible(false);
-        cargarClientes(); //Probando la carga de cliente en un arrayList
-    }
-    
     public void validarCaracteres(java.awt.event.KeyEvent evento) {
         if (evento.getKeyChar() >= 32 && evento.getKeyChar() <= 47 || evento.getKeyChar() >= 58 && evento.getKeyChar() <= 8482) {
             evento.consume();
@@ -163,13 +164,13 @@ public final class MultiVentana extends javax.swing.JFrame {
                 serverName, databaseName);
     }
 
+    ArrayList<Sucursal> sucursales;
     public void llenarComboBoxSucursales() {
-        // Consulta SQL para obtener los nombres de las sucursales
         // Limpiando comboBox
         cbxSucursal.removeAllItems();
 
         SucursalDAO sucursalDAO = new SucursalDAO();
-        ArrayList<Sucursal> sucursales = sucursalDAO.buscarTodo();
+        sucursales = sucursalDAO.buscarTodo();
 
         // Agregar los nombres de las sucursales al comboBox
         for (Sucursal sucursal : sucursales) {
@@ -905,8 +906,18 @@ public final class MultiVentana extends javax.swing.JFrame {
                 String mensaje = "La Fecha de Inicio no puede ser igual a la Fecha de Fin.";
                 JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
             } else {
-                int indiceSucursal = cbxSucursal.getSelectedIndex();
-                System.out.println("Sucursal: " + indiceSucursal + "; Inicio: " + localDateIni + "; Final: " + localDateFin);
+
+                int sucursalcbx = 0;
+                //mediante el nombre de la sucursal, obtenemos su id
+                for (Sucursal sucursal : sucursales) {
+                    if (sucursal.getNombre().equals(cbxSucursal.getSelectedItem().toString())) {
+                        sucursalcbx = sucursal.getIdSucursal();
+                    }
+                }
+
+
+                String sucursalNom = cbxSucursal.getSelectedItem().toString() ;
+                System.out.println("Sucursal: "+ sucursalcbx +" - " + sucursalNom + "; Inicio: " + localDateIni + "; Final: " + localDateFin);
                 
                 txtIDHabitacion.setText("");
                 
@@ -927,7 +938,7 @@ public final class MultiVentana extends javax.swing.JFrame {
                     model.setRowCount(0);
 
                     // Establecer los valores de los parámetros
-                    statementTipoHabitacion.setString(1, indiceSucursal + "");
+                    statementTipoHabitacion.setInt(1, sucursalcbx);
                     statementTipoHabitacion.setString(2, localDateIni + "");
                     statementTipoHabitacion.setString(3, localDateFin + "");
 
