@@ -322,18 +322,20 @@
                           <Font name="Segoe UI" size="16" style="0"/>
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="6" rowCount="0">
-                            <Column editable="true" title="ID habitaci&#xf3;n" type="java.lang.Integer"/>
+                          <Table columnCount="8" rowCount="0">
+                            <Column editable="true" title="ID" type="java.lang.Integer"/>
                             <Column editable="true" title="Tipo" type="java.lang.String"/>
                             <Column editable="true" title="Capacidad" type="java.lang.Integer"/>
                             <Column editable="true" title="Descripci&#xf3;n" type="java.lang.String"/>
                             <Column editable="true" title="Habitaci&#xf3;n" type="java.lang.String"/>
                             <Column editable="true" title="S/." type="java.lang.Double"/>
+                            <Column editable="true" title="Pendientes" type="java.lang.Integer"/>
+                            <Column editable="true" title="MaxAfectado dias" type="java.lang.Integer"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                           <TableColumnModel selectionModel="0">
-                            <Column maxWidth="85" minWidth="85" prefWidth="-1" resizable="true">
+                            <Column maxWidth="40" minWidth="35" prefWidth="-1" resizable="true">
                               <Title/>
                               <Editor/>
                               <Renderer/>
@@ -343,7 +345,7 @@
                               <Editor/>
                               <Renderer/>
                             </Column>
-                            <Column maxWidth="100" minWidth="-1" prefWidth="-1" resizable="true">
+                            <Column maxWidth="70" minWidth="-1" prefWidth="-1" resizable="true">
                               <Title/>
                               <Editor/>
                               <Renderer/>
@@ -353,12 +355,22 @@
                               <Editor/>
                               <Renderer/>
                             </Column>
-                            <Column maxWidth="100" minWidth="-1" prefWidth="-1" resizable="true">
+                            <Column maxWidth="65" minWidth="-1" prefWidth="-1" resizable="true">
                               <Title/>
                               <Editor/>
                               <Renderer/>
                             </Column>
-                            <Column maxWidth="100" minWidth="-1" prefWidth="-1" resizable="true">
+                            <Column maxWidth="40" minWidth="20" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="70" minWidth="70" prefWidth="-1" resizable="true">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                               <Title/>
                               <Editor/>
                               <Renderer/>
@@ -713,7 +725,7 @@
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="txtIDHabitacion" alignment="0" max="32767" attributes="0"/>
                               <Component id="fmtFechaSalida" alignment="0" max="32767" attributes="0"/>
-                              <Component id="fmtFechaIngreso" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="fmtFechaIngreso" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="32767" attributes="0"/>
                           <Component id="btnReservar" min="-2" max="-2" attributes="0"/>
@@ -796,6 +808,7 @@
                 </Component>
                 <Component class="javax.swing.JFormattedTextField" name="fmtFechaIngreso">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                       <Connection code="new javax.swing.JFormattedTextField.AbstractFormatterFactory() {&#xa;    public javax.swing.JFormattedTextField.AbstractFormatter&#xa;    getFormatter(javax.swing.JFormattedTextField tf){&#xa;&#xa;        try {&#xa;            return new javax.swing.text.MaskFormatter(&quot;####-##-##&quot;);&#xa;        }&#xa;        catch (java.text.ParseException pe){&#xa;            pe.printStackTrace();&#xa;        }&#xa;        return null;&#xa;    }&#xa;}" type="code"/>
                     </Property>
@@ -805,6 +818,9 @@
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JFormattedTextField" name="fmtFechaSalida">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="fmtFechaSalida.setFormatterFactory(new javax.swing.JFormattedTextField.AbstractFormatterFactory() {&#xa;    public javax.swing.JFormattedTextField.AbstractFormatter&#xa;    getFormatter(javax.swing.JFormattedTextField tf){&#xa;&#xa;        try {&#xa;            return new javax.swing.text.MaskFormatter(&quot;####-##-##&quot;);&#xa;        }&#xa;        catch (java.text.ParseException pe){&#xa;            pe.printStackTrace();&#xa;        }&#xa;        return null;&#xa;    }&#xa;});"/>
                   </AuxValues>

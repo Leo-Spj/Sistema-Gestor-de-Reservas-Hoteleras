@@ -110,6 +110,7 @@ SELECT * FROM reserva
 -- Si nadie ha pagado se muestran todas las habitaciones
 EXEC sp_buscar_habitaciones_disponibles 1, '2023-06-10', '2023-06-13';
 
+-- //la busqueda de habitaaciones disponibles contiene 8 columnas, id_habitacion, tipo, capacidad, descripcion, habitacion, Precio por noche, Reservas sin pagar, MaxDuracion Afectada (dias).
 
 -- Con la busqueda por dni en las reservas podemos obtener el id_reserva y poder
 -- utilizarla para generar la boleta:

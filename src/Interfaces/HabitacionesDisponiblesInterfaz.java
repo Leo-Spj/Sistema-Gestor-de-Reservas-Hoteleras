@@ -4,12 +4,12 @@
  */
 package Interfaces;
 
-import Modelo.Habitacion;
+import Modelo.HabitacionDisponible;
 
 /**
  *
  * @author Leo
  */
-public interface HabitacionesDisponiblesInterfaz extends CRUD<Habitacion>{
+public interface HabitacionesDisponiblesInterfaz extends CRUD<HabitacionDisponible>{
     //Por mientras dejarlo vacio gente, todo se saca del CRUD
 }

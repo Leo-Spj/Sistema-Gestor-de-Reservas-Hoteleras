@@ -72,6 +72,7 @@ public class SucursalDAO implements SucursalInterfaz{
 
             while (rs.next()) {
                 Sucursal sucursal = new Sucursal();
+
                 sucursal.setIdSucursal(rs.getInt("id_sucursal"));
                 sucursal.setNombre(rs.getString("nombre"));
                 sucursal.setIdSucursal(rs.getInt("id_sucursal"));
@@ -79,6 +80,7 @@ public class SucursalDAO implements SucursalInterfaz{
                 sucursal.setDistrito(rs.getString("distrito"));
                 sucursal.setDireccion(rs.getString("direccion"));
                 sucursal.setTelefonoSucursal(rs.getString("telefono_sucursal"));
+
                 sucursales.add(sucursal);
             }
 

@@ -6,21 +6,14 @@ package Vistas;
 
 import Configuracion.DatabaseConfig;
 
-import Modelo.Sucursal;
-import modeloDAO.EmpresaHoteleraDAO;
-import modeloDAO.SucursalDAO;
-
-import Modelo.Cliente;
-import Modelo.EmpresaHotelera;
-import Modelo.UsuarioLogueado;
-import modeloDAO.SucursalDAO;
+import Modelo.*;
+import modeloDAO.*;
 
 import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import javax.swing.JOptionPane;
 import java.time.LocalDate;
 
 import java.sql.Connection;
@@ -30,8 +23,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
 import java.util.Date;
+
+import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
@@ -181,8 +177,9 @@ public final class MultiVentana extends javax.swing.JFrame {
                 cbxSucursal.setSelectedItem(sucursal.getNombre());
             }
         }
-
     }
+
+    ArrayList<TipoHabitacion> tiposHabitacion;
 
     private void cargarTiposHabitacion() {
         // Antes de agregar los elementos desde la base de datos, asegúrate de que el combobox esté vacío
@@ -191,19 +188,11 @@ public final class MultiVentana extends javax.swing.JFrame {
         // Agregar el elemento "Seleccionar" como primer elemento del combobox
         cbxTipoHabitacion.addItem("");
 
-        // Realizar la consulta a la base de datos y agregar los resultados al combobox
-        String queryTipoHabitacion = "SELECT tipo FROM tipo_habitacion";
-        try ( Connection connection = DriverManager.getConnection(getConnectionString(),
-                databaseConfig.getUsername(), databaseConfig.getPassword());
-              PreparedStatement statementTipoHabitacion = connection.prepareStatement(queryTipoHabitacion);
-              ResultSet resultSetTipoHabitacion = statementTipoHabitacion.executeQuery()) {
+        TipoHabitacionDAO tipoHabitacionDAO = new TipoHabitacionDAO();
+        tiposHabitacion = tipoHabitacionDAO.buscarTodo();
 
-            while (resultSetTipoHabitacion.next()) {
-                String tipoHabitacion = resultSetTipoHabitacion.getString("tipo");
-                cbxTipoHabitacion.addItem(tipoHabitacion);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        for (TipoHabitacion tipoHabitacion : tiposHabitacion) {
+            cbxTipoHabitacion.addItem(tipoHabitacion.getTipo());
         }
     }
 
@@ -416,11 +405,11 @@ public final class MultiVentana extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID habitación", "Tipo", "Capacidad", "Descripción", "Habitación", "S/."
+                "ID", "Tipo", "Capacidad", "Descripción", "Habitación", "S/.", "Pendientes", "MaxAfectado dias"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -434,14 +423,17 @@ public final class MultiVentana extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblDisponibles);
         if (tblDisponibles.getColumnModel().getColumnCount() > 0) {
-            tblDisponibles.getColumnModel().getColumn(0).setMinWidth(85);
-            tblDisponibles.getColumnModel().getColumn(0).setMaxWidth(85);
+            tblDisponibles.getColumnModel().getColumn(0).setMinWidth(35);
+            tblDisponibles.getColumnModel().getColumn(0).setMaxWidth(40);
             tblDisponibles.getColumnModel().getColumn(1).setMinWidth(100);
             tblDisponibles.getColumnModel().getColumn(1).setMaxWidth(130);
-            tblDisponibles.getColumnModel().getColumn(2).setMaxWidth(100);
+            tblDisponibles.getColumnModel().getColumn(2).setMaxWidth(70);
             tblDisponibles.getColumnModel().getColumn(3).setMinWidth(370);
-            tblDisponibles.getColumnModel().getColumn(4).setMaxWidth(100);
-            tblDisponibles.getColumnModel().getColumn(5).setMaxWidth(100);
+            tblDisponibles.getColumnModel().getColumn(4).setMaxWidth(65);
+            tblDisponibles.getColumnModel().getColumn(5).setMinWidth(20);
+            tblDisponibles.getColumnModel().getColumn(5).setMaxWidth(40);
+            tblDisponibles.getColumnModel().getColumn(6).setMinWidth(70);
+            tblDisponibles.getColumnModel().getColumn(6).setMaxWidth(70);
         }
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -650,6 +642,7 @@ public final class MultiVentana extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(tblDetalleReserva);
 
+        fmtFechaIngreso.setEditable(false);
         fmtFechaIngreso.setFormatterFactory(new javax.swing.JFormattedTextField.AbstractFormatterFactory() {
             public javax.swing.JFormattedTextField.AbstractFormatter
             getFormatter(javax.swing.JFormattedTextField tf){
@@ -677,6 +670,7 @@ public final class MultiVentana extends javax.swing.JFrame {
                 return null;
             }
         });
+        fmtFechaSalida.setEditable(false);
 
         javax.swing.GroupLayout pnlReservarHabitacionLayout = new javax.swing.GroupLayout(pnlReservarHabitacion);
         pnlReservarHabitacion.setLayout(pnlReservarHabitacionLayout);
@@ -724,7 +718,7 @@ public final class MultiVentana extends javax.swing.JFrame {
                 .addGroup(pnlReservarHabitacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtIDHabitacion)
                     .addComponent(fmtFechaSalida)
-                    .addComponent(fmtFechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fmtFechaIngreso))
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(btnReservar)
                 .addGap(18, 18, 18)
@@ -915,48 +909,31 @@ public final class MultiVentana extends javax.swing.JFrame {
                     }
                 }
 
-
                 String sucursalNom = cbxSucursal.getSelectedItem().toString() ;
                 System.out.println("Sucursal: "+ sucursalcbx +" - " + sucursalNom + "; Inicio: " + localDateIni + "; Final: " + localDateFin);
-                
-                txtIDHabitacion.setText("");
-                
-                fmtFechaIngreso.setText("");
+
+                limpiarDisponibles();
                 fmtFechaIngreso.setText(localDateIni.toString());
-                
-                fmtFechaSalida.setText("");
                 fmtFechaSalida.setText(localDateFin.toString());
-                
-                String queryTipoHabitacion = "EXEC sp_buscar_habitaciones_disponibles ?, ?, ?";
 
-                try ( Connection connection = DriverManager.getConnection(getConnectionString(),
-                        databaseConfig.getUsername(), databaseConfig.getPassword() );   
-                    PreparedStatement statementTipoHabitacion = connection.prepareStatement(queryTipoHabitacion)) {
+                // Borrar resultados anteriores de la tabla
+                DefaultTableModel model = (DefaultTableModel) tblDisponibles.getModel();
+                model.setRowCount(0);
 
-                    // Borrar resultados anteriores de la tabla
-                    DefaultTableModel model = (DefaultTableModel) tblDisponibles.getModel();
-                    model.setRowCount(0);
+                HabitacionesDisponiblesDAO hdDAO = new HabitacionesDisponiblesDAO();
+                ArrayList<HabitacionDisponible> habitacionesDisponibles = hdDAO.buscarTodo(sucursalcbx, localDateIni.toString(), localDateFin.toString());
 
-                    // Establecer los valores de los parámetros
-                    statementTipoHabitacion.setInt(1, sucursalcbx);
-                    statementTipoHabitacion.setString(2, localDateIni + "");
-                    statementTipoHabitacion.setString(3, localDateFin + "");
-
-                    try ( ResultSet resultSetTipoHabitacion = statementTipoHabitacion.executeQuery()) {
-                        while (resultSetTipoHabitacion.next()) {
-                            Object[] row = new Object[6];
-                            row[0] = resultSetTipoHabitacion.getInt("id_habitacion");
-                            row[1] = resultSetTipoHabitacion.getString("tipo");
-                            row[2] = resultSetTipoHabitacion.getInt("capacidad");
-                            row[3] = resultSetTipoHabitacion.getString("descripcion");
-                            row[4] = resultSetTipoHabitacion.getString("habitacion");
-                            row[5] = resultSetTipoHabitacion.getDouble("Precio por noche");
-                            model.addRow(row);
-                        }
-                    }
-                } catch (SQLException e) {
-                    // Manejo de excepciones
-                    e.printStackTrace();
+                // Recorriendo el ArrayList y agregando las filas a la tabla
+                for (HabitacionDisponible habitacion : habitacionesDisponibles) {
+                    Object[] row = {habitacion.getId_habitacion(),
+                                    habitacion.getTipo(),
+                                    habitacion.getCapacidad(),
+                                    habitacion.getDescripcion(),
+                                    habitacion.getHabitacion(),
+                                    habitacion.getPrecio(),
+                                    habitacion.getReservasSinPagar(),
+                                    habitacion.getMaxDuracionAfectada() };
+                    model.addRow(row);
                 }
             }
         } else {
