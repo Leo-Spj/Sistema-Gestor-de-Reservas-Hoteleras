@@ -966,29 +966,29 @@ public final class MultiVentana extends javax.swing.JFrame {
                     pnlRegistrarCliente.setVisible(false);
                     
                     
-                DefaultTableModel model = (DefaultTableModel) tblDetalleReserva.getModel();
-                model.setRowCount(0);
+                    DefaultTableModel model = (DefaultTableModel) tblDetalleReserva.getModel();
+                    model.setRowCount(0);
 
-                BuscarReservaDAO brDAO = new BuscarReservaDAO();
-                ArrayList<BuscarReserva> brs = brDAO.buscarTodo(Integer.parseInt(txtDNICliente.getText()));
+                    BuscarReservaDAO brDAO = new BuscarReservaDAO();
+                    ArrayList<BuscarReserva> brs = brDAO.buscarTodo(Integer.parseInt(txtDNICliente.getText()));
 
-                // Recorriendo el ArrayList y agregando las filas a la tabla
-                for (BuscarReserva buscar : brs) {
-                    Object[] rowbr = {buscar.getIdHabitacion(),
-                                    buscar.getEstado(),
-                                    buscar.getSucursal(),
-                                    buscar.getDniEmpleado(),
-                                    buscar.getIdHabitacion(),
-                                    buscar.getPuerta(),
-                                    buscar.getTipo(),
-                                    buscar.getPrecioxNoche(),
-                                    buscar.getInicio(),
-                                    buscar.getFin(),
-                                    buscar.getNroNoche(),
-                                    buscar.getTotal(),
-                    };
-                    model.addRow(rowbr);
-                }
+                    // Recorriendo el ArrayList y agregando las filas a la tabla
+                    for (BuscarReserva buscar : brs) {
+                        Object[] rowbr = {buscar.getIdReserva(),
+                                        buscar.getEstado(),
+                                        buscar.getSucursal(),
+                                        buscar.getDniEmpleado(),
+                                        buscar.getIdHabitacion(),
+                                        buscar.getPuerta(),
+                                        buscar.getTipo(),
+                                        buscar.getPrecioxNoche(),
+                                        buscar.getInicio(),
+                                        buscar.getFin(),
+                                        buscar.getNroNoche(),
+                                        buscar.getTotal(),
+                        };
+                        model.addRow(rowbr);
+                    }
                     
 
                 }
