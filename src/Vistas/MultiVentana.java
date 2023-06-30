@@ -43,15 +43,16 @@ public final class MultiVentana extends javax.swing.JFrame {
     /**
      * Creates new form MultiVentana
      */
-    private UsuarioLogueado usuarioLogueado;
-    private ArrayList<Cliente> clientes;
+
     EmpresaHotelera eh = new EmpresaHotelera();
+    UsuarioLogueado usuarioLogueado;
+    ArrayList<Sucursal> sucursales;
+    ArrayList<TipoHabitacion> tiposHabitacion;
 
     //no usar este MultiVentana sin parametros
     public MultiVentana() {
         initComponents();
         pnlRegistrarCliente.setVisible(false);
-        cargarClientes(); //Probando la carga de cliente en un arrayList
     }
 
     public MultiVentana(UsuarioLogueado usuarioLogueado) {
@@ -64,26 +65,59 @@ public final class MultiVentana extends javax.swing.JFrame {
 
         pnlRegistrarCliente.setVisible(false);
 
-        System.out.println("Codigo empleado: " + usuarioLogueado.getId_empleado());
+        System.out.println(usuarioLogueado.getNombre() + " " + usuarioLogueado.getApellido() + " - " + usuarioLogueado.getId_empleado());
 
         cargarEmpresaHotelera();
 
         // Llenando los ComboBox
         llenarComboBoxSucursales();
         cargarTiposHabitacion();
-
-        cargarClientes();
     }
 
+    // la empresa hotelera es de caracter global, "eh" se declara arriba
     public void cargarEmpresaHotelera(){
         EmpresaHoteleraDAO ehDAO = new EmpresaHoteleraDAO();
 
         eh = ehDAO.buscarUno(eh);
 
         //imprimir todos los datos de la empresa
-        System.out.println("Nombre: " + eh.getRazonSocial());
+        System.out.println("Sucursal: " + eh.getRazonSocial());
         System.out.println("Ruc: " + eh.getRuc());
     }
+
+    public void llenarComboBoxSucursales() {
+        // Limpiando comboBox
+        cbxSucursal.removeAllItems();
+
+        SucursalDAO sucursalDAO = new SucursalDAO();
+        sucursales = sucursalDAO.buscarTodo();
+
+        // Agregar los nombres de las sucursales al comboBox
+        for (Sucursal sucursal : sucursales) {
+            cbxSucursal.addItem(sucursal.getNombre());
+
+            //busco el nombre de la sucursal mendiante el id del usuario loguado en los elementos del arraylist
+            if (sucursal.getIdSucursal() == usuarioLogueado.getId_sucursal()) {
+                cbxSucursal.setSelectedItem(sucursal.getNombre());
+            }
+        }
+    }
+
+    private void cargarTiposHabitacion() {
+        // Antes de agregar los elementos desde la base de datos, asegúrate de que el combobox esté vacío
+        cbxTipoHabitacion.removeAllItems();
+
+        // Agregar el elemento "Seleccionar" como primer elemento del combobox
+        cbxTipoHabitacion.addItem("");
+
+        TipoHabitacionDAO tipoHabitacionDAO = new TipoHabitacionDAO();
+        tiposHabitacion = tipoHabitacionDAO.buscarTodo();
+
+        for (TipoHabitacion tipoHabitacion : tiposHabitacion) {
+            cbxTipoHabitacion.addItem(tipoHabitacion.getTipo());
+        }
+    }
+
 
     public void validarCaracteres(java.awt.event.KeyEvent evento) {
         if (evento.getKeyChar() >= 32 && evento.getKeyChar() <= 47 || evento.getKeyChar() >= 58 && evento.getKeyChar() <= 8482) {
@@ -92,37 +126,7 @@ public final class MultiVentana extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
-    public void cargarClientes(){
-        clientes = new ArrayList<>();
 
-        String query = "SELECT * FROM clientes;";
-
-        try (Connection connection = DriverManager.getConnection(getConnectionString(),
-            databaseConfig.getUsername(), databaseConfig.getPassword());
-                
-            PreparedStatement statement = connection.prepareStatement(query);
-            ResultSet resultSet = statement.executeQuery()) {
-
-            while (resultSet.next()) {
-                int dni = resultSet.getInt("dni_cliente");
-                String nombre = resultSet.getString("nombre");
-                String apellido = resultSet.getString("apellido");
-                String celular = resultSet.getString("celular");
-
-                Cliente cliente = new Cliente(dni, nombre, apellido, celular);
-                clientes.add(cliente);
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        
-        for (Cliente c : clientes) {
-            System.out.println(c.getNombre());
-        }
-    }
-      
     public void cerrarSesion() {
         try {
             this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -151,50 +155,8 @@ public final class MultiVentana extends javax.swing.JFrame {
         }
     }
 
-    DatabaseConfig databaseConfig = new DatabaseConfig();
 
-    private String getConnectionString() {
-        String serverName = databaseConfig.getServer();
-        String databaseName = databaseConfig.getDatabaseName();
-        return String.format("jdbc:sqlserver://%s:1433;databaseName=%s;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;",
-                serverName, databaseName);
-    }
 
-    ArrayList<Sucursal> sucursales;
-    public void llenarComboBoxSucursales() {
-        // Limpiando comboBox
-        cbxSucursal.removeAllItems();
-
-        SucursalDAO sucursalDAO = new SucursalDAO();
-        sucursales = sucursalDAO.buscarTodo();
-
-        // Agregar los nombres de las sucursales al comboBox
-        for (Sucursal sucursal : sucursales) {
-            cbxSucursal.addItem(sucursal.getNombre());
-
-            //busco el nombre de la sucursal mendiante el id del usuario loguado en los elementos del arraylist
-            if (sucursal.getIdSucursal() == usuarioLogueado.getId_sucursal()) {
-                cbxSucursal.setSelectedItem(sucursal.getNombre());
-            }
-        }
-    }
-
-    ArrayList<TipoHabitacion> tiposHabitacion;
-
-    private void cargarTiposHabitacion() {
-        // Antes de agregar los elementos desde la base de datos, asegúrate de que el combobox esté vacío
-        cbxTipoHabitacion.removeAllItems();
-
-        // Agregar el elemento "Seleccionar" como primer elemento del combobox
-        cbxTipoHabitacion.addItem("");
-
-        TipoHabitacionDAO tipoHabitacionDAO = new TipoHabitacionDAO();
-        tiposHabitacion = tipoHabitacionDAO.buscarTodo();
-
-        for (TipoHabitacion tipoHabitacion : tiposHabitacion) {
-            cbxTipoHabitacion.addItem(tipoHabitacion.getTipo());
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -878,7 +840,6 @@ public final class MultiVentana extends javax.swing.JFrame {
         }
         return null;
     }
-
     private void btnBuscarHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarHabitacionesActionPerformed
 
         String fechaIni = convertirFechaAString(calFechaIni.getDate()); // Fecha de inicio
@@ -913,8 +874,8 @@ public final class MultiVentana extends javax.swing.JFrame {
                 System.out.println("Sucursal: "+ sucursalcbx +" - " + sucursalNom + "; Inicio: " + localDateIni + "; Final: " + localDateFin);
 
                 limpiarDisponibles();
-                fmtFechaIngreso.setText(localDateIni.toString());
-                fmtFechaSalida.setText(localDateFin.toString());
+                fmtFechaIngreso.setText(fechaIni);
+                fmtFechaSalida.setText(fechaFin);
 
                 // Borrar resultados anteriores de la tabla
                 DefaultTableModel model = (DefaultTableModel) tblDisponibles.getModel();
@@ -962,40 +923,6 @@ public final class MultiVentana extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cbxTipoHabitacionItemStateChanged
 
-    public boolean buscarClientePorDNI(int dni) {
-        Cliente clienteEncontrado = null;
-        
-        // Buscar el cliente por DNI en el ArrayList
-        for (Cliente c : clientes) {
-            if (c.getDNI() == dni) {
-                clienteEncontrado = c;
-                break; // Se encontró el cliente, salir del bucle
-            }
-        }
-
-        // Imprimir los campos en la tabla tblDatosCliente
-        DefaultTableModel modelo = (DefaultTableModel) tblDatosCliente.getModel();
-        modelo.setRowCount(0); // Limpiar filas existentes en la tabla
-
-        if (clienteEncontrado != null) {
-            // Obtener los campos del cliente encontrado
-            String nombre = clienteEncontrado.getNombre();
-            String apellido = clienteEncontrado.getApellido();
-            String celular = clienteEncontrado.getCelular();
-
-            // Agregar una nueva fila con los campos en la tabla
-            modelo.addRow(new Object[]{nombre, apellido, celular});
-            pnlRegistrarCliente.setVisible(false);
-            return true;
-        } else {
-            System.out.println("Cliente no encontrado.");
-            pnlRegistrarCliente.setVisible(true);
-            return false;
-        }
-        
-        
-    }
-
 
     private void txtDNIClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDNIClienteKeyPressed
         
@@ -1007,11 +934,27 @@ public final class MultiVentana extends javax.swing.JFrame {
 
             if (dni.matches("\\d{8}")) {
                 int dniCliente = Integer.parseInt(dni);
-                boolean clienteEncontrado = buscarClientePorDNI(dniCliente);
+                Cliente cliente = new Cliente();
+                cliente.setDNI(dniCliente);
 
-                if (!clienteEncontrado) {
+                ClienteDAO clienteDAO = new ClienteDAO();
+                cliente = clienteDAO.buscarUno(cliente);
+
+                if (cliente.getNombre().equals("")) {
+                    // Mostrar aviso de cliente no encontrado
+                    modelo.setRowCount(0);
+                    JOptionPane.showMessageDialog(this, "Cliente no encontrado. Debe registrarlo.", "Aviso", JOptionPane.WARNING_MESSAGE);
                     pnlRegistrarCliente.setVisible(true);
+                } else {
+                    // Mostrar datos del cliente en la tabla
+                    modelo.setRowCount(0);
+                    Object[] row = {cliente.getNombre(), cliente.getApellido(), cliente.getCelular()};
+                    modelo.addRow(row);
+                    pnlRegistrarCliente.setVisible(false);
+
                 }
+
+
             } else {
                 // Mostrar aviso de formato de DNI incorrecto
                 modelo.setRowCount(0);
@@ -1046,7 +989,7 @@ public final class MultiVentana extends javax.swing.JFrame {
     }//GEN-LAST:event_calFechaFinMouseClicked
 
     private void calFechaIniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_calFechaIniMouseClicked
-        
+
     }//GEN-LAST:event_calFechaIniMouseClicked
 
     private void calFechaIniPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_calFechaIniPropertyChange

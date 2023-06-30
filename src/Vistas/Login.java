@@ -211,7 +211,7 @@ public class Login extends javax.swing.JFrame {
                 UsuarioLogueadoDAO ulDAO = new UsuarioLogueadoDAO();
                 
                 if(ulDAO.crear(ul)){ //Si retorna True:
-                    System.out.println("Trabajador: " + ul.getNombre() + " " + ul.getApellido());
+                    // System.out.println("Trabajador: " + ul.getNombre() + " " + ul.getApellido());
 
                     MultiVentana mv = new MultiVentana(ul); // Pasar la instancia
                     mv.setVisible(true);
