@@ -115,7 +115,7 @@ EXEC sp_buscar_habitaciones_disponibles 1, '2023-06-10', '2023-06-13';
 -- Con la busqueda por dni en las reservas podemos obtener el id_reserva y poder
 -- utilizarla para generar la boleta:
 -- SOLO busca las reservas con estado "Pendiente" (las que están activas)
-SELECT * FROM funcion_buscar_reservas_DNI( 76543218 );
+SELECT * FROM funcion_buscar_reservas_DNI( 87654321 );
 
 
 -- Genero la boleta mediante el stored procedure sp_generar_boleta (previamente habiendo buscado el id de la reserva):

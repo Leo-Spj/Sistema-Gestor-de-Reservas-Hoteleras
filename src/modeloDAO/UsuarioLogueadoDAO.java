@@ -88,7 +88,7 @@ public class UsuarioLogueadoDAO implements UsuarioLogueadoInterfaz{
             ps = conn.prepareStatement(query);
             ps.setInt(1, ul.getDNI());
 
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             
             if (rs.next()) {
                 // Obtengo los valores de la fila y los asigno al objeto UsuarioLogueado

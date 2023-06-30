@@ -10,10 +10,10 @@ package Modelo;
  */
 public class Reserva {
 
-    private int idReserva;
     private Habitacion habitacion;
     private Empleado empleado;
     private Cliente cliente;
+    private int idReserva;
     private String fechaInicio;
     private String fechaFin;
     private String estado;

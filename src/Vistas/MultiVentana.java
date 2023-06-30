@@ -590,6 +590,11 @@ public final class MultiVentana extends javax.swing.JFrame {
         btnReservar.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnReservar.setForeground(new java.awt.Color(27, 35, 42));
         btnReservar.setText("Reservar");
+        btnReservar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReservarActionPerformed(evt);
+            }
+        });
 
         tblDetalleReserva.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -999,6 +1004,25 @@ public final class MultiVentana extends javax.swing.JFrame {
     private void calFechaFinPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_calFechaFinPropertyChange
         limpiarDisponibles();
     }//GEN-LAST:event_calFechaFinPropertyChange
+
+    private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
+
+        int IDHabitacion = Integer.parseInt(txtIDHabitacion.getText());
+        String dniEmpleado = usuarioLogueado.getDNI()+"";
+        String dniCliente =  txtDNICliente.getText();
+        String fechaIngreso = fmtFechaIngreso.getText();
+        String fechaSalida = fmtFechaSalida.getText();
+
+        if (fechaIngreso.equals("") || fechaSalida.equals("") || dniCliente.equals("") || txtIDHabitacion.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Todos los campos deben de estar completos.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        } else {
+            ReservaDAO reservaDAO = new ReservaDAO();
+            reservaDAO.crearReserva(IDHabitacion, dniEmpleado, dniCliente, fechaIngreso, fechaSalida);
+
+            limpiarDisponibles();
+        }
+    }//GEN-LAST:event_btnReservarActionPerformed
 
     public void limpiarDisponibles(){
         DefaultTableModel modelo = (DefaultTableModel) tblDisponibles.getModel();

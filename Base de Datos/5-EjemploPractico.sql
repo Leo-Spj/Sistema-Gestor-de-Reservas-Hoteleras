@@ -32,7 +32,8 @@ EXEC sp_realizar_reserva 2,'888123654', '76548632', '2023-06-24', '2023-06-27';
 
 -- Se busca mi reservas por DNI para obtener el id de la reserva y poder generar la boleta: (puede que se muestren varias reservas y solo se escoge una a pagar)
 SELECT * FROM funcion_buscar_reservas_DNI(76548632); -- Busca solo las PENDIENTES
-
+-- id_reserva,	estado,	sucursal,	Responsable de la reserva,	id_habitacion	Habitacion,	tipo,	Precio por noche,	fecha_inicio,	fecha_fin,	Numero de noches,	Total a Pagar (sin descuento).
+-- id_reserva, sucursal, responsable, habitacion, tipo, precio por noche, fecha_inicio, fecha_fin, numero de noches, total a pagar (sin descuento)
 --Así se puede buscar TODAS las reservas del cliente
 SELECT * FROM fn_reporte_reservas() WHERE dni_cliente = '76548632' 
 
