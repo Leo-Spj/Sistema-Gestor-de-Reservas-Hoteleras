@@ -598,15 +598,23 @@ public final class MultiVentana extends javax.swing.JFrame {
 
         tblDetalleReserva.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Estado", "Sucursal", "Empleado", "ID_Hab", "Habitacion", "Tipo", "PrecioxNoche", "Inicio", "Fin", "NroNoche", "Total"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane3.setViewportView(tblDetalleReserva);
 
         fmtFechaIngreso.setEditable(false);
@@ -956,6 +964,32 @@ public final class MultiVentana extends javax.swing.JFrame {
                     Object[] row = {cliente.getNombre(), cliente.getApellido(), cliente.getCelular()};
                     modelo.addRow(row);
                     pnlRegistrarCliente.setVisible(false);
+                    
+                    
+                DefaultTableModel model = (DefaultTableModel) tblDetalleReserva.getModel();
+                model.setRowCount(0);
+
+                BuscarReservaDAO brDAO = new BuscarReservaDAO();
+                ArrayList<BuscarReserva> brs = brDAO.buscarTodo(Integer.parseInt(txtDNICliente.getText()));
+
+                // Recorriendo el ArrayList y agregando las filas a la tabla
+                for (BuscarReserva buscar : brs) {
+                    Object[] rowbr = {buscar.getIdHabitacion(),
+                                    buscar.getEstado(),
+                                    buscar.getSucursal(),
+                                    buscar.getDniEmpleado(),
+                                    buscar.getIdHabitacion(),
+                                    buscar.getPuerta(),
+                                    buscar.getTipo(),
+                                    buscar.getPrecioxNoche(),
+                                    buscar.getInicio(),
+                                    buscar.getFin(),
+                                    buscar.getNroNoche(),
+                                    buscar.getTotal(),
+                    };
+                    model.addRow(rowbr);
+                }
+                    
 
                 }
 
@@ -966,6 +1000,8 @@ public final class MultiVentana extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Formato de DNI incorrecto. Debe ser un número de 8 dígitos.", "Aviso", JOptionPane.WARNING_MESSAGE);
                 pnlRegistrarCliente.setVisible(false);
             }
+            
+            
         }  
     }//GEN-LAST:event_txtDNIClienteKeyPressed
 
@@ -1018,7 +1054,7 @@ public final class MultiVentana extends javax.swing.JFrame {
             return;
         } else {
             ReservaDAO reservaDAO = new ReservaDAO();
-            reservaDAO.crearReserva(IDHabitacion, dniEmpleado, dniCliente, fechaIngreso, fechaSalida);
+            reservaDAO.crearReserva(IDHabitacion, usuarioLogueado.getDNI()+"", dniCliente, fechaIngreso, fechaSalida);
 
             limpiarDisponibles();
         }
