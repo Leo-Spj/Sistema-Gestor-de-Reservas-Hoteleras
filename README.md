@@ -8,21 +8,23 @@ Creado con:
 * SQL Azure
 
 
-## Estructura de carpetas
+## Patrones de Diseño y Estructura de carpetas
 
-El proyecto sigue una estructura de carpetas organizada en los siguientes directorios:
+En este proyecto hacemos uso de los patrones MVC (Modelo Vista Controlador) y DAO (Data Access Object) para lograr una arquitectura más modular, separando las responsabilidades y facilitando el mantenimiento y la escalabilidad de la aplicación.
 
-- `configuracion`: Contiene la configuración del proyecto, como archivos de configuración o propiedades.
-- `controlador`: Contiene los controladores del proyecto, encargados de manejar las interacciones entre el modelo y las vistas.
-- `modelo`: Contiene las clases del modelo de dominio del proyecto, como las clases de Hotel, Habitación, Reserva, etc.
-- `vistas`: Contiene las vistas del proyecto, como las interfaces de usuario y las pantallas de visualización.
+- `Configuracion`: Contiene la clase que se encarga de leer el archivo de configuración *config.properties* y de establecer la conexión con la base de datos.
+- `Modelo`: Contiene las clases que representan a la base de datos.
+- `Interfaces`: "La interfaz contiene las implementaciones de las clases del paquete `Modelo` a través de una interfaz CRUD que utiliza un tipo genérico."
+- `ModeloDAO`: Contiene las clases que se encargan de realizar las operaciones de acceso a datos (CRUD) sobre la base de datos. Emplean las interfaces del paquete `Interfaces`.
+- `Vista`: Contiene las clases que representan a las ventanas de la aplicación.
+
+
 
 ## Requisitos
 
 Antes de ejecutar el proyecto, asegúrate de tener instalados los siguientes requisitos:
 
-- Java Development Kit (JDK) 8 o superior.
-- Se debe tener instalado el [driver de SQL Server para Java](https://docs.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-ver15).
+- Java Development Kit (JDK / OpenJDK) 8 o superior.
 - Un entorno de desarrollo integrado (IDE) compatible con Java, recomendamos NetBeans 17 o superior.
 - Acceso a una base de datos SQL Azure. Puedes obtener una cuenta gratuita de Azure y crear una base de datos para este proyecto con [nuestra estructura de tablas y datos de prueba](https://github.com/Leo-Spj/Java-POO-UTP/tree/main/Base%20de%20Datos), siguiendo los pasos descritos en el siguiente artículo: [Crear una base de datos SQL Azure](https://docs.microsoft.com/en-us/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal).
 - Deberá configurar el archivo `config.properties` con los datos de conexión a la base de datos SQL Azure. Puede encontrar un [ejemplo de este archivo aquí](https://github.com/Leo-Spj/Java-POO-UTP/blob/main/Base%20de%20Datos/config.properties), luego este archivo se deberá colocar en la raíz del proyecto.
