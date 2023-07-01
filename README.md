@@ -40,7 +40,7 @@ git clone https://github.com/Leo-Spj/Java-POO-UTP.git
 2. Agrega el archivo `config.properties` en la raíz del proyecto con los datos de conexión a la base de datos SQL Azure. Puede encontrar un [ejemplo de este archivo aquí](https://github.com/Leo-Spj/Java-POO-UTP/blob/main/Base%20de%20Datos/config.properties)
 
 3. Configura las dependencias del proyecto. Agrega los .jar que que se encuentran en la carpeta `Library` . Puedes encontrar más información sobre cómo agregar dependencias en los siguientes artículos: 
-    * [NetBeans](https://docs.oracle.com/netbeans/nb82/netbeans/NBDAG/build_japps.htm#NBDAG552)
+    * [NetBeans](https://parzibyte.me/blog/2019/02/15/anadir-librerias-archivos-jar-netbeans/)
     * [Intellij IDEA](https://www.jetbrains.com/help/idea/library.html#add-library-to-module-dependencies)
     
 
