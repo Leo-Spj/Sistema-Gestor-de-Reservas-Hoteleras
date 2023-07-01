@@ -12,11 +12,14 @@ Creado con:
 
 En este proyecto hacemos uso de los patrones MVC (Modelo Vista Controlador) y DAO (Data Access Object) para lograr una arquitectura más modular, separando las responsabilidades y facilitando el mantenimiento y la escalabilidad de la aplicación.
 
-- `Configuracion`: Contiene la clase que se encarga de leer el archivo de configuración *config.properties* y de establecer la conexión con la base de datos.
-- `Modelo`: Contiene las clases que representan a la base de datos.
-- `Interfaces`: "La interfaz contiene las implementaciones de las clases del paquete `Modelo` a través de una interfaz CRUD que utiliza un tipo genérico."
-- `ModeloDAO`: Contiene las clases que se encargan de realizar las operaciones de acceso a datos (CRUD) sobre la base de datos. Emplean las interfaces del paquete `Interfaces`.
-- `Vista`: Contiene las clases que representan a las ventanas de la aplicación.
+| Paquete | Descripción |
+|-----|--------|
+| Configuracion | Contiene la clase que se encarga de leer el archivo de configuración *config.properties* y de establecer la conexión con la base de datos. |
+| Modelo | Contiene las clases que representan a la base de datos. |
+| Interfaces | La interfaz contiene las implementaciones de las clases del paquete `Modelo` a través de una interfaz CRUD que utiliza un tipo genérico. |
+| ModeloDAO | Contiene las clases que se encargan de realizar las operaciones de acceso a datos (CRUD) sobre la base de datos. Emplean las interfaces del paquete `Interfaces`. |
+| Vista | Contiene las clases que representan a las ventanas de la aplicación.   |
+
 
 
 
