@@ -51,7 +51,7 @@ git clone https://github.com/Leo-Spj/Java-POO-UTP.git
 -------------------------
 
 
-# Base de datos TRAVEL_EASY
+# Diagrama Base de Datos
 
 ![PlantUML](./diagramaBD/diagrama.svg)
 
