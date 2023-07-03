@@ -1,6 +1,6 @@
 # Reservas Hoteleras
 
-Bienvenido al proyecto de Reservas Hoteleras, un sistema de reservas de hoteles desarrollado en Java como parte del curso de Programación Orientada a Objetos. Este proyecto utiliza una base de datos alojada en SQL Azure para almacenar la información relacionada con los hoteles, las habitaciones y las reservas.
+Bienvenido al proyecto Reservas Hoteleras, un sistema de reservas de habitaciones desarrollado en Java como parte del curso de Programación Orientada a Objetos. Este proyecto utiliza una base de datos alojada en SQL Azure para almacenar la información relacionada con los hoteles, las habitaciones y las reservas.
 
 Creado con:
 * Java with Ant
