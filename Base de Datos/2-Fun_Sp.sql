@@ -29,9 +29,6 @@ RETURN
     WHERE id_cargo = 1 OR id_cargo = 2
 GO
 
-select * from aptos_login()
-
-
 -- credenciales
 GO
 CREATE FUNCTION fnVerificarCredenciales (
@@ -67,8 +64,6 @@ BEGIN
     RETURN
 END
 GO
-
-SELECT * FROM fnVerificarCredenciales(99945671, '0000')
 
 -- Store procedure para ingresar empresa hotelera
 GO
