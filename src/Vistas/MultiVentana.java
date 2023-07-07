@@ -1070,20 +1070,27 @@ public final class MultiVentana extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
-        int DNI = Integer.parseInt(txtDNICliente.getText());
+        String DNI = txtDNICliente.getText();
         String nombre = txtNombreCliente.getText();
         String apellido = txtApellidoCliente.getText();
-        int celular = Integer.parseInt(txtCelularCliente.getText());
+        String celular = txtCelularCliente.getText();
         if (nombre.equals("") || apellido.equals("") ||
-            txtCelularCliente.getText().equals("")|| txtDNICliente.getText().equals("")) {
+            DNI.equals("")|| celular.equals("")) {
             JOptionPane.showMessageDialog(this, "Todos los campos deben de estar completos.", "Aviso", JOptionPane.WARNING_MESSAGE);
-            return;
         }
         else
         {
-        ClienteDAO cDAO = new ClienteDAO();
-        cDAO.crearCliente(DNI, nombre, apellido, apellido);
-        JOptionPane.showMessageDialog(null, "Registro exitoso");
+            if (DNI.matches("\\d{8}")&&celular.matches("\\d{9}")){
+                ClienteDAO cDAO = new ClienteDAO();
+                cDAO.crearCliente(Integer.parseInt(DNI), nombre, apellido, apellido);
+                JOptionPane.showMessageDialog(null, "Registro exitoso");
+            }
+            else {
+                // Mostrar aviso de formato de DNI incorrecto
+                
+                JOptionPane.showMessageDialog(this, "Formato de celular incorrecto. Debe ser un número de 9 dígitos.", 
+                        "Aviso", JOptionPane.WARNING_MESSAGE);
+            }
         }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
