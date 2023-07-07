@@ -23,9 +23,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
@@ -47,6 +50,7 @@ public final class MultiVentana extends javax.swing.JFrame {
         pnlRegistrarCliente.setVisible(false);
         
     }
+    
 
     public MultiVentana(UsuarioLogueado usuarioLogueado) {
 
@@ -55,6 +59,7 @@ public final class MultiVentana extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(this);
         cerrarSesion();
+        iniciarFechaHoy();
 
         pnlRegistrarCliente.setVisible(false);
 
@@ -67,6 +72,13 @@ public final class MultiVentana extends javax.swing.JFrame {
         cargarTiposHabitacion();
     }
 
+    public void iniciarFechaHoy(){
+        LocalDate fechaHoy = LocalDate.now();
+        // Formatear la fecha como una cadena de texto
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String fechaTexto = fechaHoy.format(formatter);
+        txtFechaPago.setText(fechaTexto);
+    }
     // la empresa hotelera es de caracter global, "eh" se declara arriba
     public void cargarEmpresaHotelera(){
         EmpresaHoteleraDAO ehDAO = new EmpresaHoteleraDAO();
@@ -426,7 +438,7 @@ public final class MultiVentana extends javax.swing.JFrame {
                 .addGroup(panelBusquedaHabitacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 931, Short.MAX_VALUE)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 13, Short.MAX_VALUE))
+                .addGap(0, 92, Short.MAX_VALUE))
         );
         panelBusquedaHabitacionLayout.setVerticalGroup(
             panelBusquedaHabitacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -457,6 +469,11 @@ public final class MultiVentana extends javax.swing.JFrame {
             }
         });
 
+        tblDatosCliente = new javax.swing.JTable(){
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
         tblDatosCliente.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         tblDatosCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -596,6 +613,11 @@ public final class MultiVentana extends javax.swing.JFrame {
             }
         });
 
+        tblDetalleReserva = new javax.swing.JTable(){
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
         tblDetalleReserva.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null, null},
@@ -676,7 +698,7 @@ public final class MultiVentana extends javax.swing.JFrame {
             .addGroup(pnlReservarHabitacionLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 919, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
             .addComponent(jSeparator1)
         );
         pnlReservarHabitacionLayout.setVerticalGroup(
@@ -715,7 +737,9 @@ public final class MultiVentana extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel12.setText("Fecha de pago:");
 
+        txtFechaPago.setEditable(false);
         txtFechaPago.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtFechaPago.setEnabled(false);
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel13.setText("Cupon en soles:");
@@ -743,8 +767,10 @@ public final class MultiVentana extends javax.swing.JFrame {
         jLabel15.setText("Monto final:");
 
         txtMontoFinal.setEditable(false);
+        txtMontoFinal.setEnabled(false);
 
         txtTotalSoles.setEditable(false);
+        txtTotalSoles.setEnabled(false);
         txtTotalSoles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTotalSolesActionPerformed(evt);
@@ -756,7 +782,7 @@ public final class MultiVentana extends javax.swing.JFrame {
         pnlBoletaLayout.setHorizontalGroup(
             pnlBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBoletaLayout.createSequentialGroup()
-                .addGap(0, 54, Short.MAX_VALUE)
+                .addGap(0, 202, Short.MAX_VALUE)
                 .addGroup(pnlBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 646, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlBoletaLayout.createSequentialGroup()
@@ -769,23 +795,25 @@ public final class MultiVentana extends javax.swing.JFrame {
                             .addComponent(txtFechaPago)
                             .addComponent(txtCuponSoles)
                             .addComponent(txtIDReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(338, 338, 338)
-                        .addGroup(pnlBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(199, 199, 199)
+                        .addGroup(pnlBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnConfirmarPago, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pnlBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(pnlBoletaLayout.createSequentialGroup()
-                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtTotalSoles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlBoletaLayout.createSequentialGroup()
-                                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(txtMontoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addGroup(pnlBoletaLayout.createSequentialGroup()
+                                .addGroup(pnlBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pnlBoletaLayout.createSequentialGroup()
+                                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(pnlBoletaLayout.createSequentialGroup()
+                                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)))
+                                .addGroup(pnlBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtMontoFinal, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+                                    .addComponent(txtTotalSoles))))))
                 .addGap(147, 147, 147))
             .addGroup(pnlBoletaLayout.createSequentialGroup()
                 .addGap(394, 394, 394)
                 .addComponent(jLabel10)
-                .addContainerGap(406, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBoletaLayout.createSequentialGroup()
                 .addComponent(jSeparator2)
                 .addContainerGap())
@@ -845,7 +873,7 @@ public final class MultiVentana extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 961, Short.MAX_VALUE)
+            .addGap(0, 1040, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1090,7 +1118,9 @@ public final class MultiVentana extends javax.swing.JFrame {
 
     private void btnConfirmarPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarPagoActionPerformed
         // TODO add your handling code here:
-        int id_reserva;
+        int id_reserva = Integer.parseInt(txtIDReserva.getText()) ;
+        
+        
         
         
     }//GEN-LAST:event_btnConfirmarPagoActionPerformed
