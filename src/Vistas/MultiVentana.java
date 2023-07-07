@@ -34,15 +34,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
-/**
- *
- * @author Leo
- */
 public final class MultiVentana extends javax.swing.JFrame {
-
-    /**
-     * Creates new form MultiVentana
-     */
 
     EmpresaHotelera eh = new EmpresaHotelera();
     UsuarioLogueado usuarioLogueado;
@@ -53,6 +45,7 @@ public final class MultiVentana extends javax.swing.JFrame {
     public MultiVentana() {
         initComponents();
         pnlRegistrarCliente.setVisible(false);
+        
     }
 
     public MultiVentana(UsuarioLogueado usuarioLogueado) {
@@ -214,16 +207,18 @@ public final class MultiVentana extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel11 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        txtIDReserva = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        txtFechaPago = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        txtCuponSoles = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton3 = new javax.swing.JButton();
+        txtRes = new javax.swing.JTextArea();
+        btnConfirmarPago = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        txtMontoFinal = new javax.swing.JTextField();
+        txtTotalSoles = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -361,6 +356,11 @@ public final class MultiVentana extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel1.setText("Habitaciones Disponibles:");
 
+        tblDisponibles = new javax.swing.JTable(){
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
         tblDisponibles.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         tblDisponibles.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -710,26 +710,31 @@ public final class MultiVentana extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel11.setText("ID de Reserva:");
 
-        jTextField8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtIDReserva.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel12.setText("Fecha de pago:");
 
-        jTextField9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtFechaPago.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel13.setText("Cupon en soles:");
 
-        jTextField10.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtCuponSoles.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane4.setViewportView(jTextArea1);
+        txtRes.setColumns(20);
+        txtRes.setRows(5);
+        jScrollPane4.setViewportView(txtRes);
 
-        jButton3.setBackground(new java.awt.Color(171, 76, 89));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(27, 35, 42));
-        jButton3.setText("Confirmar Pago");
+        btnConfirmarPago.setBackground(new java.awt.Color(171, 76, 89));
+        btnConfirmarPago.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnConfirmarPago.setForeground(new java.awt.Color(27, 35, 42));
+        btnConfirmarPago.setText("Confirmar Pago");
+        btnConfirmarPago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmarPagoActionPerformed(evt);
+            }
+        });
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel14.setText("S/.");
@@ -737,12 +742,21 @@ public final class MultiVentana extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel15.setText("Monto final:");
 
+        txtMontoFinal.setEditable(false);
+
+        txtTotalSoles.setEditable(false);
+        txtTotalSoles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTotalSolesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlBoletaLayout = new javax.swing.GroupLayout(pnlBoleta);
         pnlBoleta.setLayout(pnlBoletaLayout);
         pnlBoletaLayout.setHorizontalGroup(
             pnlBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBoletaLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 54, Short.MAX_VALUE)
                 .addGroup(pnlBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 646, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlBoletaLayout.createSequentialGroup()
@@ -752,19 +766,26 @@ public final class MultiVentana extends javax.swing.JFrame {
                             .addComponent(jLabel11))
                         .addGap(4, 4, 4)
                         .addGroup(pnlBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField9)
-                            .addComponent(jTextField10)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(353, 353, 353)
+                            .addComponent(txtFechaPago)
+                            .addComponent(txtCuponSoles)
+                            .addComponent(txtIDReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(338, 338, 338)
                         .addGroup(pnlBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnConfirmarPago, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pnlBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(pnlBoletaLayout.createSequentialGroup()
+                                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtTotalSoles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlBoletaLayout.createSequentialGroup()
+                                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtMontoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(147, 147, 147))
             .addGroup(pnlBoletaLayout.createSequentialGroup()
                 .addGap(394, 394, 394)
                 .addComponent(jLabel10)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(406, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBoletaLayout.createSequentialGroup()
                 .addComponent(jSeparator2)
                 .addContainerGap())
@@ -778,18 +799,20 @@ public final class MultiVentana extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15))
+                    .addComponent(txtIDReserva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15)
+                    .addComponent(txtMontoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFechaPago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTotalSoles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
+                    .addComponent(txtCuponSoles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConfirmarPago))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
@@ -853,6 +876,9 @@ public final class MultiVentana extends javax.swing.JFrame {
         }
         return null;
     }
+    
+    
+    
     private void btnBuscarHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarHabitacionesActionPerformed
 
         String fechaIni = convertirFechaAString(calFechaIni.getDate()); // Fecha de inicio
@@ -893,6 +919,7 @@ public final class MultiVentana extends javax.swing.JFrame {
                 // Borrar resultados anteriores de la tabla
                 DefaultTableModel model = (DefaultTableModel) tblDisponibles.getModel();
                 model.setRowCount(0);
+                
 
                 HabitacionesDisponiblesDAO hdDAO = new HabitacionesDisponiblesDAO();
                 ArrayList<HabitacionDisponible> habitacionesDisponibles = hdDAO.buscarTodo(sucursalcbx, localDateIni.toString(), localDateFin.toString());
@@ -1012,6 +1039,7 @@ public final class MultiVentana extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void tblDisponiblesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDisponiblesMouseClicked
@@ -1060,6 +1088,17 @@ public final class MultiVentana extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnReservarActionPerformed
 
+    private void btnConfirmarPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarPagoActionPerformed
+        // TODO add your handling code here:
+        int id_reserva;
+        
+        
+    }//GEN-LAST:event_btnConfirmarPagoActionPerformed
+
+    private void txtTotalSolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalSolesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTotalSolesActionPerformed
+
     public void limpiarDisponibles(){
         DefaultTableModel modelo = (DefaultTableModel) tblDisponibles.getModel();
         modelo.setRowCount(0);
@@ -1107,6 +1146,7 @@ public final class MultiVentana extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarHabitaciones;
+    private javax.swing.JButton btnConfirmarPago;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnReservar;
     private com.toedter.calendar.JCalendar calFechaFin;
@@ -1115,7 +1155,6 @@ public final class MultiVentana extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbxTipoHabitacion;
     private javax.swing.JFormattedTextField fmtFechaIngreso;
     private javax.swing.JFormattedTextField fmtFechaSalida;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1140,10 +1179,6 @@ public final class MultiVentana extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lblClienteNoRegistrado;
     private javax.swing.JLabel lblFechaEntrada;
     private javax.swing.JLabel lblFechaSalida;
@@ -1160,9 +1195,15 @@ public final class MultiVentana extends javax.swing.JFrame {
     private javax.swing.JTable tblDisponibles;
     private javax.swing.JTextField txtApellidoCliente;
     private javax.swing.JTextField txtCelularCliente;
+    private javax.swing.JTextField txtCuponSoles;
     private javax.swing.JTextField txtDNICliente;
+    private javax.swing.JTextField txtFechaPago;
     private javax.swing.JTextField txtIDHabitacion;
+    private javax.swing.JTextField txtIDReserva;
+    private javax.swing.JTextField txtMontoFinal;
     private javax.swing.JTextField txtNombreCliente;
+    private javax.swing.JTextArea txtRes;
+    private javax.swing.JTextField txtTotalSoles;
     private javax.swing.JPanel ventanaReservar;
     // End of variables declaration//GEN-END:variables
 }
