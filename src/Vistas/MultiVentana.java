@@ -1082,7 +1082,7 @@ public final class MultiVentana extends javax.swing.JFrame {
         {
             if (DNI.matches("\\d{8}")&&celular.matches("\\d{9}")){
                 ClienteDAO cDAO = new ClienteDAO();
-                cDAO.crearCliente(Integer.parseInt(DNI), nombre, apellido, apellido);
+                cDAO.crearCliente(Integer.parseInt(DNI), nombre, apellido, celular);
                 JOptionPane.showMessageDialog(null, "Registro exitoso");
             }
             else {
