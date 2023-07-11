@@ -139,7 +139,7 @@ public class Boleta {
 
     @Override
     public String toString() {
-       return   "----------------Boleta--------------------" + "\n" +
+       return   "| -------------------Boleta------------------- |" + "\n" +
                 "| N° boleta: " + id_boleta+"\n" +
                 "| N° reserva: " + id_reserva+ "\n" +
                 "| Estado: " + estado + "\n" +
@@ -152,8 +152,8 @@ public class Boleta {
                 "| Fecha de fin: " + fecha_fin +"\n" +
                 "| Cantidad de noches: " + Cantidad_de_noches +"\n" +
                 "| Descuento en soles: " + Descuento_en_Soles + "\n" +
-                "| ---------------------------------------- |" + "\n" +
+                "| ---------------------------------------------- |" + "\n" +
                 "   Monto total: " + monto_total + "\n" +
-                "| ---------------------------------------- |";
+                "| ---------------------------------------------- |";
     }
 }
