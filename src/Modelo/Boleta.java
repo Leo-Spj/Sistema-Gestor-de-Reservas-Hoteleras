@@ -10,109 +10,151 @@ package Modelo;
  */
 public class Boleta {
 
-    private int idBoleta;
-    private Reserva reserva;
-    private String fechaEmision;
+    private int id_boleta;
+    private int id_reserva;
+    private String estado;
+    private String Nombre;
+    private int dni_cliente;
+    private String fecha_emision;
     private String concepto;
-    private int cantidadDias;
-    private double cupon;
-    private double montoTotal;
+    private int id_habitacion;
+    private double Precio_por_noche;
+    private String fecha_inicio;
+    private String fecha_fin;
+    private int Cantidad_de_noches;
+    private double Descuento_en_Soles;
+    private double monto_total;
 
-    /**
-     * @return the idBoleta
-     */
-    public int getIdBoleta() {
-        return idBoleta;
+    public int getId_boleta() {
+        return id_boleta;
     }
 
-    /**
-     * @param idBoleta the idBoleta to set
-     */
-    public void setIdBoleta(int idBoleta) {
-        this.idBoleta = idBoleta;
+    public void setId_boleta(int id_boleta) {
+        this.id_boleta = id_boleta;
     }
 
-    /**
-     * @return the reserva
-     */
-    public Reserva getReserva() {
-        return reserva;
+    public int getId_reserva() {
+        return id_reserva;
     }
 
-    /**
-     * @param reserva the reserva to set
-     */
-    public void setReserva(Reserva reserva) {
-        this.reserva = reserva;
+    public void setId_reserva(int id_reserva) {
+        this.id_reserva = id_reserva;
     }
 
-    /**
-     * @return the fechaEmision
-     */
-    public String getFechaEmision() {
-        return fechaEmision;
+    public String getEstado() {
+        return estado;
     }
 
-    /**
-     * @param fechaEmision the fechaEmision to set
-     */
-    public void setFechaEmision(String fechaEmision) {
-        this.fechaEmision = fechaEmision;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
-    /**
-     * @return the concepto
-     */
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setNombre(String nombre) {
+        Nombre = nombre;
+    }
+
+    public int getDni_cliente() {
+        return dni_cliente;
+    }
+
+    public void setDni_cliente(int dni_cliente) {
+        this.dni_cliente = dni_cliente;
+    }
+
+    public String getFecha_emision() {
+        return fecha_emision;
+    }
+
+    public void setFecha_emision(String fecha_emision) {
+        this.fecha_emision = fecha_emision;
+    }
+
     public String getConcepto() {
         return concepto;
     }
 
-    /**
-     * @param concepto the concepto to set
-     */
     public void setConcepto(String concepto) {
         this.concepto = concepto;
     }
 
-    /**
-     * @return the cantidadDias
-     */
-    public int getCantidadDias() {
-        return cantidadDias;
+    public int getId_habitacion() {
+        return id_habitacion;
     }
 
-    /**
-     * @param cantidadDias the cantidadDias to set
-     */
-    public void setCantidadDias(int cantidadDias) {
-        this.cantidadDias = cantidadDias;
+    public void setId_habitacion(int id_habitacion) {
+        this.id_habitacion = id_habitacion;
     }
 
-    /**
-     * @return the cupon
-     */
-    public double getCupon() {
-        return cupon;
+    public double getPrecio_por_noche() {
+        return Precio_por_noche;
     }
 
-    /**
-     * @param cupon the cupon to set
-     */
-    public void setCupon(double cupon) {
-        this.cupon = cupon;
+    public void setPrecio_por_noche(double precio_por_noche) {
+        Precio_por_noche = precio_por_noche;
     }
 
-    /**
-     * @return the montoTotal
-     */
-    public double getMontoTotal() {
-        return montoTotal;
+    public String getFecha_inicio() {
+        return fecha_inicio;
     }
 
-    /**
-     * @param montoTotal the montoTotal to set
-     */
-    public void setMontoTotal(double montoTotal) {
-        this.montoTotal = montoTotal;
+    public void setFecha_inicio(String fecha_inicio) {
+        this.fecha_inicio = fecha_inicio;
+    }
+
+    public String getFecha_fin() {
+        return fecha_fin;
+    }
+
+    public void setFecha_fin(String fecha_fin) {
+        this.fecha_fin = fecha_fin;
+    }
+
+    public int getCantidad_de_noches() {
+        return Cantidad_de_noches;
+    }
+
+    public void setCantidad_de_noches(int cantidad_de_noches) {
+        Cantidad_de_noches = cantidad_de_noches;
+    }
+
+    public double getDescuento_en_Soles() {
+        return Descuento_en_Soles;
+    }
+
+    public void setDescuento_en_Soles(double descuento_en_Soles) {
+        Descuento_en_Soles = descuento_en_Soles;
+    }
+
+    public double getMonto_total() {
+        return monto_total;
+    }
+
+    public void setMonto_total(double monto_total) {
+        this.monto_total = monto_total;
+    }
+
+    @Override
+    public String toString() {
+       return   "----------------Boleta--------------------" + "\n" +
+                "| N° boleta: " + id_boleta+"\n" +
+                "| N° reserva: " + id_reserva+ "\n" +
+                "| Estado: " + estado + "\n" +
+                "| Nombre: " + Nombre +"\n" +
+                "| DNI: " + dni_cliente +"\n" +
+                "| Fecha de emision: " + fecha_emision +"\n" +
+                "| Concepto: " + concepto +"\n" +
+                "| N° habitacion: " + id_habitacion +"\n" +
+                "| Precio por noche: " + Precio_por_noche +"\n" +
+                "| Fecha de inicio: " + fecha_inicio +"\n" +
+                "| Fecha de fin: " + fecha_fin +"\n" +
+                "| Cantidad de noches: " + Cantidad_de_noches +"\n" +
+                "| Descuento en soles: " + Descuento_en_Soles + "\n" +
+                "| ---------------------------------------- |" + "\n" +
+                "   Monto total: " + monto_total + "\n" +
+                "| ---------------------------------------- |";
     }
 }

@@ -36,7 +36,7 @@ public class ReservaDAO implements ReservaInterfaz {
             ps.setString(4, fechaInicio);
             ps.setString(5, fechaFin);
 
-            //usando executeUpdate porque no es un select, NO usar executeQuery     ------------ OJO -------------
+            //usando executeUpdate porque no es un select, NO usar
             ps.executeUpdate();
 
             return true;

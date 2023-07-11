@@ -20,14 +20,14 @@ SELECT * FROM sucursal
 -- y puede incluso acotar que necesita un tipo de habitacion especifica
 -- Buscando habitaciones disponibles: (escoge la sucursal de miraflores)
 -- de las 7 habitaciones solo se  muestran 6 ya que una ya está reservada entre esas fechas:
-EXEC sp_buscar_habitaciones_disponibles 1, '2023-06-24', '2023-06-27';
+EXEC sp_buscar_habitaciones_disponibles 1, '2023-07-24', '2023-07-27';
 
 -- Ingresándome como nuevo cliente:
 EXEC sp_ingresar_nuevo_cliente '76548632', 'Leonardo', 'Espejo', '940937610'
 
 -- Se realiza la reserva que solicité con el ID_HABITACION correspondiente:
 -- la habitacion 3 compite con una reserva existente aun no pagada
-EXEC sp_realizar_reserva 2,'888123654', '76548632', '2023-06-24', '2023-06-27';
+EXEC sp_realizar_reserva 2,'888123654', '76548632', '2023-07-24', '2023-07-27';
 
 
 -- Se busca mi reservas por DNI para obtener el id de la reserva y poder generar la boleta: (puede que se muestren varias reservas y solo se escoge una a pagar)
