@@ -7,12 +7,29 @@ package Vistas;
 import Configuracion.DatabaseConfig;
 
 import Modelo.*;
+import com.lowagie.text.DocumentException;
+import com.lowagie.text.PageSize;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.pdf.PdfContentByte;
+import com.lowagie.text.pdf.PdfDocument;
+import com.lowagie.text.pdf.PdfWriter;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import modeloDAO.*;
 
 import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.Writer;
 
 import java.time.LocalDate;
 
@@ -29,6 +46,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
@@ -36,8 +56,9 @@ import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import javax.swing.text.Document;
 
-public final class MultiVentana extends javax.swing.JFrame {
+public final class MultiVentana extends javax.swing.JFrame implements Printable{
 
     EmpresaHotelera eh = new EmpresaHotelera();
     UsuarioLogueado usuarioLogueado;
@@ -230,6 +251,7 @@ public final class MultiVentana extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         txtTotalSoles = new javax.swing.JTextField();
+        btnImprimirTicket = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
@@ -829,6 +851,16 @@ public final class MultiVentana extends javax.swing.JFrame {
             }
         });
 
+        btnImprimirTicket.setBackground(new java.awt.Color(171, 76, 89));
+        btnImprimirTicket.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnImprimirTicket.setForeground(new java.awt.Color(27, 35, 42));
+        btnImprimirTicket.setText("Imprimir Ticket");
+        btnImprimirTicket.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimirTicketActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlBoletaLayout = new javax.swing.GroupLayout(pnlBoleta);
         pnlBoleta.setLayout(pnlBoletaLayout);
         pnlBoletaLayout.setHorizontalGroup(
@@ -852,18 +884,20 @@ public final class MultiVentana extends javax.swing.JFrame {
                             .addComponent(txtIDReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pnlBoletaLayout.createSequentialGroup()
+                        .addGap(57, 57, 57)
                         .addGroup(pnlBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlBoletaLayout.createSequentialGroup()
-                                .addGap(57, 57, 57)
+                                .addComponent(btnConfirmarPago, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(btnImprimirTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(pnlBoletaLayout.createSequentialGroup()
                                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtTotalSoles, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE))
-                            .addGroup(pnlBoletaLayout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnConfirmarPago, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(120, 120, 120)))
+                                .addComponent(txtTotalSoles, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                                .addGap(120, 120, 120)))))
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26))
         );
@@ -893,7 +927,9 @@ public final class MultiVentana extends javax.swing.JFrame {
                             .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel15))
                         .addGap(27, 27, 27)
-                        .addComponent(btnConfirmarPago))
+                        .addGroup(pnlBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnConfirmarPago)
+                            .addComponent(btnImprimirTicket)))
                     .addComponent(jScrollPane4))
                 .addGap(18, 18, 18))
         );
@@ -1167,7 +1203,7 @@ public final class MultiVentana extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 823, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 823, Short.MAX_VALUE)
         );
 
         pack();
@@ -1556,6 +1592,29 @@ public final class MultiVentana extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtCuponSolesKeyTyped
 
+    @Override
+    public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
+        if(pageIndex==0)
+        {
+            Graphics2D graphics2d  = (Graphics2D) graphics;
+            graphics2d.translate(pageFormat.getImageableX(), pageFormat.getImageableY());
+            printAll(graphics2d);
+            return PAGE_EXISTS;
+        }
+        else
+        {
+            return NO_SUCH_PAGE;
+        }
+    }
+    
+    private void btnImprimirTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirTicketActionPerformed
+        String contenido = txtRes.getText(); // Obtener el texto del componente txtRes
+
+            // Crear el documento PDF
+            CustomDocument document = new CustomDocument();
+            document.generatePDF(contenido);
+    }//GEN-LAST:event_btnImprimirTicketActionPerformed
+
     public void limpiarDisponibles(){
         DefaultTableModel modelo = (DefaultTableModel) tblDisponibles.getModel();
         modelo.setRowCount(0);
@@ -1604,6 +1663,7 @@ public final class MultiVentana extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarHabitaciones;
     private javax.swing.JButton btnConfirmarPago;
+    private javax.swing.JButton btnImprimirTicket;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnReservar;
     private com.toedter.calendar.JCalendar calFechaFin;
@@ -1693,4 +1753,6 @@ public final class MultiVentana extends javax.swing.JFrame {
     private javax.swing.JTextField txtTotalSoles;
     private javax.swing.JPanel ventanaReservar;
     // End of variables declaration//GEN-END:variables
+
+    
 }
