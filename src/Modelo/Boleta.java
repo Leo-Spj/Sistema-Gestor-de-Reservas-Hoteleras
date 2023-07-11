@@ -147,7 +147,6 @@ public class Boleta {
                 "| DNI: " + dni_cliente +"\n" +
                 "| Fecha de emision: " + fecha_emision +"\n" +
                 "| Concepto: " + concepto +"\n" +
-                "| N° habitacion: " + id_habitacion +"\n" +
                 "| Precio por noche: " + Precio_por_noche +"\n" +
                 "| Fecha de inicio: " + fecha_inicio +"\n" +
                 "| Fecha de fin: " + fecha_fin +"\n" +
