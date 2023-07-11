@@ -22,7 +22,6 @@ public class ReservaDAO implements ReservaInterfaz {
         return false;
     }
 
-    //EXEC sp_realizar_reserva 2,'888123654', '76548632', '2023-06-24', '2023-06-27';
     public boolean crearReserva(int idHabitacion, String dniEmpleado, String dniCliente, String fechaInicio, String fechaFin){
         try {
             con = new Conexion();
@@ -37,7 +36,8 @@ public class ReservaDAO implements ReservaInterfaz {
             ps.setString(4, fechaInicio);
             ps.setString(5, fechaFin);
 
-            rs = ps.executeQuery();
+            //usando executeUpdate porque no es un select, NO usar executeQuery     ------------ OJO -------------
+            ps.executeUpdate();
 
             return true;
         } catch (Exception e) {

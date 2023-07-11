@@ -1249,8 +1249,12 @@ public final class MultiVentana extends javax.swing.JFrame {
     private void txtDNIClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDNIClienteKeyPressed
         
         validarCaracteres(evt);
-        DefaultTableModel modelo = (DefaultTableModel) tblDatosCliente.getModel();
-        
+        DefaultTableModel modelo = (DefaultTableModel) tblDatosCliente.getModel(); //tabla de datos del cliente
+        DefaultTableModel model = (DefaultTableModel) tblDetalleReserva.getModel(); //tabla de detalle de reserva
+        //borrar datos de las tablas
+        modelo.setRowCount(0);
+        model.setRowCount(0);
+
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             String dni = txtDNICliente.getText();
 
@@ -1270,13 +1274,12 @@ public final class MultiVentana extends javax.swing.JFrame {
                 } else {
                     // Mostrar datos del cliente en la tabla
                     modelo.setRowCount(0);
-                    Object[] row = {cliente.getNombre(), cliente.getApellido(), cliente.getCelular()};
+                    Object[] row = {cliente.getNombre(),
+                                    cliente.getApellido(),
+                                    cliente.getCelular()};
                     modelo.addRow(row);
                     pnlRegistrarCliente.setVisible(false);
-                    
-                    
-                    DefaultTableModel model = (DefaultTableModel) tblDetalleReserva.getModel();
-                    model.setRowCount(0);
+
 
                     BuscarReservaDAO brDAO = new BuscarReservaDAO();
                     ArrayList<BuscarReserva> brs = brDAO.buscarTodo(Integer.parseInt(txtDNICliente.getText()));
@@ -1320,7 +1323,7 @@ public final class MultiVentana extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDNIClienteKeyTyped
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        // TODO add your handling code here:
+
         String DNI = txtDNICliente.getText();
         String nombre = txtNombreCliente.getText();
         String apellido = txtApellidoCliente.getText();
@@ -1374,18 +1377,27 @@ public final class MultiVentana extends javax.swing.JFrame {
 
     private void btnReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservarActionPerformed
 
-        int IDHabitacion = Integer.parseInt(txtIDHabitacion.getText());
+        String IDHabitacion = txtIDHabitacion.getText();
         String dniEmpleado = usuarioLogueado.getDNI()+"";
         String dniCliente =  txtDNICliente.getText();
         String fechaIngreso = fmtFechaIngreso.getText();
         String fechaSalida = fmtFechaSalida.getText();
 
-        if (fechaIngreso.equals("") || fechaSalida.equals("") || dniCliente.equals("") || txtIDHabitacion.getText().equals("")) {
+        //si la tabla con la informacion del cliente esta vacia eviar que se haga la reserva
+        DefaultTableModel modelo = (DefaultTableModel) tblDatosCliente.getModel(); //tabla de datos del cliente
+        if (modelo.getRowCount()==0){
+            JOptionPane.showMessageDialog(this, "Debe buscar un cliente.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        } else if (fechaIngreso.equals("") || fechaSalida.equals("") || dniCliente.equals("") || IDHabitacion.equals("")) {
             JOptionPane.showMessageDialog(this, "Todos los campos deben de estar completos.", "Aviso", JOptionPane.WARNING_MESSAGE);
             return;
         } else {
             ReservaDAO reservaDAO = new ReservaDAO();
-            reservaDAO.crearReserva(IDHabitacion, dniEmpleado, dniCliente, fechaIngreso, fechaSalida);
+            if(reservaDAO.crearReserva(Integer.parseInt(IDHabitacion), dniEmpleado, dniCliente, fechaIngreso, fechaSalida)){
+                JOptionPane.showMessageDialog(null, "Reserva exitosa");
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al reservar");
+            }
 
             limpiarDisponibles();
         }
