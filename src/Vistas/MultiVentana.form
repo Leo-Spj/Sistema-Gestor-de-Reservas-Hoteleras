@@ -1913,10 +1913,10 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" attributes="0">
-                                          <Component id="jLabel24" min="-2" pref="43" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jLabel24" min="-2" pref="55" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="jScrollPane5" min="-2" pref="207" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jLabel25" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
                                               <Component id="jLabel26" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
