@@ -1268,6 +1268,9 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         modelo.setRowCount(0);
         model.setRowCount(0);
 
+        //borro contenido de txtRes
+        txtRes.setText("");
+
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             String dni = txtDNICliente.getText();
 
@@ -1517,7 +1520,8 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         double montoTotal = montoSemiFinal - Double.parseDouble(descuento);
         txtTotalSoles.setText(montoTotal+"");
 
-
+        //borro el contenido de el txtRes donde está el reporte de la boleta
+        txtRes.setText("");
 
     }//GEN-LAST:event_tblDetalleReservaMouseClicked
 
