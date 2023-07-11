@@ -771,6 +771,7 @@ public final class MultiVentana extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel11.setText("ID de Reserva:");
 
+        txtIDReserva.setEditable(false);
         txtIDReserva.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -1153,7 +1154,7 @@ public final class MultiVentana extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 792, Short.MAX_VALUE)
+            .addComponent(jTabbedPane2)
         );
 
         jTabbedPane1.addTab("Administrar", jPanel3);
