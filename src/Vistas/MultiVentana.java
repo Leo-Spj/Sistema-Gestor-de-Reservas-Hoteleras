@@ -4,17 +4,8 @@
  */
 package Vistas;
 
-import Configuracion.DatabaseConfig;
-
 import Modelo.*;
-import com.lowagie.text.DocumentException;
-import com.lowagie.text.PageSize;
-import com.lowagie.text.Paragraph;
-import com.lowagie.text.pdf.PdfContentByte;
-import com.lowagie.text.pdf.PdfDocument;
-import com.lowagie.text.pdf.PdfWriter;
-import java.awt.Color;
-import java.awt.Font;
+
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import modeloDAO.*;
@@ -26,29 +17,14 @@ import java.awt.event.WindowEvent;
 import java.awt.print.PageFormat;
 import java.awt.print.Printable;
 import java.awt.print.PrinterException;
-import java.awt.print.PrinterJob;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.Writer;
 
 import java.time.LocalDate;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.ImageIcon;
 
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
@@ -56,7 +32,6 @@ import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-import javax.swing.text.Document;
 
 public final class MultiVentana extends javax.swing.JFrame implements Printable{
 

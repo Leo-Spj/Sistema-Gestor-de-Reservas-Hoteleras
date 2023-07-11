@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package modeloDAO;
+package Modelo;
 
 import com.lowagie.text.Document;
 import com.lowagie.text.Element;
