@@ -5,5 +5,5 @@
 /config.properties
 .idea
 .vscode
-Boletas/*
+Boletas/*.pdf
 
