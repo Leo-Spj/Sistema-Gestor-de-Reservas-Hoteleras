@@ -21,9 +21,9 @@ public class CustomDocument extends Document {
         super();
     }
 
-    public void generatePDF(String contenido) {
+    public void generatePDF(String contenido, String nombreArchivo) {
         try {
-            PdfWriter.getInstance(this, new FileOutputStream("../Java-POO-UTP/Boletas/Boleta.pdf"));
+            PdfWriter.getInstance(this, new FileOutputStream("../Java-POO-UTP/Boletas/"+nombreArchivo+".pdf"));
             open();
 
             Paragraph paragraph = new Paragraph(contenido, new Font(Font.HELVETICA, 12));

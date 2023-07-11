@@ -1585,10 +1585,16 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private void btnImprimirTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirTicketActionPerformed
         String contenido = txtRes.getText(); // Obtener el texto del componente txtRes
 
+        // obtenemos el id de la reserva y la fecha
+        String id_reserva = txtIDReserva.getText();
+        String fechaPago = txtFechaPago.getText();
+
+        String nombreArchivo = "Boleta_" + id_reserva + "_" + fechaPago;
+
             // Crear el documento PDF
             CustomDocument document = new CustomDocument();
-            document.generatePDF(contenido);
-    }//GEN-LAST:event_btnImprimirTicketActionPerformed
+            document.generatePDF(contenido, nombreArchivo);
+    }
 
     public void limpiarDisponibles(){
         DefaultTableModel modelo = (DefaultTableModel) tblDisponibles.getModel();
