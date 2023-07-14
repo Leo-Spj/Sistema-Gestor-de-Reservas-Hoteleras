@@ -820,6 +820,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         txtIDReserva.setEditable(false);
         txtIDReserva.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         txtIDReserva.setCaretColor(new java.awt.Color(140, 140, 140));
+        txtIDReserva.setEnabled(false);
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel12.setText("Fecha de pago:");
