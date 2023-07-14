@@ -7,6 +7,7 @@ package Modelo;
 import com.lowagie.text.Document;
 import com.lowagie.text.Element;
 import com.lowagie.text.Font;
+import com.lowagie.text.PageSize;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.pdf.PdfWriter;
 import java.io.FileOutputStream;
@@ -18,16 +19,18 @@ import javax.swing.JOptionPane;
  */
 public class CustomDocument extends Document {
     public CustomDocument() {
-        super();
+        super(PageSize.A6);
     }
 
     public void generatePDF(String contenido, String nombreArchivo) {
         try {
+            
             PdfWriter.getInstance(this, new FileOutputStream("../Java-POO-UTP/Boletas/"+nombreArchivo+".pdf"));
             open();
 
             Paragraph paragraph = new Paragraph(contenido, new Font(Font.HELVETICA, 12));
-            paragraph.setAlignment(Element.ALIGN_LEFT);
+            paragraph.setAlignment(Element.ALIGN_RIGHT);
+            paragraph.setAlignment(Element.ALIGN_MIDDLE);
             add(paragraph);
 
             close();
