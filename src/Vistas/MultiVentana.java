@@ -466,7 +466,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
 
         btnBuscarHabitaciones.setBackground(new java.awt.Color(171, 76, 89));
         btnBuscarHabitaciones.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btnBuscarHabitaciones.setForeground(new java.awt.Color(27, 35, 42));
+        btnBuscarHabitaciones.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscarHabitaciones.setText("Buscar");
         btnBuscarHabitaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -619,7 +619,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
 
         btnRegistrar.setBackground(new java.awt.Color(171, 76, 89));
         btnRegistrar.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btnRegistrar.setForeground(new java.awt.Color(27, 35, 42));
+        btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setText("Registrar");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -685,7 +685,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
 
         btnReservar.setBackground(new java.awt.Color(171, 76, 89));
         btnReservar.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btnReservar.setForeground(new java.awt.Color(27, 35, 42));
+        btnReservar.setForeground(new java.awt.Color(255, 255, 255));
         btnReservar.setText("Reservar");
         btnReservar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -858,7 +858,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
 
         btnConfirmarPago.setBackground(new java.awt.Color(171, 76, 89));
         btnConfirmarPago.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btnConfirmarPago.setForeground(new java.awt.Color(27, 35, 42));
+        btnConfirmarPago.setForeground(new java.awt.Color(255, 255, 255));
         btnConfirmarPago.setText("Confirmar Pago");
         btnConfirmarPago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

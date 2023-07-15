@@ -82,7 +82,7 @@ public class Login extends javax.swing.JFrame {
 
         btnIngresar.setBackground(new java.awt.Color(171, 76, 89));
         btnIngresar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnIngresar.setForeground(new java.awt.Color(45, 42, 37));
+        btnIngresar.setForeground(new java.awt.Color(255, 255, 255));
         btnIngresar.setText("Ingresar");
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
