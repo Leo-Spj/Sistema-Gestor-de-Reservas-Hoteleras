@@ -2207,6 +2207,19 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
             // Verificar si el cliente fue eliminado exitosamente
             if (eliminado) {
                 JOptionPane.showMessageDialog(null, "Cliente eliminado correctamente");
+                txtNameClienteModificar.setText("");
+                txtApeClienteModificar.setText("");
+                txtFonoClienteModificar.setText("");
+                txtDNIClienteModificar.setText("");
+                txtDNIClienteMod.setText("");
+                txtNameClienteModificar.setEditable(false);
+                txtApeClienteModificar.setEditable(false);
+                txtFonoClienteModificar.setEditable(false);
+                txtDNIClienteModificar.setEditable(false);
+                txtNameClienteModificar.setEnabled(false);
+                txtApeClienteModificar.setEnabled(false);
+                txtFonoClienteModificar.setEnabled(false);
+                txtDNIClienteModificar.setEnabled(false);
             } else {
                 JOptionPane.showMessageDialog(null, "Error al eliminar cliente");
             }
@@ -2229,6 +2242,10 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                 ClienteDAO cDAO = new ClienteDAO();
                 cDAO.actualizarCliente(Integer.parseInt(DNI), nombre, apellido, celular);
                 JOptionPane.showMessageDialog(null, "Actualización exitosa");
+                txtNameClienteModificar.setEnabled(false);
+                txtApeClienteModificar.setEnabled(false);
+                txtFonoClienteModificar.setEnabled(false);
+                txtDNIClienteModificar.setEnabled(false);
             }
             else {
                 // Mostrar aviso de formato de Celular incorrecto
