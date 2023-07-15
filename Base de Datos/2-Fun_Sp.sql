@@ -120,7 +120,31 @@ BEGIN
     VALUES (@dni_cliente, @nombre, @apellido, @celular)
 END
 GO
-
+GO
+--store procedure para actualizar clientes
+CREATE PROCEDURE sp_actualizar_cliente
+    @dni_cliente VARCHAR(8),
+    @nombre VARCHAR(50),
+    @apellido VARCHAR(50),
+    @celular VARCHAR(9)
+AS
+BEGIN
+    UPDATE clientes
+    SET nombre = @nombre,
+        apellido = @apellido,
+        celular = @celular
+    WHERE dni_cliente = @dni_cliente
+END
+GO
+--store procedure para eliminar clientes
+CREATE PROCEDURE sp_eliminar_cliente
+    @dni_cliente VARCHAR(8)
+AS
+BEGIN
+    DELETE FROM clientes
+    WHERE dni_cliente = @dni_cliente
+END
+GO
 
 --store procedure para ingresar reservas
 GO
