@@ -53,15 +53,53 @@ public class ClienteDAO implements ClienteInterfaz {
             return false;
         }
     }
-
     @Override
     public boolean actualizar(Cliente a) {
-        return false;
+        return true;
+    }
+    public boolean actualizarCliente(int dni_cliente, String nombre, String apellido, String celular) {
+        try {
+            con = new Conexion();
+            conn = con.getConectar();
+
+            String query = "EXEC sp_actualizar_cliente ?, ?, ?, ?";
+
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, dni_cliente);
+            ps.setString(2, nombre);
+            ps.setString(3, apellido);
+            ps.setString(4, celular);
+
+            ps.executeUpdate();
+
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error al crear cliente: " + e.getMessage());
+            return false;
+        }
     }
 
     @Override
     public boolean eliminar(Cliente e) {
         return false;
+    }
+    public boolean eliminarCliente(int dni_cliente, String nombre, String apellido, String celular) {
+                try {
+                con = new Conexion();
+                conn = con.getConectar();
+
+                String query = "EXEC sp_eliminar_cliente ?";
+
+                ps = conn.prepareStatement(query);
+                ps.setInt(1, dni_cliente);
+
+                ps.executeUpdate();
+
+                return true;
+            } catch (Exception e) {
+                System.out.println("Error al eliminar cliente: " + e.getMessage());
+                return false;
+            }
     }
 
     @Override
@@ -116,4 +154,7 @@ public class ClienteDAO implements ClienteInterfaz {
         }
         return cliente;
     }
+
+    
+
 }
