@@ -231,17 +231,21 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         jPanel5 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        tblModificarCliente = new javax.swing.JTable();
         lblDNIMod = new javax.swing.JLabel();
         lblNombreMod = new javax.swing.JLabel();
         lblApeMod = new javax.swing.JLabel();
         lblFonoMod = new javax.swing.JLabel();
-        txtDNIClienteModificar = new javax.swing.JTextField();
+        txtDNIClienteMod = new javax.swing.JTextField();
         txtNameClienteModificar = new javax.swing.JTextField();
         txtApeClienteModificar = new javax.swing.JTextField();
         txtFonoClienteModificar = new javax.swing.JTextField();
+        btnBuscarClienteModificar = new javax.swing.JButton();
         btnEliminarCliente = new javax.swing.JButton();
+        btnGuardarCliente = new javax.swing.JButton();
+        btnEditarClientesModificar = new javax.swing.JButton();
+        lblFonoMod1 = new javax.swing.JLabel();
+        txtDNIClienteModificar = new javax.swing.JTextField();
+        btnLimpiarModifClientes = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
@@ -510,7 +514,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                     .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelBusquedaHabitacionLayout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
         );
@@ -756,7 +760,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         pnlReservarHabitacion.setLayout(pnlReservarHabitacionLayout);
         pnlReservarHabitacionLayout.setHorizontalGroup(
             pnlReservarHabitacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 1152, Short.MAX_VALUE)
+            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 1157, Short.MAX_VALUE)
             .addGroup(pnlReservarHabitacionLayout.createSequentialGroup()
                 .addGroup(pnlReservarHabitacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlReservarHabitacionLayout.createSequentialGroup()
@@ -883,7 +887,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         pnlBoletaLayout.setHorizontalGroup(
             pnlBoletaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBoletaLayout.createSequentialGroup()
-                .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 1146, Short.MAX_VALUE)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 1151, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(pnlBoletaLayout.createSequentialGroup()
                 .addGap(210, 210, 210)
@@ -969,22 +973,8 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
 
         jPanel11.setBackground(new java.awt.Color(221, 214, 206));
 
-        jLabel37.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
+        jLabel37.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
         jLabel37.setText("Modificar clientes");
-
-        tblModificarCliente.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        tblModificarCliente.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane8.setViewportView(tblModificarCliente);
 
         lblDNIMod.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lblDNIMod.setText("DNI");
@@ -998,88 +988,185 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         lblFonoMod.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lblFonoMod.setText("Celular");
 
-        txtDNIClienteModificar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtDNIClienteMod.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtDNIClienteMod.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtDNIClienteModKeyPressed(evt);
+            }
+        });
 
+        txtNameClienteModificar.setEditable(false);
         txtNameClienteModificar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtNameClienteModificar.setEnabled(false);
 
+        txtApeClienteModificar.setEditable(false);
         txtApeClienteModificar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtApeClienteModificar.setEnabled(false);
 
+        txtFonoClienteModificar.setEditable(false);
         txtFonoClienteModificar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtFonoClienteModificar.setEnabled(false);
 
-        btnEliminarCliente.setBackground(new java.awt.Color(153, 0, 51));
-        btnEliminarCliente.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnBuscarClienteModificar.setBackground(new java.awt.Color(171, 76, 89));
+        btnBuscarClienteModificar.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnBuscarClienteModificar.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscarClienteModificar.setText("Buscar");
+        btnBuscarClienteModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarClienteModificarActionPerformed(evt);
+            }
+        });
+
+        btnEliminarCliente.setBackground(new java.awt.Color(171, 76, 89));
+        btnEliminarCliente.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnEliminarCliente.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminarCliente.setText("Eliminar");
+        btnEliminarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarClienteActionPerformed(evt);
+            }
+        });
+
+        btnGuardarCliente.setBackground(new java.awt.Color(171, 76, 89));
+        btnGuardarCliente.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnGuardarCliente.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardarCliente.setText("Guardar");
+        btnGuardarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarClienteActionPerformed(evt);
+            }
+        });
+
+        btnEditarClientesModificar.setBackground(new java.awt.Color(171, 76, 89));
+        btnEditarClientesModificar.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnEditarClientesModificar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditarClientesModificar.setText("Editar");
+        btnEditarClientesModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarClientesModificarActionPerformed(evt);
+            }
+        });
+
+        lblFonoMod1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblFonoMod1.setText("DNI");
+
+        txtDNIClienteModificar.setEditable(false);
+        txtDNIClienteModificar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtDNIClienteModificar.setEnabled(false);
+
+        btnLimpiarModifClientes.setBackground(new java.awt.Color(171, 76, 89));
+        btnLimpiarModifClientes.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnLimpiarModifClientes.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimpiarModifClientes.setText("Limpiar");
+        btnLimpiarModifClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarModifClientesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnEliminarCliente)
-                .addGap(513, 513, 513))
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGap(206, 206, 206)
-                        .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(63, 63, 63)
+                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addComponent(btnBuscarClienteModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnEditarClientesModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(33, 33, 33))
+                            .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel11Layout.createSequentialGroup()
+                                        .addComponent(lblApeMod, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtApeClienteModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel11Layout.createSequentialGroup()
+                                        .addGap(12, 12, 12)
+                                        .addComponent(lblFonoMod)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtFonoClienteModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel11Layout.createSequentialGroup()
+                                        .addGap(49, 49, 49)
+                                        .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel11Layout.createSequentialGroup()
+                                        .addGap(39, 39, 39)
+                                        .addComponent(lblFonoMod1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtDNIClienteModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel11Layout.createSequentialGroup()
+                                        .addGap(8, 8, 8)
+                                        .addComponent(lblDNIMod, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(35, 35, 35)
+                                        .addComponent(txtDNIClienteMod, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel11Layout.createSequentialGroup()
+                                        .addComponent(lblNombreMod, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtNameClienteModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(114, 114, 114)
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblDNIMod, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblApeMod, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
-                            .addComponent(lblFonoMod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblNombreMod, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(58, 58, 58)
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtDNIClienteModificar)
-                            .addComponent(txtNameClienteModificar)
-                            .addComponent(txtApeClienteModificar)
-                            .addComponent(txtFonoClienteModificar, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE))))
-                .addGap(48, 193, Short.MAX_VALUE))
+                        .addComponent(btnGuardarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnLimpiarModifClientes, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnEliminarCliente)))
+                .addContainerGap())
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(25, 25, 25)
                 .addComponent(jLabel37)
-                .addGap(24, 24, 24)
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblDNIMod)
-                            .addComponent(txtDNIClienteModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(58, 58, 58)
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblNombreMod)
-                            .addComponent(txtNameClienteModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(47, 47, 47)
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblApeMod)
-                            .addComponent(txtApeClienteModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(54, 54, 54)
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblFonoMod)
-                            .addComponent(txtFonoClienteModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(btnEliminarCliente)
-                .addGap(42, 42, 42))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDNIMod)
+                    .addComponent(txtDNIClienteMod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBuscarClienteModificar)
+                    .addComponent(btnEditarClientesModificar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNameClienteModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNombreMod))
+                .addGap(23, 23, 23)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblApeMod)
+                    .addComponent(txtApeClienteModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFonoMod)
+                    .addComponent(txtFonoClienteModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDNIClienteModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblFonoMod1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGuardarCliente)
+                    .addComponent(btnEliminarCliente)
+                    .addComponent(btnLimpiarModifClientes))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(228, 228, 228)
+                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(551, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 248, Short.MAX_VALUE))
+                .addGap(0, 259, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Cliente", jPanel5);
@@ -2062,6 +2149,163 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
 
     }//GEN-LAST:event_txtCuponSolesKeyTyped
 
+    private void btnBuscarClienteModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteModificarActionPerformed
+        // TODO add your handling code here:
+        
+            String dni = txtDNIClienteMod.getText();
+
+            if (dni.matches("\\d{8}")) {
+                int dniCliente = Integer.parseInt(dni);
+                Cliente cliente = new Cliente();
+                cliente.setDNI(dniCliente);
+
+                ClienteDAO clienteDAO = new ClienteDAO();
+                cliente = clienteDAO.buscarUno(cliente);
+                if (cliente.getNombre().equals("")) {
+                    // Mostrar aviso de cliente no encontrado
+                    
+                    JOptionPane.showMessageDialog(this, "Cliente no encontrado. Debe registrarlo.", "Aviso", JOptionPane.WARNING_MESSAGE);
+                }
+                else {
+                    txtNameClienteModificar.setText(cliente.getNombre());
+                    txtApeClienteModificar.setText(cliente.getApellido());
+                    txtFonoClienteModificar.setText(cliente.getCelular());
+                    txtDNIClienteModificar.setText(String.valueOf(cliente.getDNI()));
+
+                    
+                }
+                }
+                
+                 else {
+                // Mostrar aviso de formato de DNI incorrecto
+                
+                JOptionPane.showMessageDialog(this, "Formato de DNI incorrecto. Debe ser un número de 8 dígitos.", "Aviso", JOptionPane.WARNING_MESSAGE);
+                
+            }
+    }//GEN-LAST:event_btnBuscarClienteModificarActionPerformed
+
+    private void btnEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarClienteActionPerformed
+        // TODO add your handling code here:
+        // Obtener los valores del formulario de entrada
+        int dniCliente = Integer.parseInt(txtDNIClienteMod.getText());
+        String nombre = txtNameClienteModificar.getText();
+        String apellido = txtApeClienteModificar.getText();
+        String celular = txtFonoClienteModificar.getText();
+
+        // Mostrar un mensaje de confirmación al usuario
+        int respuesta = JOptionPane.showOptionDialog(null, "Si ejecuta la eliminación del cliente perderá todos los datos relacionados al contacto así como las reservas realizadas. ¿Desea continuar?"
+                , "Confirmar eliminación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new String[]{"Sí", "No"}, "No");
+
+        // Verificar la respuesta del usuario
+        if (respuesta == JOptionPane.YES_OPTION) {
+            // Crear una instancia del CLIENTEDAO
+            ClienteDAO cDAO = new ClienteDAO();
+
+            // Llamar al método eliminarCliente y almacenar el resultado
+            boolean eliminado = cDAO.eliminarCliente(dniCliente, nombre, apellido, celular);
+
+            // Verificar si el cliente fue eliminado exitosamente
+            if (eliminado) {
+                JOptionPane.showMessageDialog(null, "Cliente eliminado correctamente");
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al eliminar cliente");
+            }
+        }
+    }//GEN-LAST:event_btnEliminarClienteActionPerformed
+
+    private void btnGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarClienteActionPerformed
+        // TODO add your handling code here:
+        String nombre = txtNameClienteModificar.getText();
+        String apellido =txtApeClienteModificar.getText();
+        String celular =txtFonoClienteModificar.getText();
+        String DNI =txtDNIClienteModificar.getText();
+        if (nombre.equals("") || apellido.equals("") ||
+            DNI.equals("")|| celular.equals("")) {
+            JOptionPane.showMessageDialog(this, "Todos los campos deben de estar completos.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
+        else
+        {
+            if (DNI.matches("\\d{8}")&&celular.matches("\\d{9}")){
+                ClienteDAO cDAO = new ClienteDAO();
+                cDAO.actualizarCliente(Integer.parseInt(DNI), nombre, apellido, celular);
+                JOptionPane.showMessageDialog(null, "Actualización exitosa");
+            }
+            else {
+                // Mostrar aviso de formato de Celular incorrecto
+                
+                JOptionPane.showMessageDialog(this, "Formato de celular o DNI incorrecto. Número celular debe ser de 9 dígitos y DNI de 7 dígitos.", 
+                        "Aviso", JOptionPane.WARNING_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_btnGuardarClienteActionPerformed
+
+    private void btnEditarClientesModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarClientesModificarActionPerformed
+        // TODO add your handling code here:
+        txtNameClienteModificar.setEditable(true);
+        txtApeClienteModificar.setEditable(true);
+        txtFonoClienteModificar.setEditable(true);
+        txtDNIClienteModificar.setEditable(true);
+        txtNameClienteModificar.setEnabled(true);
+        txtApeClienteModificar.setEnabled(true);
+        txtFonoClienteModificar.setEnabled(true);
+        txtDNIClienteModificar.setEnabled(true);
+    }//GEN-LAST:event_btnEditarClientesModificarActionPerformed
+
+    private void txtDNIClienteModKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDNIClienteModKeyPressed
+        // TODO add your handling code here:
+        validarCaracteres(evt);
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            String dni = txtDNIClienteMod.getText();
+
+            if (dni.matches("\\d{8}")) {
+                int dniCliente = Integer.parseInt(dni);
+                Cliente cliente = new Cliente();
+                cliente.setDNI(dniCliente);
+
+                ClienteDAO clienteDAO = new ClienteDAO();
+                cliente = clienteDAO.buscarUno(cliente);
+                if (cliente.getNombre().equals("")) {
+                    // Mostrar aviso de cliente no encontrado
+                    
+                    JOptionPane.showMessageDialog(this, "Cliente no encontrado. Debe registrarlo.", "Aviso", JOptionPane.WARNING_MESSAGE);
+                }
+                else {
+                    txtNameClienteModificar.setText(cliente.getNombre());
+                    txtApeClienteModificar.setText(cliente.getApellido());
+                    txtFonoClienteModificar.setText(cliente.getCelular());
+                    txtDNIClienteModificar.setText(String.valueOf(cliente.getDNI()));
+
+                    
+                }
+                }
+                
+                 else {
+                // Mostrar aviso de formato de DNI incorrecto
+                
+                JOptionPane.showMessageDialog(this, "Formato de DNI incorrecto. Debe ser un número de 8 dígitos.", "Aviso", JOptionPane.WARNING_MESSAGE);
+                
+            }
+        }
+        
+    }//GEN-LAST:event_txtDNIClienteModKeyPressed
+
+    private void btnLimpiarModifClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarModifClientesActionPerformed
+        // TODO add your handling code here:
+        txtNameClienteModificar.setText("");
+        txtApeClienteModificar.setText("");
+        txtFonoClienteModificar.setText("");
+        txtDNIClienteModificar.setText("");
+        txtDNIClienteMod.setText("");
+        txtNameClienteModificar.setEditable(false);
+        txtApeClienteModificar.setEditable(false);
+        txtFonoClienteModificar.setEditable(false);
+        txtDNIClienteModificar.setEditable(false);
+        txtNameClienteModificar.setEnabled(false);
+        txtApeClienteModificar.setEnabled(false);
+        txtFonoClienteModificar.setEnabled(false);
+        txtDNIClienteModificar.setEnabled(false);
+    }//GEN-LAST:event_btnLimpiarModifClientesActionPerformed
+
     @Override
     public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
         if(pageIndex==0)
@@ -2123,15 +2367,19 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscarClienteModificar;
     private javax.swing.JButton btnBuscarHabitaciones;
     private javax.swing.JButton btnCambiarTipoHabitacion;
     private javax.swing.JButton btnConfirmarPago;
     private javax.swing.JButton btnCrearHabitacion;
     private javax.swing.JButton btnCrearTipoHabitacion;
+    private javax.swing.JButton btnEditarClientesModificar;
     private javax.swing.JButton btnEliminarCliente;
     private javax.swing.JButton btnEliminarCrearPersonal;
     private javax.swing.JButton btnEliminarHabitacion;
     private javax.swing.JButton btnEliminarPersonal;
+    private javax.swing.JButton btnGuardarCliente;
+    private javax.swing.JButton btnLimpiarModifClientes;
     private javax.swing.JButton btnModificarCrearPersonal;
     private javax.swing.JButton btnModificarHabitacion;
     private javax.swing.JButton btnModificarPersonal;
@@ -2185,7 +2433,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
@@ -2203,6 +2450,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private javax.swing.JLabel lblFechaEntrada;
     private javax.swing.JLabel lblFechaSalida;
     private javax.swing.JLabel lblFonoMod;
+    private javax.swing.JLabel lblFonoMod1;
     private javax.swing.JLabel lblFonoPersonal;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblNombreCrear;
@@ -2230,7 +2478,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private javax.swing.JTable tblDetalleReserva;
     private javax.swing.JTable tblDisponibles;
     private javax.swing.JTable tblHabitacionesCreadas;
-    private javax.swing.JTable tblModificarCliente;
     private javax.swing.JTable tblModificarTipoHabitacion;
     private javax.swing.JTextField txtApeClienteModificar;
     private javax.swing.JTextField txtApePersonalAgregar;
@@ -2238,6 +2485,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private javax.swing.JTextField txtCelularCliente;
     private javax.swing.JTextField txtCuponSoles;
     private javax.swing.JTextField txtDNICliente;
+    private javax.swing.JTextField txtDNIClienteMod;
     private javax.swing.JTextField txtDNIClienteModificar;
     private javax.swing.JTextField txtDNIPersonalAgregar;
     private javax.swing.JTextField txtDescpCargoCrear;
