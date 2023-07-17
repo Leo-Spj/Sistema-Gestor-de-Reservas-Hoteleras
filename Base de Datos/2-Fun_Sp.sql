@@ -121,6 +121,9 @@ BEGIN
 END
 GO
 GO
+drop PROCEDURE sp_actualizar_dni_cliente
+GO
+
 --store procedure para actualizar clientes
 CREATE PROCEDURE sp_actualizar_cliente
     @dni_cliente VARCHAR(8),
@@ -136,6 +139,10 @@ BEGIN
     WHERE dni_cliente = @dni_cliente
 END
 GO
+
+
+
+
 --store procedure para eliminar clientes
 CREATE PROCEDURE sp_eliminar_cliente
     @dni_cliente VARCHAR(8)

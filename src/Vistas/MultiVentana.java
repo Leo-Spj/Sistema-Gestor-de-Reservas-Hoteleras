@@ -292,8 +292,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         btnEliminarCliente = new javax.swing.JButton();
         btnGuardarCliente = new javax.swing.JButton();
         btnEditarClientesModificar = new javax.swing.JButton();
-        lblFonoMod1 = new javax.swing.JLabel();
-        txtDNIClienteModificar = new javax.swing.JTextField();
         btnLimpiarModifClientes = new javax.swing.JButton();
         pnlEditarPersonal = new javax.swing.JPanel();
         pnlAgregarPersonal = new javax.swing.JPanel();
@@ -1088,13 +1086,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
             }
         });
 
-        lblFonoMod1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblFonoMod1.setText("DNI");
-
-        txtDNIClienteModificar.setEditable(false);
-        txtDNIClienteModificar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txtDNIClienteModificar.setEnabled(false);
-
         btnLimpiarModifClientes.setBackground(new java.awt.Color(171, 76, 89));
         btnLimpiarModifClientes.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnLimpiarModifClientes.setForeground(new java.awt.Color(255, 255, 255));
@@ -1133,11 +1124,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                                     .addGroup(jPanel11Layout.createSequentialGroup()
                                         .addGap(49, 49, 49)
                                         .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel11Layout.createSequentialGroup()
-                                        .addGap(39, 39, 39)
-                                        .addComponent(lblFonoMod1)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtDNIClienteModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel11Layout.createSequentialGroup()
                                         .addGap(8, 8, 8)
                                         .addComponent(lblDNIMod, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1182,16 +1168,12 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblFonoMod)
                     .addComponent(txtFonoClienteModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDNIClienteModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblFonoMod1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(60, 60, 60)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardarCliente)
                     .addComponent(btnEliminarCliente)
                     .addComponent(btnLimpiarModifClientes))
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -1199,15 +1181,16 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(228, 228, 228)
+                .addGap(219, 219, 219)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(551, Short.MAX_VALUE))
+                .addContainerGap(560, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(116, 116, 116)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 259, Short.MAX_VALUE))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
 
         JTabbedPaneAdministrar.addTab("Cliente", jPanel5);
@@ -2162,7 +2145,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                     txtNameClienteModificar.setText(cliente.getNombre());
                     txtApeClienteModificar.setText(cliente.getApellido());
                     txtFonoClienteModificar.setText(cliente.getCelular());
-                    txtDNIClienteModificar.setText(String.valueOf(cliente.getDNI()));
 
                     
                 }
@@ -2202,16 +2184,13 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                 txtNameClienteModificar.setText("");
                 txtApeClienteModificar.setText("");
                 txtFonoClienteModificar.setText("");
-                txtDNIClienteModificar.setText("");
                 txtDNIClienteMod.setText("");
                 txtNameClienteModificar.setEditable(false);
                 txtApeClienteModificar.setEditable(false);
                 txtFonoClienteModificar.setEditable(false);
-                txtDNIClienteModificar.setEditable(false);
                 txtNameClienteModificar.setEnabled(false);
                 txtApeClienteModificar.setEnabled(false);
                 txtFonoClienteModificar.setEnabled(false);
-                txtDNIClienteModificar.setEnabled(false);
             } else {
                 JOptionPane.showMessageDialog(null, "Error al eliminar cliente");
             }
@@ -2220,32 +2199,31 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
 
     private void btnGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarClienteActionPerformed
         // TODO add your handling code here:
+        String dni = txtDNIClienteMod.getText();
         String nombre = txtNameClienteModificar.getText();
-        String apellido =txtApeClienteModificar.getText();
-        String celular =txtFonoClienteModificar.getText();
-        String DNI =txtDNIClienteModificar.getText();
-        if (nombre.equals("") || apellido.equals("") ||
-            DNI.equals("")|| celular.equals("")) {
-            JOptionPane.showMessageDialog(this, "Todos los campos deben de estar completos.", "Aviso", JOptionPane.WARNING_MESSAGE);
-        }
-        else
-        {
-            if (DNI.matches("\\d{8}")&&celular.matches("\\d{9}")){
+        String apellido = txtApeClienteModificar.getText();
+        String celular = txtFonoClienteModificar.getText();
+
+        if (nombre.equals("") || apellido.equals("") || celular.equals("")) {
+            JOptionPane.showMessageDialog(this, "Todos los campos deben estar completos.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        } else {
+            if (celular.matches("\\d{9}")) {
                 ClienteDAO cDAO = new ClienteDAO();
-                cDAO.actualizarCliente(Integer.parseInt(DNI), nombre, apellido, celular);
-                JOptionPane.showMessageDialog(null, "Actualización exitosa");
-                txtNameClienteModificar.setEnabled(false);
-                txtApeClienteModificar.setEnabled(false);
-                txtFonoClienteModificar.setEnabled(false);
-                txtDNIClienteModificar.setEnabled(false);
-            }
-            else {
+                boolean actualizacionExitosa = cDAO.actualizarCliente( dni,nombre, apellido, celular);
+                if (actualizacionExitosa) {
+                    JOptionPane.showMessageDialog(null, "Actualización exitosa");
+                    txtNameClienteModificar.setEnabled(false);
+                    txtApeClienteModificar.setEnabled(false);
+                    txtFonoClienteModificar.setEnabled(false);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error al actualizar el cliente", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
                 // Mostrar aviso de formato de Celular incorrecto
-                
-                JOptionPane.showMessageDialog(this, "Formato de celular o DNI incorrecto. Número celular debe ser de 9 dígitos y DNI de 7 dígitos.", 
-                        "Aviso", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Formato de celular o DNI incorrecto. Número celular debe ser de 9 dígitos y DNI de 8 dígitos.", "Aviso", JOptionPane.WARNING_MESSAGE);
             }
         }
+
     }//GEN-LAST:event_btnGuardarClienteActionPerformed
 
     private void btnEditarClientesModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarClientesModificarActionPerformed
@@ -2253,11 +2231,9 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         txtNameClienteModificar.setEditable(true);
         txtApeClienteModificar.setEditable(true);
         txtFonoClienteModificar.setEditable(true);
-        txtDNIClienteModificar.setEditable(true);
         txtNameClienteModificar.setEnabled(true);
         txtApeClienteModificar.setEnabled(true);
         txtFonoClienteModificar.setEnabled(true);
-        txtDNIClienteModificar.setEnabled(true);
     }//GEN-LAST:event_btnEditarClientesModificarActionPerformed
 
     private void txtDNIClienteModKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDNIClienteModKeyPressed
@@ -2282,7 +2258,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                     txtNameClienteModificar.setText(cliente.getNombre());
                     txtApeClienteModificar.setText(cliente.getApellido());
                     txtFonoClienteModificar.setText(cliente.getCelular());
-                    txtDNIClienteModificar.setText(String.valueOf(cliente.getDNI()));
 
                     
                 }
@@ -2303,16 +2278,13 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         txtNameClienteModificar.setText("");
         txtApeClienteModificar.setText("");
         txtFonoClienteModificar.setText("");
-        txtDNIClienteModificar.setText("");
         txtDNIClienteMod.setText("");
         txtNameClienteModificar.setEditable(false);
         txtApeClienteModificar.setEditable(false);
         txtFonoClienteModificar.setEditable(false);
-        txtDNIClienteModificar.setEditable(false);
         txtNameClienteModificar.setEnabled(false);
         txtApeClienteModificar.setEnabled(false);
         txtFonoClienteModificar.setEnabled(false);
-        txtDNIClienteModificar.setEnabled(false);
     }//GEN-LAST:event_btnLimpiarModifClientesActionPerformed
 
     private void btnBuscarPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPersonalActionPerformed
@@ -2483,7 +2455,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private javax.swing.JLabel lblFechaEntrada;
     private javax.swing.JLabel lblFechaSalida;
     private javax.swing.JLabel lblFonoMod;
-    private javax.swing.JLabel lblFonoMod1;
     private javax.swing.JLabel lblFonoPersonal;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblNombreMod;
@@ -2520,7 +2491,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private javax.swing.JTextField txtCuponSoles;
     private javax.swing.JTextField txtDNICliente;
     private javax.swing.JTextField txtDNIClienteMod;
-    private javax.swing.JTextField txtDNIClienteModificar;
     private javax.swing.JTextField txtDNIPersonalAgregar;
     private javax.swing.JTextField txtFechaPago;
     private javax.swing.JTextField txtFonoClienteModificar;
