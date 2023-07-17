@@ -1220,12 +1220,14 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         ));
         jScrollPane6.setViewportView(tblAgregarPersonal);
 
-        btnModificarPersonal.setBackground(new java.awt.Color(0, 51, 153));
-        btnModificarPersonal.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnModificarPersonal.setBackground(new java.awt.Color(171, 76, 89));
+        btnModificarPersonal.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnModificarPersonal.setForeground(new java.awt.Color(255, 255, 255));
         btnModificarPersonal.setText("Modificar");
 
-        btnEliminarPersonal.setBackground(new java.awt.Color(153, 0, 51));
-        btnEliminarPersonal.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnEliminarPersonal.setBackground(new java.awt.Color(171, 76, 89));
+        btnEliminarPersonal.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnEliminarPersonal.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminarPersonal.setText("Eliminar");
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
@@ -1234,37 +1236,35 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCargoPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSucursalPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblSucursalPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCargoPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(cbxSucursalPersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(cbxSucursalPersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(45, 45, 45)
+                                .addComponent(lblFonoPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblApePersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtApePersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFonoPersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(cbxCargoPersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(253, 253, 253)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblNombre)
+                            .addComponent(lblDNIPersonal))
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel9Layout.createSequentialGroup()
-                                        .addComponent(lblDNIPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(20, 20, 20))
-                                    .addComponent(lblNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel9Layout.createSequentialGroup()
-                                        .addGap(21, 21, 21)
-                                        .addComponent(txtDNIPersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel9Layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtNombrePersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(21, 21, 21)
+                                .addComponent(txtDNIPersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblFonoPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblApePersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtApePersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtFonoPersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addComponent(cbxCargoPersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(txtNombrePersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGap(126, 126, 126)
@@ -1273,7 +1273,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                         .addComponent(btnEliminarPersonal)
                         .addGap(109, 109, 109))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(15, 15, 15))))
             .addGroup(jPanel9Layout.createSequentialGroup()
@@ -1350,12 +1350,14 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         ));
         jScrollPane7.setViewportView(tblCargoPersonalCreado);
 
-        btnModificarCrearPersonal.setBackground(new java.awt.Color(0, 51, 153));
-        btnModificarCrearPersonal.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnModificarCrearPersonal.setBackground(new java.awt.Color(171, 76, 89));
+        btnModificarCrearPersonal.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnModificarCrearPersonal.setForeground(new java.awt.Color(255, 255, 255));
         btnModificarCrearPersonal.setText("Modificar");
 
-        btnEliminarCrearPersonal.setBackground(new java.awt.Color(153, 0, 51));
-        btnEliminarCrearPersonal.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnEliminarCrearPersonal.setBackground(new java.awt.Color(171, 76, 89));
+        btnEliminarCrearPersonal.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnEliminarCrearPersonal.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminarCrearPersonal.setText("Eliminar");
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
@@ -1468,16 +1470,19 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         ));
         jScrollPane9.setViewportView(tblHabitacionesCreadas);
 
-        btnModificarHabitacion.setBackground(new java.awt.Color(0, 51, 153));
-        btnModificarHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnModificarHabitacion.setBackground(new java.awt.Color(171, 76, 89));
+        btnModificarHabitacion.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnModificarHabitacion.setForeground(new java.awt.Color(255, 255, 255));
         btnModificarHabitacion.setText("Modificar");
 
-        btnEliminarHabitacion.setBackground(new java.awt.Color(153, 0, 51));
-        btnEliminarHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnEliminarHabitacion.setBackground(new java.awt.Color(171, 76, 89));
+        btnEliminarHabitacion.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnEliminarHabitacion.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminarHabitacion.setText("Eliminar");
 
-        btnCrearHabitacion.setBackground(new java.awt.Color(0, 153, 0));
-        btnCrearHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnCrearHabitacion.setBackground(new java.awt.Color(171, 76, 89));
+        btnCrearHabitacion.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnCrearHabitacion.setForeground(new java.awt.Color(255, 255, 255));
         btnCrearHabitacion.setText("Crear");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -1509,14 +1514,14 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(lblPuertaHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtPuertaHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(43, 43, 43))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                                 .addComponent(btnModificarHabitacion)
-                                .addGap(224, 224, 224)
+                                .addGap(220, 220, 220)
                                 .addComponent(btnEliminarHabitacion)
                                 .addGap(138, 138, 138))))))
         );
@@ -1573,8 +1578,9 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         jLabel23.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         jLabel23.setText("Modificar Tipo de Habitacion");
 
-        btnCrearTipoHabitacion.setBackground(new java.awt.Color(0, 153, 0));
-        btnCrearTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnCrearTipoHabitacion.setBackground(new java.awt.Color(171, 76, 89));
+        btnCrearTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnCrearTipoHabitacion.setForeground(new java.awt.Color(255, 255, 255));
         btnCrearTipoHabitacion.setText("Crear");
 
         lblBuscarTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -1607,8 +1613,9 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         lblTipoHabitacionMod.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lblTipoHabitacionMod.setText("Tipo");
 
-        btnCambiarTipoHabitacion.setBackground(new java.awt.Color(0, 51, 153));
-        btnCambiarTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnCambiarTipoHabitacion.setBackground(new java.awt.Color(171, 76, 89));
+        btnCambiarTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnCambiarTipoHabitacion.setForeground(new java.awt.Color(255, 255, 255));
         btnCambiarTipoHabitacion.setText("Cambiar");
 
         lblPrecioHabitacionMod.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -1621,15 +1628,18 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCrearTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20)
                     .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNombreTipoHabitacion)
-                            .addComponent(lblPrecioTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(btnCrearTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel20)))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addContainerGap(23, Short.MAX_VALUE)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPrecioTipoHabitacion, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblNombreTipoHabitacion, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtNombreTipoHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPrecioTipoHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -1639,20 +1649,19 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel23)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(lblBuscarTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblBuscarTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTipoHabitacionMod, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPrecioHabitacionMod, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(31, 31, 31)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtTipoHabitacionModificar, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
-                                .addComponent(txtPrecioTipoHabitacionModificar))
-                            .addComponent(btnCambiarTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblPrecioHabitacionMod, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTipoHabitacionMod, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtTipoHabitacionModificar)
+                            .addComponent(txtPrecioTipoHabitacionModificar)
+                            .addComponent(btnCambiarTipoHabitacion))))
+                .addGap(341, 341, 341))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1669,8 +1678,8 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                                     .addComponent(lblNombreTipoHabitacion))
                                 .addGap(15, 15, 15)
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblPrecioTipoHabitacion)
-                                    .addComponent(txtPrecioTipoHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtPrecioTipoHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblPrecioTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addComponent(btnCrearTipoHabitacion))
                             .addComponent(jSeparator3))
@@ -1686,9 +1695,9 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblTipoHabitacionMod)
-                                    .addComponent(txtTipoHabitacionModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtTipoHabitacionModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblTipoHabitacionMod))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lblPrecioHabitacionMod)
@@ -1711,7 +1720,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 162, Short.MAX_VALUE))
+                .addGap(0, 169, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Habitaciones", jPanel1);

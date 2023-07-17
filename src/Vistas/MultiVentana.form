@@ -1564,52 +1564,48 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblCargoPersonal" min="-2" pref="43" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="lblSucursalPersonal" min="-2" pref="70" max="-2" attributes="0"/>
+                                      <Component id="lblCargoPersonal" min="-2" pref="47" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="cbxSucursalPersonalAgregar" min="-2" pref="213" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="cbxSucursalPersonalAgregar" min="-2" pref="213" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                                                  <Component id="lblFonoPersonal" min="-2" pref="61" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="lblApePersonal" min="-2" pref="71" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="lblDNIPersonal" min="-2" pref="43" max="-2" attributes="0"/>
-                                                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Component id="lblNombre" alignment="1" min="-2" pref="63" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" attributes="0">
-                                                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                                                          <Component id="txtDNIPersonalAgregar" min="-2" pref="125" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" alignment="0" attributes="0">
-                                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                          <Component id="txtNombrePersonalAgregar" min="-2" pref="125" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="lblFonoPersonal" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                                      <Component id="lblApePersonal" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="txtApePersonalAgregar" min="-2" pref="126" max="-2" attributes="0"/>
-                                                      <Component id="txtFonoPersonalAgregar" min="-2" pref="127" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
+                                              <Component id="txtApePersonalAgregar" min="-2" pref="126" max="-2" attributes="0"/>
+                                              <Component id="txtFonoPersonalAgregar" min="-2" pref="127" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Component id="cbxCargoPersonalAgregar" min="-2" pref="155" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="253" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="lblNombre" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblDNIPersonal" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                                  <Component id="txtDNIPersonalAgregar" min="-2" pref="125" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="txtNombrePersonalAgregar" min="-2" pref="125" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
                                           <Component id="btnModificarPersonal" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
@@ -1617,7 +1613,7 @@
                                           <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace max="32767" attributes="0"/>
+                                          <EmptySpace pref="11" max="32767" attributes="0"/>
                                           <Component id="jScrollPane6" min="-2" pref="542" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                                       </Group>
@@ -1821,10 +1817,13 @@
                         <Component class="javax.swing.JButton" name="btnModificarPersonal">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="99" green="33" red="0" type="rgb"/>
+                              <Color blue="59" green="4c" red="ab" type="rgb"/>
                             </Property>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="16" style="0"/>
+                              <Font name="Segoe UI" size="16" style="1"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="Modificar"/>
                           </Properties>
@@ -1832,10 +1831,13 @@
                         <Component class="javax.swing.JButton" name="btnEliminarPersonal">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="33" green="0" red="99" type="rgb"/>
+                              <Color blue="59" green="4c" red="ab" type="rgb"/>
                             </Property>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="16" style="0"/>
+                              <Font name="Segoe UI" size="16" style="1"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="Eliminar"/>
                           </Properties>
@@ -1974,10 +1976,13 @@
                         <Component class="javax.swing.JButton" name="btnModificarCrearPersonal">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="99" green="33" red="0" type="rgb"/>
+                              <Color blue="59" green="4c" red="ab" type="rgb"/>
                             </Property>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="16" style="0"/>
+                              <Font name="Segoe UI" size="16" style="1"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="Modificar"/>
                           </Properties>
@@ -1985,10 +1990,13 @@
                         <Component class="javax.swing.JButton" name="btnEliminarCrearPersonal">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="33" green="0" red="99" type="rgb"/>
+                              <Color blue="59" green="4c" red="ab" type="rgb"/>
                             </Property>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="16" style="0"/>
+                              <Font name="Segoe UI" size="16" style="1"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="Eliminar"/>
                           </Properties>
@@ -2024,7 +2032,7 @@
                               <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="162" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="169" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2072,7 +2080,7 @@
                                                   </Group>
                                               </Group>
                                           </Group>
-                                          <EmptySpace pref="50" max="32767" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Component id="jScrollPane9" min="-2" pref="573" max="-2" attributes="0"/>
@@ -2080,7 +2088,7 @@
                                               </Group>
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Component id="btnModificarHabitacion" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="224" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="220" max="-2" attributes="0"/>
                                                   <Component id="btnEliminarHabitacion" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
                                               </Group>
@@ -2252,10 +2260,13 @@
                         <Component class="javax.swing.JButton" name="btnModificarHabitacion">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="99" green="33" red="0" type="rgb"/>
+                              <Color blue="59" green="4c" red="ab" type="rgb"/>
                             </Property>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="16" style="0"/>
+                              <Font name="Segoe UI" size="16" style="1"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="Modificar"/>
                           </Properties>
@@ -2263,10 +2274,13 @@
                         <Component class="javax.swing.JButton" name="btnEliminarHabitacion">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="33" green="0" red="99" type="rgb"/>
+                              <Color blue="59" green="4c" red="ab" type="rgb"/>
                             </Property>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="16" style="0"/>
+                              <Font name="Segoe UI" size="16" style="1"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="Eliminar"/>
                           </Properties>
@@ -2274,10 +2288,13 @@
                         <Component class="javax.swing.JButton" name="btnCrearHabitacion">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="0" green="99" red="0" type="rgb"/>
+                              <Color blue="59" green="4c" red="ab" type="rgb"/>
                             </Property>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="16" style="0"/>
+                              <Font name="Segoe UI" size="16" style="1"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="Crear"/>
                           </Properties>
@@ -2295,16 +2312,21 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="btnCrearTipoHabitacion" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
-                                      <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="lblNombreTipoHabitacion" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblPrecioTipoHabitacion" min="-2" pref="57" max="-2" attributes="0"/>
+                                              <Component id="btnCrearTipoHabitacion" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
+                                              <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace pref="23" max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="lblPrecioTipoHabitacion" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblNombreTipoHabitacion" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="txtNombreTipoHabitacionCrear" min="-2" pref="158" max="-2" attributes="0"/>
                                               <Component id="txtPrecioTipoHabitacionCrear" min="-2" pref="90" max="-2" attributes="0"/>
@@ -2317,25 +2339,23 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" attributes="0">
-                                          <Component id="lblBuscarTipoHabitacion" min="-2" pref="55" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="lblBuscarTipoHabitacion" min="-2" pref="61" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jScrollPane5" min="-2" pref="207" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="lblTipoHabitacionMod" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
-                                              <Component id="lblPrecioHabitacionMod" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="lblPrecioHabitacionMod" min="-2" pref="56" max="-2" attributes="0"/>
+                                              <Component id="lblTipoHabitacionMod" min="-2" pref="43" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="txtTipoHabitacionModificar" pref="71" max="32767" attributes="0"/>
-                                                  <Component id="txtPrecioTipoHabitacionModificar" max="32767" attributes="0"/>
-                                              </Group>
-                                              <Component id="btnCambiarTipoHabitacion" min="-2" pref="91" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="txtTipoHabitacionModificar" max="32767" attributes="0"/>
+                                              <Component id="txtPrecioTipoHabitacionModificar" max="32767" attributes="0"/>
+                                              <Component id="btnCambiarTipoHabitacion" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="341" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2355,8 +2375,8 @@
                                                   </Group>
                                                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="lblPrecioTipoHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="txtPrecioTipoHabitacionCrear" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblPrecioTipoHabitacion" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Component id="btnCrearTipoHabitacion" min="-2" max="-2" attributes="0"/>
@@ -2378,9 +2398,9 @@
                                                   <EmptySpace max="32767" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="1" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="lblTipoHabitacionMod" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="txtTipoHabitacionModificar" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="txtTipoHabitacionModificar" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblTipoHabitacionMod" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace pref="42" max="32767" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
@@ -2453,10 +2473,13 @@
                         <Component class="javax.swing.JButton" name="btnCrearTipoHabitacion">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="0" green="99" red="0" type="rgb"/>
+                              <Color blue="59" green="4c" red="ab" type="rgb"/>
                             </Property>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="16" style="0"/>
+                              <Font name="Segoe UI" size="16" style="1"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="Crear"/>
                           </Properties>
@@ -2526,10 +2549,13 @@
                         <Component class="javax.swing.JButton" name="btnCambiarTipoHabitacion">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="99" green="33" red="0" type="rgb"/>
+                              <Color blue="59" green="4c" red="ab" type="rgb"/>
                             </Property>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="16" style="0"/>
+                              <Font name="Segoe UI" size="16" style="1"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="Cambiar"/>
                           </Properties>
