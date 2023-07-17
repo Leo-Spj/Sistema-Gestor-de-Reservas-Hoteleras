@@ -57,24 +57,23 @@ public class ClienteDAO implements ClienteInterfaz {
     public boolean actualizar(Cliente a) {
         return true;
     }
-    public boolean actualizarCliente(int dni_cliente, String nombre, String apellido, String celular) {
+    public boolean actualizarCliente( String dni_cliente,String nombre, String apellido, String celular) {
         try {
-            con = new Conexion();
-            conn = con.getConectar();
+        con = new Conexion();
+        conn = con.getConectar();
 
-            String query = "EXEC sp_actualizar_cliente ?, ?, ?, ?";
+        String queryActualizarCliente = "EXEC sp_actualizar_cliente ?, ?, ?, ?";
 
-            ps = conn.prepareStatement(query);
-            ps.setInt(1, dni_cliente);
-            ps.setString(2, nombre);
-            ps.setString(3, apellido);
-            ps.setString(4, celular);
+        ps = conn.prepareStatement(queryActualizarCliente);
+        ps.setString(1, dni_cliente);
+        ps.setString(2, nombre);
+        ps.setString(3, apellido);
+        ps.setString(4, celular);
+        ps.executeUpdate();
 
-            ps.executeUpdate();
-
-            return true;
-        } catch (Exception e) {
-            System.out.println("Error al crear cliente: " + e.getMessage());
+        return true;
+    } catch (Exception e) {
+            System.out.println("Error al actualizar cliente: " + e.getMessage());
             return false;
         }
     }

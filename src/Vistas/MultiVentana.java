@@ -38,12 +38,14 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     EmpresaHotelera eh = new EmpresaHotelera();
     UsuarioLogueado usuarioLogueado;
     ArrayList<Sucursal> sucursales;
+    ArrayList<Cargo> cargos;
     ArrayList<TipoHabitacion> tiposHabitacion;
 
     //no usar este MultiVentana sin parametros
     public MultiVentana() {
         initComponents();
         pnlRegistrarCliente.setVisible(false);
+        pnlPersonalNoRegistrado.setVisible(false);
         
     }
     
@@ -56,9 +58,11 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         this.setLocationRelativeTo(this);
         cerrarSesion();
         iniciarFechaHoy();
-
         pnlRegistrarCliente.setVisible(false);
-
+        pnlPersonalNoRegistrado.setVisible(false);
+        pnlEditarPersonal.setVisible(false);
+        pnlAgregarPersonal.setVisible(false);
+        mostrarAdministrarPersonal();
         System.out.println(usuarioLogueado.getNombre() + " " + usuarioLogueado.getApellido() + " - " + usuarioLogueado.getId_empleado());
 
         cargarEmpresaHotelera();
@@ -66,6 +70,17 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         // Llenando los ComboBox
         llenarComboBoxSucursales();
         cargarTiposHabitacion();
+        llenarComboBoxSucursalesPersonal();
+        llenarComboBoxCargo();
+    }
+    public void mostrarAdministrarPersonal(){
+        if(this.usuarioLogueado.getId_cargo()==2)
+        {
+            pnlEditarPersonal.setVisible(true);
+            pnlAgregarPersonal.setVisible(true);
+        }
+            
+
     }
 
     public void iniciarFechaHoy(){
@@ -100,6 +115,40 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
             //busco el nombre de la sucursal mendiante el id del usuario loguado en los elementos del arraylist
             if (sucursal.getIdSucursal() == usuarioLogueado.getId_sucursal()) {
                 cbxSucursal.setSelectedItem(sucursal.getNombre());
+            }
+        }
+    }
+    public void llenarComboBoxSucursalesPersonal() {
+        // Limpiando comboBox
+        cbxSucursalPersonalAgregar.removeAllItems();
+
+        SucursalDAO sucursalDAO = new SucursalDAO();
+        sucursales = sucursalDAO.buscarTodo();
+
+        // Agregar los nombres de las sucursales al comboBox
+        for (Sucursal sucursal : sucursales) {
+            cbxSucursalPersonalAgregar.addItem(sucursal.getNombre());
+
+            //busco el nombre de la sucursal mendiante el id del usuario loguado en los elementos del arraylist
+            if (sucursal.getIdSucursal() == usuarioLogueado.getId_sucursal()) {
+                cbxSucursalPersonalAgregar.setSelectedItem(sucursal.getNombre());
+            }
+        }
+    }
+    public void llenarComboBoxCargo() {
+        // Limpiando comboBox
+        cbxCargoPersonalAgregar.removeAllItems();
+
+        CargoDAO cargoDAO = new CargoDAO();
+        cargos = cargoDAO.buscarTodo();
+
+        // Agregar los nombres de las sucursales al comboBox
+        for (Cargo cargo : cargos) {
+            cbxCargoPersonalAgregar.addItem(cargo.getNombre());
+
+            //busco el nombre de la sucursal mendiante el id del usuario loguado en los elementos del arraylist
+            if (cargo.getIdCargo()== usuarioLogueado.getId_cargo()) {
+                cbxCargoPersonalAgregar.setSelectedItem(cargo.getNombre());
             }
         }
     }
@@ -227,7 +276,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         jLabel15 = new javax.swing.JLabel();
         txtTotalSoles = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
-        jTabbedPane2 = new javax.swing.JTabbedPane();
+        JTabbedPaneAdministrar = new javax.swing.JTabbedPane();
         jPanel5 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
@@ -243,38 +292,28 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         btnEliminarCliente = new javax.swing.JButton();
         btnGuardarCliente = new javax.swing.JButton();
         btnEditarClientesModificar = new javax.swing.JButton();
-        lblFonoMod1 = new javax.swing.JLabel();
-        txtDNIClienteModificar = new javax.swing.JTextField();
         btnLimpiarModifClientes = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
+        pnlEditarPersonal = new javax.swing.JPanel();
+        pnlAgregarPersonal = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
         lblDNIPersonal = new javax.swing.JLabel();
+        txtDNIPersonalAgregar = new javax.swing.JTextField();
+        btnBuscarPersonal = new javax.swing.JButton();
+        pnlPersonalNoRegistrado = new javax.swing.JPanel();
         lblNombre = new javax.swing.JLabel();
         lblApePersonal = new javax.swing.JLabel();
         lblFonoPersonal = new javax.swing.JLabel();
-        txtDNIPersonalAgregar = new javax.swing.JTextField();
         txtNombrePersonalAgregar = new javax.swing.JTextField();
         txtApePersonalAgregar = new javax.swing.JTextField();
         txtFonoPersonalAgregar = new javax.swing.JTextField();
-        lblSucursalPersonal = new javax.swing.JLabel();
+        btnAgregarPersonal = new javax.swing.JButton();
         lblCargoPersonal = new javax.swing.JLabel();
-        cbxSucursalPersonalAgregar = new javax.swing.JComboBox<>();
         cbxCargoPersonalAgregar = new javax.swing.JComboBox<>();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        tblAgregarPersonal = new javax.swing.JTable();
+        cbxSucursalPersonalAgregar = new javax.swing.JComboBox<>();
+        lblSucursalPersonal = new javax.swing.JLabel();
         btnModificarPersonal = new javax.swing.JButton();
         btnEliminarPersonal = new javax.swing.JButton();
-        jPanel10 = new javax.swing.JPanel();
-        jLabel32 = new javax.swing.JLabel();
-        lblNombreCrear = new javax.swing.JLabel();
-        lblDescpCrear = new javax.swing.JLabel();
-        txtNombreCargoCrear = new javax.swing.JTextField();
-        txtDescpCargoCrear = new javax.swing.JTextField();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        tblCargoPersonalCreado = new javax.swing.JTable();
-        btnModificarCrearPersonal = new javax.swing.JButton();
-        btnEliminarCrearPersonal = new javax.swing.JButton();
+        lblPersonalNoRegistrado = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -1047,13 +1086,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
             }
         });
 
-        lblFonoMod1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblFonoMod1.setText("DNI");
-
-        txtDNIClienteModificar.setEditable(false);
-        txtDNIClienteModificar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txtDNIClienteModificar.setEnabled(false);
-
         btnLimpiarModifClientes.setBackground(new java.awt.Color(171, 76, 89));
         btnLimpiarModifClientes.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnLimpiarModifClientes.setForeground(new java.awt.Color(255, 255, 255));
@@ -1092,11 +1124,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                                     .addGroup(jPanel11Layout.createSequentialGroup()
                                         .addGap(49, 49, 49)
                                         .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel11Layout.createSequentialGroup()
-                                        .addGap(39, 39, 39)
-                                        .addComponent(lblFonoMod1)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtDNIClienteModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel11Layout.createSequentialGroup()
                                         .addGap(8, 8, 8)
                                         .addComponent(lblDNIMod, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1141,16 +1168,12 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblFonoMod)
                     .addComponent(txtFonoClienteModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDNIClienteModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblFonoMod1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(60, 60, 60)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardarCliente)
                     .addComponent(btnEliminarCliente)
                     .addComponent(btnLimpiarModifClientes))
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -1158,26 +1181,41 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(228, 228, 228)
+                .addGap(219, 219, 219)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(551, Short.MAX_VALUE))
+                .addContainerGap(560, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(116, 116, 116)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 259, Short.MAX_VALUE))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
 
-        jTabbedPane2.addTab("Cliente", jPanel5);
+        JTabbedPaneAdministrar.addTab("Cliente", jPanel5);
 
-        jPanel9.setBackground(new java.awt.Color(221, 214, 206));
+        pnlAgregarPersonal.setBackground(new java.awt.Color(221, 214, 206));
 
         jLabel28.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
-        jLabel28.setText("Agregar personal");
+        jLabel28.setText("Administrar personal");
 
         lblDNIPersonal.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lblDNIPersonal.setText("DNI");
+
+        txtDNIPersonalAgregar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+
+        btnBuscarPersonal.setBackground(new java.awt.Color(171, 76, 89));
+        btnBuscarPersonal.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnBuscarPersonal.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscarPersonal.setText("Buscar");
+        btnBuscarPersonal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarPersonalActionPerformed(evt);
+            }
+        });
+
+        pnlPersonalNoRegistrado.setBackground(new java.awt.Color(221, 214, 206));
 
         lblNombre.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lblNombre.setText("Nombre:");
@@ -1188,242 +1226,172 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         lblFonoPersonal.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lblFonoPersonal.setText("Celular");
 
-        txtDNIPersonalAgregar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-
         txtNombrePersonalAgregar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
         txtApePersonalAgregar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
         txtFonoPersonalAgregar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
-        lblSucursalPersonal.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblSucursalPersonal.setText("Sucursal");
+        btnAgregarPersonal.setBackground(new java.awt.Color(171, 76, 89));
+        btnAgregarPersonal.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnAgregarPersonal.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarPersonal.setText("Agregar");
 
         lblCargoPersonal.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lblCargoPersonal.setText("Cargo");
 
-        cbxSucursalPersonalAgregar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-
         cbxCargoPersonalAgregar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
-        tblAgregarPersonal.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        tblAgregarPersonal.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane6.setViewportView(tblAgregarPersonal);
+        cbxSucursalPersonalAgregar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
-        btnModificarPersonal.setBackground(new java.awt.Color(0, 51, 153));
-        btnModificarPersonal.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblSucursalPersonal.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblSucursalPersonal.setText("Sucursal");
+
+        btnModificarPersonal.setBackground(new java.awt.Color(171, 76, 89));
+        btnModificarPersonal.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnModificarPersonal.setForeground(new java.awt.Color(255, 255, 255));
         btnModificarPersonal.setText("Modificar");
 
-        btnEliminarPersonal.setBackground(new java.awt.Color(153, 0, 51));
-        btnEliminarPersonal.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnEliminarPersonal.setBackground(new java.awt.Color(171, 76, 89));
+        btnEliminarPersonal.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnEliminarPersonal.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminarPersonal.setText("Eliminar");
 
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCargoPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSucursalPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(cbxSucursalPersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel9Layout.createSequentialGroup()
-                                        .addComponent(lblDNIPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(20, 20, 20))
-                                    .addComponent(lblNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel9Layout.createSequentialGroup()
-                                        .addGap(21, 21, 21)
-                                        .addComponent(txtDNIPersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel9Layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtNombrePersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblFonoPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblApePersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        lblPersonalNoRegistrado.setForeground(new java.awt.Color(171, 76, 89));
+        lblPersonalNoRegistrado.setText("Personal No Registrado");
+
+        javax.swing.GroupLayout pnlPersonalNoRegistradoLayout = new javax.swing.GroupLayout(pnlPersonalNoRegistrado);
+        pnlPersonalNoRegistrado.setLayout(pnlPersonalNoRegistradoLayout);
+        pnlPersonalNoRegistradoLayout.setHorizontalGroup(
+            pnlPersonalNoRegistradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlPersonalNoRegistradoLayout.createSequentialGroup()
+                .addGroup(pnlPersonalNoRegistradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlPersonalNoRegistradoLayout.createSequentialGroup()
+                        .addGroup(pnlPersonalNoRegistradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlPersonalNoRegistradoLayout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(lblFonoPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnlPersonalNoRegistradoLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(lblApePersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblNombre, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlPersonalNoRegistradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNombrePersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pnlPersonalNoRegistradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlPersonalNoRegistradoLayout.createSequentialGroup()
                                     .addComponent(txtApePersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtFonoPersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addComponent(cbxCargoPersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(126, 126, 126)
-                        .addComponent(btnModificarPersonal)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnEliminarPersonal)
-                        .addGap(109, 109, 109))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15))))
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(275, 275, 275)
-                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblCargoPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlPersonalNoRegistradoLayout.createSequentialGroup()
+                                    .addComponent(txtFonoPersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(123, 123, 123)
+                                    .addComponent(lblSucursalPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(pnlPersonalNoRegistradoLayout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(btnAgregarPersonal)
+                        .addGap(63, 63, 63)
+                        .addComponent(btnModificarPersonal))
+                    .addGroup(pnlPersonalNoRegistradoLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(lblPersonalNoRegistrado, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(pnlPersonalNoRegistradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlPersonalNoRegistradoLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(btnEliminarPersonal))
+                    .addGroup(pnlPersonalNoRegistradoLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlPersonalNoRegistradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbxCargoPersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbxSucursalPersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        pnlPersonalNoRegistradoLayout.setVerticalGroup(
+            pnlPersonalNoRegistradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlPersonalNoRegistradoLayout.createSequentialGroup()
+                .addComponent(lblPersonalNoRegistrado)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(pnlPersonalNoRegistradoLayout.createSequentialGroup()
+                .addContainerGap(61, Short.MAX_VALUE)
+                .addGroup(pnlPersonalNoRegistradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblNombre)
+                    .addComponent(txtNombrePersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlPersonalNoRegistradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblApePersonal)
+                    .addComponent(txtApePersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCargoPersonal)
+                    .addComponent(cbxCargoPersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlPersonalNoRegistradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFonoPersonal)
+                    .addComponent(txtFonoPersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSucursalPersonal)
+                    .addComponent(cbxSucursalPersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlPersonalNoRegistradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAgregarPersonal)
+                    .addComponent(btnModificarPersonal)
+                    .addComponent(btnEliminarPersonal))
+                .addGap(16, 16, 16))
+        );
+
+        javax.swing.GroupLayout pnlAgregarPersonalLayout = new javax.swing.GroupLayout(pnlAgregarPersonal);
+        pnlAgregarPersonal.setLayout(pnlAgregarPersonalLayout);
+        pnlAgregarPersonalLayout.setHorizontalGroup(
+            pnlAgregarPersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAgregarPersonalLayout.createSequentialGroup()
+                .addGroup(pnlAgregarPersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlAgregarPersonalLayout.createSequentialGroup()
+                        .addGap(193, 193, 193)
+                        .addGroup(pnlAgregarPersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlAgregarPersonalLayout.createSequentialGroup()
+                                .addComponent(lblDNIPersonal)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtDNIPersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(124, 124, 124)
+                                .addComponent(btnBuscarPersonal))
+                            .addGroup(pnlAgregarPersonalLayout.createSequentialGroup()
+                                .addGap(159, 159, 159)
+                                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(pnlAgregarPersonalLayout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(pnlPersonalNoRegistrado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(363, Short.MAX_VALUE))
+        );
+        pnlAgregarPersonalLayout.setVerticalGroup(
+            pnlAgregarPersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAgregarPersonalLayout.createSequentialGroup()
+                .addGap(92, 92, 92)
                 .addComponent(jLabel28)
                 .addGap(36, 36, 36)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblSucursalPersonal)
-                            .addComponent(cbxSucursalPersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(61, 61, 61)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblCargoPersonal)
-                            .addComponent(cbxCargoPersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(219, 219, 219))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblDNIPersonal)
-                                    .addComponent(txtDNIPersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(35, 35, 35)
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblNombre)
-                                    .addComponent(txtNombrePersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(34, 34, 34)
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtApePersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblApePersonal)))
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(36, 36, 36)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblFonoPersonal)
-                            .addComponent(txtFonoPersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnModificarPersonal)
-                            .addComponent(btnEliminarPersonal))
-                        .addGap(122, 122, 122))))
+                .addGroup(pnlAgregarPersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDNIPersonal)
+                    .addComponent(txtDNIPersonalAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarPersonal))
+                .addGap(39, 39, 39)
+                .addComponent(pnlPersonalNoRegistrado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(256, Short.MAX_VALUE))
         );
 
-        jPanel10.setBackground(new java.awt.Color(221, 214, 206));
-
-        jLabel32.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
-        jLabel32.setText("Crear cargo para el personal");
-
-        lblNombreCrear.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblNombreCrear.setText("Nombre");
-
-        lblDescpCrear.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblDescpCrear.setText("Descripcion");
-
-        txtNombreCargoCrear.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-
-        txtDescpCargoCrear.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-
-        tblCargoPersonalCreado.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        tblCargoPersonalCreado.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane7.setViewportView(tblCargoPersonalCreado);
-
-        btnModificarCrearPersonal.setBackground(new java.awt.Color(0, 51, 153));
-        btnModificarCrearPersonal.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnModificarCrearPersonal.setText("Modificar");
-
-        btnEliminarCrearPersonal.setBackground(new java.awt.Color(153, 0, 51));
-        btnEliminarCrearPersonal.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        btnEliminarCrearPersonal.setText("Eliminar");
-
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(lblNombreCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(txtNombreCargoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53)
-                        .addComponent(lblDescpCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtDescpCargoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(161, 161, 161)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnModificarCrearPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEliminarCrearPersonal, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(250, 250, 250)
-                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        javax.swing.GroupLayout pnlEditarPersonalLayout = new javax.swing.GroupLayout(pnlEditarPersonal);
+        pnlEditarPersonal.setLayout(pnlEditarPersonalLayout);
+        pnlEditarPersonalLayout.setHorizontalGroup(
+            pnlEditarPersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlEditarPersonalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnlAgregarPersonal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel32)
-                .addGap(43, 43, 43)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombreCrear)
-                    .addComponent(lblDescpCrear)
-                    .addComponent(txtNombreCargoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDescpCargoCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(186, 186, 186)
-                .addComponent(btnModificarCrearPersonal)
-                .addGap(60, 60, 60)
-                .addComponent(btnEliminarCrearPersonal)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        pnlEditarPersonalLayout.setVerticalGroup(
+            pnlEditarPersonalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlEditarPersonalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnlAgregarPersonal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(8, Short.MAX_VALUE))
-        );
-
-        jTabbedPane2.addTab("Personal", jPanel2);
+        JTabbedPaneAdministrar.addTab("Personal", pnlEditarPersonal);
 
         jPanel1.setBackground(new java.awt.Color(221, 214, 206));
 
@@ -1468,16 +1436,19 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         ));
         jScrollPane9.setViewportView(tblHabitacionesCreadas);
 
-        btnModificarHabitacion.setBackground(new java.awt.Color(0, 51, 153));
-        btnModificarHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnModificarHabitacion.setBackground(new java.awt.Color(171, 76, 89));
+        btnModificarHabitacion.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnModificarHabitacion.setForeground(new java.awt.Color(255, 255, 255));
         btnModificarHabitacion.setText("Modificar");
 
-        btnEliminarHabitacion.setBackground(new java.awt.Color(153, 0, 51));
-        btnEliminarHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnEliminarHabitacion.setBackground(new java.awt.Color(171, 76, 89));
+        btnEliminarHabitacion.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnEliminarHabitacion.setForeground(new java.awt.Color(255, 255, 255));
         btnEliminarHabitacion.setText("Eliminar");
 
-        btnCrearHabitacion.setBackground(new java.awt.Color(0, 153, 0));
-        btnCrearHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnCrearHabitacion.setBackground(new java.awt.Color(171, 76, 89));
+        btnCrearHabitacion.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnCrearHabitacion.setForeground(new java.awt.Color(255, 255, 255));
         btnCrearHabitacion.setText("Crear");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -1509,14 +1480,14 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(lblPuertaHabitacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtPuertaHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(43, 43, 43))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                                 .addComponent(btnModificarHabitacion)
-                                .addGap(224, 224, 224)
+                                .addGap(220, 220, 220)
                                 .addComponent(btnEliminarHabitacion)
                                 .addGap(138, 138, 138))))))
         );
@@ -1573,8 +1544,9 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         jLabel23.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         jLabel23.setText("Modificar Tipo de Habitacion");
 
-        btnCrearTipoHabitacion.setBackground(new java.awt.Color(0, 153, 0));
-        btnCrearTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnCrearTipoHabitacion.setBackground(new java.awt.Color(171, 76, 89));
+        btnCrearTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnCrearTipoHabitacion.setForeground(new java.awt.Color(255, 255, 255));
         btnCrearTipoHabitacion.setText("Crear");
 
         lblBuscarTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -1607,8 +1579,9 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         lblTipoHabitacionMod.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lblTipoHabitacionMod.setText("Tipo");
 
-        btnCambiarTipoHabitacion.setBackground(new java.awt.Color(0, 51, 153));
-        btnCambiarTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnCambiarTipoHabitacion.setBackground(new java.awt.Color(171, 76, 89));
+        btnCambiarTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnCambiarTipoHabitacion.setForeground(new java.awt.Color(255, 255, 255));
         btnCambiarTipoHabitacion.setText("Cambiar");
 
         lblPrecioHabitacionMod.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -1621,15 +1594,18 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCrearTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20)
                     .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNombreTipoHabitacion)
-                            .addComponent(lblPrecioTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(btnCrearTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel20)))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addContainerGap(23, Short.MAX_VALUE)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPrecioTipoHabitacion, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblNombreTipoHabitacion, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtNombreTipoHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPrecioTipoHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -1639,20 +1615,19 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel23)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(lblBuscarTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblBuscarTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTipoHabitacionMod, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPrecioHabitacionMod, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(31, 31, 31)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtTipoHabitacionModificar, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
-                                .addComponent(txtPrecioTipoHabitacionModificar))
-                            .addComponent(btnCambiarTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblPrecioHabitacionMod, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTipoHabitacionMod, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtTipoHabitacionModificar)
+                            .addComponent(txtPrecioTipoHabitacionModificar)
+                            .addComponent(btnCambiarTipoHabitacion))))
+                .addGap(341, 341, 341))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1669,8 +1644,8 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                                     .addComponent(lblNombreTipoHabitacion))
                                 .addGap(15, 15, 15)
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblPrecioTipoHabitacion)
-                                    .addComponent(txtPrecioTipoHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtPrecioTipoHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblPrecioTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addComponent(btnCrearTipoHabitacion))
                             .addComponent(jSeparator3))
@@ -1686,9 +1661,9 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblTipoHabitacionMod)
-                                    .addComponent(txtTipoHabitacionModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtTipoHabitacionModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblTipoHabitacionMod))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lblPrecioHabitacionMod)
@@ -1711,10 +1686,10 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 162, Short.MAX_VALUE))
+                .addGap(0, 169, Short.MAX_VALUE))
         );
 
-        jTabbedPane2.addTab("Habitaciones", jPanel1);
+        JTabbedPaneAdministrar.addTab("Habitaciones", jPanel1);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -1722,13 +1697,13 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane2)
+                .addComponent(JTabbedPaneAdministrar)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 723, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JTabbedPaneAdministrar, javax.swing.GroupLayout.PREFERRED_SIZE, 723, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 50, Short.MAX_VALUE))
         );
 
@@ -2155,9 +2130,9 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
             String dni = txtDNIClienteMod.getText();
 
             if (dni.matches("\\d{8}")) {
-                int dniCliente = Integer.parseInt(dni);
+                int dniEmpleado = Integer.parseInt(dni);
                 Cliente cliente = new Cliente();
-                cliente.setDNI(dniCliente);
+                cliente.setDNI(dniEmpleado);
 
                 ClienteDAO clienteDAO = new ClienteDAO();
                 cliente = clienteDAO.buscarUno(cliente);
@@ -2170,7 +2145,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                     txtNameClienteModificar.setText(cliente.getNombre());
                     txtApeClienteModificar.setText(cliente.getApellido());
                     txtFonoClienteModificar.setText(cliente.getCelular());
-                    txtDNIClienteModificar.setText(String.valueOf(cliente.getDNI()));
 
                     
                 }
@@ -2210,16 +2184,13 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                 txtNameClienteModificar.setText("");
                 txtApeClienteModificar.setText("");
                 txtFonoClienteModificar.setText("");
-                txtDNIClienteModificar.setText("");
                 txtDNIClienteMod.setText("");
                 txtNameClienteModificar.setEditable(false);
                 txtApeClienteModificar.setEditable(false);
                 txtFonoClienteModificar.setEditable(false);
-                txtDNIClienteModificar.setEditable(false);
                 txtNameClienteModificar.setEnabled(false);
                 txtApeClienteModificar.setEnabled(false);
                 txtFonoClienteModificar.setEnabled(false);
-                txtDNIClienteModificar.setEnabled(false);
             } else {
                 JOptionPane.showMessageDialog(null, "Error al eliminar cliente");
             }
@@ -2228,32 +2199,31 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
 
     private void btnGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarClienteActionPerformed
         // TODO add your handling code here:
+        String dni = txtDNIClienteMod.getText();
         String nombre = txtNameClienteModificar.getText();
-        String apellido =txtApeClienteModificar.getText();
-        String celular =txtFonoClienteModificar.getText();
-        String DNI =txtDNIClienteModificar.getText();
-        if (nombre.equals("") || apellido.equals("") ||
-            DNI.equals("")|| celular.equals("")) {
-            JOptionPane.showMessageDialog(this, "Todos los campos deben de estar completos.", "Aviso", JOptionPane.WARNING_MESSAGE);
-        }
-        else
-        {
-            if (DNI.matches("\\d{8}")&&celular.matches("\\d{9}")){
+        String apellido = txtApeClienteModificar.getText();
+        String celular = txtFonoClienteModificar.getText();
+
+        if (nombre.equals("") || apellido.equals("") || celular.equals("")) {
+            JOptionPane.showMessageDialog(this, "Todos los campos deben estar completos.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        } else {
+            if (celular.matches("\\d{9}")) {
                 ClienteDAO cDAO = new ClienteDAO();
-                cDAO.actualizarCliente(Integer.parseInt(DNI), nombre, apellido, celular);
-                JOptionPane.showMessageDialog(null, "Actualización exitosa");
-                txtNameClienteModificar.setEnabled(false);
-                txtApeClienteModificar.setEnabled(false);
-                txtFonoClienteModificar.setEnabled(false);
-                txtDNIClienteModificar.setEnabled(false);
-            }
-            else {
+                boolean actualizacionExitosa = cDAO.actualizarCliente( dni,nombre, apellido, celular);
+                if (actualizacionExitosa) {
+                    JOptionPane.showMessageDialog(null, "Actualización exitosa");
+                    txtNameClienteModificar.setEnabled(false);
+                    txtApeClienteModificar.setEnabled(false);
+                    txtFonoClienteModificar.setEnabled(false);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error al actualizar el cliente", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
                 // Mostrar aviso de formato de Celular incorrecto
-                
-                JOptionPane.showMessageDialog(this, "Formato de celular o DNI incorrecto. Número celular debe ser de 9 dígitos y DNI de 7 dígitos.", 
-                        "Aviso", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Formato de celular o DNI incorrecto. Número celular debe ser de 9 dígitos y DNI de 8 dígitos.", "Aviso", JOptionPane.WARNING_MESSAGE);
             }
         }
+
     }//GEN-LAST:event_btnGuardarClienteActionPerformed
 
     private void btnEditarClientesModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarClientesModificarActionPerformed
@@ -2261,11 +2231,9 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         txtNameClienteModificar.setEditable(true);
         txtApeClienteModificar.setEditable(true);
         txtFonoClienteModificar.setEditable(true);
-        txtDNIClienteModificar.setEditable(true);
         txtNameClienteModificar.setEnabled(true);
         txtApeClienteModificar.setEnabled(true);
         txtFonoClienteModificar.setEnabled(true);
-        txtDNIClienteModificar.setEnabled(true);
     }//GEN-LAST:event_btnEditarClientesModificarActionPerformed
 
     private void txtDNIClienteModKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDNIClienteModKeyPressed
@@ -2290,7 +2258,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                     txtNameClienteModificar.setText(cliente.getNombre());
                     txtApeClienteModificar.setText(cliente.getApellido());
                     txtFonoClienteModificar.setText(cliente.getCelular());
-                    txtDNIClienteModificar.setText(String.valueOf(cliente.getDNI()));
 
                     
                 }
@@ -2311,17 +2278,45 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         txtNameClienteModificar.setText("");
         txtApeClienteModificar.setText("");
         txtFonoClienteModificar.setText("");
-        txtDNIClienteModificar.setText("");
         txtDNIClienteMod.setText("");
         txtNameClienteModificar.setEditable(false);
         txtApeClienteModificar.setEditable(false);
         txtFonoClienteModificar.setEditable(false);
-        txtDNIClienteModificar.setEditable(false);
         txtNameClienteModificar.setEnabled(false);
         txtApeClienteModificar.setEnabled(false);
         txtFonoClienteModificar.setEnabled(false);
-        txtDNIClienteModificar.setEnabled(false);
     }//GEN-LAST:event_btnLimpiarModifClientesActionPerformed
+
+    private void btnBuscarPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPersonalActionPerformed
+        // TODO add your handling code here:
+        String dni = txtDNIPersonalAgregar.getText();
+        if (dni.matches("\\d{8}")) {
+                int dniEmpleado = Integer.parseInt(dni);
+                UsuarioLogueado empleado = new UsuarioLogueado();
+                empleado.setDNI(dniEmpleado);
+
+                UsuarioLogueadoDAO empleadoDAO = new UsuarioLogueadoDAO();
+                empleado = empleadoDAO.buscarUno(empleado);
+                if (empleado.getNombre().equals("")) {
+                    // Mostrar aviso de cliente no encontrado
+                    
+                    JOptionPane.showMessageDialog(this, "Empleado no encontrado. Debe registrarlo.", "Aviso", JOptionPane.WARNING_MESSAGE);
+                    pnlPersonalNoRegistrado.setVisible(true);
+                }
+                else {
+                    
+
+                    
+                }
+                }
+                
+                 else {
+                // Mostrar aviso de formato de DNI incorrecto
+                
+                JOptionPane.showMessageDialog(this, "Formato de DNI incorrecto. Debe ser un número de 8 dígitos.", "Aviso", JOptionPane.WARNING_MESSAGE);
+                
+            }
+    }//GEN-LAST:event_btnBuscarPersonalActionPerformed
 
     @Override
     public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
@@ -2384,20 +2379,21 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTabbedPane JTabbedPaneAdministrar;
+    private javax.swing.JButton btnAgregarPersonal;
     private javax.swing.JButton btnBuscarClienteModificar;
     private javax.swing.JButton btnBuscarHabitaciones;
+    private javax.swing.JButton btnBuscarPersonal;
     private javax.swing.JButton btnCambiarTipoHabitacion;
     private javax.swing.JButton btnConfirmarPago;
     private javax.swing.JButton btnCrearHabitacion;
     private javax.swing.JButton btnCrearTipoHabitacion;
     private javax.swing.JButton btnEditarClientesModificar;
     private javax.swing.JButton btnEliminarCliente;
-    private javax.swing.JButton btnEliminarCrearPersonal;
     private javax.swing.JButton btnEliminarHabitacion;
     private javax.swing.JButton btnEliminarPersonal;
     private javax.swing.JButton btnGuardarCliente;
     private javax.swing.JButton btnLimpiarModifClientes;
-    private javax.swing.JButton btnModificarCrearPersonal;
     private javax.swing.JButton btnModificarHabitacion;
     private javax.swing.JButton btnModificarPersonal;
     private javax.swing.JButton btnRegistrar;
@@ -2424,7 +2420,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -2433,29 +2428,23 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JLabel lblApeMod;
     private javax.swing.JLabel lblApePersonal;
     private javax.swing.JLabel lblBuscarTipoHabitacion;
@@ -2463,16 +2452,14 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private javax.swing.JLabel lblClienteNoRegistrado;
     private javax.swing.JLabel lblDNIMod;
     private javax.swing.JLabel lblDNIPersonal;
-    private javax.swing.JLabel lblDescpCrear;
     private javax.swing.JLabel lblFechaEntrada;
     private javax.swing.JLabel lblFechaSalida;
     private javax.swing.JLabel lblFonoMod;
-    private javax.swing.JLabel lblFonoMod1;
     private javax.swing.JLabel lblFonoPersonal;
     private javax.swing.JLabel lblNombre;
-    private javax.swing.JLabel lblNombreCrear;
     private javax.swing.JLabel lblNombreMod;
     private javax.swing.JLabel lblNombreTipoHabitacion;
+    private javax.swing.JLabel lblPersonalNoRegistrado;
     private javax.swing.JLabel lblPisoHabitacion;
     private javax.swing.JLabel lblPrecioHabitacionMod;
     private javax.swing.JLabel lblPrecioTipoHabitacion;
@@ -2484,13 +2471,14 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private javax.swing.JLabel lblTipoHabitacion;
     private javax.swing.JLabel lblTipoHabitacionMod;
     private javax.swing.JPanel panelBusquedaHabitacion;
+    private javax.swing.JPanel pnlAgregarPersonal;
     private javax.swing.JPanel pnlBoleta;
     private javax.swing.JPanel pnlBuscarCliente;
+    private javax.swing.JPanel pnlEditarPersonal;
     private javax.swing.JPanel pnlFiltrar;
+    private javax.swing.JPanel pnlPersonalNoRegistrado;
     private javax.swing.JPanel pnlRegistrarCliente;
     private javax.swing.JPanel pnlReservarHabitacion;
-    private javax.swing.JTable tblAgregarPersonal;
-    private javax.swing.JTable tblCargoPersonalCreado;
     private javax.swing.JTable tblDatosCliente;
     private javax.swing.JTable tblDetalleReserva;
     private javax.swing.JTable tblDisponibles;
@@ -2503,16 +2491,13 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private javax.swing.JTextField txtCuponSoles;
     private javax.swing.JTextField txtDNICliente;
     private javax.swing.JTextField txtDNIClienteMod;
-    private javax.swing.JTextField txtDNIClienteModificar;
     private javax.swing.JTextField txtDNIPersonalAgregar;
-    private javax.swing.JTextField txtDescpCargoCrear;
     private javax.swing.JTextField txtFechaPago;
     private javax.swing.JTextField txtFonoClienteModificar;
     private javax.swing.JTextField txtFonoPersonalAgregar;
     private javax.swing.JTextField txtIDHabitacion;
     private javax.swing.JTextField txtIDReserva;
     private javax.swing.JTextField txtNameClienteModificar;
-    private javax.swing.JTextField txtNombreCargoCrear;
     private javax.swing.JTextField txtNombreCliente;
     private javax.swing.JTextField txtNombrePersonalAgregar;
     private javax.swing.JTextField txtNombreTipoHabitacionCrear;
