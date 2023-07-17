@@ -1236,6 +1236,11 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         btnAgregarPersonal.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnAgregarPersonal.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregarPersonal.setText("Agregar");
+        btnAgregarPersonal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarPersonalActionPerformed(evt);
+            }
+        });
 
         lblCargoPersonal.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lblCargoPersonal.setText("Cargo");
@@ -2304,6 +2309,9 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                     pnlPersonalNoRegistrado.setVisible(true);
                 }
                 else {
+                    String nombre = txtNombrePersonalAgregar.getText();
+                    String apellido = txtApePersonalAgregar.getText();
+                    String celular = txtFonoPersonalAgregar.getText();
                     
 
                     
@@ -2317,6 +2325,11 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                 
             }
     }//GEN-LAST:event_btnBuscarPersonalActionPerformed
+
+    private void btnAgregarPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarPersonalActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnAgregarPersonalActionPerformed
 
     @Override
     public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
