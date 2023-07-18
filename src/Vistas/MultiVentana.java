@@ -70,6 +70,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         // Llenando los ComboBox
         llenarComboBoxSucursales();
         cargarTiposHabitacion();
+        cargarTiposHabitacionCrear();
         llenarComboBoxSucursalesPersonal();
         llenarComboBoxCargo();
         llenarComboBoxSucursalesHabitacion();
@@ -183,6 +184,21 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
 
         for (TipoHabitacion tipoHabitacion : tiposHabitacion) {
             cbxTipoHabitacion.addItem(tipoHabitacion.getTipo());
+        }
+    }
+    
+    private void cargarTiposHabitacionCrear(){
+        // Antes de agregar los elementos desde la base de datos, asegúrate de que el combobox esté vacío
+        cbxTipoHabitacionCrear.removeAllItems();
+
+        // Agregar el elemento "Seleccionar" como primer elemento del combobox
+        cbxTipoHabitacionCrear.addItem("");
+
+        TipoHabitacionDAO tipoHabitacionDAO = new TipoHabitacionDAO();
+        tiposHabitacion = tipoHabitacionDAO.buscarTodo();
+
+        for (TipoHabitacion tipoHabitacion : tiposHabitacion) {
+            cbxTipoHabitacionCrear.addItem(tipoHabitacion.getTipo());
         }
     }
 
@@ -1461,7 +1477,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         lblTipoHabitacion.setText("Tipo");
 
         cbxTipoHabitacionCrear.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        cbxTipoHabitacionCrear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         lblPisoHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lblPisoHabitacion.setText("Piso");
@@ -1516,7 +1531,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(jPanel7Layout.createSequentialGroup()
-                                    .addComponent(cbxTipoHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbxTipoHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnCrearHabitacion))
                                 .addGroup(jPanel7Layout.createSequentialGroup()
