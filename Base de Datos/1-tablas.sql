@@ -26,6 +26,8 @@ CREATE TABLE sucursal (
 
     FOREIGN KEY (id_empresa_hotel) REFERENCES empresa_hotelera (id_empresa_hotel)
 );
+SELECT * FROM empleados
+GO
 
 CREATE TABLE tipo_habitacion (
     id_tipo_habitacion INT PRIMARY KEY IDENTITY(1, 1),
@@ -52,6 +54,8 @@ CREATE TABLE cargos (
     descripcion VARCHAR(255)
 );
 
+
+
 CREATE TABLE empleados (
     id_empleado INT PRIMARY KEY IDENTITY(1, 1),
     id_sucursal INT,
@@ -72,6 +76,8 @@ CREATE TABLE clientes (
     apellido VARCHAR(255),
     celular VARCHAR(255)
 );
+
+
 
 CREATE TABLE reserva (
     id_reserva INT PRIMARY KEY IDENTITY(1, 1),
