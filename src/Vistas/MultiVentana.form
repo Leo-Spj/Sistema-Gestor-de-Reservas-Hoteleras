@@ -1962,41 +1962,43 @@
                                           <EmptySpace max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Component id="btnCrearHabitacion" min="-2" max="-2" attributes="0"/>
-                                              <Group type="102" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="lblSucursalHabitacion" min="-2" pref="59" max="-2" attributes="0"/>
-                                                      <Component id="cbxSucursalHabitacionCrear" min="-2" pref="176" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="lblTipoHabitacion" min="-2" pref="43" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                  <Group type="102" attributes="0">
                                                       <Component id="cbxTipoHabitacionCrear" min="-2" pref="96" max="-2" attributes="0"/>
+                                                      <EmptySpace max="32767" attributes="0"/>
+                                                      <Component id="btnCrearHabitacion" min="-2" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="lblPisoHabitacion" pref="43" max="32767" attributes="0"/>
-                                                      <Component id="txtPisoHabitacionCrear" pref="0" max="32767" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="lblPuertaHabitacion" max="32767" attributes="0"/>
-                                                      <Component id="txtPuertaHabitacionCrear" pref="0" max="32767" attributes="0"/>
+                                                  <Group type="102" attributes="0">
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="lblSucursalHabitacion" min="-2" pref="80" max="-2" attributes="0"/>
+                                                          <Component id="cbxSucursalHabitacionCrear" min="-2" pref="290" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                          <Component id="lblPisoHabitacion" pref="43" max="32767" attributes="0"/>
+                                                          <Component id="txtPisoHabitacionCrear" pref="0" max="32767" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                          <Component id="lblPuertaHabitacion" max="32767" attributes="0"/>
+                                                          <Component id="txtPuertaHabitacionCrear" pref="0" max="32767" attributes="0"/>
+                                                      </Group>
                                                   </Group>
                                               </Group>
+                                              <Component id="lblTipoHabitacion" min="-2" pref="43" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="jScrollPane9" min="-2" pref="573" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                              </Group>
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Component id="btnModificarHabitacion" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="220" max="-2" attributes="0"/>
                                                   <Component id="btnEliminarHabitacion" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="jScrollPane9" min="-2" pref="573" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -2009,12 +2011,12 @@
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jScrollPane9" min="-2" pref="127" max="-2" attributes="0"/>
                                       <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
                                               <Component id="lblSucursalHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblTipoHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="lblPisoHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
                                               <Component id="lblPuertaHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
                                           </Group>
@@ -2024,26 +2026,22 @@
                                                   <Component id="txtPisoHabitacionCrear" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   <Component id="txtPuertaHabitacionCrear" alignment="3" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                                  <Component id="cbxSucursalHabitacionCrear" alignment="3" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="cbxTipoHabitacionCrear" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              </Group>
+                                              <Component id="cbxSucursalHabitacionCrear" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                          <Component id="jScrollPane9" min="-2" pref="127" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                          <Component id="lblTipoHabitacion" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="btnModificarHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="btnCrearHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="btnEliminarHabitacion" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cbxTipoHabitacionCrear" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="61" max="32767" attributes="0"/>
+                                  <EmptySpace pref="73" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2063,12 +2061,7 @@
                               <Font name="Segoe UI" size="16" style="0"/>
                             </Property>
                             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="4">
-                                <StringItem index="0" value="Item 1"/>
-                                <StringItem index="1" value="Item 2"/>
-                                <StringItem index="2" value="Item 3"/>
-                                <StringItem index="3" value="Item 4"/>
-                              </StringArray>
+                              <StringArray count="0"/>
                             </Property>
                           </Properties>
                           <AuxValues>
