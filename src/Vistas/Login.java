@@ -19,12 +19,10 @@ public class Login extends javax.swing.JFrame {
     }
 
     public void validarCaracteres(java.awt.event.KeyEvent evento) {
-        if (evento.getKeyChar() >= 32 && evento.getKeyChar() <= 47 || evento.getKeyChar() >= 58 && evento.getKeyChar() <= 8482) {
-            evento.consume();
-            String mensaje = "No se permiten caracteres normales, especiales ni espacios. SOLO NÚMEROS";
-            JOptionPane.showMessageDialog(null, mensaje, "Error", JOptionPane.ERROR_MESSAGE);
-        }
+    //
     }
+
+    
 
     public void habilitarBoton() {
         if (txtUsuario.getText().isEmpty() || pwdContraseña.getPassword().length == 0) {
