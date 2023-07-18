@@ -97,7 +97,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         eh = ehDAO.buscarUno(eh);
 
         //imprimir todos los datos de la empresa
-        System.out.println("Sucursal: " + eh.getRazonSocial());
+        System.out.println("Razon Social: " + eh.getRazonSocial());
         System.out.println("Ruc: " + eh.getRuc());
     }
 
