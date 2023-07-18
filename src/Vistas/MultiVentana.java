@@ -312,7 +312,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         cbxSucursalPersonalAgregar = new javax.swing.JComboBox<>();
         lblSucursalPersonal = new javax.swing.JLabel();
         btnModificarPersonal = new javax.swing.JButton();
-        btnEliminarPersonal = new javax.swing.JButton();
         lblPersonalNoRegistrado = new javax.swing.JLabel();
         lblFonoPersonal1 = new javax.swing.JLabel();
         txtContraseñaPersonal = new javax.swing.JPasswordField();
@@ -1265,16 +1264,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
             }
         });
 
-        btnEliminarPersonal.setBackground(new java.awt.Color(171, 76, 89));
-        btnEliminarPersonal.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btnEliminarPersonal.setForeground(new java.awt.Color(255, 255, 255));
-        btnEliminarPersonal.setText("Eliminar");
-        btnEliminarPersonal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarPersonalActionPerformed(evt);
-            }
-        });
-
         lblPersonalNoRegistrado.setForeground(new java.awt.Color(171, 76, 89));
         lblPersonalNoRegistrado.setText("Personal No Registrado");
 
@@ -1341,8 +1330,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                                 .addGroup(pnlPersonalNoRegistradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnEditarPersonal)
                                     .addComponent(btnAgregarPersonal))))
-                        .addGap(289, 289, 289)
-                        .addComponent(btnEliminarPersonal)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(111, Short.MAX_VALUE))
             .addGroup(pnlPersonalNoRegistradoLayout.createSequentialGroup()
@@ -1379,13 +1366,8 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                     .addComponent(btnModificarPersonal)
                     .addComponent(btnEditarPersonal))
                 .addGap(18, 18, 18)
-                .addGroup(pnlPersonalNoRegistradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlPersonalNoRegistradoLayout.createSequentialGroup()
-                        .addGap(0, 18, Short.MAX_VALUE)
-                        .addComponent(btnEliminarPersonal))
-                    .addGroup(pnlPersonalNoRegistradoLayout.createSequentialGroup()
-                        .addComponent(btnAgregarPersonal)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                .addComponent(btnAgregarPersonal)
+                .addGap(0, 18, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnlAgregarPersonalLayout = new javax.swing.GroupLayout(pnlAgregarPersonal);
@@ -2379,8 +2361,8 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                 txtApePersonalAgregar.setText("");
                 txtFonoPersonalAgregar.setText("");
                 txtContraseñaPersonal.setText("");
-                cbxSucursalPersonalAgregar.setSelectedItem(idSucursal);
-                cbxCargoPersonalAgregar.setSelectedItem(idCargo);
+                cbxSucursalPersonalAgregar.setSelectedIndex(0);
+                cbxCargoPersonalAgregar.setSelectedIndex(0);
             } else {
                 JOptionPane.showMessageDialog(this, "Empleado encontrado. Puede realizar acciones adicionales si es necesario.", "Aviso", JOptionPane.INFORMATION_MESSAGE);
 
@@ -2388,6 +2370,8 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                 txtApePersonalAgregar.setText(empleado.getApellido());
                 txtFonoPersonalAgregar.setText(empleado.getCelular());
                 txtContraseñaPersonal.setText(empleado.getContraseña());
+                
+
                 cbxSucursalPersonalAgregar.setSelectedItem(empleado.getId_sucursal());
                 cbxCargoPersonalAgregar.setSelectedItem(empleado.getId_cargo());
 
@@ -2491,22 +2475,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     }
     }//GEN-LAST:event_btnModificarPersonalActionPerformed
 
-    private void btnEliminarPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarPersonalActionPerformed
-        // Obtiene el número de identificación del empleado a eliminar
-        int dniEmpleado = Integer.parseInt(txtDNIPersonalAgregar.getText());
-
-        // Llama al método para eliminar el empleado por DNI
-        UsuarioLogueadoDAO empleadoDAO = new UsuarioLogueadoDAO();
-        boolean eliminado = empleadoDAO.eliminarEmpleado(dniEmpleado);
-
-        if (eliminado) {
-            JOptionPane.showMessageDialog(this, "Empleado eliminado exitosamente.", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-            // Realiza cualquier otra acción necesaria después de eliminar el empleado
-        } else {
-            JOptionPane.showMessageDialog(this, "Error al eliminar el empleado.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_btnEliminarPersonalActionPerformed
-
     @Override
     public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
         if(pageIndex==0)
@@ -2581,7 +2549,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private javax.swing.JButton btnEditarPersonal;
     private javax.swing.JButton btnEliminarCliente;
     private javax.swing.JButton btnEliminarHabitacion;
-    private javax.swing.JButton btnEliminarPersonal;
     private javax.swing.JButton btnGuardarCliente;
     private javax.swing.JButton btnLimpiarModifClientes;
     private javax.swing.JButton btnModificarHabitacion;
