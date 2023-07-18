@@ -121,8 +121,7 @@ BEGIN
 END
 GO
 GO
-drop PROCEDURE sp_actualizar_dni_cliente
-GO
+
 
 --store procedure para actualizar clientes
 CREATE PROCEDURE sp_actualizar_cliente
@@ -152,6 +151,39 @@ BEGIN
     WHERE dni_cliente = @dni_cliente
 END
 GO
+--store procedure para actualizar empleado
+CREATE PROCEDURE sp_actualizar_empleado
+    @id_sucursal INT,
+    @id_cargo INT,
+    @dni_empleado INT,
+    @nombre VARCHAR(255),
+    @apellido VARCHAR(255),
+    @celular VARCHAR(255),
+    @contrasena VARCHAR(255)
+AS
+BEGIN
+    UPDATE empleados
+    SET id_sucursal = @id_sucursal,
+        id_cargo = @id_cargo,
+        nombre = @nombre,
+        apellido = @apellido,
+        celular = @celular,
+        contrasena = @contrasena
+    WHERE dni_empleado = @dni_empleado
+END
+GO
+
+--store procedure para eliminar empleado
+CREATE PROCEDURE sp_eliminar_empleado_por_dni
+    @dni_empleado INT
+AS
+BEGIN
+    DELETE FROM empleados
+    WHERE dni_empleado = @dni_empleado
+END
+GO
+
+
 
 --store procedure para ingresar reservas
 GO

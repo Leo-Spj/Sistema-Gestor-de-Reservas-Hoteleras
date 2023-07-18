@@ -59,16 +59,81 @@ public class UsuarioLogueadoDAO implements UsuarioLogueadoInterfaz{
         }
         return accesoConcedido;
     }
+    public boolean crearEmpleado(int id_sucursal, int id_cargo,int dni_empleado, String nombre, String apellido, String celular,  String contrasena){
+        try {
+            con = new Conexion();
+            conn = con.getConectar();
+
+            String query =" INSERT INTO empleados (id_sucursal, id_cargo, dni_empleado, nombre, apellido, celular,  contrasena) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, id_sucursal);
+            ps.setInt(2, id_cargo);
+            ps.setInt(3, dni_empleado);
+            ps.setString(4, nombre);
+            ps.setString(5, apellido);
+            ps.setString(6, celular);
+            ps.setString(7, contrasena);
+
+            ps.executeUpdate();
+
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error al crear empleado: " + e.getMessage());
+            return false;
+        }
+    }
 
 
     @Override
     public boolean actualizar(UsuarioLogueado a) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    public boolean actualizarEmpleado(int id_sucursal, int id_cargo,int dni_empleado, String nombre, String apellido, String celular,  String contrasena){
+        try {
+            con = new Conexion();
+            conn = con.getConectar();
+
+            String query ="EXEC sp_actualizar_empleado ?, ?, ?, ?, ?, ?, ?";
+
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, id_sucursal);
+            ps.setInt(2, id_cargo);
+            ps.setInt(3, dni_empleado);
+            ps.setString(4, nombre);
+            ps.setString(5, apellido);
+            ps.setString(6, celular);
+            ps.setString(7, contrasena);
+
+            ps.executeUpdate();
+
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error al actualizar empleado: " + e.getMessage());
+            return false;
+        }
+    }
 
     @Override
     public boolean eliminar(UsuarioLogueado e) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    public boolean eliminarEmpleado(int dniEmpleado){
+                try {
+            con = new Conexion();
+            conn = con.getConectar();
+
+            String query = "EXEC sp_eliminar_empleado_por_dni ?";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setInt(1, dniEmpleado);
+
+            ps.executeUpdate();
+
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error al eliminar empleado por DNI: " + e.getMessage());
+            return false;
+        }
     }
 
     @Override
