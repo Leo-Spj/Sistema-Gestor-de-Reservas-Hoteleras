@@ -351,21 +351,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         txtContraseñaPersonal = new javax.swing.JPasswordField();
         btnEditarPersonal = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        cbxSucursalHabitacionCrear = new javax.swing.JComboBox<>();
-        lblSucursalHabitacion = new javax.swing.JLabel();
-        lblTipoHabitacion = new javax.swing.JLabel();
-        cbxTipoHabitacionCrear = new javax.swing.JComboBox<>();
-        lblPisoHabitacion = new javax.swing.JLabel();
-        txtPisoHabitacionCrear = new javax.swing.JTextField();
-        lblPuertaHabitacion = new javax.swing.JLabel();
-        txtPuertaHabitacionCrear = new javax.swing.JTextField();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        tblHabitacionesCreadas = new javax.swing.JTable();
-        btnModificarHabitacion = new javax.swing.JButton();
-        btnCrearHabitacion = new javax.swing.JButton();
-        btnBuscarHabitacion = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         txtNombreTipoHabitacionCrear = new javax.swing.JTextField();
@@ -383,6 +368,21 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         btnCambiarTipoHabitacion = new javax.swing.JButton();
         lblPrecioHabitacionMod = new javax.swing.JLabel();
         txtPrecioTipoHabitacionModificar = new javax.swing.JTextField();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        cbxSucursalHabitacionCrear = new javax.swing.JComboBox<>();
+        lblSucursalHabitacion = new javax.swing.JLabel();
+        lblTipoHabitacion = new javax.swing.JLabel();
+        cbxTipoHabitacionCrear = new javax.swing.JComboBox<>();
+        lblPisoHabitacion = new javax.swing.JLabel();
+        txtPisoHabitacionCrear = new javax.swing.JTextField();
+        lblPuertaHabitacion = new javax.swing.JLabel();
+        txtPuertaHabitacionCrear = new javax.swing.JTextField();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        tblHabitacionesCreadas = new javax.swing.JTable();
+        btnModificarHabitacion = new javax.swing.JButton();
+        btnCrearHabitacion = new javax.swing.JButton();
+        btnBuscarHabitacion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(221, 214, 206));
@@ -1463,6 +1463,155 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
 
         jPanel1.setBackground(new java.awt.Color(221, 214, 206));
 
+        jPanel8.setBackground(new java.awt.Color(221, 214, 206));
+
+        jLabel20.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
+        jLabel20.setText("Crear Tipos de Habitacion");
+
+        txtNombreTipoHabitacionCrear.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+
+        lblNombreTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblNombreTipoHabitacion.setText("Nombre: ");
+
+        lblPrecioTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblPrecioTipoHabitacion.setText("Precio:  S/.");
+
+        txtPrecioTipoHabitacionCrear.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+
+        jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        jLabel23.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
+        jLabel23.setText("Modificar Tipo de Habitacion");
+
+        btnCrearTipoHabitacion.setBackground(new java.awt.Color(171, 76, 89));
+        btnCrearTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnCrearTipoHabitacion.setForeground(new java.awt.Color(255, 255, 255));
+        btnCrearTipoHabitacion.setText("Crear");
+
+        lblBuscarTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblBuscarTipoHabitacion.setText("Buscar: ");
+
+        tblModificarTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        tblModificarTipoHabitacion.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Tipo", "Precio"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(tblModificarTipoHabitacion);
+
+        txtTipoHabitacionModificar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+
+        lblTipoHabitacionMod.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblTipoHabitacionMod.setText("Tipo");
+
+        btnCambiarTipoHabitacion.setBackground(new java.awt.Color(171, 76, 89));
+        btnCambiarTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnCambiarTipoHabitacion.setForeground(new java.awt.Color(255, 255, 255));
+        btnCambiarTipoHabitacion.setText("Cambiar");
+
+        lblPrecioHabitacionMod.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblPrecioHabitacionMod.setText("Precio");
+
+        txtPrecioTipoHabitacionModificar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnCrearTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel20)))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addContainerGap(11, Short.MAX_VALUE)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPrecioTipoHabitacion, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblNombreTipoHabitacion, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNombreTipoHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPrecioTipoHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel23)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(lblBuscarTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblPrecioHabitacionMod, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTipoHabitacionMod, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtTipoHabitacionModificar)
+                            .addComponent(txtPrecioTipoHabitacionModificar)
+                            .addComponent(btnCambiarTipoHabitacion))))
+                .addGap(341, 341, 341))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jLabel20)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtNombreTipoHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblNombreTipoHabitacion))
+                                .addGap(15, 15, 15)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtPrecioTipoHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblPrecioTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(btnCrearTipoHabitacion))
+                            .addComponent(jSeparator3))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(jLabel23)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(lblBuscarTipoHabitacion)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addGap(80, 80, 80))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtTipoHabitacionModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblTipoHabitacionMod))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblPrecioHabitacionMod)
+                                    .addComponent(txtPrecioTipoHabitacionModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(40, 40, 40)
+                                .addComponent(btnCambiarTipoHabitacion)))
+                        .addContainerGap(66, Short.MAX_VALUE))))
+        );
+
         jPanel7.setBackground(new java.awt.Color(221, 214, 206));
 
         jLabel3.setFont(new java.awt.Font("Consolas", 0, 16)); // NOI18N
@@ -1594,169 +1743,25 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                 .addContainerGap(48, Short.MAX_VALUE))
         );
 
-        jPanel8.setBackground(new java.awt.Color(221, 214, 206));
-
-        jLabel20.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
-        jLabel20.setText("Crear Tipos de Habitacion");
-
-        txtNombreTipoHabitacionCrear.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-
-        lblNombreTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblNombreTipoHabitacion.setText("Nombre: ");
-
-        lblPrecioTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblPrecioTipoHabitacion.setText("Precio:  S/.");
-
-        txtPrecioTipoHabitacionCrear.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-
-        jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        jLabel23.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
-        jLabel23.setText("Modificar Tipo de Habitacion");
-
-        btnCrearTipoHabitacion.setBackground(new java.awt.Color(171, 76, 89));
-        btnCrearTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btnCrearTipoHabitacion.setForeground(new java.awt.Color(255, 255, 255));
-        btnCrearTipoHabitacion.setText("Crear");
-
-        lblBuscarTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblBuscarTipoHabitacion.setText("Buscar: ");
-
-        tblModificarTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        tblModificarTipoHabitacion.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Tipo", "Precio"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane5.setViewportView(tblModificarTipoHabitacion);
-
-        txtTipoHabitacionModificar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-
-        lblTipoHabitacionMod.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblTipoHabitacionMod.setText("Tipo");
-
-        btnCambiarTipoHabitacion.setBackground(new java.awt.Color(171, 76, 89));
-        btnCambiarTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btnCambiarTipoHabitacion.setForeground(new java.awt.Color(255, 255, 255));
-        btnCambiarTipoHabitacion.setText("Cambiar");
-
-        lblPrecioHabitacionMod.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblPrecioHabitacionMod.setText("Precio");
-
-        txtPrecioTipoHabitacionModificar.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnCrearTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel20)))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addContainerGap(23, Short.MAX_VALUE)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPrecioTipoHabitacion, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblNombreTipoHabitacion, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNombreTipoHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPrecioTipoHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel23)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(lblBuscarTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblPrecioHabitacionMod, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTipoHabitacionMod, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtTipoHabitacionModificar)
-                            .addComponent(txtPrecioTipoHabitacionModificar)
-                            .addComponent(btnCambiarTipoHabitacion))))
-                .addGap(341, 341, 341))
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(jLabel20)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtNombreTipoHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblNombreTipoHabitacion))
-                                .addGap(15, 15, 15)
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtPrecioTipoHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblPrecioTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addComponent(btnCrearTipoHabitacion))
-                            .addComponent(jSeparator3))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jLabel23)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(lblBuscarTipoHabitacion)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtTipoHabitacionModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblTipoHabitacionMod))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblPrecioHabitacionMod)
-                                    .addComponent(txtPrecioTipoHabitacionModificar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(40, 40, 40)
-                                .addComponent(btnCambiarTipoHabitacion)
-                                .addGap(30, 30, 30))))))
-        );
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 195, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(183, Short.MAX_VALUE))
         );
 
         JTabbedPaneAdministrar.addTab("Habitaciones", jPanel1);
