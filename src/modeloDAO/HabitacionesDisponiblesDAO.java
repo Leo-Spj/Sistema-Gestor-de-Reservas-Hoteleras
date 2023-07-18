@@ -30,6 +30,9 @@ public class HabitacionesDisponiblesDAO implements HabitacionesDisponiblesInterf
     public boolean crear(HabitacionDisponible c) {
         return false;
     }
+    public boolean crearHabitacion() {
+        return false;
+    }
 
     @Override
     public boolean actualizar(HabitacionDisponible a) {
