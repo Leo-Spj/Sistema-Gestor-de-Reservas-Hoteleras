@@ -70,7 +70,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         // Llenando los ComboBox
         llenarComboBoxSucursales();
         cargarTiposHabitacion();
-        cargarTiposHabitacionCrear();
         llenarComboBoxSucursalesPersonal();
         llenarComboBoxCargo();
         llenarComboBoxSucursalesHabitacion();
@@ -187,16 +186,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         }
     }
     
-    private void cargarTiposHabitacionCrear(){
-        // Antes de agregar los elementos desde la base de datos, asegúrate de que el combobox esté vacío
-        cbxTipoHabitacionAdmin.removeAllItems();
-
-        // Agregar los valores predefinidos al combobox
-        cbxTipoHabitacionAdmin.addItem("Individual");
-        cbxTipoHabitacionAdmin.addItem("Doble");
-        cbxTipoHabitacionAdmin.addItem("Suite");
-        cbxTipoHabitacionAdmin.addItem("Familiar");
-    }
+    
 
 
     public void validarCaracteres(java.awt.event.KeyEvent evento) {
@@ -354,13 +344,15 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         txtPrecioTipoHabitacionAdmin = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         btnCrearTipoHabitacion = new javax.swing.JButton();
-        cbxTipoHabitacionAdmin = new javax.swing.JComboBox<>();
         lblPrecioTipoHabitacion1 = new javax.swing.JLabel();
         txtCapHabiAdmin = new javax.swing.JTextField();
         jScrollPane10 = new javax.swing.JScrollPane();
         tblTipoHabitacionesCreadas = new javax.swing.JTable();
         btnListarTipoHabitacion = new javax.swing.JButton();
         btnLimpiarTipoHabitacion1 = new javax.swing.JButton();
+        txtTipoHabitacion = new javax.swing.JTextField();
+        lblPrecioTipoHabitacion2 = new javax.swing.JLabel();
+        txtDescTipoHabitacion = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         cbxSucursalHabitacionCrear = new javax.swing.JComboBox<>();
@@ -1467,7 +1459,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         lblPrecioTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lblPrecioTipoHabitacion.setText("Precio:  S/.");
 
-        txtPrecioTipoHabitacionAdmin.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txtPrecioTipoHabitacionAdmin.setFont(new java.awt.Font("Shree Devanagari 714", 1, 16)); // NOI18N
 
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -1481,10 +1473,10 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
             }
         });
 
-        cbxTipoHabitacionAdmin.setFont(new java.awt.Font("Helvetica Neue", 0, 16)); // NOI18N
-
         lblPrecioTipoHabitacion1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblPrecioTipoHabitacion1.setText("Capacidad");
+        lblPrecioTipoHabitacion1.setText("Capacidad:");
+
+        txtCapHabiAdmin.setFont(new java.awt.Font("Shree Devanagari 714", 1, 16)); // NOI18N
 
         tblTipoHabitacionesCreadas.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         tblTipoHabitacionesCreadas.setModel(new javax.swing.table.DefaultTableModel(
@@ -1520,6 +1512,13 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
             }
         });
 
+        txtTipoHabitacion.setFont(new java.awt.Font("Shree Devanagari 714", 1, 16)); // NOI18N
+
+        lblPrecioTipoHabitacion2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblPrecioTipoHabitacion2.setText("Descripcion:");
+
+        txtDescTipoHabitacion.setFont(new java.awt.Font("Shree Devanagari 714", 1, 16)); // NOI18N
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -1527,30 +1526,34 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPrecioTipoHabitacion, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblNombreTipoHabitacion, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnCrearTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblPrecioTipoHabitacion1)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbxTipoHabitacionAdmin, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(txtCapHabiAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(txtPrecioTipoHabitacionAdmin)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(btnLimpiarTipoHabitacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(jLabel20)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 58, Short.MAX_VALUE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(lblPrecioTipoHabitacion)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtPrecioTipoHabitacionAdmin))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblNombreTipoHabitacion)
+                                    .addComponent(lblPrecioTipoHabitacion1)
+                                    .addComponent(btnCrearTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblPrecioTipoHabitacion2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtTipoHabitacion)
+                                    .addComponent(txtDescTipoHabitacion)
+                                    .addGroup(jPanel8Layout.createSequentialGroup()
+                                        .addComponent(btnLimpiarTipoHabitacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(txtCapHabiAdmin))))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnListarTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1560,36 +1563,37 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jLabel20)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jLabel20)
-                        .addGap(18, 18, 18)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblNombreTipoHabitacion)
-                            .addComponent(cbxTipoHabitacionAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnListarTipoHabitacion))
+                            .addComponent(btnListarTipoHabitacion)
+                            .addComponent(txtTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addGap(11, 11, 11)
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtPrecioTipoHabitacionAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblPrecioTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lblPrecioTipoHabitacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtCapHabiAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblPrecioTipoHabitacion2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtDescTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtPrecioTipoHabitacionAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblPrecioTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(btnCrearTipoHabitacion)
                                     .addComponent(btnLimpiarTipoHabitacion1))
-                                .addContainerGap())
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))))
+                                .addContainerGap())))
+                    .addComponent(jSeparator3)))
         );
 
         jPanel7.setBackground(new java.awt.Color(221, 214, 206));
@@ -1730,7 +1734,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 1134, Short.MAX_VALUE)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1739,9 +1743,9 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addContainerGap(180, Short.MAX_VALUE))
         );
 
         JTabbedPaneAdministrar.addTab("Habitaciones", jPanel1);
@@ -2509,41 +2513,23 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     }
     private void btnCrearTipoHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearTipoHabitacionActionPerformed
         // TODO add your handling code here:
-        String tipoHabitacion = cbxTipoHabitacionAdmin.getSelectedItem().toString();
+        String tipoHabitacion = txtTipoHabitacion.getText();
         int capacidad = Integer.parseInt(txtCapHabiAdmin.getText());
+        String descripcion = txtDescTipoHabitacion.getText();
         double precio = Double.parseDouble(txtPrecioTipoHabitacionAdmin.getText());
-        
-        
-        
+
         TipoHabitacionDAO tipoHabitacionDAO = new TipoHabitacionDAO();
-        boolean exito = tipoHabitacionDAO.crearTipoHabitacion(tipoHabitacion, capacidad, precio);
-    
+        boolean exito = tipoHabitacionDAO.crearTipoHabitacion(tipoHabitacion, capacidad, descripcion, precio);
+
         if (exito) {
             mostrarMensaje("Tipo de habitación creado exitosamente.");
             // Realiza otras acciones necesarias después de crear el tipo de habitación
-            restablecerComboBox();
         } else {
             mostrarMensaje("Error al crear el tipo de habitación.");
             // Realiza acciones alternativas en caso de error
         }
     }//GEN-LAST:event_btnCrearTipoHabitacionActionPerformed
-    private void restablecerComboBox() {
-        // Guardar el valor seleccionado actualmente
-        String valorSeleccionado = cbxTipoHabitacionAdmin.getSelectedItem().toString();
 
-        // Limpiar el modelo del combobox
-        cbxTipoHabitacionAdmin.removeAllItems();
-
-        // Agregar los valores originales al combobox
-        cbxTipoHabitacionAdmin.addItem("");
-        cbxTipoHabitacionAdmin.addItem("Individual");
-        cbxTipoHabitacionAdmin.addItem("Doble");
-        cbxTipoHabitacionAdmin.addItem("Suite");
-        cbxTipoHabitacionAdmin.addItem("Familiar");
-
-        // Establecer el valor seleccionado anteriormente
-        cbxTipoHabitacionAdmin.setSelectedItem(valorSeleccionado);
-    }
     private void btnListarTipoHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarTipoHabitacionActionPerformed
         // TODO add your handling code here:
         DefaultTableModel modelo = (DefaultTableModel) tblTipoHabitacionesCreadas.getModel();
@@ -2566,9 +2552,10 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
 
     private void btnLimpiarTipoHabitacion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarTipoHabitacion1ActionPerformed
         // TODO add your handling code here:
-        cbxTipoHabitacionAdmin.setSelectedIndex(0); // Establecer el primer elemento seleccionado en el combobox
-        txtCapHabiAdmin.setText(""); // Limpiar el campo de texto de capacidad
-        txtPrecioTipoHabitacionAdmin.setText(""); // Limpiar el campo de texto de precio
+        txtTipoHabitacion.setText("");
+        txtCapHabiAdmin.setText("");
+        txtDescTipoHabitacion.setText("");
+        txtPrecioTipoHabitacionAdmin.setText("");
 
     }//GEN-LAST:event_btnLimpiarTipoHabitacion1ActionPerformed
 
@@ -2660,7 +2647,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private javax.swing.JComboBox<String> cbxSucursalHabitacionCrear;
     private javax.swing.JComboBox<String> cbxSucursalPersonalAgregar;
     private javax.swing.JComboBox<String> cbxTipoHabitacion;
-    private javax.swing.JComboBox<String> cbxTipoHabitacionAdmin;
     private javax.swing.JComboBox<String> cbxTipoHabitacionCrear;
     private javax.swing.JFormattedTextField fmtFechaIngreso;
     private javax.swing.JFormattedTextField fmtFechaSalida;
@@ -2718,6 +2704,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private javax.swing.JLabel lblPisoHabitacion;
     private javax.swing.JLabel lblPrecioTipoHabitacion;
     private javax.swing.JLabel lblPrecioTipoHabitacion1;
+    private javax.swing.JLabel lblPrecioTipoHabitacion2;
     private javax.swing.JLabel lblPuertaHabitacion;
     private javax.swing.JLabel lblSelectSucursal;
     private javax.swing.JLabel lblSelectTipoHabitacion;
@@ -2748,6 +2735,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private javax.swing.JTextField txtDNICliente;
     private javax.swing.JTextField txtDNIClienteMod;
     private javax.swing.JTextField txtDNIPersonalAgregar;
+    private javax.swing.JTextField txtDescTipoHabitacion;
     private javax.swing.JTextField txtFechaPago;
     private javax.swing.JTextField txtFonoClienteModificar;
     private javax.swing.JTextField txtFonoPersonalAgregar;
@@ -2760,6 +2748,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private javax.swing.JTextField txtPrecioTipoHabitacionAdmin;
     private javax.swing.JTextField txtPuertaHabitacionCrear;
     private javax.swing.JTextArea txtRes;
+    private javax.swing.JTextField txtTipoHabitacion;
     private javax.swing.JTextField txtTotalSoles;
     private javax.swing.JPanel ventanaReservar;
     // End of variables declaration//GEN-END:variables
