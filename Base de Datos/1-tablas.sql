@@ -69,6 +69,8 @@ CREATE TABLE empleados (
     FOREIGN KEY (id_sucursal) REFERENCES sucursal (id_sucursal),
     FOREIGN KEY (id_cargo) REFERENCES cargos (id_cargo)
 )
+SELECT * FROM tipo_habitacion
+go
 
 CREATE TABLE clientes (
     dni_cliente INT PRIMARY KEY,
@@ -76,6 +78,7 @@ CREATE TABLE clientes (
     apellido VARCHAR(255),
     celular VARCHAR(255)
 );
+
 
 
 

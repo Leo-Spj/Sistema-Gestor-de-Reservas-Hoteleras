@@ -29,10 +29,60 @@ public class TipoHabitacionDAO implements TipoHabitacionInterfaz {
     PreparedStatement ps;
     Statement st;
     ResultSet rs;
+    
+    private String buscarDescripcionPorTipo(String tipo) {
+    String descripcion = null;
+
+    try {
+        con = new Conexion();
+        conn = con.getConectar();
+
+        String query = "SELECT descripcion FROM tipo_habitacion WHERE tipo = ?";
+        ps = conn.prepareStatement(query);
+        ps.setString(1, tipo);
+        rs = ps.executeQuery();
+
+        if (rs.next()) {
+            descripcion = rs.getString("descripcion");
+        }
+    } catch (Exception e) {
+        System.out.println("Error al buscar la descripción para el tipo de habitación: " + e.getMessage());
+    }
+
+    return descripcion;
+}
 
     @Override
     public boolean crear(TipoHabitacion c) {
         return false;
+    }
+    public boolean crearTipoHabitacion(String tipo,int capacidad,double precio) {
+                try {
+            con = new Conexion();
+            conn = con.getConectar();
+
+            String descripcion = buscarDescripcionPorTipo(tipo);
+
+            if (descripcion == null) {
+                System.out.println("No se encontró la descripción para el tipo de habitación: " + tipo);
+                return false;
+            }
+
+            String query = "INSERT INTO tipo_habitacion (tipo, capacidad, descripcion, precio) VALUES (?, ?, ?, ?)";
+
+            ps = conn.prepareStatement(query);
+            ps.setString(1, tipo);
+            ps.setInt(2, capacidad);
+            ps.setString(3, descripcion);
+            ps.setDouble(4, precio);
+
+            ps.executeUpdate();
+
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error al crear tipo de habitación: " + e.getMessage());
+            return false;
+        }
     }
 
     @Override
