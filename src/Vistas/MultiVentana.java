@@ -2583,6 +2583,12 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
 
         TipoHabitacionDAO tipoHabitacionDAO = new TipoHabitacionDAO();
 
+        // Detener la edición actual
+        if (tblTipoHabitacionesCreadas.getCellEditor() != null) {
+            tblTipoHabitacionesCreadas.getCellEditor().stopCellEditing();
+        }
+
+        // Actualizar los cambios en la base de datos
         for (int rowIndex = 0; rowIndex < rowCount; rowIndex++) {
             String tipo = tableModel.getValueAt(rowIndex, 1).toString();
             int capacidad = Integer.parseInt(tableModel.getValueAt(rowIndex, 2).toString());
