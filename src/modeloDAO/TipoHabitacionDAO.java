@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 public class TipoHabitacionDAO implements TipoHabitacionInterfaz {
 
@@ -55,10 +56,61 @@ public class TipoHabitacionDAO implements TipoHabitacionInterfaz {
              return false;
          }
     }
+    public void guardarCambios(DefaultTableModel tableModel) {
+        int rowCount = tableModel.getRowCount();
+
+        try {
+            // Recorrer las filas de la tabla y guardar los cambios en la base de datos
+            for (int rowIndex = 0; rowIndex < rowCount; rowIndex++) {
+                String tipo = tableModel.getValueAt(rowIndex, 1).toString();
+                int capacidad = Integer.parseInt(tableModel.getValueAt(rowIndex, 2).toString());
+                String descripcion = tableModel.getValueAt(rowIndex, 3).toString();
+                double precio = Double.parseDouble(tableModel.getValueAt(rowIndex, 4).toString());
+
+                // Crear la consulta SQL para actualizar los registros
+                String query = "UPDATE tblTipoHabitacionesCreadas SET capacidad = ?, descripcion = ?, precio = ? WHERE tipo = ?";
+                PreparedStatement statement = conn.prepareStatement(query);
+
+                // Establecer los valores de los parámetros de la consulta
+                statement.setInt(1, capacidad);
+                statement.setString(2, descripcion);
+                statement.setDouble(3, precio);
+                statement.setString(4, tipo);
+
+                // Ejecutar la consulta para actualizar los registros
+                statement.executeUpdate();
+            }
+
+
+        } catch (Exception e) {
+            // Manejar el error en caso de fallo en la conexión o la consulta
+            System.out.println("Error al guardar los cambios en la base de datos: " + e.getMessage());
+        }
+    }
 
     @Override
     public boolean actualizar(TipoHabitacion a) {
         return false;
+    }
+    public boolean actualizarTipoHabitacion(String tipo,int capacidad,String descripcion,double precio) {
+            try {
+                con = new Conexion();
+                conn = con.getConectar();
+                String query = "EXEC ActualizarTipoHabitacion ?, ?, ?, ?";
+
+                ps = conn.prepareStatement(query);
+                ps.setString(1, tipo);
+                ps.setInt(2, capacidad);
+                ps.setString(3, descripcion);
+                ps.setDouble(4, precio);
+
+                boolean hasResult = ps.execute();
+
+                return hasResult;
+            } catch (Exception e) {
+                System.out.println("Error al actualizar tipo de habitación: " + e.getMessage());
+                return false;
+            }
     }
 
     @Override

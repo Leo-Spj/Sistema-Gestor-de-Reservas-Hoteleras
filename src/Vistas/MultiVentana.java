@@ -353,6 +353,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         txtTipoHabitacion = new javax.swing.JTextField();
         lblPrecioTipoHabitacion2 = new javax.swing.JLabel();
         txtDescTipoHabitacion = new javax.swing.JTextField();
+        btnGuardarTipoHabitacion = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         cbxSucursalHabitacionCrear = new javax.swing.JComboBox<>();
@@ -1519,6 +1520,16 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
 
         txtDescTipoHabitacion.setFont(new java.awt.Font("Shree Devanagari 714", 1, 16)); // NOI18N
 
+        btnGuardarTipoHabitacion.setBackground(new java.awt.Color(171, 76, 89));
+        btnGuardarTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btnGuardarTipoHabitacion.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardarTipoHabitacion.setText("Guardar");
+        btnGuardarTipoHabitacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarTipoHabitacionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -1553,10 +1564,15 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                                     .addComponent(txtCapHabiAdmin))))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnListarTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnListarTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btnGuardarTipoHabitacion)))
                 .addGap(161, 161, 161))
         );
         jPanel8Layout.setVerticalGroup(
@@ -1575,7 +1591,8 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                                .addComponent(btnGuardarTipoHabitacion))
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lblPrecioTipoHabitacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1588,11 +1605,11 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtPrecioTipoHabitacionAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblPrecioTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(btnCrearTipoHabitacion)
-                                    .addComponent(btnLimpiarTipoHabitacion1))
-                                .addContainerGap())))
+                                    .addComponent(btnLimpiarTipoHabitacion1))))
+                        .addContainerGap())
                     .addComponent(jSeparator3)))
         );
 
@@ -1745,7 +1762,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
 
         JTabbedPaneAdministrar.addTab("Habitaciones", jPanel1);
@@ -2559,6 +2576,24 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
 
     }//GEN-LAST:event_btnLimpiarTipoHabitacion1ActionPerformed
 
+    private void btnGuardarTipoHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarTipoHabitacionActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel tableModel = (DefaultTableModel) tblTipoHabitacionesCreadas.getModel();
+        int rowCount = tableModel.getRowCount();
+
+        TipoHabitacionDAO tipoHabitacionDAO = new TipoHabitacionDAO();
+
+        for (int rowIndex = 0; rowIndex < rowCount; rowIndex++) {
+            String tipo = tableModel.getValueAt(rowIndex, 1).toString();
+            int capacidad = Integer.parseInt(tableModel.getValueAt(rowIndex, 2).toString());
+            String descripcion = tableModel.getValueAt(rowIndex, 3).toString();
+            double precio = Double.parseDouble(tableModel.getValueAt(rowIndex, 4).toString());
+
+            tipoHabitacionDAO.actualizarTipoHabitacion(tipo, capacidad, descripcion, precio);
+        }
+        mostrarMensaje("Cambios guardados exitosamente.");
+    }//GEN-LAST:event_btnGuardarTipoHabitacionActionPerformed
+
     @Override
     public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
         if(pageIndex==0)
@@ -2633,6 +2668,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private javax.swing.JButton btnEditarPersonal;
     private javax.swing.JButton btnEliminarCliente;
     private javax.swing.JButton btnGuardarCliente;
+    private javax.swing.JButton btnGuardarTipoHabitacion;
     private javax.swing.JButton btnLimpiarModifClientes;
     private javax.swing.JButton btnLimpiarTipoHabitacion1;
     private javax.swing.JButton btnListarTipoHabitacion;
