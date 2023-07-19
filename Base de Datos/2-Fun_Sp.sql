@@ -92,6 +92,20 @@ BEGIN
     VALUES (@tipo, @capacidad, @descripcion, @precio)
 END
 GO
+-- Store procedure para actualizar tipo de habitación
+CREATE PROCEDURE ActualizarTipoHabitacion
+    @tipo VARCHAR(255),
+    @capacidad INT,
+    @descripcion VARCHAR(255),
+    @precio DECIMAL(10, 2)
+AS
+BEGIN
+    UPDATE tipo_habitacion
+    SET capacidad = @capacidad,
+        descripcion = @descripcion,
+        precio = @precio
+    WHERE tipo = @tipo;
+END;
 
 -- Store procedure para ingresar habitaciones
 GO
