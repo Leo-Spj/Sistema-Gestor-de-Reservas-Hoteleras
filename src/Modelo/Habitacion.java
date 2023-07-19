@@ -10,6 +10,8 @@ package Modelo;
  */
 public class Habitacion {
 
+    
+
     private Sucursal sucursal;
     private TipoHabitacion tipoHabitacion;
     
@@ -24,12 +26,37 @@ public class Habitacion {
     public String getSucursalNombre() {
         return sucursal.getNombre();
     }
-    
+    public int getSucursalId() {
+        if (sucursal != null) {
+            return sucursal.getIdSucursal();
+        } else {
+            return -1; // o cualquier valor predeterminado que desees utilizar
+        }
+    }
+    public void setSucursalId(int idSucursal) {
+        if (sucursal == null) {
+            sucursal = new Sucursal();
+        }
+        sucursal.setIdSucursal(idSucursal);
+    }
     /**
      * @return the tipoHabitacion
      */
     public String getTipoHabitacionNombre() {
         return tipoHabitacion.getTipo();
+    }
+    public int getTipoHabitacionId() {
+    if (tipoHabitacion == null) {
+        return 0; // O cualquier otro valor que indique que no hay un tipo de habitación asignado
+    }
+    return tipoHabitacion.getIdTipoHabitacion();
+}
+
+    public void setTipoHabitacionId(int idTipoHabitacion) {
+        if (tipoHabitacion == null) {
+            tipoHabitacion = new TipoHabitacion();
+        }
+        tipoHabitacion.setIdTipoHabitacion(idTipoHabitacion);
     }
     
     /**
