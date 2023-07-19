@@ -31,26 +31,26 @@ public class TipoHabitacionDAO implements TipoHabitacionInterfaz {
     ResultSet rs;
     
     private String buscarDescripcionPorTipo(String tipo) {
-    String descripcion = null;
+        String descripcion = null;
 
-    try {
-        con = new Conexion();
-        conn = con.getConectar();
+        try {
+            con = new Conexion();
+            conn = con.getConectar();
 
-        String query = "SELECT descripcion FROM tipo_habitacion WHERE tipo = ?";
-        ps = conn.prepareStatement(query);
-        ps.setString(1, tipo);
-        rs = ps.executeQuery();
+            String query = "SELECT descripcion FROM tipo_habitacion WHERE tipo = ?";
+            ps = conn.prepareStatement(query);
+            ps.setString(1, tipo);
+            rs = ps.executeQuery();
 
-        if (rs.next()) {
-            descripcion = rs.getString("descripcion");
+            if (rs.next()) {
+                descripcion = rs.getString("descripcion");
+            }
+        } catch (Exception e) {
+            System.out.println("Error al buscar la descripción para el tipo de habitación: " + e.getMessage());
         }
-    } catch (Exception e) {
-        System.out.println("Error al buscar la descripción para el tipo de habitación: " + e.getMessage());
-    }
 
-    return descripcion;
-}
+        return descripcion;
+    }
 
     @Override
     public boolean crear(TipoHabitacion c) {
