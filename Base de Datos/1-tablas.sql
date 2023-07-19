@@ -47,8 +47,9 @@ CREATE TABLE habitaciones (
     FOREIGN KEY (id_sucursal) REFERENCES sucursal (id_sucursal),
     FOREIGN KEY (id_tipo_habitacion) REFERENCES tipo_habitacion (id_tipo_habitacion)
 );
-SELECT * FROM habitaciones
+SELECT * FROM tipo_habitacion
 go
+
 CREATE TABLE cargos (
     id_cargo INT PRIMARY KEY IDENTITY(1, 1),
     nombre VARCHAR(255),

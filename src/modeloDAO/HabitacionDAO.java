@@ -27,18 +27,23 @@ public class HabitacionDAO  implements HabitacionInterfaz{
     public boolean crear(Habitacion c) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    public boolean crearHabitacion(int sucursal, int piso, int puerta,int tipo) {
-            try {
+    public boolean crearHabitacion(int id_sucursal, int piso, int puerta, int id_tipo_habitacion) {
+        try {
             con = new Conexion();
             conn = con.getConectar();
 
-            String query = "INSERT INTO habitaciones (id_sucursal, piso, puerta, id_tipo_habitacion) VALUES (?, ?, ?, ?)";
+            // Crear el tipo de habitación y obtener el id_habitacion correspondiente
+            TipoHabitacionDAO tipoHabitacionDAO = new TipoHabitacionDAO();
+            int id_habitacion = tipoHabitacionDAO.crearTipoHabitacion("", 0, "", 0.0); // Completa los parámetros según corresponda
+
+            String query = "INSERT INTO habitaciones (id_sucursal, id_habitacion, piso, puerta, id_tipo_habitacion) VALUES (?, ?, ?, ?, ?)";
 
             ps = conn.prepareStatement(query);
-            ps.setInt(1, sucursal);
-            ps.setInt(2, piso);
-            ps.setInt(3, puerta);
-            ps.setInt(4, tipo);
+            ps.setInt(1, id_sucursal);
+            ps.setInt(2, id_habitacion);
+            ps.setInt(3, piso);
+            ps.setInt(4, puerta);
+            ps.setInt(5, id_tipo_habitacion);
 
             int rowsInserted = ps.executeUpdate();
 
@@ -48,6 +53,7 @@ public class HabitacionDAO  implements HabitacionInterfaz{
             return false;
         }
     }
+
 
     @Override
     public boolean actualizar(Habitacion a) {

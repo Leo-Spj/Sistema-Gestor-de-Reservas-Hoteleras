@@ -2567,11 +2567,11 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         double precio = Double.parseDouble(txtPrecioTipoHabitacionAdmin.getText());
 
         TipoHabitacionDAO tipoHabitacionDAO = new TipoHabitacionDAO();
-        boolean exito = tipoHabitacionDAO.crearTipoHabitacion(tipoHabitacion, capacidad, descripcion, precio);
+        int idTipoHabitacion = tipoHabitacionDAO.crearTipoHabitacion(tipoHabitacion, capacidad, descripcion, precio);
 
-        if (exito) {
-            mostrarMensaje("Tipo de habitación creado exitosamente.");
-            // Realiza otras acciones necesarias después de crear el tipo de habitación
+        if (idTipoHabitacion != -1) {
+        mostrarMensaje("Tipo de habitación creado exitosamente. ID: " + idTipoHabitacion);
+        // Realiza otras acciones necesarias después de crear el tipo de habitación, utilizando el ID obtenido
         } else {
             mostrarMensaje("Error al crear el tipo de habitación.");
             // Realiza acciones alternativas en caso de error
@@ -2585,6 +2585,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
 
         TipoHabitacionDAO tipoHabitacionDAO = new TipoHabitacionDAO();
         ArrayList<TipoHabitacion> tiposHabitaciones = tipoHabitacionDAO.buscarTodo();
+        
 
         for (TipoHabitacion tipoHabitacion : tiposHabitaciones) {
             Object[] fila = {
@@ -2677,15 +2678,18 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         // Limpiar el modelo de la tabla
         DefaultTableModel tableModel = (DefaultTableModel) tblHabitacionesCreadas.getModel();
         tableModel.setRowCount(0);
+        
 
         // Llenar la tabla con los datos de las habitaciones
         for (Habitacion habitacion : habitaciones) {
+                TipoHabitacion tipoHabitacion = tiposHabitacion.get(habitacion.getTipoHabitacionId() - 1);
+
             Object[] rowData = {
-                habitacion.getIdHabitacion(),
                 habitacion.getSucursalId(),
+                habitacion.getIdHabitacion(),
                 habitacion.getPiso(),
                 habitacion.getPuerta(),
-                habitacion.getTipoHabitacionId()
+                tipoHabitacion.getIdTipoHabitacion(),
             };
             tableModel.addRow(rowData);
         }

@@ -35,27 +35,36 @@ public class TipoHabitacionDAO implements TipoHabitacionInterfaz {
     public boolean crear(TipoHabitacion c) {
         return false;
     }
-    public boolean crearTipoHabitacion(String tipo,int capacidad,String descripcion,double precio) {
-                try {
-             con = new Conexion();
-             conn = con.getConectar();
+    public int crearTipoHabitacion(String tipo, int capacidad, String descripcion, double precio) {
+        try {
+            con = new Conexion();
+            conn = con.getConectar();
 
-             String query = "INSERT INTO tipo_habitacion (tipo, capacidad, descripcion, precio) VALUES (?, ?, ?, ?)";
+            String query = "INSERT INTO tipo_habitacion (tipo, capacidad, descripcion, precio) VALUES (?, ?, ?, ?)";
 
-             ps = conn.prepareStatement(query);
-             ps.setString(1, tipo);
-             ps.setInt(2, capacidad);
-             ps.setString(3, descripcion);
-             ps.setDouble(4, precio);
+            ps = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, tipo);
+            ps.setInt(2, capacidad);
+            ps.setString(3, descripcion);
+            ps.setDouble(4, precio);
 
-             ps.executeUpdate();
+            int rowsInserted = ps.executeUpdate();
 
-             return true;
-         } catch (Exception e) {
-             System.out.println("Error al crear tipo de habitación: " + e.getMessage());
-             return false;
-         }
+            if (rowsInserted > 0) {
+                // Obtener el id_tipo_habitacion generado por la base de datos
+                ResultSet generatedKeys = ps.getGeneratedKeys();
+                if (generatedKeys.next()) {
+                    return generatedKeys.getInt(1);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error al crear tipo de habitación: " + e.getMessage());
+        }
+
+        return -1; // Retorna -1 en caso de error
     }
+
+
     public void guardarCambios(DefaultTableModel tableModel) {
         int rowCount = tableModel.getRowCount();
 
