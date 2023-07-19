@@ -95,35 +95,44 @@ public class HabitacionDAO  implements HabitacionInterfaz{
     }
 
     public ArrayList<Habitacion> buscarTodo(int id_sucursal, int id_tipo_habitacion) {
-    ArrayList<Habitacion> habitaciones = new ArrayList<>();
+            ArrayList<Habitacion> habitaciones = new ArrayList<>();
 
-    try {
-        con = new Conexion();
-        conn = con.getConectar();
+            try {
+                con = new Conexion();
+                conn = con.getConectar();
 
-        String query = "SELECT * FROM habitaciones WHERE id_sucursal = ? AND id_tipo_habitacion = ?";
-        ps = conn.prepareStatement(query);
-        ps.setInt(1, id_sucursal);
-        ps.setInt(2, id_tipo_habitacion);
-        rs = ps.executeQuery();
+                String query;
+                PreparedStatement ps;
 
-        while (rs.next()) {
-            Habitacion habitacion = new Habitacion();
+                if (id_tipo_habitacion == 0) {
+                    query = "SELECT * FROM habitaciones WHERE id_sucursal = ?";
+                    ps = conn.prepareStatement(query);
+                    ps.setInt(1, id_sucursal);
+                } else {
+                    query = "SELECT * FROM habitaciones WHERE id_sucursal = ? AND id_tipo_habitacion = ?";
+                    ps = conn.prepareStatement(query);
+                    ps.setInt(1, id_sucursal);
+                    ps.setInt(2, id_tipo_habitacion);
+                }
 
-            // Obtener los valores de las columnas de la tabla y asignarlos al objeto Habitacion
-            habitacion.setIdHabitacion(rs.getInt("id_habitacion"));
-            habitacion.setSucursalId(rs.getInt("id_sucursal"));
-            habitacion.setPiso(rs.getInt("piso"));
-            habitacion.setPuerta(rs.getInt("puerta"));
-            habitacion.setTipoHabitacionId(rs.getInt("id_tipo_habitacion"));
+                ResultSet rs = ps.executeQuery();
 
-            habitaciones.add(habitacion);
-        }
-    } catch (Exception e) {
-        System.out.println("Error al buscar todas las habitaciones: " + e.getMessage());
-    }
+                while (rs.next()) {
+                    Habitacion habitacion = new Habitacion();
 
-    return habitaciones;
+                    habitacion.setIdHabitacion(rs.getInt("id_habitacion"));
+                    habitacion.setSucursalId(rs.getInt("id_sucursal"));
+                    habitacion.setPiso(rs.getInt("piso"));
+                    habitacion.setPuerta(rs.getInt("puerta"));
+                    habitacion.setTipoHabitacionId(rs.getInt("id_tipo_habitacion"));
+
+                    habitaciones.add(habitacion);
+                }
+            } catch (Exception e) {
+                System.out.println("Error al buscar todas las habitaciones: " + e.getMessage());
+            }
+
+            return habitaciones;
 }
 
 

@@ -2666,12 +2666,12 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
 
         // Obtener la lista de habitaciones filtradas por ID de sucursal y ID de tipo de habitación (-1 si no se seleccionó ningún tipo)
         ArrayList<Habitacion> habitaciones;
-        if (idTipoHabitacion == -1) {
+        if (idTipoHabitacion == 0) {
             // Si no se seleccionó ningún tipo, listar todas las habitaciones por sucursal
             habitaciones = habitacionDAO.buscarTodoPorSucursal(idSucursal);
         } else {
             // Si se seleccionó un tipo, listar las habitaciones por sucursal y tipo
-            habitaciones = habitacionDAO.buscarTodo(idSucursal, idTipoHabitacion + 1);
+            habitaciones = habitacionDAO.buscarTodo(idSucursal, idTipoHabitacion );
         }
 
         // Limpiar el modelo de la tabla

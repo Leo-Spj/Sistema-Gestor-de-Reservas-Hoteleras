@@ -47,7 +47,8 @@ CREATE TABLE habitaciones (
     FOREIGN KEY (id_sucursal) REFERENCES sucursal (id_sucursal),
     FOREIGN KEY (id_tipo_habitacion) REFERENCES tipo_habitacion (id_tipo_habitacion)
 );
-
+SELECT * FROM habitaciones
+go
 CREATE TABLE cargos (
     id_cargo INT PRIMARY KEY IDENTITY(1, 1),
     nombre VARCHAR(255),
@@ -69,8 +70,8 @@ CREATE TABLE empleados (
     FOREIGN KEY (id_sucursal) REFERENCES sucursal (id_sucursal),
     FOREIGN KEY (id_cargo) REFERENCES cargos (id_cargo)
 )
-SELECT * FROM tipo_habitacion
-go
+
+DELETE FROM tipo_habitacion WHERE id_tipo_habitacion IN (7);
 
 CREATE TABLE clientes (
     dni_cliente INT PRIMARY KEY,
