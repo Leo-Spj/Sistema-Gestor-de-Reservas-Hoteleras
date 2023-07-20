@@ -18,6 +18,21 @@ BEGIN
 END;
 GO
 
+
+-- MUESTRA TODAS LAS HABITACIONES DE TODAS LAS SUCURSALES
+GO
+CREATE PROCEDURE mostrar_habitaciones
+AS
+BEGIN
+    SELECT s.nombre, h.id_habitacion, CONCAT(h.piso, '-', h.puerta) AS habitacion, t.tipo
+    FROM habitaciones AS h
+    JOIN tipo_habitacion AS t ON h.id_tipo_habitacion = t.id_tipo_habitacion
+    JOIN sucursal AS s ON h.id_sucursal = s.id_sucursal
+END
+GO
+
+EXECUTE mostrar_habitaciones;
+
 --funcion que obtiene LOS dni_empleado y la contraseña pero solo de aquellos que tengan el cargo de recepcionista = 1 o administrador = 2
 GO
 CREATE FUNCTION aptos_login()

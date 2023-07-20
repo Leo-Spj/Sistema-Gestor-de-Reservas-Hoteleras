@@ -40,14 +40,20 @@ WHERE e.id_cargo = 1;
 Subconsultas
 */
 
+SELECT s.nombre, h.id_habitacion, CONCAT(h.piso, '-', h.puerta) AS habitacion, t.tipo
+FROM habitaciones AS h
+JOIN tipo_habitacion AS t ON h.id_tipo_habitacion = t.id_tipo_habitacion
+JOIN sucursal AS s ON h.id_sucursal = s.id_sucursal;
+
+
 SELECT *
 FROM habitaciones
 WHERE id_sucursal = 1
-  AND id_habitacion NOT IN (
-    SELECT id_habitacion
-    FROM reserva
-    WHERE fecha_inicio <= GETDATE() AND fecha_fin >= GETDATE()
-  );
+AND id_habitacion NOT IN (
+  SELECT id_habitacion
+  FROM reserva
+  WHERE fecha_inicio <= GETDATE() AND fecha_fin >= GETDATE()
+);
 
 SELECT *
 FROM reserva
