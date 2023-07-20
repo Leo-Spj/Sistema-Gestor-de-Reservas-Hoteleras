@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -49,11 +50,64 @@ public class HabitacionDAO  implements HabitacionInterfaz{
             return false;
         }
     }
+    public boolean guardarCambios(DefaultTableModel tableModel) {
+        int rowCount = tableModel.getRowCount();
+        try {
+            for (int rowIndex = 0; rowIndex < rowCount; rowIndex++) {
+            int sucursalId = (int) tableModel.getValueAt(rowIndex, 0);
+            int piso = (int) tableModel.getValueAt(rowIndex, 1);
+            int puerta = (int) tableModel.getValueAt(rowIndex, 2);
+            int tipoHabitacionId = (int) tableModel.getValueAt(rowIndex, 3);
+
+            // Crear la consulta SQL para actualizar los registros
+            String query = "UPDATE tblHabitacionesCreadas SET id_sucursal = ?, piso = ?, puerta = ?, id_tipo_habitacion = ? WHERE id_habitacion = ?";
+            PreparedStatement statement = conn.prepareStatement(query);
+
+            // Establecer los valores de los parámetros de la consulta
+            statement.setInt(1, sucursalId);
+            statement.setInt(2, piso);
+            statement.setInt(3, puerta);
+            statement.setInt(4, tipoHabitacionId);
+            statement.setInt(5, rowIndex + 1); // Suponiendo que el índice de la tabla es el id_habitacion + 1
+
+            // Ejecutar la consulta para actualizar los registros
+            statement.executeUpdate();
+        }
+
+        return true; // Retorna true si todos los cambios se guardaron correctamente
+    } catch (Exception e) {
+        // Manejar el error en caso de fallo en la conexión o la consulta
+        System.out.println("Error al guardar los cambios en la base de datos: " + e.getMessage());
+        return false;
+    }
+    }
 
 
     @Override
     public boolean actualizar(Habitacion a) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    public boolean actualizarHabitacion( int id_sucursal, int piso, int puerta, int id_tipo_habitacion)
+        {
+            try {
+             con = new Conexion();
+             conn = con.getConectar();
+
+            String query = "EXEC sp_actualizar_habitacion ?, ?, ?, ?";
+
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, id_sucursal);
+            ps.setInt(2, piso);
+            ps.setInt(3, puerta);
+            ps.setInt(4, id_tipo_habitacion);
+
+            boolean hasResult = ps.execute();
+
+                    return hasResult;
+        } catch (Exception e) {
+            System.out.println("Error al actualizar la habitación: " + e.getMessage());
+            return false;
+        }
     }
 
     @Override

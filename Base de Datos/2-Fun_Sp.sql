@@ -120,6 +120,24 @@ BEGIN
     VALUES (@id_sucursal, @piso, @puerta, @id_tipo_habitacion)
 END
 GO
+--Store procedure para actualizar habitaciones
+CREATE PROCEDURE sp_actualizar_habitacion
+    @id_habitacion INT,
+    @id_sucursal INT,
+    @piso INT,
+    @puerta INT,
+    @id_tipo_habitacion INT
+AS
+BEGIN
+    UPDATE habitaciones
+    SET id_sucursal = @id_sucursal,
+        piso = @piso,
+        puerta = @puerta,
+        id_tipo_habitacion = @id_tipo_habitacion
+    WHERE id_habitacion = @id_habitacion;
+END;
+GO
+
 
 --store procedure para ingresar clientes
 GO

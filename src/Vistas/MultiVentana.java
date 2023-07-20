@@ -1634,6 +1634,11 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         btnGuardarHabitacion.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnGuardarHabitacion.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardarHabitacion.setText("Guardar");
+        btnGuardarHabitacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarHabitacionActionPerformed(evt);
+            }
+        });
 
         btnCrearHabitacion.setBackground(new java.awt.Color(171, 76, 89));
         btnCrearHabitacion.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -2733,6 +2738,30 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
 
 
     }//GEN-LAST:event_btnCrearHabitacionActionPerformed
+
+    private void btnGuardarHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarHabitacionActionPerformed
+        // Obtener el modelo de la tabla
+        DefaultTableModel modelo = (DefaultTableModel) tblHabitacionesCreadas.getModel();
+        int rowCount = modelo.getRowCount();
+
+        HabitacionDAO habitacion = new HabitacionDAO();
+        if (tblHabitacionesCreadas.getCellEditor() != null) {
+            tblHabitacionesCreadas.getCellEditor().stopCellEditing();
+        }
+        for (int rowIndex = 0; rowIndex < rowCount; rowIndex++) {
+            int id_sucursal = Integer.parseInt(modelo.getValueAt(rowIndex, 1).toString());
+            int piso = Integer.parseInt(modelo.getValueAt(rowIndex, 2).toString());
+            int puerta = Integer.parseInt(modelo.getValueAt(rowIndex, 3).toString());
+            int id_tipo_habitacion = Integer.parseInt(modelo.getValueAt(rowIndex, 4).toString());
+
+            habitacion.actualizarHabitacion(id_sucursal, piso, puerta, id_tipo_habitacion);
+        }
+    
+        mostrarMensaje("Cambios guardados exitosamente.");
+        // Realizar acciones alternativas en caso de error
+    
+        
+    }//GEN-LAST:event_btnGuardarHabitacionActionPerformed
 
     @Override
     public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
