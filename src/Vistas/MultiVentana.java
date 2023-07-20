@@ -340,7 +340,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         jPanel7 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         lblSucursalHabitacion = new javax.swing.JLabel();
-        lblTipoHabitacion = new javax.swing.JLabel();
         lblPisoHabitacion = new javax.swing.JLabel();
         txtPisoHabitacionCrear = new javax.swing.JTextField();
         lblPuertaHabitacion = new javax.swing.JLabel();
@@ -352,7 +351,8 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         btnLimpiarHabitacion = new javax.swing.JButton();
         btnListarHabitacion = new javax.swing.JButton();
         txtSucursalHabitacionCrear = new javax.swing.JTextField();
-        txtTipoHabitacionCrear = new javax.swing.JTextField();
+        lblSucursalHabitacion1 = new javax.swing.JLabel();
+        txtId_Tipo_Habitacion = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(221, 214, 206));
@@ -1606,9 +1606,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         lblSucursalHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lblSucursalHabitacion.setText("Sucursal");
 
-        lblTipoHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblTipoHabitacion.setText("Tipo");
-
         lblPisoHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         lblPisoHabitacion.setText("Piso");
 
@@ -1670,7 +1667,10 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
 
         txtSucursalHabitacionCrear.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
-        txtTipoHabitacionCrear.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblSucursalHabitacion1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblSucursalHabitacion1.setText("Id Tipo Habitacion");
+
+        txtId_Tipo_Habitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -1687,23 +1687,23 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                                 .addComponent(btnLimpiarHabitacion)
                                 .addGap(151, 151, 151)
                                 .addComponent(btnGuardarHabitacion))
-                            .addComponent(lblPuertaHabitacion))
-                        .addGap(0, 661, Short.MAX_VALUE))
+                            .addComponent(lblSucursalHabitacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtPuertaHabitacionCrear, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtId_Tipo_Habitacion, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
                             .addComponent(lblSucursalHabitacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTipoHabitacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblPisoHabitacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtSucursalHabitacionCrear, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtTipoHabitacionCrear, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPisoHabitacionCrear, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(txtPisoHabitacionCrear, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPuertaHabitacion, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPuertaHabitacionCrear, javax.swing.GroupLayout.Alignment.LEADING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnListarHabitacion)
                             .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(13, Short.MAX_VALUE))))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1717,27 +1717,27 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtSucursalHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblTipoHabitacion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTipoHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblPisoHabitacion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPisoHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtPisoHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblPuertaHabitacion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPuertaHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(btnListarHabitacion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblPuertaHabitacion)
+                .addComponent(lblSucursalHabitacion1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtPuertaHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtId_Tipo_Habitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCrearHabitacion)
                     .addComponent(btnLimpiarHabitacion)
                     .addComponent(btnGuardarHabitacion))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -2519,23 +2519,56 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         // Ejemplo de muestra de mensaje en un cuadro de diálogo
         JOptionPane.showMessageDialog(this, mensaje);
     }
+    private boolean esNumeroDecimal(String texto) {
+        try {
+            Double.parseDouble(texto);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+    private boolean esNumeroEntero(String texto) {
+        try {
+            Integer.parseInt(texto);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    } 
     private void btnCrearTipoHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearTipoHabitacionActionPerformed
         // TODO add your handling code here:
         String tipoHabitacion = txtTipoHabitacion.getText();
-        int capacidad = Integer.parseInt(txtCapHabiAdmin.getText());
+        String capacidadStr = txtCapHabiAdmin.getText();
         String descripcion = txtDescTipoHabitacion.getText();
-        double precio = Double.parseDouble(txtPrecioTipoHabitacionAdmin.getText());
+        String precioStr = txtPrecioTipoHabitacionAdmin.getText();
+
+        // Verificar que los campos no estén vacíos
+        if (tipoHabitacion.isEmpty() || capacidadStr.isEmpty() || descripcion.isEmpty() || precioStr.isEmpty()) {
+            mostrarMensaje("Por favor, llene todos los campos.");
+            return; // Salir del método sin continuar con la creación del tipo de habitación
+        }
+        if (!esNumeroEntero(capacidadStr) ||!esNumeroDecimal(precioStr)) {
+        mostrarMensaje("Ingrese solo números en los campos numéricos.");
+        return;
+        }
+        
+
+        // Convertir los campos numéricos a valores enteros o dobles
+        int capacidad = Integer.parseInt(capacidadStr);
+        double precio = Double.parseDouble(precioStr);
 
         TipoHabitacionDAO tipoHabitacionDAO = new TipoHabitacionDAO();
         int idTipoHabitacion = tipoHabitacionDAO.crearTipoHabitacion(tipoHabitacion, capacidad, descripcion, precio);
 
         if (idTipoHabitacion != -1) {
-        mostrarMensaje("Tipo de habitación creado exitosamente. ID: " + idTipoHabitacion);
-        // Realiza otras acciones necesarias después de crear el tipo de habitación, utilizando el ID obtenido
+            mostrarMensaje("Tipo de habitación creado exitosamente. ID: " + idTipoHabitacion);
+            // Realiza otras acciones necesarias después de crear el tipo de habitación, utilizando el ID obtenido
         } else {
             mostrarMensaje("Error al crear el tipo de habitación.");
             // Realiza acciones alternativas en caso de error
         }
+        
+
     }//GEN-LAST:event_btnCrearTipoHabitacionActionPerformed
 
     private void btnListarTipoHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarTipoHabitacionActionPerformed
@@ -2608,7 +2641,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
             Object[] rowData = {
                 habitacion.getSucursalId(),
                 habitacion.getIdHabitacion(),
-                
                 habitacion.getPiso(),
                 habitacion.getPuerta(),
                 habitacion.getTipoHabitacionId()
@@ -2631,38 +2663,74 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private void btnLimpiarHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarHabitacionActionPerformed
         // TODO add your handling code here:
         txtSucursalHabitacionCrear.setText(""); // Borrar el contenido del campo de texto de sucursal
-        txtTipoHabitacionCrear.setText(""); // Borrar el contenido del campo de texto de tipo de habitación
         txtPisoHabitacionCrear.setText(""); // Borrar el contenido del campo de texto de piso de habitación
         txtPuertaHabitacionCrear.setText(""); // Borrar el contenido del campo de texto de puerta de habitación
-
+        txtId_Tipo_Habitacion.setText("");
     }//GEN-LAST:event_btnLimpiarHabitacionActionPerformed
+    
+    private ArrayList<Integer> obtenerTiposHabitacionesDisponibles() {
+        // Crear una instancia de la clase TipoHabitacionDAO
+        TipoHabitacionDAO tipoHabitacionDAO = new TipoHabitacionDAO();
+
+        // Obtener la lista de todos los tipos de habitación
+        ArrayList<TipoHabitacion> tiposHabitaciones = tipoHabitacionDAO.buscarTodo();
+
+        // Crear una lista para almacenar los id_tipo_habitacion disponibles
+        ArrayList<Integer> tiposHabitacionesDisponibles = new ArrayList<>();
+
+        // Recorrer la lista de tipos de habitación y agregar los id_tipo_habitacion a la lista
+        for (TipoHabitacion tipoHabitacion : tiposHabitaciones) {
+            tiposHabitacionesDisponibles.add(tipoHabitacion.getIdTipoHabitacion());
+        }
+
+        return tiposHabitacionesDisponibles;
+    }
 
     private void btnCrearHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearHabitacionActionPerformed
         // TODO add your handling code here:
-        int id_sucursal = Integer.parseInt(txtSucursalHabitacionCrear.getText());
-        int piso = Integer.parseInt(txtPisoHabitacionCrear.getText());
-        int puerta = Integer.parseInt(txtPuertaHabitacionCrear.getText());
+        String id_sucursalStr = txtSucursalHabitacionCrear.getText();
+        String pisoStr = txtPisoHabitacionCrear.getText();
+        String puertaStr = txtPuertaHabitacionCrear.getText();
+        String id_tipo_habitacionStr = txtId_Tipo_Habitacion.getText();
 
-        // Obtener el ID del tipo de habitación seleccionado
-        int id_tipo_habitacion = 0; // Valor predeterminado para cuando no se selecciona ningún tipo
-        int selectedRow = tblTipoHabitacionesCreadas.getSelectedRow();
-        if (selectedRow != -1) {
-            id_tipo_habitacion = (int) tblTipoHabitacionesCreadas.getValueAt(selectedRow, 0);
+        // Verificar que los campos no estén vacíos
+        if (id_sucursalStr.isEmpty() || pisoStr.isEmpty() || puertaStr.isEmpty() || id_tipo_habitacionStr.isEmpty()) {
+            mostrarMensaje("Por favor, llene todos los campos.");
+            return; // Salir del método sin continuar con la creación de la habitación
+        }
+        if (!id_tipo_habitacionStr.matches("\\d{1}")||!id_sucursalStr.matches("\\d{1}")||!pisoStr.matches("\\d{1}")||!puertaStr.matches("\\d{1}")) {
+            mostrarMensaje("Ingrese un número de un solo dígito en los campos.");
+            return;
         }
 
-        // Crear una instancia de la clase HabitacionDAO
-        HabitacionDAO habitacionDAO = new HabitacionDAO();
+        // Convertir los campos numéricos a valores enteros
+        int id_sucursal = Integer.parseInt(id_sucursalStr);
+        int piso = Integer.parseInt(pisoStr);
+        int puerta = Integer.parseInt(puertaStr);
+        int id_tipo_habitacion = Integer.parseInt(id_tipo_habitacionStr);
 
-        // Crear la habitación con el id_tipo_habitacion obtenido
-        boolean exito = habitacionDAO.crearHabitacion(id_sucursal, piso, puerta, id_tipo_habitacion);
+        // Obtener la lista de id_tipo_habitacion disponibles
+        ArrayList<Integer> tiposHabitacionesDisponibles = obtenerTiposHabitacionesDisponibles();
 
-        if (exito) {
-            mostrarMensaje("Habitación creada exitosamente.");
-            // Realizar otras acciones necesarias después de crear la habitación
+        // Validar que el id_tipo_habitacion ingresado sea válido
+        if (tiposHabitacionesDisponibles.contains(id_tipo_habitacion)) {
+            // Crear una instancia de la clase HabitacionDAO
+            HabitacionDAO habitacionDAO = new HabitacionDAO();
+
+            // Crear la habitación con el id_tipo_habitacion obtenido
+            boolean exito = habitacionDAO.crearHabitacion(id_sucursal, piso, puerta, id_tipo_habitacion);
+
+            if (exito) {
+                mostrarMensaje("Habitación creada exitosamente.");
+                // Realizar otras acciones necesarias después de crear la habitación
+            } else {
+                mostrarMensaje("Error al crear la habitación.");
+                // Realizar acciones alternativas en caso de error
+            }
         } else {
-            mostrarMensaje("Error al crear la habitación.");
-            // Realizar acciones alternativas en caso de error
+            mostrarMensaje("Ingrese un valor válido para id_tipo_habitacion. Si no sabe los id, haga clic en 'Listar'.");
         }
+
 
     }//GEN-LAST:event_btnCrearHabitacionActionPerformed
 
@@ -2816,8 +2884,8 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private javax.swing.JLabel lblSelectSucursal;
     private javax.swing.JLabel lblSelectTipoHabitacion;
     private javax.swing.JLabel lblSucursalHabitacion;
+    private javax.swing.JLabel lblSucursalHabitacion1;
     private javax.swing.JLabel lblSucursalPersonal;
-    private javax.swing.JLabel lblTipoHabitacion;
     private javax.swing.JPanel panelBusquedaHabitacion;
     private javax.swing.JPanel pnlAgregarPersonal;
     private javax.swing.JPanel pnlBoleta;
@@ -2848,6 +2916,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private javax.swing.JTextField txtFonoPersonalAgregar;
     private javax.swing.JTextField txtIDHabitacion;
     private javax.swing.JTextField txtIDReserva;
+    private javax.swing.JTextField txtId_Tipo_Habitacion;
     private javax.swing.JTextField txtNameClienteModificar;
     private javax.swing.JTextField txtNombreCliente;
     private javax.swing.JTextField txtNombrePersonalAgregar;
@@ -2857,7 +2926,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private javax.swing.JTextArea txtRes;
     private javax.swing.JTextField txtSucursalHabitacionCrear;
     private javax.swing.JTextField txtTipoHabitacion;
-    private javax.swing.JTextField txtTipoHabitacionCrear;
     private javax.swing.JTextField txtTotalSoles;
     private javax.swing.JPanel ventanaReservar;
     // End of variables declaration//GEN-END:variables

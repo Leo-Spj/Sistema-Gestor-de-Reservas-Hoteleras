@@ -2291,27 +2291,27 @@
                                                   <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
                                                   <Component id="btnGuardarHabitacion" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <Component id="lblPuertaHabitacion" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblSucursalHabitacion1" alignment="0" min="-2" pref="152" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace min="0" pref="661" max="32767" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="txtPuertaHabitacionCrear" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtId_Tipo_Habitacion" alignment="0" max="32767" attributes="0"/>
                                               <Component id="jLabel3" alignment="0" pref="170" max="32767" attributes="0"/>
                                               <Component id="lblSucursalHabitacion" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                                              <Component id="lblTipoHabitacion" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
                                               <Component id="lblPisoHabitacion" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
                                               <Component id="txtSucursalHabitacionCrear" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="txtTipoHabitacionCrear" alignment="0" max="32767" attributes="0"/>
                                               <Component id="txtPisoHabitacionCrear" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="lblPuertaHabitacion" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="txtPuertaHabitacionCrear" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace pref="201" max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="btnListarHabitacion" min="-2" max="-2" attributes="0"/>
                                               <Component id="jScrollPane9" min="-2" pref="722" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace max="32767" attributes="0"/>
+                                          <EmptySpace pref="13" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -2329,13 +2329,13 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="txtSucursalHabitacionCrear" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lblTipoHabitacion" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="txtTipoHabitacionCrear" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
                                           <Component id="lblPisoHabitacion" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="txtPisoHabitacionCrear" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="lblPuertaHabitacion" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="txtPuertaHabitacionCrear" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <Component id="btnListarHabitacion" min="-2" max="-2" attributes="0"/>
@@ -2344,16 +2344,16 @@
                                       </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblPuertaHabitacion" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblSucursalHabitacion1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtPuertaHabitacionCrear" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="txtId_Tipo_Habitacion" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="btnCrearHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnLimpiarHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnGuardarHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="28" max="32767" attributes="0"/>
+                                  <EmptySpace pref="22" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2373,14 +2373,6 @@
                               <Font name="Segoe UI" size="16" style="0"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="Sucursal"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="lblTipoHabitacion">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="16" style="0"/>
-                            </Property>
-                            <Property name="text" type="java.lang.String" value="Tipo"/>
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JLabel" name="lblPisoHabitacion">
@@ -2542,7 +2534,15 @@
                             </Property>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="txtTipoHabitacionCrear">
+                        <Component class="javax.swing.JLabel" name="lblSucursalHabitacion1">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="16" style="0"/>
+                            </Property>
+                            <Property name="text" type="java.lang.String" value="Id Tipo Habitacion"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="txtId_Tipo_Habitacion">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Segoe UI" size="16" style="0"/>

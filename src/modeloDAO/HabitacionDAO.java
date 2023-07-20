@@ -33,18 +33,13 @@ public class HabitacionDAO  implements HabitacionInterfaz{
             con = new Conexion();
             conn = con.getConectar();
 
-            // Crear el tipo de habitación y obtener el id_habitacion correspondiente
-            TipoHabitacionDAO tipoHabitacionDAO = new TipoHabitacionDAO();
-            int id_habitacion = tipoHabitacionDAO.crearTipoHabitacion("", 0, "", 0.0); // Completa los parámetros según corresponda
-
-            String query = "INSERT INTO habitaciones (id_sucursal, id_habitacion, piso, puerta, id_tipo_habitacion) VALUES (?, ?, ?, ?, ?)";
+            String query = "INSERT INTO habitaciones (id_sucursal, piso, puerta, id_tipo_habitacion) VALUES (?, ?, ?, ?)";
 
             ps = conn.prepareStatement(query);
             ps.setInt(1, id_sucursal);
-            ps.setInt(2, id_habitacion);
-            ps.setInt(3, piso);
-            ps.setInt(4, puerta);
-            ps.setInt(5, id_tipo_habitacion);
+            ps.setInt(2, piso);
+            ps.setInt(3, puerta);
+            ps.setInt(4, id_tipo_habitacion);
 
             int rowsInserted = ps.executeUpdate();
 
