@@ -68,7 +68,6 @@ public class HabitacionDAO  implements HabitacionInterfaz{
             statement.setInt(2, piso);
             statement.setInt(3, puerta);
             statement.setInt(4, tipoHabitacionId);
-            statement.setInt(5, rowIndex + 1); // Suponiendo que el índice de la tabla es el id_habitacion + 1
 
             // Ejecutar la consulta para actualizar los registros
             statement.executeUpdate();
@@ -87,23 +86,23 @@ public class HabitacionDAO  implements HabitacionInterfaz{
     public boolean actualizar(Habitacion a) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    public boolean actualizarHabitacion( int id_sucursal, int piso, int puerta, int id_tipo_habitacion)
-        {
+    public boolean actualizarHabitacion( int id_habitacion, int id_sucursal, int piso, int puerta, int id_tipo_habitacion){
             try {
-             con = new Conexion();
-             conn = con.getConectar();
+            con = new Conexion();
+            conn = con.getConectar();
 
-            String query = "EXEC sp_actualizar_habitacion ?, ?, ?, ?";
+            String query = "EXEC sp_actualizar_habitacion ?, ?, ?, ?, ?";
 
             ps = conn.prepareStatement(query);
-            ps.setInt(1, id_sucursal);
-            ps.setInt(2, piso);
-            ps.setInt(3, puerta);
-            ps.setInt(4, id_tipo_habitacion);
+            ps.setInt(1, id_habitacion);
+            ps.setInt(2, id_sucursal);
+            ps.setInt(3, piso);
+            ps.setInt(4, puerta);
+            ps.setInt(5, id_tipo_habitacion);
 
-            boolean hasResult = ps.execute();
+            int rowsUpdated = ps.executeUpdate(); // Utilizamos executeUpdate() para una consulta UPDATE
 
-                    return hasResult;
+            return rowsUpdated > 0; // Retornar true si se actualizó al menos una fila
         } catch (Exception e) {
             System.out.println("Error al actualizar la habitación: " + e.getMessage());
             return false;

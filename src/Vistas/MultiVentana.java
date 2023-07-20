@@ -1625,7 +1625,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                 {null, null, null, null, null}
             },
             new String [] {
-                "id_Sucursal", "id_Habitacion", "Piso", "Puerta", "id_Tipo_Hab"
+                "id_Habitacion", "id_Sucursal", "Piso", "Puerta", "id_Tipo_Hab"
             }
         ));
         jScrollPane9.setViewportView(tblHabitacionesCreadas);
@@ -2632,20 +2632,22 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
 
     private void btnListarHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarHabitacionActionPerformed
         // TODO add your handling code here:
+        
+
+        // Limpiar el modelo de la tabla
+        DefaultTableModel tableModel = (DefaultTableModel) tblHabitacionesCreadas.getModel();
+        tableModel.setRowCount(0);
         HabitacionDAO habitacionDAO = new HabitacionDAO();
 
         // Obtener la lista de todas las habitaciones existentes
         ArrayList<Habitacion> habitaciones = habitacionDAO.buscarTodo();
 
-        // Limpiar el modelo de la tabla
-        DefaultTableModel tableModel = (DefaultTableModel) tblHabitacionesCreadas.getModel();
-        tableModel.setRowCount(0);
-
         // Llenar la tabla con los datos de las habitaciones
         for (Habitacion habitacion : habitaciones) {
             Object[] rowData = {
-                habitacion.getSucursalId(),
                 habitacion.getIdHabitacion(),
+                habitacion.getSucursalId(),
+                
                 habitacion.getPiso(),
                 habitacion.getPuerta(),
                 habitacion.getTipoHabitacionId()
@@ -2748,19 +2750,23 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         if (tblHabitacionesCreadas.getCellEditor() != null) {
             tblHabitacionesCreadas.getCellEditor().stopCellEditing();
         }
+
         for (int rowIndex = 0; rowIndex < rowCount; rowIndex++) {
+            int id_habitacion = Integer.parseInt(modelo.getValueAt(rowIndex, 0).toString());
             int id_sucursal = Integer.parseInt(modelo.getValueAt(rowIndex, 1).toString());
             int piso = Integer.parseInt(modelo.getValueAt(rowIndex, 2).toString());
             int puerta = Integer.parseInt(modelo.getValueAt(rowIndex, 3).toString());
             int id_tipo_habitacion = Integer.parseInt(modelo.getValueAt(rowIndex, 4).toString());
 
-            habitacion.actualizarHabitacion(id_sucursal, piso, puerta, id_tipo_habitacion);
+            boolean exito = habitacion.actualizarHabitacion(id_habitacion, id_sucursal, piso, puerta, id_tipo_habitacion);
+
+            if (!exito) {
+                mostrarMensaje("Error al actualizar la habitación en la fila " + (rowIndex + 1));
+                return; // Salir del método en caso de error
+            }
         }
-    
+
         mostrarMensaje("Cambios guardados exitosamente.");
-        // Realizar acciones alternativas en caso de error
-    
-        
     }//GEN-LAST:event_btnGuardarHabitacionActionPerformed
 
     @Override
