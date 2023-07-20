@@ -7,6 +7,7 @@ package modeloDAO;
 import Configuracion.Conexion;
 import Interfaces.HabitacionInterfaz;
 import Modelo.Habitacion;
+import Modelo.TipoHabitacion;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -64,10 +65,38 @@ public class HabitacionDAO  implements HabitacionInterfaz{
     public boolean eliminar(Habitacion e) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    
+
 
     @Override
     public ArrayList<Habitacion> buscarTodo() {
-        return null;
+        ArrayList<Habitacion> habitaciones = new ArrayList<>();
+
+        try {
+            con = new Conexion();
+            conn = con.getConectar();
+
+            String query = "SELECT * FROM habitaciones";
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Habitacion habitacion = new Habitacion();
+
+                // Obtener los valores de las columnas de la tabla y asignarlos al objeto Habitacion
+                habitacion.setIdHabitacion(rs.getInt("id_habitacion"));
+                habitacion.setSucursalId(rs.getInt("id_sucursal"));
+                habitacion.setPiso(rs.getInt("piso"));
+                habitacion.setPuerta(rs.getInt("puerta"));
+                habitacion.setTipoHabitacionId(rs.getInt("id_tipo_habitacion"));
+
+                habitaciones.add(habitacion);
+            }
+        } catch (Exception e) {
+            System.out.println("Error al buscar todas las habitaciones: " + e.getMessage());
+        }
+
+        return habitaciones;
     }
     public ArrayList<Habitacion> buscarTodoPorSucursal(int id_sucursal) {
     ArrayList<Habitacion> habitaciones = new ArrayList<>();
