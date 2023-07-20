@@ -36,6 +36,12 @@ CREATE TABLE tipo_habitacion (
     descripcion VARCHAR(255),
     precio DECIMAL(10, 2)
 );
+INSERT INTO habitaciones (id_sucursal, piso, puerta, id_tipo_habitacion) VALUES (1, 5, 2, 4)
+go
+SELECT * from habitaciones
+go
+DELETE FROM tipo_habitacion
+WHERE id_tipo_habitacion = 16;
 
 CREATE TABLE habitaciones (
     id_sucursal INT,
