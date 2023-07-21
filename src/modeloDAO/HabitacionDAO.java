@@ -50,6 +50,27 @@ public class HabitacionDAO  implements HabitacionInterfaz{
             return false;
         }
     }
+    public boolean crearHabitacion_creHab(int id_sucursal, int piso, int puerta, int id_tipo_habitacion) {
+        try {
+            con = new Conexion();
+            conn = con.getConectar();
+
+            String query = "INSERT INTO habitaciones (id_sucursal, piso, puerta, id_tipo_habitacion) VALUES (?, ?, ?, ?)";
+
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, id_sucursal);
+            ps.setInt(2, piso);
+            ps.setInt(3, puerta);
+            ps.setInt(4, id_tipo_habitacion);
+
+            ps.executeUpdate();
+
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error al crear habitación: " + e.getMessage());
+            return false;
+        }
+    }
     public boolean guardarCambios(DefaultTableModel tableModel) {
         int rowCount = tableModel.getRowCount();
         try {

@@ -75,7 +75,6 @@ public class SucursalDAO implements SucursalInterfaz{
 
                 sucursal.setIdSucursal(rs.getInt("id_sucursal"));
                 sucursal.setNombre(rs.getString("nombre"));
-                sucursal.setIdSucursal(rs.getInt("id_sucursal"));
                 sucursal.setCiudad(rs.getString("ciudad"));
                 sucursal.setDistrito(rs.getString("distrito"));
                 sucursal.setDireccion(rs.getString("direccion"));
