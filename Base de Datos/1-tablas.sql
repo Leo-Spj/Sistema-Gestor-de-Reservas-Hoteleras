@@ -26,8 +26,6 @@ CREATE TABLE sucursal (
 
     FOREIGN KEY (id_empresa_hotel) REFERENCES empresa_hotelera (id_empresa_hotel)
 );
-SELECT * FROM empleados
-GO
 
 CREATE TABLE tipo_habitacion (
     id_tipo_habitacion INT PRIMARY KEY IDENTITY(1, 1),
@@ -36,12 +34,6 @@ CREATE TABLE tipo_habitacion (
     descripcion VARCHAR(255),
     precio DECIMAL(10, 2)
 );
-INSERT INTO habitaciones (id_sucursal, piso, puerta, id_tipo_habitacion) VALUES (1, 5, 2, 4)
-go
-SELECT * from habitaciones
-go
-DELETE FROM tipo_habitacion
-WHERE id_tipo_habitacion = 16;
 
 CREATE TABLE habitaciones (
     id_sucursal INT,
@@ -53,16 +45,12 @@ CREATE TABLE habitaciones (
     FOREIGN KEY (id_sucursal) REFERENCES sucursal (id_sucursal),
     FOREIGN KEY (id_tipo_habitacion) REFERENCES tipo_habitacion (id_tipo_habitacion)
 );
-SELECT * FROM tipo_habitacion
-go
 
 CREATE TABLE cargos (
     id_cargo INT PRIMARY KEY IDENTITY(1, 1),
     nombre VARCHAR(255),
     descripcion VARCHAR(255)
 );
-
-
 
 CREATE TABLE empleados (
     id_empleado INT PRIMARY KEY IDENTITY(1, 1),
@@ -78,17 +66,12 @@ CREATE TABLE empleados (
     FOREIGN KEY (id_cargo) REFERENCES cargos (id_cargo)
 )
 
-DELETE FROM tipo_habitacion WHERE id_tipo_habitacion IN (7);
-
 CREATE TABLE clientes (
     dni_cliente INT PRIMARY KEY,
     nombre VARCHAR(255),
     apellido VARCHAR(255),
     celular VARCHAR(255)
 );
-
-
-
 
 CREATE TABLE reserva (
     id_reserva INT PRIMARY KEY IDENTITY(1, 1),
