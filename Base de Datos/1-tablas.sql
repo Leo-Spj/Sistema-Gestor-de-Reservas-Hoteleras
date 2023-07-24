@@ -26,6 +26,9 @@ CREATE TABLE sucursal (
 
     FOREIGN KEY (id_empresa_hotel) REFERENCES empresa_hotelera (id_empresa_hotel)
 );
+--añadiendo a sucursal la columna estado de tipo bit y not null y default 1
+ALTER TABLE sucursal
+ADD estado bit NOT NULL DEFAULT 1;
 
 CREATE TABLE tipo_habitacion (
     id_tipo_habitacion INT PRIMARY KEY IDENTITY(1, 1),
@@ -34,6 +37,9 @@ CREATE TABLE tipo_habitacion (
     descripcion VARCHAR(255),
     precio DECIMAL(10, 2)
 );
+--añaadiendo a tipo_habitacion la columna estado de tipo bit y not null y default 1
+ALTER TABLE tipo_habitacion
+ADD estado bit NOT NULL DEFAULT 1;
 
 CREATE TABLE habitaciones (
     id_sucursal INT,
@@ -45,6 +51,15 @@ CREATE TABLE habitaciones (
     FOREIGN KEY (id_sucursal) REFERENCES sucursal (id_sucursal),
     FOREIGN KEY (id_tipo_habitacion) REFERENCES tipo_habitacion (id_tipo_habitacion)
 );
+--añadiendo a habitaciones la columna estado de tipo bit y not null y default 1
+ALTER TABLE habitaciones
+ADD estado bit NOT NULL DEFAULT 1;
+
+--añadiendo constrains a id_sucursal delete restrict y update cascade
+ALTER TABLE habitaciones
+ADD CONSTRAINT fk_id_sucursal
+FOREIGN KEY (id_sucursal) REFERENCES sucursal (id_sucursal)
+ON UPDATE CASCADE;
 
 CREATE TABLE cargos (
     id_cargo INT PRIMARY KEY IDENTITY(1, 1),
@@ -65,6 +80,12 @@ CREATE TABLE empleados (
     FOREIGN KEY (id_sucursal) REFERENCES sucursal (id_sucursal),
     FOREIGN KEY (id_cargo) REFERENCES cargos (id_cargo)
 )
+--añaadiendo constrains a id_sucursal delete set null y update cascade 
+ALTER TABLE empleados
+ADD CONSTRAINT fk_id_sucursal_empleados
+FOREIGN KEY (id_sucursal) REFERENCES sucursal (id_sucursal)
+ON UPDATE CASCADE
+ON DELETE SET NULL;
 
 CREATE TABLE clientes (
     dni_cliente INT PRIMARY KEY,
@@ -88,6 +109,18 @@ CREATE TABLE reserva (
     FOREIGN KEY (id_empleado) REFERENCES empleados (id_empleado),
     FOREIGN KEY (dni_cliente) REFERENCES clientes (dni_cliente)
 );
+--añadiendo constrains a id_empleado update cascade
+ALTER TABLE reserva
+ADD CONSTRAINT fk_id_empleado
+FOREIGN KEY (id_empleado) REFERENCES empleados (id_empleado)
+ON UPDATE CASCADE;
+
+--añadiendo constrains a dni_cliente delete set null y update cascade
+ALTER TABLE reserva
+ADD CONSTRAINT fk_dni_cliente
+FOREIGN KEY (dni_cliente) REFERENCES clientes (dni_cliente)
+ON UPDATE CASCADE
+ON DELETE SET NULL;
 
 CREATE TABLE boleta (
     id_boleta INT PRIMARY KEY IDENTITY(1, 1),

@@ -120,10 +120,9 @@ BEGIN
     VALUES (@id_sucursal, @piso, @puerta, @id_tipo_habitacion)
 END
 GO
---Store procedure para actualizar habitaciones
-DROP PROCEDURE sp_actualizar_habitacion
-go
 
+--Store procedure para actualizar habitaciones
+go
 CREATE PROCEDURE sp_actualizar_habitacion
     @id_habitacion INT,
     @id_sucursal INT,
@@ -187,6 +186,7 @@ BEGIN
     WHERE dni_cliente = @dni_cliente
 END
 GO
+
 --store procedure para actualizar empleado
 CREATE PROCEDURE sp_actualizar_empleado
     @id_sucursal INT,
@@ -283,6 +283,8 @@ AS
 RETURN
     SELECT h.id_habitacion
     FROM habitaciones AS h
+    JOIN tipo_habitacion AS th ON h.id_tipo_habitacion = th.id_tipo_habitacion
+    JOIN sucursal AS s ON h.id_sucursal = s.id_sucursal
     WHERE h.id_habitacion NOT IN (
         SELECT id_habitacion
         FROM reserva
@@ -292,7 +294,10 @@ RETURN
         AND estado = 'Pagado'
 
     )
-    AND h.id_sucursal = @id_sucursal;
+    AND h.id_sucursal = @id_sucursal
+    AND h.estado = 1
+    AND th.estado = 1
+    AND s.estado = 1
 GO
 
 -- Funcion que retorna la cantidad de personas que quieren reservar una habitacion en un rango de fechas
