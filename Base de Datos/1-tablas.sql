@@ -61,6 +61,13 @@ ADD CONSTRAINT fk_id_sucursal
 FOREIGN KEY (id_sucursal) REFERENCES sucursal (id_sucursal)
 ON UPDATE CASCADE;
 
+-- no se puede repetir en una sucursal habitaciones con el mismo piso y puerta
+ALTER TABLE habitaciones
+ADD CONSTRAINT UQ_sucursal_piso_puerta 
+UNIQUE (id_sucursal, piso, puerta);
+
+
+
 CREATE TABLE cargos (
     id_cargo INT PRIMARY KEY IDENTITY(1, 1),
     nombre VARCHAR(255),

@@ -382,7 +382,7 @@ CREATE FUNCTION funcion_buscar_reservas_DNI(
 RETURNS TABLE
 AS
 RETURN
-    SELECT id_reserva, estado, s.nombre AS sucursal, 
+    SELECT id_reserva, r.estado, s.nombre AS sucursal, 
         e.dni_empleado AS 'Responsable de la reserva', h.id_habitacion,
         CONCAT(h.piso,'-',h.puerta) AS 'Habitacion',
         th.tipo, th.precio AS 'Precio por noche', fecha_inicio, fecha_fin, 
