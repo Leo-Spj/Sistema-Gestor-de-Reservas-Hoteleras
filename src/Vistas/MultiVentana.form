@@ -1207,7 +1207,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="219" max="-2" attributes="0"/>
                               <Component id="jPanel11" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="579" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1257,10 +1257,6 @@
                                                           <Component id="txtFonoClienteModificar" min="-2" pref="145" max="-2" attributes="0"/>
                                                       </Group>
                                                       <Group type="102" alignment="0" attributes="0">
-                                                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                                                          <Component id="jLabel37" min="-2" pref="175" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="102" alignment="0" attributes="0">
                                                           <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                                                           <Component id="lblDNIMod" min="-2" pref="43" max="-2" attributes="0"/>
                                                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
@@ -1286,6 +1282,11 @@
                                       </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jLabel37" min="-2" pref="237" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1541,26 +1542,22 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
                                           <EmptySpace min="-2" pref="193" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="lblDNIPersonal" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="txtDNIPersonalAgregar" min="-2" pref="125" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
-                                                  <Component id="btnBuscarPersonal" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
-                                                  <Component id="jLabel28" min="-2" pref="176" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
+                                          <Component id="lblDNIPersonal" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="txtDNIPersonalAgregar" min="-2" pref="125" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+                                          <Component id="btnBuscarPersonal" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                                           <Component id="pnlPersonalNoRegistrado" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="296" max="-2" attributes="0"/>
+                                          <Component id="jLabel28" min="-2" pref="223" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace pref="323" max="32767" attributes="0"/>
+                                  <EmptySpace pref="341" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1961,31 +1958,39 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                          <Component id="lblPrecioTipoHabitacion" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="txtPrecioTipoHabitacionAdmin" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Component id="lblNombreTipoHabitacion" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblPrecioTipoHabitacion1" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblPrecioTipoHabitacion2" min="-2" max="-2" attributes="0"/>
-                                          </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jLabel20" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="txtTipoHabitacion" max="32767" attributes="0"/>
-                                              <Component id="txtDescTipoHabitacion" max="32767" attributes="0"/>
-                                              <Component id="txtCapHabiAdmin" max="32767" attributes="0"/>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <EmptySpace min="0" pref="1" max="32767" attributes="0"/>
-                                                  <Component id="btnCrearTipoHabitacion" min="-2" pref="75" max="-2" attributes="0"/>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="btnLimpiarTipoHabitacion1" min="-2" pref="109" max="-2" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                                  <Component id="lblPrecioTipoHabitacion" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="txtPrecioTipoHabitacionAdmin" max="32767" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <Group type="103" groupAlignment="1" attributes="0">
+                                                      <Component id="lblNombreTipoHabitacion" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblPrecioTipoHabitacion1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="lblPrecioTipoHabitacion2" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="txtTipoHabitacion" max="32767" attributes="0"/>
+                                                      <Component id="txtDescTipoHabitacion" max="32767" attributes="0"/>
+                                                      <Component id="txtCapHabiAdmin" max="32767" attributes="0"/>
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <EmptySpace min="0" pref="1" max="32767" attributes="0"/>
+                                                          <Component id="btnCrearTipoHabitacion" min="-2" pref="75" max="-2" attributes="0"/>
+                                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                          <Component id="btnLimpiarTipoHabitacion1" min="-2" pref="109" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -2008,11 +2013,6 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                              </Group>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
@@ -2032,7 +2032,6 @@
                                                   <Component id="btnGuardarTipoHabitacion" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="1" attributes="0">
-                                                  <EmptySpace max="32767" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
                                                       <Component id="lblNombreTipoHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="txtTipoHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2278,21 +2277,19 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Component id="jPanel10" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jLabel3" alignment="1" min="-2" pref="313" max="-2" attributes="0"/>
+                                      <Component id="jPanel10" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace pref="63" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="btnGuardarHabitacion" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnListarHabitacion" min="-2" max="-2" attributes="0"/>
                                       <Component id="jScrollPane9" alignment="0" min="-2" pref="706" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel3" min="-2" pref="170" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace pref="64" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2432,29 +2429,27 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabel17" min="-2" pref="65" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="jLabel18" min="-2" pref="43" max="-2" attributes="0"/>
+                                          <Component id="jLabel17" min="-2" pref="71" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="cbxTipo_creHab" max="32767" attributes="0"/>
+                                          <Component id="cbxSucursal_creHab" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="1" attributes="0">
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="cbxTipo_creHab" max="32767" attributes="0"/>
-                                                  <Component id="cbxSucursal_creHab" max="32767" attributes="0"/>
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="spnrPiso_creHab" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
-                                                          <Component id="jLabel19" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <EmptySpace pref="26" max="32767" attributes="0"/>
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="jLabel21" min="-2" pref="43" max="-2" attributes="0"/>
-                                                          <Component id="spnrPuerta_creHab" min="-2" pref="85" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
+                                                  <Component id="spnrPiso_creHab" pref="85" max="32767" attributes="0"/>
+                                                  <Component id="jLabel19" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace pref="26" max="32767" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="spnrPuerta_creHab" pref="85" max="32767" attributes="0"/>
+                                                  <Component id="jLabel21" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <Component id="jLabel18" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace pref="12" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace max="32767" attributes="0"/>
@@ -2500,7 +2495,10 @@
                                   <Color blue="59" green="4c" red="ab" type="rgb"/>
                                 </Property>
                                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                                  <Font name="Segoe UI" size="16" style="0"/>
+                                  <Font name="Segoe UI" size="16" style="1"/>
+                                </Property>
+                                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
                                 </Property>
                                 <Property name="text" type="java.lang.String" value="Crear"/>
                               </Properties>
