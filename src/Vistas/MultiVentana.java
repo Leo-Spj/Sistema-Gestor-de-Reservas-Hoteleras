@@ -1685,8 +1685,18 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         });
 
         spnrPiso_creHab.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        spnrPiso_creHab.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                spnrPiso_creHabStateChanged(evt);
+            }
+        });
 
         spnrPuerta_creHab.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        spnrPuerta_creHab.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                spnrPuerta_creHabStateChanged(evt);
+            }
+        });
 
         jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jLabel21.setText("Puerta");
@@ -2728,6 +2738,22 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         }
 
     }//GEN-LAST:event_txtDNIClienteModKeyPressed
+
+    private void spnrPiso_creHabStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spnrPiso_creHabStateChanged
+        
+        int selectedValue = (int) spnrPiso_creHab.getValue();
+        if (selectedValue <= 0) {
+            spnrPiso_creHab.setValue(1);
+        }
+            
+    }//GEN-LAST:event_spnrPiso_creHabStateChanged
+
+    private void spnrPuerta_creHabStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_spnrPuerta_creHabStateChanged
+        int selectedValue = (int) spnrPuerta_creHab.getValue();
+        if (selectedValue <= 0) {
+            spnrPuerta_creHab.setValue(1);
+        }
+    }//GEN-LAST:event_spnrPuerta_creHabStateChanged
     private void mostrarMensaje(String mensaje) {
         // Aquí va el código para mostrar un mensaje en la interfaz gráfica
         // Puedes utilizar un cuadro de diálogo, un componente de texto o cualquier otro método apropiado para mostrar el mensaje

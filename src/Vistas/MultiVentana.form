@@ -2512,6 +2512,9 @@
                                   <Font name="Segoe UI" size="16" style="0"/>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="spnrPiso_creHabStateChanged"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JSpinner" name="spnrPuerta_creHab">
                               <Properties>
@@ -2519,6 +2522,9 @@
                                   <Font name="Segoe UI" size="16" style="0"/>
                                 </Property>
                               </Properties>
+                              <Events>
+                                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="spnrPuerta_creHabStateChanged"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel21">
                               <Properties>
