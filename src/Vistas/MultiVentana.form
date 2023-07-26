@@ -1945,7 +1945,7 @@
                               <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="47" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1962,38 +1962,30 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                                          <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="58" max="32767" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                                          <Component id="lblPrecioTipoHabitacion" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="txtPrecioTipoHabitacionAdmin" max="32767" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="lblNombreTipoHabitacion" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblPrecioTipoHabitacion1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lblPrecioTipoHabitacion2" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                                  <Component id="lblPrecioTipoHabitacion" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="txtPrecioTipoHabitacionAdmin" max="32767" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" attributes="0">
-                                                  <Group type="103" groupAlignment="1" attributes="0">
-                                                      <Component id="lblNombreTipoHabitacion" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="lblPrecioTipoHabitacion1" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="btnCrearTipoHabitacion" alignment="1" min="-2" pref="75" max="-2" attributes="0"/>
-                                                      <Component id="lblPrecioTipoHabitacion2" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="txtTipoHabitacion" max="32767" attributes="0"/>
-                                                      <Component id="txtDescTipoHabitacion" max="32767" attributes="0"/>
-                                                      <Group type="102" attributes="0">
-                                                          <Component id="btnLimpiarTipoHabitacion1" min="-2" pref="109" max="-2" attributes="0"/>
-                                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                                      </Group>
-                                                      <Component id="txtCapHabiAdmin" max="32767" attributes="0"/>
-                                                  </Group>
+                                              <Component id="txtTipoHabitacion" max="32767" attributes="0"/>
+                                              <Component id="txtDescTipoHabitacion" max="32767" attributes="0"/>
+                                              <Component id="txtCapHabiAdmin" max="32767" attributes="0"/>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <EmptySpace min="0" pref="1" max="32767" attributes="0"/>
+                                                  <Component id="btnCrearTipoHabitacion" min="-2" pref="75" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="btnLimpiarTipoHabitacion1" min="-2" pref="109" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -2009,12 +2001,17 @@
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="btnGuardarTipoHabitacion" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
                                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                           <Component id="jScrollPane10" min="-2" pref="687" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2023,22 +2020,24 @@
                               <Group type="102" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="lblNombreTipoHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="btnListarTipoHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtTipoHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <Component id="jScrollPane10" min="-2" pref="127" max="-2" attributes="0"/>
-                                                  <EmptySpace pref="9" max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="btnListarTipoHabitacion" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jScrollPane10" min="-2" pref="118" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="32767" attributes="0"/>
                                                   <Component id="btnGuardarTipoHabitacion" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <Group type="102" attributes="0">
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Group type="103" groupAlignment="3" attributes="0">
+                                                      <Component id="lblNombreTipoHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="txtTipoHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
                                                       <Component id="lblPrecioTipoHabitacion1" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                                                       <Component id="txtCapHabiAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2053,10 +2052,10 @@
                                                       <Component id="txtPrecioTipoHabitacionAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="lblPrecioTipoHabitacion" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="3" attributes="0">
-                                                      <Component id="btnCrearTipoHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
                                                       <Component id="btnLimpiarTipoHabitacion1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="btnCrearTipoHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
@@ -2279,81 +2278,44 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
+                              <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Component id="jPanel10" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <Component id="btnCrearHabitacion" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                                                  <Component id="btnLimpiarHabitacion" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
-                                                  <Component id="btnGuardarHabitacion" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="lblSucursalHabitacion1" alignment="0" min="-2" pref="152" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="txtId_Tipo_Habitacion" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jLabel3" alignment="0" pref="170" max="32767" attributes="0"/>
-                                              <Component id="lblSucursalHabitacion" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                                              <Component id="lblPisoHabitacion" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
-                                              <Component id="txtSucursalHabitacionCrear" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="txtPisoHabitacionCrear" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="lblPuertaHabitacion" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtPuertaHabitacionCrear" alignment="0" max="32767" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace pref="201" max="32767" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="btnListarHabitacion" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jScrollPane9" min="-2" pref="722" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace pref="13" max="32767" attributes="0"/>
-                                      </Group>
+                                      <Component id="btnGuardarHabitacion" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnListarHabitacion" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane9" alignment="0" min="-2" pref="706" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel3" min="-2" pref="170" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="lblSucursalHabitacion" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="txtSucursalHabitacionCrear" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lblPisoHabitacion" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="txtPisoHabitacionCrear" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lblPuertaHabitacion" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="txtPuertaHabitacionCrear" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jPanel10" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                                           <Component id="btnListarHabitacion" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jScrollPane9" min="-2" pref="127" max="-2" attributes="0"/>
+                                          <Component id="jScrollPane9" min="-2" pref="111" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="btnGuardarHabitacion" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblSucursalHabitacion1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtId_Tipo_Habitacion" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="btnCrearHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnLimpiarHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnGuardarHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace pref="22" max="32767" attributes="0"/>
+                                  <EmptySpace pref="83" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2365,44 +2327,6 @@
                               <Font name="Consolas" size="16" style="1"/>
                             </Property>
                             <Property name="text" type="java.lang.String" value="Crear Habitaciones"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="lblSucursalHabitacion">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="16" style="0"/>
-                            </Property>
-                            <Property name="text" type="java.lang.String" value="Sucursal"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="lblPisoHabitacion">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="16" style="0"/>
-                            </Property>
-                            <Property name="text" type="java.lang.String" value="Piso"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JTextField" name="txtPisoHabitacionCrear">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="16" style="0"/>
-                            </Property>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="lblPuertaHabitacion">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="16" style="0"/>
-                            </Property>
-                            <Property name="text" type="java.lang.String" value="Puerta"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JTextField" name="txtPuertaHabitacionCrear">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="16" style="0"/>
-                            </Property>
                           </Properties>
                         </Component>
                         <Container class="javax.swing.JScrollPane" name="jScrollPane9">
@@ -2479,40 +2403,6 @@
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarHabitacionActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JButton" name="btnCrearHabitacion">
-                          <Properties>
-                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="59" green="4c" red="ab" type="rgb"/>
-                            </Property>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="16" style="1"/>
-                            </Property>
-                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                            </Property>
-                            <Property name="text" type="java.lang.String" value="Crear"/>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCrearHabitacionActionPerformed"/>
-                          </Events>
-                        </Component>
-                        <Component class="javax.swing.JButton" name="btnLimpiarHabitacion">
-                          <Properties>
-                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="59" green="4c" red="ab" type="rgb"/>
-                            </Property>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="16" style="1"/>
-                            </Property>
-                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                            </Property>
-                            <Property name="text" type="java.lang.String" value="Limpiar"/>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimpiarHabitacionActionPerformed"/>
-                          </Events>
-                        </Component>
                         <Component class="javax.swing.JButton" name="btnListarHabitacion">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -2530,238 +2420,178 @@
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnListarHabitacionActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="txtSucursalHabitacionCrear">
+                        <Container class="javax.swing.JPanel" name="jPanel10">
                           <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="16" style="0"/>
+                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="ce" green="d6" red="dd" type="rgb"/>
                             </Property>
                           </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="lblSucursalHabitacion1">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="16" style="0"/>
-                            </Property>
-                            <Property name="text" type="java.lang.String" value="Id Tipo Habitacion"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JTextField" name="txtId_Tipo_Habitacion">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="16" style="0"/>
-                            </Property>
-                          </Properties>
-                        </Component>
-                      </SubComponents>
-                    </Container>
-                  </SubComponents>
-                </Container>
-                <Container class="javax.swing.JPanel" name="jPanel2">
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ce" green="d6" red="dd" type="rgb"/>
-                    </Property>
-                  </Properties>
-                  <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                      <JTabbedPaneConstraints tabName="tab4">
-                        <Property name="tabTitle" type="java.lang.String" value="tab4"/>
-                      </JTabbedPaneConstraints>
-                    </Constraint>
-                  </Constraints>
 
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
-                              <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="126" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                              <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="378" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                    </DimensionLayout>
-                  </Layout>
-                  <SubComponents>
-                    <Container class="javax.swing.JPanel" name="jPanel9">
-                      <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ce" green="d6" red="dd" type="rgb"/>
-                        </Property>
-                      </Properties>
-
-                      <Layout>
-                        <DimensionLayout dim="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabel17" min="-2" pref="65" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="cbxTipo_creHab" max="32767" attributes="0"/>
-                                              <Component id="cbxSucursal_creHab" max="32767" attributes="0"/>
-                                              <Component id="jLabel16" max="32767" attributes="0"/>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="spnrPiso_creHab" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
-                                                      <Component id="jLabel19" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel21" min="-2" pref="43" max="-2" attributes="0"/>
-                                                      <Component id="spnrPuerta_creHab" min="-2" pref="85" max="-2" attributes="0"/>
+                          <Layout>
+                            <DimensionLayout dim="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jLabel17" min="-2" pref="65" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="cbxTipo_creHab" max="32767" attributes="0"/>
+                                                  <Component id="cbxSucursal_creHab" max="32767" attributes="0"/>
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="spnrPiso_creHab" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
+                                                          <Component id="jLabel19" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace pref="26" max="32767" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="jLabel21" min="-2" pref="43" max="-2" attributes="0"/>
+                                                          <Component id="spnrPuerta_creHab" min="-2" pref="85" max="-2" attributes="0"/>
+                                                      </Group>
                                                   </Group>
                                               </Group>
-                                              <Component id="btnCrear_creHab" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
                                           </Group>
+                                          <Component id="jLabel18" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jLabel18" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="64" max="32767" attributes="0"/>
-                                  <Component id="jScrollPane5" min="-2" pref="586" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="btnCrear_creHab" min="-2" pref="196" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                          </Group>
-                        </DimensionLayout>
-                        <DimensionLayout dim="1">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="35" pref="35" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="cbxSucursal_creHab" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="cbxTipo_creHab" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="spnrPiso_creHab" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="spnrPuerta_creHab" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
+                            </DimensionLayout>
+                            <DimensionLayout dim="1">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="cbxSucursal_creHab" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jScrollPane5" alignment="1" min="-2" pref="125" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="cbxTipo_creHab" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="spnrPiso_creHab" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="spnrPuerta_creHab" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="btnCrear_creHab" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace pref="42" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="34" max="32767" attributes="0"/>
-                                  <Component id="btnCrear_creHab" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
                               </Group>
-                          </Group>
-                        </DimensionLayout>
-                      </Layout>
-                      <SubComponents>
-                        <Component class="javax.swing.JComboBox" name="cbxSucursal_creHab">
-                          <Properties>
-                            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="4">
-                                <StringItem index="0" value="Item 1"/>
-                                <StringItem index="1" value="Item 2"/>
-                                <StringItem index="2" value="Item 3"/>
-                                <StringItem index="3" value="Item 4"/>
-                              </StringArray>
-                            </Property>
-                          </Properties>
-                          <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                          </AuxValues>
-                        </Component>
-                        <Component class="javax.swing.JComboBox" name="cbxTipo_creHab">
-                          <Properties>
-                            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                              <StringArray count="4">
-                                <StringItem index="0" value="Item 1"/>
-                                <StringItem index="1" value="Item 2"/>
-                                <StringItem index="2" value="Item 3"/>
-                                <StringItem index="3" value="Item 4"/>
-                              </StringArray>
-                            </Property>
-                          </Properties>
-                          <AuxValues>
-                            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-                          </AuxValues>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel18">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Tipo"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel17">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Sucursal"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel16">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Crear habitaci&#xf3;n"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel19">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Piso"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="jLabel21">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Puerta"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JSpinner" name="spnrPuerta_creHab">
-                        </Component>
-                        <Component class="javax.swing.JSpinner" name="spnrPiso_creHab">
-                        </Component>
-                        <Container class="javax.swing.JScrollPane" name="jScrollPane5">
-                          <AuxValues>
-                            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-                          </AuxValues>
-
-                          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                            </DimensionLayout>
+                          </Layout>
                           <SubComponents>
-                            <Component class="javax.swing.JTable" name="tblHabitaciones_creHab">
+                            <Component class="javax.swing.JButton" name="btnCrear_creHab">
                               <Properties>
-                                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                                  <Table columnCount="4" rowCount="4">
-                                    <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                                    <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                                    <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                                    <Column editable="true" title="Title 4" type="java.lang.Object"/>
-                                  </Table>
+                                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                                  <Color blue="59" green="4c" red="ab" type="rgb"/>
                                 </Property>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Segoe UI" size="16" style="0"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Crear"/>
+                              </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCrear_creHabActionPerformed"/>
+                              </Events>
+                            </Component>
+                            <Component class="javax.swing.JSpinner" name="spnrPiso_creHab">
+                              <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Segoe UI" size="16" style="0"/>
+                                </Property>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JSpinner" name="spnrPuerta_creHab">
+                              <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Segoe UI" size="16" style="0"/>
+                                </Property>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel21">
+                              <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Segoe UI" size="16" style="0"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Puerta"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel19">
+                              <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Segoe UI" size="16" style="0"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Piso"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JComboBox" name="cbxTipo_creHab">
+                              <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Segoe UI" size="16" style="0"/>
+                                </Property>
+                                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                  <StringArray count="4">
+                                    <StringItem index="0" value="Item 1"/>
+                                    <StringItem index="1" value="Item 2"/>
+                                    <StringItem index="2" value="Item 3"/>
+                                    <StringItem index="3" value="Item 4"/>
+                                  </StringArray>
+                                </Property>
+                              </Properties>
+                              <AuxValues>
+                                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                              </AuxValues>
+                            </Component>
+                            <Component class="javax.swing.JComboBox" name="cbxSucursal_creHab">
+                              <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Segoe UI" size="16" style="0"/>
+                                </Property>
+                                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                                  <StringArray count="4">
+                                    <StringItem index="0" value="Item 1"/>
+                                    <StringItem index="1" value="Item 2"/>
+                                    <StringItem index="2" value="Item 3"/>
+                                    <StringItem index="3" value="Item 4"/>
+                                  </StringArray>
+                                </Property>
+                              </Properties>
+                              <AuxValues>
+                                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                              </AuxValues>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel17">
+                              <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Segoe UI" size="16" style="0"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Sucursal"/>
+                              </Properties>
+                            </Component>
+                            <Component class="javax.swing.JLabel" name="jLabel18">
+                              <Properties>
+                                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                                  <Font name="Segoe UI" size="16" style="0"/>
+                                </Property>
+                                <Property name="text" type="java.lang.String" value="Tipo"/>
                               </Properties>
                             </Component>
                           </SubComponents>
                         </Container>
-                        <Component class="javax.swing.JButton" name="btnCrear_creHab">
-                          <Properties>
-                            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="59" green="4c" red="ab" type="rgb"/>
-                            </Property>
-                            <Property name="text" type="java.lang.String" value="Crear"/>
-                          </Properties>
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCrear_creHabActionPerformed"/>
-                          </Events>
-                        </Component>
                       </SubComponents>
                     </Container>
                   </SubComponents>

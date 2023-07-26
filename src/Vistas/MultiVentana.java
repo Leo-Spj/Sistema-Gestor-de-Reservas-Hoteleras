@@ -374,34 +374,20 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         btnGuardarTipoHabitacion = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        lblSucursalHabitacion = new javax.swing.JLabel();
-        lblPisoHabitacion = new javax.swing.JLabel();
-        txtPisoHabitacionCrear = new javax.swing.JTextField();
-        lblPuertaHabitacion = new javax.swing.JLabel();
-        txtPuertaHabitacionCrear = new javax.swing.JTextField();
         jScrollPane9 = new javax.swing.JScrollPane();
         tblHabitacionesCreadas = new javax.swing.JTable();
         btnGuardarHabitacion = new javax.swing.JButton();
-        btnCrearHabitacion = new javax.swing.JButton();
-        btnLimpiarHabitacion = new javax.swing.JButton();
         btnListarHabitacion = new javax.swing.JButton();
-        txtSucursalHabitacionCrear = new javax.swing.JTextField();
-        lblSucursalHabitacion1 = new javax.swing.JLabel();
-        txtId_Tipo_Habitacion = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
-        cbxSucursal_creHab = new javax.swing.JComboBox<>();
-        cbxTipo_creHab = new javax.swing.JComboBox<>();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        spnrPuerta_creHab = new javax.swing.JSpinner();
-        spnrPiso_creHab = new javax.swing.JSpinner();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        tblHabitaciones_creHab = new javax.swing.JTable();
+        jPanel10 = new javax.swing.JPanel();
         btnCrear_creHab = new javax.swing.JButton();
+        spnrPiso_creHab = new javax.swing.JSpinner();
+        spnrPuerta_creHab = new javax.swing.JSpinner();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        cbxTipo_creHab = new javax.swing.JComboBox<>();
+        cbxSucursal_creHab = new javax.swing.JComboBox<>();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(221, 214, 206));
@@ -1568,33 +1554,28 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel20)
-                        .addGap(0, 58, Short.MAX_VALUE))
+                        .addGap(6, 6, 6)
+                        .addComponent(lblPrecioTipoHabitacion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtPrecioTipoHabitacionAdmin))
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblNombreTipoHabitacion)
+                            .addComponent(lblPrecioTipoHabitacion1)
+                            .addComponent(lblPrecioTipoHabitacion2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(lblPrecioTipoHabitacion)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtPrecioTipoHabitacionAdmin))
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblNombreTipoHabitacion)
-                                    .addComponent(lblPrecioTipoHabitacion1)
-                                    .addComponent(btnCrearTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblPrecioTipoHabitacion2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTipoHabitacion)
-                                    .addComponent(txtDescTipoHabitacion)
-                                    .addGroup(jPanel8Layout.createSequentialGroup()
-                                        .addComponent(btnLimpiarTipoHabitacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(txtCapHabiAdmin))))))
+                            .addComponent(txtTipoHabitacion)
+                            .addComponent(txtDescTipoHabitacion)
+                            .addComponent(txtCapHabiAdmin)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                                .addGap(0, 1, Short.MAX_VALUE)
+                                .addComponent(btnCrearTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnLimpiarTipoHabitacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1608,6 +1589,10 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                         .addGap(20, 20, 20)
                         .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 687, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(73, 73, 73))
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel20)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1617,17 +1602,19 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                 .addGap(18, 18, 18)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblNombreTipoHabitacion)
-                            .addComponent(btnListarTipoHabitacion)
-                            .addComponent(txtTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                                .addComponent(btnListarTipoHabitacion)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, Short.MAX_VALUE)
                                 .addComponent(btnGuardarTipoHabitacion))
                             .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblNombreTipoHabitacion)
+                                    .addComponent(txtTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lblPrecioTipoHabitacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtCapHabiAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1639,10 +1626,10 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txtPrecioTipoHabitacionAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblPrecioTipoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btnCrearTipoHabitacion)
-                                    .addComponent(btnLimpiarTipoHabitacion1))))
+                                    .addComponent(btnLimpiarTipoHabitacion1)
+                                    .addComponent(btnCrearTipoHabitacion))))
                         .addContainerGap())
                     .addComponent(jSeparator3)))
         );
@@ -1651,19 +1638,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
 
         jLabel3.setFont(new java.awt.Font("Consolas", 1, 16)); // NOI18N
         jLabel3.setText("Crear Habitaciones");
-
-        lblSucursalHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblSucursalHabitacion.setText("Sucursal");
-
-        lblPisoHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblPisoHabitacion.setText("Piso");
-
-        txtPisoHabitacionCrear.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-
-        lblPuertaHabitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblPuertaHabitacion.setText("Puerta");
-
-        txtPuertaHabitacionCrear.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
 
         tblHabitacionesCreadas.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         tblHabitacionesCreadas.setModel(new javax.swing.table.DefaultTableModel(
@@ -1689,26 +1663,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
             }
         });
 
-        btnCrearHabitacion.setBackground(new java.awt.Color(171, 76, 89));
-        btnCrearHabitacion.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btnCrearHabitacion.setForeground(new java.awt.Color(255, 255, 255));
-        btnCrearHabitacion.setText("Crear");
-        btnCrearHabitacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearHabitacionActionPerformed(evt);
-            }
-        });
-
-        btnLimpiarHabitacion.setBackground(new java.awt.Color(171, 76, 89));
-        btnLimpiarHabitacion.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btnLimpiarHabitacion.setForeground(new java.awt.Color(255, 255, 255));
-        btnLimpiarHabitacion.setText("Limpiar");
-        btnLimpiarHabitacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLimpiarHabitacionActionPerformed(evt);
-            }
-        });
-
         btnListarHabitacion.setBackground(new java.awt.Color(171, 76, 89));
         btnListarHabitacion.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnListarHabitacion.setForeground(new java.awt.Color(255, 255, 255));
@@ -1719,12 +1673,90 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
             }
         });
 
-        txtSucursalHabitacionCrear.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jPanel10.setBackground(new java.awt.Color(221, 214, 206));
 
-        lblSucursalHabitacion1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblSucursalHabitacion1.setText("Id Tipo Habitacion");
+        btnCrear_creHab.setBackground(new java.awt.Color(171, 76, 89));
+        btnCrear_creHab.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btnCrear_creHab.setText("Crear");
+        btnCrear_creHab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrear_creHabActionPerformed(evt);
+            }
+        });
 
-        txtId_Tipo_Habitacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        spnrPiso_creHab.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+
+        spnrPuerta_creHab.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel21.setText("Puerta");
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel19.setText("Piso");
+
+        cbxTipo_creHab.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        cbxTipo_creHab.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        cbxSucursal_creHab.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        cbxSucursal_creHab.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel17.setText("Sucursal");
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel18.setText("Tipo");
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cbxTipo_creHab, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbxSucursal_creHab, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(spnrPiso_creHab, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(spnrPuerta_creHab, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCrear_creHab, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbxSucursal_creHab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbxTipo_creHab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18))
+                .addGap(19, 19, 19)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(jLabel21))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(spnrPiso_creHab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spnrPuerta_creHab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnCrear_creHab)
+                .addContainerGap(42, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -1732,66 +1764,35 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(btnCrearHabitacion)
-                                .addGap(33, 33, 33)
-                                .addComponent(btnLimpiarHabitacion)
-                                .addGap(151, 151, 151)
-                                .addComponent(btnGuardarHabitacion))
-                            .addComponent(lblSucursalHabitacion1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtId_Tipo_Habitacion, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                            .addComponent(lblSucursalHabitacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPisoHabitacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSucursalHabitacionCrear, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPisoHabitacionCrear, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPuertaHabitacion, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPuertaHabitacionCrear, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnListarHabitacion)
-                            .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(13, Short.MAX_VALUE))))
+                    .addComponent(btnGuardarHabitacion)
+                    .addComponent(btnListarHabitacion)
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 706, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel3)
-                .addGap(10, 10, 10)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(lblSucursalHabitacion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSucursalHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblPisoHabitacion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPisoHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblPuertaHabitacion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPuertaHabitacionCrear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
                         .addComponent(btnListarHabitacion)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblSucursalHabitacion1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtId_Tipo_Habitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCrearHabitacion)
-                    .addComponent(btnLimpiarHabitacion)
-                    .addComponent(btnGuardarHabitacion))
-                .addContainerGap(22, Short.MAX_VALUE))
+                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnGuardarHabitacion)))
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -1812,125 +1813,10 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         JTabbedPaneAdministrar.addTab("Habitaciones", jPanel1);
-
-        jPanel2.setBackground(new java.awt.Color(221, 214, 206));
-
-        jPanel9.setBackground(new java.awt.Color(221, 214, 206));
-
-        cbxSucursal_creHab.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        cbxTipo_creHab.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel18.setText("Tipo");
-
-        jLabel17.setText("Sucursal");
-
-        jLabel16.setText("Crear habitación");
-
-        jLabel19.setText("Piso");
-
-        jLabel21.setText("Puerta");
-
-        tblHabitaciones_creHab.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane5.setViewportView(tblHabitaciones_creHab);
-
-        btnCrear_creHab.setBackground(new java.awt.Color(171, 76, 89));
-        btnCrear_creHab.setText("Crear");
-        btnCrear_creHab.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrear_creHabActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cbxTipo_creHab, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cbxSucursal_creHab, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(spnrPiso_creHab, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(spnrPuerta_creHab, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(btnCrear_creHab, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel16)
-                .addGap(35, 35, 35)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cbxSucursal_creHab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel17))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cbxTipo_creHab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel18))
-                        .addGap(19, 19, 19)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel19)
-                            .addComponent(jLabel21))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(spnrPiso_creHab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(spnrPuerta_creHab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addComponent(btnCrear_creHab)
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(85, 85, 85)
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(126, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(378, Short.MAX_VALUE))
-        );
-
-        JTabbedPaneAdministrar.addTab("tab4", jPanel2);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -2365,168 +2251,255 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
 
     }//GEN-LAST:event_txtCuponSolesKeyTyped
 
-    private void btnBuscarClienteModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteModificarActionPerformed
-        // TODO add your handling code here:
-        
-            String dni = txtDNIClienteMod.getText();
-
-            if (dni.matches("\\d{8}")) {
-                int dniEmpleado = Integer.parseInt(dni);
-                Cliente cliente = new Cliente();
-                cliente.setDNI(dniEmpleado);
-
-                ClienteDAO clienteDAO = new ClienteDAO();
-                cliente = clienteDAO.buscarUno(cliente);
-                if (cliente.getNombre().equals("")) {
-                    // Mostrar aviso de cliente no encontrado
-                    
-                    JOptionPane.showMessageDialog(this, "Cliente no encontrado. Debe registrarlo.", "Aviso", JOptionPane.WARNING_MESSAGE);
-                }
-                else {
-                    txtNameClienteModificar.setText(cliente.getNombre());
-                    txtApeClienteModificar.setText(cliente.getApellido());
-                    txtFonoClienteModificar.setText(cliente.getCelular());
-
-                    
-                }
-                }
-                
-                 else {
-                // Mostrar aviso de formato de DNI incorrecto
-                
-                JOptionPane.showMessageDialog(this, "Formato de DNI incorrecto. Debe ser un número de 8 dígitos.", "Aviso", JOptionPane.WARNING_MESSAGE);
-                
-            }
-    }//GEN-LAST:event_btnBuscarClienteModificarActionPerformed
-
-    private void btnEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarClienteActionPerformed
-        // TODO add your handling code here:
-        // Obtener los valores del formulario de entrada
-        int dniCliente = Integer.parseInt(txtDNIClienteMod.getText());
-        String nombre = txtNameClienteModificar.getText();
-        String apellido = txtApeClienteModificar.getText();
-        String celular = txtFonoClienteModificar.getText();
-
-        // Mostrar un mensaje de confirmación al usuario
-        int respuesta = JOptionPane.showOptionDialog(null, "Si ejecuta la eliminación del cliente perderá todos los datos relacionados al contacto así como las reservas realizadas. ¿Desea continuar?"
-                , "Confirmar eliminación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new String[]{"Sí", "No"}, "No");
-
-        // Verificar la respuesta del usuario
-        if (respuesta == JOptionPane.YES_OPTION) {
-            // Crear una instancia del CLIENTEDAO
-            ClienteDAO cDAO = new ClienteDAO();
-
-            // Llamar al método eliminarCliente y almacenar el resultado
-            boolean eliminado = cDAO.eliminarCliente(dniCliente, nombre, apellido, celular);
-
-            // Verificar si el cliente fue eliminado exitosamente
-            if (eliminado) {
-                JOptionPane.showMessageDialog(null, "Cliente eliminado correctamente");
-                txtNameClienteModificar.setText("");
-                txtApeClienteModificar.setText("");
-                txtFonoClienteModificar.setText("");
-                txtDNIClienteMod.setText("");
-                txtNameClienteModificar.setEditable(false);
-                txtApeClienteModificar.setEditable(false);
-                txtFonoClienteModificar.setEditable(false);
-                txtNameClienteModificar.setEnabled(false);
-                txtApeClienteModificar.setEnabled(false);
-                txtFonoClienteModificar.setEnabled(false);
-            } else {
-                JOptionPane.showMessageDialog(null, "Error al eliminar cliente");
+    private void btnCrear_creHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrear_creHabActionPerformed
+        // cbxSucursal_creHab Sucursal sucursales
+        int idSucursal = 0;
+        for (Sucursal suc : sucursales) {
+            if (suc.getNombre().equals(cbxSucursal_creHab.getSelectedItem().toString())) {
+                idSucursal = suc.getIdSucursal();
+                System.out.println("Sucursal: "+idSucursal);
             }
         }
-    }//GEN-LAST:event_btnEliminarClienteActionPerformed
 
-    private void btnGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarClienteActionPerformed
+        //mediante el nombre del combo tipoHabitacion, obtenemos su id
+        int idTipoHab_creHab = 0;
+        for (TipoHabitacion th : tiposHabitacion) {
+            if (th.getTipo().equals(cbxTipo_creHab.getSelectedItem().toString())) {
+                idTipoHab_creHab = th.getIdTipoHabitacion();
+                System.out.println("Tipo: "+idTipoHab_creHab);
+            }
+        }
+
+        // IMPRIMIR EL NUMERO DEL SPINNER spnrPiso_creHab
+        System.out.println("Piso: "+spnrPiso_creHab.getValue());
+        // spnrPuerta_creHab
+        System.out.println("Piso: "+spnrPuerta_creHab.getValue());
+
+        HabitacionDAO hbDAO = new HabitacionDAO();
+        hbDAO.crearHabitacion_creHab(idSucursal, Integer.parseInt(spnrPiso_creHab.getValue().toString()), Integer.parseInt(spnrPuerta_creHab.getValue().toString()), idTipoHab_creHab);
+
+    }//GEN-LAST:event_btnCrear_creHabActionPerformed
+
+    private void btnListarHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarHabitacionActionPerformed
         // TODO add your handling code here:
-        String dni = txtDNIClienteMod.getText();
-        String nombre = txtNameClienteModificar.getText();
-        String apellido = txtApeClienteModificar.getText();
-        String celular = txtFonoClienteModificar.getText();
 
-        if (nombre.equals("") || apellido.equals("") || celular.equals("")) {
+        // Limpiar el modelo de la tabla
+        DefaultTableModel tableModel = (DefaultTableModel) tblHabitacionesCreadas.getModel();
+        tableModel.setRowCount(0);
+        HabitacionDAO habitacionDAO = new HabitacionDAO();
+
+        // Obtener la lista de todas las habitaciones existentes
+        ArrayList<Habitacion> habitaciones = habitacionDAO.buscarTodo();
+
+        // Llenar la tabla con los datos de las habitaciones
+        for (Habitacion habitacion : habitaciones) {
+            Object[] rowData = {
+                habitacion.getIdHabitacion(),
+                habitacion.getSucursalId(),
+
+                habitacion.getPiso(),
+                habitacion.getPuerta(),
+                habitacion.getTipoHabitacionId()
+            };
+            tableModel.addRow(rowData);
+        }
+    }//GEN-LAST:event_btnListarHabitacionActionPerformed
+
+    private void btnGuardarHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarHabitacionActionPerformed
+        // Obtener el modelo de la tabla
+        DefaultTableModel modelo = (DefaultTableModel) tblHabitacionesCreadas.getModel();
+        int rowCount = modelo.getRowCount();
+
+        HabitacionDAO habitacion = new HabitacionDAO();
+        if (tblHabitacionesCreadas.getCellEditor() != null) {
+            tblHabitacionesCreadas.getCellEditor().stopCellEditing();
+        }
+
+        for (int rowIndex = 0; rowIndex < rowCount; rowIndex++) {
+            int id_habitacion = Integer.parseInt(modelo.getValueAt(rowIndex, 0).toString());
+            int id_sucursal = Integer.parseInt(modelo.getValueAt(rowIndex, 1).toString());
+            int piso = Integer.parseInt(modelo.getValueAt(rowIndex, 2).toString());
+            int puerta = Integer.parseInt(modelo.getValueAt(rowIndex, 3).toString());
+            int id_tipo_habitacion = Integer.parseInt(modelo.getValueAt(rowIndex, 4).toString());
+
+            boolean exito = habitacion.actualizarHabitacion(id_habitacion, id_sucursal, piso, puerta, id_tipo_habitacion);
+
+            if (!exito) {
+                mostrarMensaje("Error al actualizar la habitación en la fila " + (rowIndex + 1));
+                return; // Salir del método en caso de error
+            }
+        }
+
+        mostrarMensaje("Cambios guardados exitosamente.");
+    }//GEN-LAST:event_btnGuardarHabitacionActionPerformed
+
+    private void btnGuardarTipoHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarTipoHabitacionActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel tableModel = (DefaultTableModel) tblTipoHabitacionesCreadas.getModel();
+        int rowCount = tableModel.getRowCount();
+
+        TipoHabitacionDAO tipoHabitacionDAO = new TipoHabitacionDAO();
+
+        // Detener la edición actual
+        if (tblTipoHabitacionesCreadas.getCellEditor() != null) {
+            tblTipoHabitacionesCreadas.getCellEditor().stopCellEditing();
+        }
+
+        // Actualizar los cambios en la base de datos
+        for (int rowIndex = 0; rowIndex < rowCount; rowIndex++) {
+            String tipo = tableModel.getValueAt(rowIndex, 1).toString();
+            int capacidad = Integer.parseInt(tableModel.getValueAt(rowIndex, 2).toString());
+            String descripcion = tableModel.getValueAt(rowIndex, 3).toString();
+            double precio = Double.parseDouble(tableModel.getValueAt(rowIndex, 4).toString());
+
+            tipoHabitacionDAO.actualizarTipoHabitacion(tipo, capacidad, descripcion, precio);
+        }
+        mostrarMensaje("Cambios guardados exitosamente.");
+    }//GEN-LAST:event_btnGuardarTipoHabitacionActionPerformed
+
+    private void btnLimpiarTipoHabitacion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarTipoHabitacion1ActionPerformed
+        // TODO add your handling code here:
+        txtTipoHabitacion.setText("");
+        txtCapHabiAdmin.setText("");
+        txtDescTipoHabitacion.setText("");
+        txtPrecioTipoHabitacionAdmin.setText("");
+    }//GEN-LAST:event_btnLimpiarTipoHabitacion1ActionPerformed
+
+    private void btnListarTipoHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarTipoHabitacionActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel modelo = (DefaultTableModel) tblTipoHabitacionesCreadas.getModel();
+        modelo.setRowCount(0); // Limpiar filas existentes en la tabla
+
+        TipoHabitacionDAO tipoHabitacionDAO = new TipoHabitacionDAO();
+        ArrayList<TipoHabitacion> tiposHabitaciones = tipoHabitacionDAO.buscarTodo();
+
+        for (TipoHabitacion tipoHabitacion : tiposHabitaciones) {
+            Object[] fila = {
+                tipoHabitacion.getIdTipoHabitacion(),
+                tipoHabitacion.getTipo(),
+                tipoHabitacion.getCapacidad(),
+                tipoHabitacion.getDescripcion(),
+                tipoHabitacion.getPrecio()
+            };
+            modelo.addRow(fila);
+        }
+    }//GEN-LAST:event_btnListarTipoHabitacionActionPerformed
+
+    private void btnCrearTipoHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearTipoHabitacionActionPerformed
+        // TODO add your handling code here:
+        String tipoHabitacion = txtTipoHabitacion.getText();
+        String capacidadStr = txtCapHabiAdmin.getText();
+        String descripcion = txtDescTipoHabitacion.getText();
+        String precioStr = txtPrecioTipoHabitacionAdmin.getText();
+
+        // Verificar que los campos no estén vacíos
+        if (tipoHabitacion.isEmpty() || capacidadStr.isEmpty() || descripcion.isEmpty() || precioStr.isEmpty()) {
+            mostrarMensaje("Por favor, llene todos los campos.");
+            return; // Salir del método sin continuar con la creación del tipo de habitación
+        }
+        if (!esNumeroEntero(capacidadStr) ||!esNumeroDecimal(precioStr)) {
+            mostrarMensaje("Ingrese solo números en los campos numéricos.");
+            return;
+        }
+
+        // Convertir los campos numéricos a valores enteros o dobles
+        int capacidad = Integer.parseInt(capacidadStr);
+        double precio = Double.parseDouble(precioStr);
+
+        TipoHabitacionDAO tipoHabitacionDAO = new TipoHabitacionDAO();
+        int idTipoHabitacion = tipoHabitacionDAO.crearTipoHabitacion(tipoHabitacion, capacidad, descripcion, precio);
+
+        if (idTipoHabitacion != -1) {
+            mostrarMensaje("Tipo de habitación creado exitosamente. ID: " + idTipoHabitacion);
+            // Realiza otras acciones necesarias después de crear el tipo de habitación, utilizando el ID obtenido
+        } else {
+            mostrarMensaje("Error al crear el tipo de habitación.");
+            // Realiza acciones alternativas en caso de error
+        }
+
+    }//GEN-LAST:event_btnCrearTipoHabitacionActionPerformed
+
+    private void btnEditarPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarPersonalActionPerformed
+        // TODO add your handling code here:
+        txtNombrePersonalAgregar.setEnabled(true);
+        txtApePersonalAgregar.setEnabled(true);
+        txtFonoPersonalAgregar.setEnabled(true);
+        txtContraseñaPersonal.setEnabled(true);
+        cbxSucursalPersonalAgregar.setEnabled(true);
+        cbxCargoPersonalAgregar.setEnabled(true);
+    }//GEN-LAST:event_btnEditarPersonalActionPerformed
+
+    private void btnModificarPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarPersonalActionPerformed
+        // TODO add your handling code here:
+        String dniText = txtDNIPersonalAgregar.getText();
+        int dni;
+        try {
+            dni = Integer.parseInt(dniText);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "El DNI debe ser un número válido.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        String nombre = txtNombrePersonalAgregar.getText();
+        String apellido = txtApePersonalAgregar.getText();
+        String celular = txtFonoPersonalAgregar.getText();
+        String contraseña = txtContraseñaPersonal.getText();
+        int idSucursal = cbxSucursalPersonalAgregar.getSelectedIndex()+1;
+        int idCargo = cbxCargoPersonalAgregar.getSelectedIndex()+1;
+
+        if (nombre.isEmpty() || apellido.isEmpty() || celular.isEmpty() || contraseña.isEmpty() || dni == -1) {
             JOptionPane.showMessageDialog(this, "Todos los campos deben estar completos.", "Aviso", JOptionPane.WARNING_MESSAGE);
         } else {
-            if (celular.matches("\\d{9}")) {
-                ClienteDAO cDAO = new ClienteDAO();
-                boolean actualizacionExitosa = cDAO.actualizarCliente( dni,nombre, apellido, celular);
-                if (actualizacionExitosa) {
-                    JOptionPane.showMessageDialog(null, "Actualización exitosa");
-                    txtNameClienteModificar.setEnabled(false);
-                    txtApeClienteModificar.setEnabled(false);
-                    txtFonoClienteModificar.setEnabled(false);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Error al actualizar el cliente", "Error", JOptionPane.ERROR_MESSAGE);
-                }
+            UsuarioLogueadoDAO empleadoDAO = new UsuarioLogueadoDAO();
+            boolean actualizarEmpleado = empleadoDAO.actualizarEmpleado(idSucursal, idCargo, dni, nombre, apellido, celular, contraseña);
+            if (actualizarEmpleado) {
+                JOptionPane.showMessageDialog(null, "Actualización exitosa");
+                txtNombrePersonalAgregar.setEnabled(false);
+                txtApePersonalAgregar.setEnabled(false);
+                txtFonoPersonalAgregar.setEnabled(false);
+                txtContraseñaPersonal.setEnabled(false);
+                cbxSucursalPersonalAgregar.setEnabled(false);
+                cbxCargoPersonalAgregar.setEnabled(false);
             } else {
-                // Mostrar aviso de formato de Celular incorrecto
-                JOptionPane.showMessageDialog(this, "Formato de celular o DNI incorrecto. Número celular debe ser de 9 dígitos y DNI de 8 dígitos.", "Aviso", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Error al actualizar el empleado", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_btnModificarPersonalActionPerformed
+
+    private void btnAgregarPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarPersonalActionPerformed
+        // TODO add your handling code here:
+        String dniText = txtDNIPersonalAgregar.getText();
+        int dni;
+        try {
+            dni = Integer.parseInt(dniText);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "El DNI debe ser un número válido.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        String nombre = txtNombrePersonalAgregar.getText();
+        String apellido = txtApePersonalAgregar.getText();
+        String celular = txtFonoPersonalAgregar.getText();
+        String contraseña = txtContraseñaPersonal.getText();
+        int idSucursal = cbxSucursalPersonalAgregar.getSelectedIndex()+1;
+        int idCargo = cbxCargoPersonalAgregar.getSelectedIndex()+1;
+        if (nombre.isEmpty() || apellido.isEmpty() || celular.isEmpty() || contraseña.isEmpty() || dni == -1 || idSucursal == -1 || idCargo == -1) {
+            JOptionPane.showMessageDialog(this, "Todos los campos deben estar completos.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        } else {
+            UsuarioLogueadoDAO empleadoDAO = new UsuarioLogueadoDAO();
+            boolean crearEmpleado = empleadoDAO.crearEmpleado(idSucursal, idCargo,dni, nombre, apellido, celular,  contraseña);
+            if (crearEmpleado) {
+                JOptionPane.showMessageDialog(null, "Creación exitosa");
+                txtNombrePersonalAgregar.setEnabled(false);
+                txtApePersonalAgregar.setEnabled(false);
+                txtFonoPersonalAgregar.setEnabled(false);
+                txtContraseñaPersonal.setEnabled(false);
+                cbxSucursalPersonalAgregar.setEnabled(false);
+                cbxCargoPersonalAgregar.setEnabled(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al crear el empleado", "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
 
-    }//GEN-LAST:event_btnGuardarClienteActionPerformed
-
-    private void btnEditarClientesModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarClientesModificarActionPerformed
-        // TODO add your handling code here:
-        txtNameClienteModificar.setEditable(true);
-        txtApeClienteModificar.setEditable(true);
-        txtFonoClienteModificar.setEditable(true);
-        txtNameClienteModificar.setEnabled(true);
-        txtApeClienteModificar.setEnabled(true);
-        txtFonoClienteModificar.setEnabled(true);
-    }//GEN-LAST:event_btnEditarClientesModificarActionPerformed
-
-    private void txtDNIClienteModKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDNIClienteModKeyPressed
-        // TODO add your handling code here:
-        validarCaracteres(evt);
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            String dni = txtDNIClienteMod.getText();
-
-            if (dni.matches("\\d{8}")) {
-                int dniCliente = Integer.parseInt(dni);
-                Cliente cliente = new Cliente();
-                cliente.setDNI(dniCliente);
-
-                ClienteDAO clienteDAO = new ClienteDAO();
-                cliente = clienteDAO.buscarUno(cliente);
-                if (cliente.getNombre().equals("")) {
-                    // Mostrar aviso de cliente no encontrado
-                    
-                    JOptionPane.showMessageDialog(this, "Cliente no encontrado. Debe registrarlo.", "Aviso", JOptionPane.WARNING_MESSAGE);
-                }
-                else {
-                    txtNameClienteModificar.setText(cliente.getNombre());
-                    txtApeClienteModificar.setText(cliente.getApellido());
-                    txtFonoClienteModificar.setText(cliente.getCelular());
-
-                    
-                }
-                }
-                
-                 else {
-                // Mostrar aviso de formato de DNI incorrecto
-                
-                JOptionPane.showMessageDialog(this, "Formato de DNI incorrecto. Debe ser un número de 8 dígitos.", "Aviso", JOptionPane.WARNING_MESSAGE);
-                
-            }
-        }
-        
-    }//GEN-LAST:event_txtDNIClienteModKeyPressed
-
-    private void btnLimpiarModifClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarModifClientesActionPerformed
-        // TODO add your handling code here:
-        txtNameClienteModificar.setText("");
-        txtApeClienteModificar.setText("");
-        txtFonoClienteModificar.setText("");
-        txtDNIClienteMod.setText("");
-        txtNameClienteModificar.setEditable(false);
-        txtApeClienteModificar.setEditable(false);
-        txtFonoClienteModificar.setEditable(false);
-        txtNameClienteModificar.setEnabled(false);
-        txtApeClienteModificar.setEnabled(false);
-        txtFonoClienteModificar.setEnabled(false);
-    }//GEN-LAST:event_btnLimpiarModifClientesActionPerformed
+    }//GEN-LAST:event_btnAgregarPersonalActionPerformed
 
     private void btnBuscarPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPersonalActionPerformed
         // TODO add your handling code here:
@@ -2577,7 +2550,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                 txtApePersonalAgregar.setText(empleado.getApellido());
                 txtFonoPersonalAgregar.setText(empleado.getCelular());
                 txtContraseñaPersonal.setText(empleado.getContraseña());
-                
 
                 cbxSucursalPersonalAgregar.setSelectedItem(empleado.getId_sucursal());
                 cbxCargoPersonalAgregar.setSelectedItem(empleado.getId_cargo());
@@ -2593,94 +2565,171 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                 btnModificarPersonal.setVisible(true);
                 btnEditarPersonal.setVisible(true);
                 btnAgregarPersonal.setVisible(false);
-                }
-            } else {
-                JOptionPane.showMessageDialog(this, "Formato de DNI incorrecto. Debe ser un número de 8 dígitos.", "Aviso", JOptionPane.WARNING_MESSAGE);
             }
-
+        } else {
+            JOptionPane.showMessageDialog(this, "Formato de DNI incorrecto. Debe ser un número de 8 dígitos.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_btnBuscarPersonalActionPerformed
 
-    private void btnAgregarPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarPersonalActionPerformed
+    private void btnLimpiarModifClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarModifClientesActionPerformed
         // TODO add your handling code here:
-        String dniText = txtDNIPersonalAgregar.getText();
-        int dni;
-        try {
-            dni = Integer.parseInt(dniText);
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "El DNI debe ser un número válido.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        String nombre = txtNombrePersonalAgregar.getText();
-        String apellido = txtApePersonalAgregar.getText();
-        String celular = txtFonoPersonalAgregar.getText();
-        String contraseña = txtContraseñaPersonal.getText();
-        int idSucursal = cbxSucursalPersonalAgregar.getSelectedIndex()+1;
-        int idCargo = cbxCargoPersonalAgregar.getSelectedIndex()+1;
-        if (nombre.isEmpty() || apellido.isEmpty() || celular.isEmpty() || contraseña.isEmpty() || dni == -1 || idSucursal == -1 || idCargo == -1) {
+        txtNameClienteModificar.setText("");
+        txtApeClienteModificar.setText("");
+        txtFonoClienteModificar.setText("");
+        txtDNIClienteMod.setText("");
+        txtNameClienteModificar.setEditable(false);
+        txtApeClienteModificar.setEditable(false);
+        txtFonoClienteModificar.setEditable(false);
+        txtNameClienteModificar.setEnabled(false);
+        txtApeClienteModificar.setEnabled(false);
+        txtFonoClienteModificar.setEnabled(false);
+    }//GEN-LAST:event_btnLimpiarModifClientesActionPerformed
+
+    private void btnEditarClientesModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarClientesModificarActionPerformed
+        // TODO add your handling code here:
+        txtNameClienteModificar.setEditable(true);
+        txtApeClienteModificar.setEditable(true);
+        txtFonoClienteModificar.setEditable(true);
+        txtNameClienteModificar.setEnabled(true);
+        txtApeClienteModificar.setEnabled(true);
+        txtFonoClienteModificar.setEnabled(true);
+    }//GEN-LAST:event_btnEditarClientesModificarActionPerformed
+
+    private void btnGuardarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarClienteActionPerformed
+        // TODO add your handling code here:
+        String dni = txtDNIClienteMod.getText();
+        String nombre = txtNameClienteModificar.getText();
+        String apellido = txtApeClienteModificar.getText();
+        String celular = txtFonoClienteModificar.getText();
+
+        if (nombre.equals("") || apellido.equals("") || celular.equals("")) {
             JOptionPane.showMessageDialog(this, "Todos los campos deben estar completos.", "Aviso", JOptionPane.WARNING_MESSAGE);
         } else {
-        UsuarioLogueadoDAO empleadoDAO = new UsuarioLogueadoDAO();
-        boolean crearEmpleado = empleadoDAO.crearEmpleado(idSucursal, idCargo,dni, nombre, apellido, celular,  contraseña);
-        if (crearEmpleado) {
-            JOptionPane.showMessageDialog(null, "Creación exitosa");
-            txtNombrePersonalAgregar.setEnabled(false);
-            txtApePersonalAgregar.setEnabled(false);
-            txtFonoPersonalAgregar.setEnabled(false);
-            txtContraseñaPersonal.setEnabled(false);
-            cbxSucursalPersonalAgregar.setEnabled(false);
-            cbxCargoPersonalAgregar.setEnabled(false);
-        } else {
-            JOptionPane.showMessageDialog(null, "Error al crear el empleado", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
-        
-    }//GEN-LAST:event_btnAgregarPersonalActionPerformed
-
-    private void btnEditarPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarPersonalActionPerformed
-        // TODO add your handling code here:
-        txtNombrePersonalAgregar.setEnabled(true);
-        txtApePersonalAgregar.setEnabled(true);
-        txtFonoPersonalAgregar.setEnabled(true);
-        txtContraseñaPersonal.setEnabled(true);
-        cbxSucursalPersonalAgregar.setEnabled(true);
-        cbxCargoPersonalAgregar.setEnabled(true);
-    }//GEN-LAST:event_btnEditarPersonalActionPerformed
-
-    private void btnModificarPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarPersonalActionPerformed
-        // TODO add your handling code here:
-        String dniText = txtDNIPersonalAgregar.getText();
-        int dni;
-        try {
-            dni = Integer.parseInt(dniText);
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "El DNI debe ser un número válido.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        String nombre = txtNombrePersonalAgregar.getText();
-        String apellido = txtApePersonalAgregar.getText();
-        String celular = txtFonoPersonalAgregar.getText();
-        String contraseña = txtContraseñaPersonal.getText();
-        int idSucursal = cbxSucursalPersonalAgregar.getSelectedIndex()+1;
-        int idCargo = cbxCargoPersonalAgregar.getSelectedIndex()+1;
-
-        if (nombre.isEmpty() || apellido.isEmpty() || celular.isEmpty() || contraseña.isEmpty() || dni == -1) {
-            JOptionPane.showMessageDialog(this, "Todos los campos deben estar completos.", "Aviso", JOptionPane.WARNING_MESSAGE);
-        } else {
-            UsuarioLogueadoDAO empleadoDAO = new UsuarioLogueadoDAO();
-            boolean actualizarEmpleado = empleadoDAO.actualizarEmpleado(idSucursal, idCargo, dni, nombre, apellido, celular, contraseña);
-            if (actualizarEmpleado) {
-                JOptionPane.showMessageDialog(null, "Actualización exitosa");
-                txtNombrePersonalAgregar.setEnabled(false);
-                txtApePersonalAgregar.setEnabled(false);
-                txtFonoPersonalAgregar.setEnabled(false);
-                txtContraseñaPersonal.setEnabled(false);
-                cbxSucursalPersonalAgregar.setEnabled(false);
-                cbxCargoPersonalAgregar.setEnabled(false);
+            if (celular.matches("\\d{9}")) {
+                ClienteDAO cDAO = new ClienteDAO();
+                boolean actualizacionExitosa = cDAO.actualizarCliente( dni,nombre, apellido, celular);
+                if (actualizacionExitosa) {
+                    JOptionPane.showMessageDialog(null, "Actualización exitosa");
+                    txtNameClienteModificar.setEnabled(false);
+                    txtApeClienteModificar.setEnabled(false);
+                    txtFonoClienteModificar.setEnabled(false);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error al actualizar el cliente", "Error", JOptionPane.ERROR_MESSAGE);
+                }
             } else {
-                JOptionPane.showMessageDialog(null, "Error al actualizar el empleado", "Error", JOptionPane.ERROR_MESSAGE);
+                // Mostrar aviso de formato de Celular incorrecto
+                JOptionPane.showMessageDialog(this, "Formato de celular o DNI incorrecto. Número celular debe ser de 9 dígitos y DNI de 8 dígitos.", "Aviso", JOptionPane.WARNING_MESSAGE);
             }
         }
-    }//GEN-LAST:event_btnModificarPersonalActionPerformed
+    }//GEN-LAST:event_btnGuardarClienteActionPerformed
+
+    private void btnEliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarClienteActionPerformed
+        // TODO add your handling code here:
+        // Obtener los valores del formulario de entrada
+        int dniCliente = Integer.parseInt(txtDNIClienteMod.getText());
+        String nombre = txtNameClienteModificar.getText();
+        String apellido = txtApeClienteModificar.getText();
+        String celular = txtFonoClienteModificar.getText();
+
+        // Mostrar un mensaje de confirmación al usuario
+        int respuesta = JOptionPane.showOptionDialog(null, "Si ejecuta la eliminación del cliente perderá todos los datos relacionados al contacto así como las reservas realizadas. ¿Desea continuar?"
+            , "Confirmar eliminación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, new String[]{"Sí", "No"}, "No");
+
+        // Verificar la respuesta del usuario
+        if (respuesta == JOptionPane.YES_OPTION) {
+            // Crear una instancia del CLIENTEDAO
+            ClienteDAO cDAO = new ClienteDAO();
+
+            // Llamar al método eliminarCliente y almacenar el resultado
+            boolean eliminado = cDAO.eliminarCliente(dniCliente, nombre, apellido, celular);
+
+            // Verificar si el cliente fue eliminado exitosamente
+            if (eliminado) {
+                JOptionPane.showMessageDialog(null, "Cliente eliminado correctamente");
+                txtNameClienteModificar.setText("");
+                txtApeClienteModificar.setText("");
+                txtFonoClienteModificar.setText("");
+                txtDNIClienteMod.setText("");
+                txtNameClienteModificar.setEditable(false);
+                txtApeClienteModificar.setEditable(false);
+                txtFonoClienteModificar.setEditable(false);
+                txtNameClienteModificar.setEnabled(false);
+                txtApeClienteModificar.setEnabled(false);
+                txtFonoClienteModificar.setEnabled(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al eliminar cliente");
+            }
+        }
+    }//GEN-LAST:event_btnEliminarClienteActionPerformed
+
+    private void btnBuscarClienteModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarClienteModificarActionPerformed
+        // TODO add your handling code here:
+
+        String dni = txtDNIClienteMod.getText();
+
+        if (dni.matches("\\d{8}")) {
+            int dniEmpleado = Integer.parseInt(dni);
+            Cliente cliente = new Cliente();
+            cliente.setDNI(dniEmpleado);
+
+            ClienteDAO clienteDAO = new ClienteDAO();
+            cliente = clienteDAO.buscarUno(cliente);
+            if (cliente.getNombre().equals("")) {
+                // Mostrar aviso de cliente no encontrado
+
+                JOptionPane.showMessageDialog(this, "Cliente no encontrado. Debe registrarlo.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            }
+            else {
+                txtNameClienteModificar.setText(cliente.getNombre());
+                txtApeClienteModificar.setText(cliente.getApellido());
+                txtFonoClienteModificar.setText(cliente.getCelular());
+
+            }
+        }
+
+        else {
+            // Mostrar aviso de formato de DNI incorrecto
+
+            JOptionPane.showMessageDialog(this, "Formato de DNI incorrecto. Debe ser un número de 8 dígitos.", "Aviso", JOptionPane.WARNING_MESSAGE);
+
+        }
+    }//GEN-LAST:event_btnBuscarClienteModificarActionPerformed
+
+    private void txtDNIClienteModKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDNIClienteModKeyPressed
+        // TODO add your handling code here:
+        validarCaracteres(evt);
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            String dni = txtDNIClienteMod.getText();
+
+            if (dni.matches("\\d{8}")) {
+                int dniCliente = Integer.parseInt(dni);
+                Cliente cliente = new Cliente();
+                cliente.setDNI(dniCliente);
+
+                ClienteDAO clienteDAO = new ClienteDAO();
+                cliente = clienteDAO.buscarUno(cliente);
+                if (cliente.getNombre().equals("")) {
+                    // Mostrar aviso de cliente no encontrado
+
+                    JOptionPane.showMessageDialog(this, "Cliente no encontrado. Debe registrarlo.", "Aviso", JOptionPane.WARNING_MESSAGE);
+                }
+                else {
+                    txtNameClienteModificar.setText(cliente.getNombre());
+                    txtApeClienteModificar.setText(cliente.getApellido());
+                    txtFonoClienteModificar.setText(cliente.getCelular());
+
+                }
+            }
+
+            else {
+                // Mostrar aviso de formato de DNI incorrecto
+
+                JOptionPane.showMessageDialog(this, "Formato de DNI incorrecto. Debe ser un número de 8 dígitos.", "Aviso", JOptionPane.WARNING_MESSAGE);
+
+            }
+        }
+
+    }//GEN-LAST:event_txtDNIClienteModKeyPressed
     private void mostrarMensaje(String mensaje) {
         // Aquí va el código para mostrar un mensaje en la interfaz gráfica
         // Puedes utilizar un cuadro de diálogo, un componente de texto o cualquier otro método apropiado para mostrar el mensaje
@@ -2703,123 +2752,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         } catch (NumberFormatException e) {
             return false;
         }
-    } 
-    private void btnCrearTipoHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearTipoHabitacionActionPerformed
-        // TODO add your handling code here:
-        String tipoHabitacion = txtTipoHabitacion.getText();
-        String capacidadStr = txtCapHabiAdmin.getText();
-        String descripcion = txtDescTipoHabitacion.getText();
-        String precioStr = txtPrecioTipoHabitacionAdmin.getText();
-
-        // Verificar que los campos no estén vacíos
-        if (tipoHabitacion.isEmpty() || capacidadStr.isEmpty() || descripcion.isEmpty() || precioStr.isEmpty()) {
-            mostrarMensaje("Por favor, llene todos los campos.");
-            return; // Salir del método sin continuar con la creación del tipo de habitación
-        }
-        if (!esNumeroEntero(capacidadStr) ||!esNumeroDecimal(precioStr)) {
-        mostrarMensaje("Ingrese solo números en los campos numéricos.");
-        return;
-        }
-        
-
-        // Convertir los campos numéricos a valores enteros o dobles
-        int capacidad = Integer.parseInt(capacidadStr);
-        double precio = Double.parseDouble(precioStr);
-
-        TipoHabitacionDAO tipoHabitacionDAO = new TipoHabitacionDAO();
-        int idTipoHabitacion = tipoHabitacionDAO.crearTipoHabitacion(tipoHabitacion, capacidad, descripcion, precio);
-
-        if (idTipoHabitacion != -1) {
-            mostrarMensaje("Tipo de habitación creado exitosamente. ID: " + idTipoHabitacion);
-            // Realiza otras acciones necesarias después de crear el tipo de habitación, utilizando el ID obtenido
-        } else {
-            mostrarMensaje("Error al crear el tipo de habitación.");
-            // Realiza acciones alternativas en caso de error
-        }
-        
-
-    }//GEN-LAST:event_btnCrearTipoHabitacionActionPerformed
-
-    private void btnListarTipoHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarTipoHabitacionActionPerformed
-        // TODO add your handling code here:
-        DefaultTableModel modelo = (DefaultTableModel) tblTipoHabitacionesCreadas.getModel();
-        modelo.setRowCount(0); // Limpiar filas existentes en la tabla
-
-        TipoHabitacionDAO tipoHabitacionDAO = new TipoHabitacionDAO();
-        ArrayList<TipoHabitacion> tiposHabitaciones = tipoHabitacionDAO.buscarTodo();
-        
-
-        for (TipoHabitacion tipoHabitacion : tiposHabitaciones) {
-            Object[] fila = {
-                tipoHabitacion.getIdTipoHabitacion(),
-                tipoHabitacion.getTipo(),
-                tipoHabitacion.getCapacidad(),
-                tipoHabitacion.getDescripcion(),
-                tipoHabitacion.getPrecio()
-            };
-            modelo.addRow(fila);
-        }
-    }//GEN-LAST:event_btnListarTipoHabitacionActionPerformed
-
-    private void btnLimpiarTipoHabitacion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarTipoHabitacion1ActionPerformed
-        // TODO add your handling code here:
-        txtTipoHabitacion.setText("");
-        txtCapHabiAdmin.setText("");
-        txtDescTipoHabitacion.setText("");
-        txtPrecioTipoHabitacionAdmin.setText("");
-
-    }//GEN-LAST:event_btnLimpiarTipoHabitacion1ActionPerformed
-
-    private void btnGuardarTipoHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarTipoHabitacionActionPerformed
-        // TODO add your handling code here:
-        DefaultTableModel tableModel = (DefaultTableModel) tblTipoHabitacionesCreadas.getModel();
-        int rowCount = tableModel.getRowCount();
-
-        TipoHabitacionDAO tipoHabitacionDAO = new TipoHabitacionDAO();
-
-        // Detener la edición actual
-        if (tblTipoHabitacionesCreadas.getCellEditor() != null) {
-            tblTipoHabitacionesCreadas.getCellEditor().stopCellEditing();
-        }
-
-        // Actualizar los cambios en la base de datos
-        for (int rowIndex = 0; rowIndex < rowCount; rowIndex++) {
-            String tipo = tableModel.getValueAt(rowIndex, 1).toString();
-            int capacidad = Integer.parseInt(tableModel.getValueAt(rowIndex, 2).toString());
-            String descripcion = tableModel.getValueAt(rowIndex, 3).toString();
-            double precio = Double.parseDouble(tableModel.getValueAt(rowIndex, 4).toString());
-
-            tipoHabitacionDAO.actualizarTipoHabitacion(tipo, capacidad, descripcion, precio);
-        }
-        mostrarMensaje("Cambios guardados exitosamente.");
-    }//GEN-LAST:event_btnGuardarTipoHabitacionActionPerformed
-
-    private void btnListarHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarHabitacionActionPerformed
-        // TODO add your handling code here:
-        
-
-        // Limpiar el modelo de la tabla
-        DefaultTableModel tableModel = (DefaultTableModel) tblHabitacionesCreadas.getModel();
-        tableModel.setRowCount(0);
-        HabitacionDAO habitacionDAO = new HabitacionDAO();
-
-        // Obtener la lista de todas las habitaciones existentes
-        ArrayList<Habitacion> habitaciones = habitacionDAO.buscarTodo();
-
-        // Llenar la tabla con los datos de las habitaciones
-        for (Habitacion habitacion : habitaciones) {
-            Object[] rowData = {
-                habitacion.getIdHabitacion(),
-                habitacion.getSucursalId(),
-                
-                habitacion.getPiso(),
-                habitacion.getPuerta(),
-                habitacion.getTipoHabitacionId()
-            };
-            tableModel.addRow(rowData);
-        }
-    }//GEN-LAST:event_btnListarHabitacionActionPerformed
-    private ArrayList<Integer> obtenerIdsTipoHabitacion() {
+    }     private ArrayList<Integer> obtenerIdsTipoHabitacion() {
         ArrayList<Integer> idsTipoHabitacion = new ArrayList<>();
 
         TipoHabitacionDAO tipoHabitacionDAO = new TipoHabitacionDAO();
@@ -2830,15 +2763,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
         }
 
         return idsTipoHabitacion;
-    }
-    private void btnLimpiarHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarHabitacionActionPerformed
-        // TODO add your handling code here:
-        txtSucursalHabitacionCrear.setText(""); // Borrar el contenido del campo de texto de sucursal
-        txtPisoHabitacionCrear.setText(""); // Borrar el contenido del campo de texto de piso de habitación
-        txtPuertaHabitacionCrear.setText(""); // Borrar el contenido del campo de texto de puerta de habitación
-        txtId_Tipo_Habitacion.setText("");
-    }//GEN-LAST:event_btnLimpiarHabitacionActionPerformed
-    
+    }    
     private ArrayList<Integer> obtenerTiposHabitacionesDisponibles() {
         // Crear una instancia de la clase TipoHabitacionDAO
         TipoHabitacionDAO tipoHabitacionDAO = new TipoHabitacionDAO();
@@ -2856,116 +2781,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
 
         return tiposHabitacionesDisponibles;
     }
-
-    private void btnCrearHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearHabitacionActionPerformed
-        // TODO add your handling code here:
-        String id_sucursalStr = txtSucursalHabitacionCrear.getText();
-        String pisoStr = txtPisoHabitacionCrear.getText();
-        String puertaStr = txtPuertaHabitacionCrear.getText();
-        String id_tipo_habitacionStr = txtId_Tipo_Habitacion.getText();
-
-        // Verificar que los campos no estén vacíos
-        if (id_sucursalStr.isEmpty() || pisoStr.isEmpty() || puertaStr.isEmpty() || id_tipo_habitacionStr.isEmpty()) {
-            mostrarMensaje("Por favor, llene todos los campos.");
-            return; // Salir del método sin continuar con la creación de la habitación
-        }
-        if (!id_tipo_habitacionStr.matches("\\d{1}")||!id_sucursalStr.matches("\\d{1}")||!pisoStr.matches("\\d{1}")||!puertaStr.matches("\\d{1}")) {
-            mostrarMensaje("Ingrese un número de un solo dígito en los campos.");
-            return;
-        }
-
-        // Convertir los campos numéricos a valores enteros
-        int id_sucursal = Integer.parseInt(id_sucursalStr);
-        int piso = Integer.parseInt(pisoStr);
-        int puerta = Integer.parseInt(puertaStr);
-        int id_tipo_habitacion = Integer.parseInt(id_tipo_habitacionStr);
-
-        // Obtener la lista de id_tipo_habitacion disponibles
-        ArrayList<Integer> tiposHabitacionesDisponibles = obtenerTiposHabitacionesDisponibles();
-
-        // Validar que el id_tipo_habitacion ingresado sea válido
-        if (tiposHabitacionesDisponibles.contains(id_tipo_habitacion)) {
-            // Crear una instancia de la clase HabitacionDAO
-            HabitacionDAO habitacionDAO = new HabitacionDAO();
-
-            // Crear la habitación con el id_tipo_habitacion obtenido
-            boolean exito = habitacionDAO.crearHabitacion(id_sucursal, piso, puerta, id_tipo_habitacion);
-
-            if (exito) {
-                mostrarMensaje("Habitación creada exitosamente.");
-                // Realizar otras acciones necesarias después de crear la habitación
-            } else {
-                mostrarMensaje("Error al crear la habitación.");
-                // Realizar acciones alternativas en caso de error
-            }
-        } else {
-            mostrarMensaje("Ingrese un valor válido para id_tipo_habitacion. Si no sabe los id, haga clic en 'Listar'.");
-        }
-
-
-    }//GEN-LAST:event_btnCrearHabitacionActionPerformed
-
-    private void btnGuardarHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarHabitacionActionPerformed
-        // Obtener el modelo de la tabla
-        DefaultTableModel modelo = (DefaultTableModel) tblHabitacionesCreadas.getModel();
-        int rowCount = modelo.getRowCount();
-
-        HabitacionDAO habitacion = new HabitacionDAO();
-        if (tblHabitacionesCreadas.getCellEditor() != null) {
-            tblHabitacionesCreadas.getCellEditor().stopCellEditing();
-        }
-
-        for (int rowIndex = 0; rowIndex < rowCount; rowIndex++) {
-            int id_habitacion = Integer.parseInt(modelo.getValueAt(rowIndex, 0).toString());
-            int id_sucursal = Integer.parseInt(modelo.getValueAt(rowIndex, 1).toString());
-            int piso = Integer.parseInt(modelo.getValueAt(rowIndex, 2).toString());
-            int puerta = Integer.parseInt(modelo.getValueAt(rowIndex, 3).toString());
-            int id_tipo_habitacion = Integer.parseInt(modelo.getValueAt(rowIndex, 4).toString());
-
-            boolean exito = habitacion.actualizarHabitacion(id_habitacion, id_sucursal, piso, puerta, id_tipo_habitacion);
-
-            if (!exito) {
-                mostrarMensaje("Error al actualizar la habitación en la fila " + (rowIndex + 1));
-                return; // Salir del método en caso de error
-            }
-        }
-
-        mostrarMensaje("Cambios guardados exitosamente.");
-    }//GEN-LAST:event_btnGuardarHabitacionActionPerformed
-
-    private void btnCrear_creHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrear_creHabActionPerformed
-        // cbxSucursal_creHab Sucursal sucursales
-        int idSucursal = 0;
-        for (Sucursal suc : sucursales) {
-            if (suc.getNombre().equals(cbxSucursal_creHab.getSelectedItem().toString())) {
-                idSucursal = suc.getIdSucursal();  
-                System.out.println("Sucursal: "+idSucursal);
-            }            
-        } 
-        
-        //mediante el nombre del combo tipoHabitacion, obtenemos su id
-        int idTipoHab_creHab = 0;
-        for (TipoHabitacion th : tiposHabitacion) {
-            if (th.getTipo().equals(cbxTipo_creHab.getSelectedItem().toString())) {
-                idTipoHab_creHab = th.getIdTipoHabitacion();  
-                System.out.println("Tipo: "+idTipoHab_creHab);
-            }            
-        }  
-        
-        // IMPRIMIR EL NUMERO DEL SPINNER spnrPiso_creHab
-        System.out.println("Piso: "+spnrPiso_creHab.getValue());
-        // spnrPuerta_creHab
-        System.out.println("Piso: "+spnrPuerta_creHab.getValue());
-        
-        
-        HabitacionDAO hbDAO = new HabitacionDAO();
-        hbDAO.crearHabitacion_creHab(idSucursal, Integer.parseInt(spnrPiso_creHab.getValue().toString()), Integer.parseInt(spnrPuerta_creHab.getValue().toString()), idTipoHab_creHab);
-        
-        // crear tabla de tblHabitaciones_creHab
-        DefaultTableModel modelo = (DefaultTableModel) tblHabitaciones_creHab.getModel();
-
-
-    }//GEN-LAST:event_btnCrear_creHabActionPerformed
 
     @Override
     public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
@@ -3034,7 +2849,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private javax.swing.JButton btnBuscarHabitaciones;
     private javax.swing.JButton btnBuscarPersonal;
     private javax.swing.JButton btnConfirmarPago;
-    private javax.swing.JButton btnCrearHabitacion;
     private javax.swing.JButton btnCrearTipoHabitacion;
     private javax.swing.JButton btnCrear_creHab;
     private javax.swing.JButton btnEditarClientesModificar;
@@ -3043,7 +2857,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private javax.swing.JButton btnGuardarCliente;
     private javax.swing.JButton btnGuardarHabitacion;
     private javax.swing.JButton btnGuardarTipoHabitacion;
-    private javax.swing.JButton btnLimpiarHabitacion;
     private javax.swing.JButton btnLimpiarModifClientes;
     private javax.swing.JButton btnLimpiarTipoHabitacion1;
     private javax.swing.JButton btnListarHabitacion;
@@ -3068,7 +2881,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -3085,21 +2897,19 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
@@ -3120,15 +2930,11 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private javax.swing.JLabel lblNombreMod;
     private javax.swing.JLabel lblNombreTipoHabitacion;
     private javax.swing.JLabel lblPersonalNoRegistrado;
-    private javax.swing.JLabel lblPisoHabitacion;
     private javax.swing.JLabel lblPrecioTipoHabitacion;
     private javax.swing.JLabel lblPrecioTipoHabitacion1;
     private javax.swing.JLabel lblPrecioTipoHabitacion2;
-    private javax.swing.JLabel lblPuertaHabitacion;
     private javax.swing.JLabel lblSelectSucursal;
     private javax.swing.JLabel lblSelectTipoHabitacion;
-    private javax.swing.JLabel lblSucursalHabitacion;
-    private javax.swing.JLabel lblSucursalHabitacion1;
     private javax.swing.JLabel lblSucursalPersonal;
     private javax.swing.JPanel panelBusquedaHabitacion;
     private javax.swing.JPanel pnlAgregarPersonal;
@@ -3145,7 +2951,6 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private javax.swing.JTable tblDetalleReserva;
     private javax.swing.JTable tblDisponibles;
     private javax.swing.JTable tblHabitacionesCreadas;
-    private javax.swing.JTable tblHabitaciones_creHab;
     private javax.swing.JTable tblTipoHabitacionesCreadas;
     private javax.swing.JTextField txtApeClienteModificar;
     private javax.swing.JTextField txtApePersonalAgregar;
@@ -3163,15 +2968,11 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
     private javax.swing.JTextField txtFonoPersonalAgregar;
     private javax.swing.JTextField txtIDHabitacion;
     private javax.swing.JTextField txtIDReserva;
-    private javax.swing.JTextField txtId_Tipo_Habitacion;
     private javax.swing.JTextField txtNameClienteModificar;
     private javax.swing.JTextField txtNombreCliente;
     private javax.swing.JTextField txtNombrePersonalAgregar;
-    private javax.swing.JTextField txtPisoHabitacionCrear;
     private javax.swing.JTextField txtPrecioTipoHabitacionAdmin;
-    private javax.swing.JTextField txtPuertaHabitacionCrear;
     private javax.swing.JTextArea txtRes;
-    private javax.swing.JTextField txtSucursalHabitacionCrear;
     private javax.swing.JTextField txtTipoHabitacion;
     private javax.swing.JTextField txtTotalSoles;
     private javax.swing.JPanel ventanaReservar;

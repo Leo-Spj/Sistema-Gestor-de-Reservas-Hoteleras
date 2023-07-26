@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -68,6 +69,7 @@ public class HabitacionDAO  implements HabitacionInterfaz{
             return true;
         } catch (Exception e) {
             System.out.println("Error al crear habitación: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());
             return false;
         }
     }
