@@ -2408,7 +2408,8 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
 
         if (idTipoHabitacion != -1) {
             mostrarMensaje("Tipo de habitación creado exitosamente. ID: " + idTipoHabitacion);
-            // Realiza otras acciones necesarias después de crear el tipo de habitación, utilizando el ID obtenido
+            llenarComboBoxTipoHab_creHab();
+            cargarTiposHabitacion();
         } else {
             mostrarMensaje("Error al crear el tipo de habitación.");
             // Realiza acciones alternativas en caso de error
