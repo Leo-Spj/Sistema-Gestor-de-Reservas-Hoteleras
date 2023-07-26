@@ -224,7 +224,7 @@ public final class MultiVentana extends javax.swing.JFrame implements Printable{
                 }
             }
             );
-            this.setVisible(true);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
