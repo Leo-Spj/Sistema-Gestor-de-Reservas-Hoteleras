@@ -7,6 +7,13 @@ Creado con:
 * Java Swing
 * SQL Azure
 
+| Screenshots                                                                                             |
+|---------------------------------------------------------------------------------------------------------|
+| ![Pantalla de Inicio](https://github.com/Leo-Spj/Java-POO-UTP/tree/main/diagramaBD/documents/login.png) |
+| ![Pantalla de Reservas](https://github.com/Leo-Spj/Java-POO-UTP/tree/main/diagramaBD/documents/reserva.png)      |
+
+Documeto de sustentación [aquí](https://github.com/Leo-Spj/Java-POO-UTP/tree/main/diagramaBD/documents/TravelEasy.pdf
+
 
 ## Patrones de Diseño y Estructura de carpetas
 
@@ -38,7 +45,7 @@ Antes de ejecutar el proyecto, asegúrate de tener instalados los siguientes req
 
 ```bash
 git clone https://github.com/Leo-Spj/Java-POO-UTP.git
-```	
+```
 
 2. Agrega el archivo `config.properties` en la raíz del proyecto con los datos de conexión a la base de datos SQL Azure. Puede encontrar un [ejemplo de este archivo aquí](https://github.com/Leo-Spj/Java-POO-UTP/blob/main/Base%20de%20Datos/config.properties)
 
