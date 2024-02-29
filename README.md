@@ -7,12 +7,12 @@ Creado con:
 * Java Swing
 * SQL Azure
 
-| Screenshots                                                                                             |
-|---------------------------------------------------------------------------------------------------------|
-| ![Pantalla de Inicio](https://github.com/Leo-Spj/Java-POO-UTP/tree/main/diagramaBD/documents/login.png) |
-| ![Pantalla de Reservas](https://github.com/Leo-Spj/Java-POO-UTP/tree/main/diagramaBD/documents/reserva.png)      |
+| Screenshots                                                 |
+|-------------------------------------------------------------|
+| ![Pantalla de Inicio](./diagramaBD/documents/login.png)     |
+| ![Pantalla de Reservas](./diagramaBD/documents/reserva.png) |
 
-Documeto de sustentación [aquí](https://github.com/Leo-Spj/Java-POO-UTP/tree/main/diagramaBD/documents/TravelEasy.pdf
+Documeto de sustentación [aquí](./diagramaBD/documents/TravelEasy.pdf)
 
 
 ## Patrones de Diseño y Estructura de carpetas
